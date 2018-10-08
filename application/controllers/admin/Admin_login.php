@@ -17,20 +17,19 @@ class Admin_login extends CI_Controller {
         // start session		
         $admin_name = $this->session->userdata('admin_name'); //----session variable
         if ($admin_name != '') {
-            redirect('admin/dashboard');
+            redirect('admin/admin_dashboard');
         }
         $this->load->view('pages/admin/adminlogin'); //------loading the admin login view
     }
 
-      // check login authentication-----------------------------------------------------------
+    // check login authentication-----------------------------------------------------------
     public function adminlogin() {
         // get data passed through ANGULAR AJAX
         $postdata = file_get_contents("php://input");
         $request = json_decode($postdata, TRUE);
         //print_r($request['username']);
         // call to model function to authenticate user
-        $result = $this->adminlogin_model->adminlogin($request['username'], $request['password']);
-
+        $result = $this->Adminlogin_model->adminlogin($request['username'], $request['password']);
         // print valid message
         if (!$result) {
             // failure scope
@@ -51,4 +50,16 @@ class Admin_login extends CI_Controller {
         //print_r($result);
     }
 
+    // logout function starts here----------------------------------------------------
+    public function logoutAdmin() {
+        //start session		
+        $admin_name = $this->session->userdata('admin_name');
+
+        //if logout success then destroy session and unset session variables
+        $this->session->unset_userdata(array('admin_name'));
+        $this->session->sess_destroy();
+        redirect('login');
+    }
+
+    // logout function ends here---------------------------------------------------------
 }
