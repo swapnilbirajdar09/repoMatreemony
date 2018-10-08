@@ -19,7 +19,8 @@ class Admin_profile extends CI_Controller {
             redirect('admin/admin_login');
         }
         $this->load->view('includes/adminheader');
-        $this->load->view('pages/admin/'); //------loading the admin login view
+        $this->load->view('pages/admin/admin_profile'); //------loading the admin login view
+         $this->load->view('includes/admin_footer');
     }
 
 }

@@ -28,9 +28,8 @@
         Tip 2: you can also add an image using data-image tag
     -->
       <div class="logo">
-        <a href="http://www.creative-tim.com" class="simple-text logo-normal">
-          Creative Tim
-        </a>
+       <a href="#"><img src="<?php echo base_url(); ?>assets/images/wedding-hand.jpg" alt="" style="margin-left: 30px;" /></a>
+       
       </div>
       <div class="sidebar-wrapper">
         <ul class="nav">

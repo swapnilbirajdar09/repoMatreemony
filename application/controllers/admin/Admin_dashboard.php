@@ -16,10 +16,12 @@ class Admin_dashboard extends CI_Controller {
     public function index() {
         // start session		
         $admin_name = $this->session->userdata('admin_name'); //----session variable
-        if ($admin_name != '') {
-            redirect('admin/dashboard');
+        if ($admin_name == '') {
+            redirect('admin/admin_login');
         }
-          $this->load->view('includes/adminheader');
-        $this->load->view('pages/admin/dashboard'); //------loading the admin login view
+        
+        $this->load->view('includes/adminheader');
+        $this->load->view('pages/admin/dashboard'); //------loading the admin dashboard view
+         $this->load->view('includes/admin_footer');
     }
   }
