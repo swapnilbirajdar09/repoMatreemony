@@ -16,6 +16,7 @@
     <![endif]-->
 </head>
 <body>
+  
   <div class="login_wrapper" ng-app="loginApp" ng-controller="loginController">
   <section id="logo">
     <a href="#"><img src="<?php echo base_url(); ?>assets/images/parinay.png" alt="" /></a>
