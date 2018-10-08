@@ -160,20 +160,7 @@
         
         </div>
       </div>
-      <footer class="footer">
-        <div class="container-fluid">
-      
-          <div class="copyright float-right">
-            &copy;
-            <script>
-              document.write(new Date().getFullYear())
-            </script>, made with <i class="material-icons">favorite</i> by
-            <a href="" target="_blank">Bizmo Technologies</a>.
-          </div>
-        </div>
-      </footer>
-    </div>
-  </div>
+     
   <!--   Core JS Files   -->
   <script src="<?php echo base_url(); ?>assets/js/core/jquery.min.js" type="text/javascript"></script>
   <script src="<?php echo base_url(); ?>assets/js/core/popper.min.js" type="text/javascript"></script>
