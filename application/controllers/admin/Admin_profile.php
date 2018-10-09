@@ -33,7 +33,7 @@ class Admin_profile extends CI_Controller {
         // call to model function to update AdminDetails
         $result = $this->Adminprofile_model->updateAdminDetails($data);
         if ($result) {
-            echo '<div class="alert alert-success alert-dismissible fade in alert-fixed w3-round">
+            echo '<div class="alert alert-success w3-small alert-dismissible fade in alert-fixed w3-round">
 			<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
 			<strong>Success!</strong> Admin Profile Updated successfully.
 			</div>
@@ -46,7 +46,7 @@ class Admin_profile extends CI_Controller {
 			}, 3000);
 			</script>';
         } else {
-            echo '<div class="alert alert-danger alert-dismissible fade in alert-fixed w3-round" >
+            echo '<div class="alert alert-danger w3-small alert-dismissible fade in alert-fixed w3-round" >
 			<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
 			<strong>Failure!</strong> you Have Not Changed Anything.
 			</div>
