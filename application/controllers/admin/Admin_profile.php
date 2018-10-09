@@ -23,4 +23,8 @@ class Admin_profile extends CI_Controller {
          $this->load->view('includes/admin_footer');
     }
 
+//    public function saveAdminDetails(){
+//        
+//    }
+    
 }

@@ -11,25 +11,49 @@ class adminlogin_model extends CI_Model {
 
         //print_r($username);die();
         // get admin username
-        $admin_username = adminlogin_model::getAdminDetails('username');
-        // check passed key valid or not
-        if (!$admin_username) {
+        //---get admin details
+        $sql = "SELECT * FROM admin_tab";
+        $result = $this->db->query($sql);
+        if ($result->num_rows() <= 0) {
+            return false;
+        } else {
+            $Admin_username = '';
+            $Admin_password = '';
+            foreach ($result->result_array() as $key) {
+                $Admin_username = $key['username'];
+                $Admin_password = $key['password'];
+            }
+        }
+
+        if ($Admin_username != $username) {
             echo '<p class="w3-red w3-padding-small">Invalid Key passed for username!</p>';
         }
-
-        // get admin password
-        $admin_password = adminlogin_model::getAdminDetails('password');
-        // check passed key valid or not
-        if (!$admin_password) {
+        if ($Admin_password != $password) {
             echo '<p class="w3-red w3-padding-small">Invalid Key passed for password!</p>';
         }
-
+//        $admin_username = adminlogin_model::getAdminDetails('username');
+//        // check passed key valid or not
+//        if (!$admin_username) {
+//            echo '<p class="w3-red w3-padding-small">Invalid Key passed for username!</p>';
+//        }
+//
+//        // get admin password
+//        $admin_password = adminlogin_model::getAdminDetails('password');
+//        // check passed key valid or not
+//        if (!$admin_password) {
+//            echo '<p class="w3-red w3-padding-small">Invalid Key passed for password!</p>';
+//        }
         // check post values with db values
-        if ($admin_username == $username && $admin_password == $password) {
-            return true;
+        if ($Admin_username == $username && $Admin_password == $password) {
+            return TRUE;
         } else {
-            return false;
+            return FALSE;
         }
+//        if ($admin_username == $username && $admin_password == $password) {
+//            return true;
+//        } else {
+//            return false;
+//        }
     }
 
     // -----------------------GET ADMIN DETAILS----------------------//

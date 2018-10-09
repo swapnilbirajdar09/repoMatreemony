@@ -40,7 +40,6 @@ class Admin_login extends CI_Controller {
             $session_data = array(
                 'admin_name' => $request['username']
             );
-
             //start session of user if login success
             $this->session->set_userdata($session_data);
             //redirect('admin/dashboard');
