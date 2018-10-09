@@ -162,11 +162,64 @@
 
           <!-- membership package add/update/delete form -->
           <hr>
+          <h3>Membership Packages</h3>
           <div class="row">
+            <div class="col-md-2"></div>
             <div class="col-md-4">
               <div class="card">
-                <div class="col-md-12">
-                  <center><img src="" class="img img-thumbnail w3-border" style="width: 80%;height: auto;"></center>
+                <div class="col-md-12 w3-padding">
+                  <center><img src="<?php echo base_url(); ?>assets/images/mem_packages/plan_1.png" class="img img-responsive" style="width: 70%;height: auto;"></center>
+                </div>
+                <div class="col-md-12 w3-padding theme_bg w3-text-white">
+                  <center>
+                    <h3><b>BASIC</b></h3>
+                </center>
+                </div>
+                <div class="col-md-12 w3-padding">
+                  <center>
+                    <h2><i class="fa fa-inr"></i> 1000</h2>
+                </center>
+                </div>
+                <div class="col-md-12 w3-padding">
+                  <center>
+                    <ul style="list-style: none;padding:0">
+                      <li class="w3-padding">
+                        <span class="w3-large">Express Interests:</span> <span class="w3-large">5</span>
+                      </li>
+                    </ul>
+                </center>
+                </div>
+                <div class="col-mg-12 w3-padding">
+                  <a class="btn btn-primary btn-block" href="<?php echo base_url(); ?>admin/dashboard/edit_package1"><i class="fa fa-edit"></i> Edit Package</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card">
+                <div class="col-md-12 w3-padding">
+                  <center><img src="<?php echo base_url(); ?>assets/images/mem_packages/plan_4.png" class="img img-responsive" style="width: 70%;height: auto;"></center>
+                </div>
+                <div class="col-md-12 w3-padding theme_bg w3-text-white">
+                  <center>
+                    <h3><b>GOLD</b></h3>
+                </center>
+                </div>
+                <div class="col-md-12 w3-padding">
+                  <center>
+                    <h2><i class="fa fa-inr"></i> 2500</h2>
+                </center>
+                </div>
+                <div class="col-md-12 w3-padding">
+                  <center>
+                    <ul style="list-style: none;padding:0">
+                      <li class="w3-padding">
+                        <span class="w3-large">Express Interests:</span> <span class="w3-large">4</span>
+                      </li>
+                    </ul>
+                </center>
+                </div>
+                <div class="col-mg-12 w3-padding">
+                  <a class="btn btn-primary btn-block" href="<?php echo base_url(); ?>admin/dashboard/edit_package1"><i class="fa fa-edit"></i> Edit Package</a>
                 </div>
               </div>
             </div>
