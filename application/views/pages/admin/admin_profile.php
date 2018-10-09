@@ -1,22 +1,6 @@
-<?php
-$admin_id = $adminInfo[0]['admin_id'];
-$username = $adminInfo[0]['username'];
-$admin_email = $adminInfo[0]['admin_email'];
-$password = $adminInfo[0]['password'];
-$company_name = $adminInfo[0]['company_name'];
-$admin_officetype = $adminInfo[0]['admin_officetype'];
-$admin_office_address = $adminInfo[0]['admin_office_address'];
-$admin_firstname = $adminInfo[0]['admin_firstname'];
-$admin_lastname = $adminInfo[0]['admin_lastname'];
-$admin_city = $adminInfo[0]['admin_city'];
-$admin_state = $adminInfo[0]['admin_state'];
-$admin_country = $adminInfo[0]['admin_country'];
-$admin_postal_code = $adminInfo[0]['admin_postal_code'];
-$admin_details = $adminInfo[0]['admin_details'];
-?>
+
 
 <div class="main-panel">
-
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
         <div class="container-fluid">
@@ -42,7 +26,7 @@ $admin_details = $adminInfo[0]['admin_details'];
     </nav>
     <!-- End Navbar -->
     <div class="content">
-        <div class="container-fluid" ng-app="adminProfileApp" ng-controller="adminProfileController">
+        <div class="container-fluid">
             <div class="row">
                 <div class="col-md-8">
                     <div class="card">
@@ -50,8 +34,10 @@ $admin_details = $adminInfo[0]['admin_details'];
                             <h4 class="card-title">Edit Profile</h4>
                             <p class="card-category">Complete your profile</p>
                         </div>
+                        
+                        <?php// print_r($adminInfo[0]['username']); ?>
                         <div class="card-body">
-                            <form ng-submit="submit()" method="post">
+                            <form id="adminProfileForm" name="adminProfileForm">
                                 <div class="row">
                                  <!--    <div class="col-md-5">
                                         <div class="form-group">
@@ -62,20 +48,20 @@ $admin_details = $adminInfo[0]['admin_details'];
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label class="bmd-label-floating">Username</label>
-                                            <input type="text" name="userName" ng-model="userName" value="<?php echo $username; ?>" id="userName" class="form-control">
+                                            <input type="text" name="userName" id="userName" value="<?php echo $adminInfo[0]['username']; ?>" class="form-control">
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label class="bmd-label-floating">First Name</label>
-                                            <input type="text" name="firstName" ng-model="firstName" id="firstName" value="<?php echo $admin_firstname; ?>" class="form-control">
+                                            <input type="text" name="firstName" id="firstName" value="<?php echo $adminInfo[0]['admin_firstname']; ?>" class="form-control" required>
                                         </div>
                                         
                                     </div>
                                       <div class="col-md-4">
                                          <div class="form-group">
                                             <label class="bmd-label-floating">Last Name</label>
-                                            <input type="text" name="lastName" ng-model="lastName" id="lastName" value="<?php echo $admin_lastname; ?>" class="form-control">
+                                            <input type="text" name="lastName" id="lastName" value="<?php echo $adminInfo[0]['admin_lastname']; ?>" class="form-control">
                                         </div>
                                        
                                     </div>
@@ -84,13 +70,13 @@ $admin_details = $adminInfo[0]['admin_details'];
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label class="bmd-label-floating">Email address</label>
-                                            <input type="email" name="eMail" ng-model="eMail" id="eMail" value="<?php echo $admin_email; ?>" class="form-control">
+                                            <input type="email" name="eMail" id="eMail" value="<?php echo $adminInfo[0]['admin_email']; ?>" class="form-control">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label class="bmd-label-floating">Password</label>
-                                            <input type="password" name="eMail"  id="eMail" class="form-control">
+                                            <input type="password" name="password" id="password" value="<?php echo $adminInfo[0]['password']; ?>" class="form-control">
                                         </div>
                                     </div>
                                 </div>
@@ -98,16 +84,16 @@ $admin_details = $adminInfo[0]['admin_details'];
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label class="bmd-label-floating">Office Address</label>
-                                            <textarea class="form-control" name="officeAddress" ng-model="officeAddress" id="officeAddress" rows="4"><?php echo $admin_office_address; ?></textarea>
+                                            <textarea class="form-control" name="officeAddress" id="officeAddress" rows="4"><?php echo $adminInfo[0]['admin_office_address']; ?></textarea>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label class="bmd-label-floating">Office Type</label>
-                                            <select name="officeType" class="form-control" ng-model="officeType" id="officeType">
+                                            <select name="officeType" class="form-control" id="officeType">
                                                 <option value="">Select Purchase Orders</option>
-                                                <option value="Headquarters / Main Office" <?php if ($admin_officetype == 'Headquarters / Main Office') {   echo 'selected'; } ?>>Headquarters / Main Office</option>
-                                                <option value="Branch" <?php if ($admin_officetype == 'Branch') {   echo 'selected'; } ?>>Branch</option>
+                                                <option value="Headquarters / Main Office" <?php if($adminInfo[0]['admin_officetype'] == 'Headquarters / Main Office'){ echo 'selected'; } ?>>Headquarters / Main Office</option>
+                                                <option value="Branch" <?php if($adminInfo[0]['admin_officetype'] == 'Branch'){ echo 'selected'; } ?>>Branch</option>
                                             </select>
                                         </div>
                                     </div>                                        
@@ -146,7 +132,7 @@ $admin_details = $adminInfo[0]['admin_details'];
                                 <div class="clearfix"></div>
                             </form>
                         </div>
-                        <div id="messages" ng-model="message"></div>
+                        <div id="message"></div>
                     </div>
                 </div>
                 <div class="col-md-2">

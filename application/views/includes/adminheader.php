@@ -19,6 +19,7 @@
         <link href="<?php echo base_url(); ?>assets/build/css/w3.css" rel="stylesheet" />
         <link href="<?php echo base_url(); ?>assets/demo/demo.css" rel="stylesheet" />
         <script src="<?php echo base_url(); ?>assets/js/const.js"></script>
+        <script src="<?php echo base_url(); ?>assets/js/jquery.min.js"></script>
         <script src="<?php echo base_url(); ?>assets/js/angular.js"></script>
         <script src="<?php echo base_url(); ?>assets/js/angular-sanitize.js"></script>
 

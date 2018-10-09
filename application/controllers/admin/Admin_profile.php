@@ -27,14 +27,14 @@ class Admin_profile extends CI_Controller {
 
     public function updateAdminDetails() {
         // get data passed through ANGULAR AJAX
-        $postdata = file_get_contents("php://input");
-        $request = json_decode($postdata, TRUE);
-
-        //print_r($request);
+//        $postdata = file_get_contents("php://input");
+//        $request = json_decode($postdata, TRUE);
+        $data = $_POST;
+       //print_r($data);die();
         // call to model function to update AdminDetails
-        $result = $this->Adminprofile_model->updateAdminDetails($request);
+        $result = $this->Adminprofile_model->updateAdminDetails($data);
         if ($result) {
-            echo '<div class="alert w3-text-white alert-dismissible fade in alert-fixed w3-round" style = "background-color: #2A3F54; color: #ECF0F1;">
+            echo '<div class="alert alert-success alert-dismissible fade in alert-fixed w3-round">
 			<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
 			<strong>Success!</strong> Admin Profile Updated successfully.
 			</div>
@@ -44,7 +44,7 @@ class Admin_profile extends CI_Controller {
 			$(this).remove(); 
 			});
 			location.reload();
-			}, 1000);
+			}, 3000);
 			</script>';
         } else {
             echo '<div class="alert alert-danger alert-dismissible fade in alert-fixed w3-round" >
