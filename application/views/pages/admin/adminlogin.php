@@ -37,7 +37,9 @@
                         </div>
 
                         <section>
-                            <button type="submit" name="go" class="btn btn-block">Sign In</button>
+                            <button type="submit" name="go" class="btn btn-block">Sign In
+                             {{ loginButtonText}}
+                         </button>
                             <p><a href="#">Forgot your password ?</a></p>
                         </section>
                     </form>
@@ -55,6 +57,8 @@
                                     $scope.submit = function ()
                                     {
                                         $scope.message = '';
+                                        $scope.loginButtonText = "Sign In Please wait...";
+
                                         // Do login here        
                                         $timeout(function () {
                                             // POST form data to controller

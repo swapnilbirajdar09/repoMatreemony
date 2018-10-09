@@ -42,7 +42,13 @@
                         <li class="nav-item ">
                             <a class="nav-link" href="<?php echo base_url(); ?>admin/admin_profile">
                                 <i class="material-icons">person</i>
-                                <p>User Profile</p>
+                                <p>Admin Profile</p>
+                            </a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link" href="">
+                                <i class="fa fa-users"></i>
+                                <p>All Users</p>
                             </a>
                         </li>
                         <!-- <li class="nav-item active-pro ">
@@ -53,4 +59,8 @@
                           </li> -->
                     </ul>
                 </div>
+                <div class="sidebar-footer hidden-small">
+                <a data-toggle="tooltip" data-placement="top" title="Logout" href="<?php echo base_url(); ?>admin_login/logoutAdmin">
+                </a>
+              </div>
             </div>
