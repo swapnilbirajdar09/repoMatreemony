@@ -163,6 +163,16 @@
           <!-- membership package add/update/delete form -->
           <hr>
           <div class="row">
+            <div class="col-md-4">
+              <div class="card">
+                <div class="col-md-12">
+                  <center><img src="" class="img img-thumbnail w3-border" style="width: 80%;height: auto;"></center>
+                </div>
+              </div>
+            </div>
+          </div>
+          <hr>
+          <div class="row">
             <div class="col-md-12">
               <div class="card">
                 <div class="card-header theme_bg">
