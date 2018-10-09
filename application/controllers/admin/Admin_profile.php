@@ -19,18 +19,17 @@ class Admin_profile extends CI_Controller {
         if ($admin_name == '') {
             redirect('admin/admin_login');
         }
-        $data['adminInfo'] = $this->Adminprofile_model->getAdminDetails();
+        $data['adminInfo'] = $this->Adminprofile_model->getAdminDetails(); //------------get admin details and load on the admin view
         $this->load->view('includes/adminheader');
         $this->load->view('pages/admin/admin_profile', $data); //------loading the admin login view
         $this->load->view('includes/admin_footer');
     }
 
+//---------------------fun for update admin details-------//
     public function updateAdminDetails() {
-        // get data passed through ANGULAR AJAX
-//        $postdata = file_get_contents("php://input");
-//        $request = json_decode($postdata, TRUE);
+        // get data passed through ANGULAR AJAX//        
         $data = $_POST;
-       //print_r($data);die();
+        //print_r($data);die();
         // call to model function to update AdminDetails
         $result = $this->Adminprofile_model->updateAdminDetails($data);
         if ($result) {
