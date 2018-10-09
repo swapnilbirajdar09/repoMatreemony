@@ -57,7 +57,7 @@
                                     $scope.submit = function ()
                                     {
                                         $scope.message = '';
-                                        $scope.loginButtonText = "Sign In Please wait...";
+                                        $scope.loginButtonText = "Please wait...";
 
                                         // Do login here        
                                         $timeout(function () {

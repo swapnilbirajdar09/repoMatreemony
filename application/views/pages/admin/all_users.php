@@ -10,117 +10,46 @@
                         <table class="table user-list">
                             <thead>
                                 <tr>
-                                <th><span>User</span></th>
-                                <th><span>Created</span></th>
-                                <th class="text-center"><span>Status</span></th>
-                                <th><span>Email</span></th>
-                                <th>&nbsp;</th>
+                                <th class="w3-center"><span>User</span></th>
+                                <th class="w3-center"><span>Created</span></th>
+                                <th class="w3-center"><span>Mobile No</span></th>
+                                <th class="w3-center"><span>Email</span></th>
+                                <th class="w3-center"><span>Action</span></th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        <img src="https://bootdey.com/img/Content/user_1.jpg" alt="">
-                                        <a href="#" class="user-link">Full name 1</a>
-                                        <span class="user-subhead">Member</span>
-                                    </td>
-                                    <td>2013/08/12</td>
-                                    <td class="text-center">
-                                        <span class="label label-default">pending</span>
-                                    </td>
-                                    <td>
-                                        <a href="#">marlon@brando.com</a>
-                                    </td>
-                                    <td style="width: 20%;">
-                                        <a href="#" class="table-link">
-                                            <span class="fa-stack">
-                                                <i class="fa fa-square fa-stack-2x"></i>
-                                                <i class="fa fa-search-plus fa-stack-1x fa-inverse"></i>
-                                            </span>
-                                        </a>
-                                        <a href="#" class="table-link">
-                                            <span class="fa-stack">
-                                                <i class="fa fa-square fa-stack-2x"></i>
-                                                <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
-                                            </span>
-                                        </a>
-                                        <a href="#" class="table-link danger">
-                                            <span class="fa-stack">
-                                                <i class="fa fa-square fa-stack-2x"></i>
-                                                <i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
-                                            </span>
-                                        </a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <img src="https://bootdey.com/img/Content/user_3.jpg" alt="">
-                                        <a href="#" class="user-link">Full name 2</a>
-                                        <span class="user-subhead">Admin</span>
-                                    </td>
-                                    <td>2013/08/12</td>
-                                    <td class="text-center">
-                                        <span class="label label-success">Active</span>
-                                    </td>
-                                    <td>
-                                        <a href="#">marlon@brando.com</a>
-                                    </td>
-                                    <td style="width: 20%;">
-                                        <a href="#" class="table-link">
-                                            <span class="fa-stack">
-                                                <i class="fa fa-square fa-stack-2x"></i>
-                                                <i class="fa fa-search-plus fa-stack-1x fa-inverse"></i>
-                                            </span>
-                                        </a>
-                                        <a href="#" class="table-link">
-                                            <span class="fa-stack">
-                                                <i class="fa fa-square fa-stack-2x"></i>
-                                                <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
-                                            </span>
-                                        </a>
-                                        <a href="#" class="table-link danger">
-                                            <span class="fa-stack">
-                                                <i class="fa fa-square fa-stack-2x"></i>
-                                                <i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
-                                            </span>
-                                        </a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <img src="https://bootdey.com/img/Content/user_2.jpg" alt="">
-                                        <a href="#" class="user-link">Full name 3</a>
-                                        <span class="user-subhead">Member</span>
-                                    </td>
-                                    <td>2013/08/12</td>
-                                    <td class="text-center">
-                                        <span class="label label-danger">inactive</span>
-                                    </td>
-                                    <td>
-                                        <a href="#">marlon@brando.com</a>
-                                    </td>
-                                    <td style="width: 20%;">
-                                        <a href="#" class="table-link">
-                                            <span class="fa-stack">
-                                                <i class="fa fa-square fa-stack-2x"></i>
-                                                <i class="fa fa-search-plus fa-stack-1x fa-inverse"></i>
-                                            </span>
-                                        </a>
-                                        <a href="#" class="table-link">
-                                            <span class="fa-stack">
-                                                <i class="fa fa-square fa-stack-2x"></i>
-                                                <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
-                                            </span>
-                                        </a>
-                                        <a href="#" class="table-link danger">
-                                            <span class="fa-stack">
-                                                <i class="fa fa-square fa-stack-2x"></i>
-                                                <i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
-                                            </span>
-                                        </a>
-                                    </td>
-                                </tr>
-                            </tbody>
+                           <tbody>      
+                        <?php 
+                        if($all_users!='' && $all_users['status']=='200'){
+                                 $count=1;
+                            foreach ($all_users['status_message'] as $key) {  
+                            ?>
+                            <tr>
+                          
+                          <td class="w3-center">
+                             <img src="https://bootdey.com/img/Content/user_3.jpg" alt="">
+                             <span class="user-subhead w3-left"> <?php echo $key['user_fullname'];?></span><br>
+                              <span class="user-subhead w3-left"> <?php echo $key['user_gender']; ?></span>
+                      </td>
+                          <td class="w3-center"><?php echo $key['user_registraion_date']; ?></td>
+                          <td class="w3-center"><?php echo $key['user_mobile_no']; ?></td>
+                          <td class="w3-center"><?php echo $key['user_email']; ?></td>
+                          
+                        </tr>
+                        <?php 
+                        $count++;
+                      }
+                    }
+                    else{
+                      ?>
+                      <tr>
+                        <td colspan="8" class="w3-center">
+                          <span> No User Found </span>
+                        </td>              
+                      </tr>
+                      <?php
+                    }
+                 ?>
+                </tbody>
                         </table>
                     </div>
                 </div>

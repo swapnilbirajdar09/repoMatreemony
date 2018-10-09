@@ -15,11 +15,11 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
         <!-- CSS Files -->
         <link href="<?php echo base_url(); ?>assets/css/material-dashboard.css?v=2.1.0" rel="stylesheet" />
+         <link href="<?php echo base_url(); ?>assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <!-- CSS Just for demo purpose, don't include it in your project -->
         <link href="<?php echo base_url(); ?>assets/build/css/w3.css" rel="stylesheet" />
         <link href="<?php echo base_url(); ?>assets/demo/demo.css" rel="stylesheet" />
         <script src="<?php echo base_url(); ?>assets/js/const.js"></script>
-        <script src="<?php echo base_url(); ?>assets/js/jquery.min.js"></script>
         <script src="<?php echo base_url(); ?>assets/js/angular.js"></script>
         <script src="<?php echo base_url(); ?>assets/js/angular-sanitize.js"></script>
 
@@ -56,7 +56,7 @@
                         <li class="nav-item ">
                             <a class="nav-link" href="<?php echo base_url(); ?>admin/all_users">
                                 <i class="fa fa-users"></i>
-                                <p>All Users</p>
+                                <p>All Usesrs</p>
                             </a>
                         </li>
                         <!-- <li class="nav-item active-pro ">

@@ -9,18 +9,17 @@ class All_users extends CI_Controller {
         parent::__construct();
 
         // load common model
-        $this->load->model('admin/Adminlogin_model');
+        $this->load->model('admin/Allusers_model');
     }
 
     // main index function
     public function index() {
         // start session		
-        $admin_name = $this->session->userdata('admin_name'); //----session variable
-        // if ($admin_name != '') {
-        //     redirect('admin/admin_dashboard');
-        // }
+       
+          $data['all_users'] = $this->Allusers_model->getAllUsers();
+          // print_r($data);die();
           $this->load->view('includes/adminheader');
-        $this->load->view('pages/admin/all_users'); //------loading the admin login view
+        $this->load->view('pages/admin/all_users',$data); //------loading the admin login view
          $this->load->view('includes/admin_footer');
     }
 }
