@@ -65,7 +65,6 @@
                                                 data: JSON.stringify({username: $scope.username, password: $scope.password})
                                             }).then(function (data) {
                                                 if (data.data == '200') {
-                                                    alert('got');
                                                     $scope.message = '<p class="w3-green w3-padding-small">Login Successfull! Welcome Admin.</p>';
                                                     $window.location.href = BASE_URL + 'admin/admin_dashboard';
                                                 } else {
