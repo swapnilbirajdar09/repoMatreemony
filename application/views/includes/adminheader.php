@@ -20,6 +20,12 @@
         <script src="<?php echo base_url(); ?>assets/js/const.js"></script>
         <script src="<?php echo base_url(); ?>assets/js/angular.js"></script>
         <script src="<?php echo base_url(); ?>assets/js/angular-sanitize.js"></script>
+
+        <style type="text/css">
+          .theme_bg{
+            background-color: #222288 !important;
+          }
+        </style>
     </head>
     <body class="">
         <div class="wrapper ">

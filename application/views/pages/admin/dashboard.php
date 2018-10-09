@@ -1,7 +1,7 @@
 
     <div class="main-panel">
       <!-- Navbar -->
-      <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
+      <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top w3-black">
         <div class="container-fluid">
           <div class="navbar-wrapper">
             <a class="navbar-brand" href="#pablo">Dashboard</a>
@@ -42,17 +42,15 @@
               <div class="card card-stats">
                 <div class="card-header card-header-warning card-header-icon">
                   <div class="card-icon">
-                    <i class="material-icons">content_copy</i>
+                    <i class="material-icons fa fa-users"></i>
                   </div>
-                  <p class="card-category">Used Space</p>
-                  <h3 class="card-title">49/50
-                    <small>GB</small>
-                  </h3>
+                  <p class="card-category">Total Members</p>
+                  <h3 class="card-title">100</h3>
                 </div>
                 <div class="card-footer">
                   <div class="stats">
-                    <i class="material-icons text-danger">warning</i>
-                    <a href="#pablo">Get More Space...</a>
+                    <i class="material-icons text-danger fa fa-chevron-right"></i>
+                    <a href="<?php echo base_url(); ?>admin/admin_allusers">View members list</a>
                   </div>
                 </div>
               </div>
@@ -61,14 +59,15 @@
               <div class="card card-stats">
                 <div class="card-header card-header-success card-header-icon">
                   <div class="card-icon">
-                    <i class="material-icons">store</i>
+                    <i class="material-icons fa fa-mars"></i>
                   </div>
-                  <p class="card-category">Revenue</p>
-                  <h3 class="card-title">$34,245</h3>
+                  <p class="card-category">Total Male(s)</p>
+                  <h3 class="card-title">56</h3>
                 </div>
                 <div class="card-footer">
                   <div class="stats">
-                    <i class="material-icons">date_range</i> Last 24 Hours
+                    <i class="material-icons text-danger fa fa-chevron-right"></i>
+                    <a href="<?php echo base_url(); ?>admin/admin_allusers?redirect=true&gender=male">View male(s) list</a>
                   </div>
                 </div>
               </div>
@@ -77,14 +76,15 @@
               <div class="card card-stats">
                 <div class="card-header card-header-danger card-header-icon">
                   <div class="card-icon">
-                    <i class="material-icons">info_outline</i>
+                    <i class="material-icons fa fa-venus"></i>
                   </div>
-                  <p class="card-category">Fixed Issues</p>
-                  <h3 class="card-title">75</h3>
+                  <p class="card-category">Total Female(s)</p>
+                  <h3 class="card-title">44</h3>
                 </div>
                 <div class="card-footer">
                   <div class="stats">
-                    <i class="material-icons">local_offer</i> Tracked from Github
+                    <i class="material-icons text-danger fa fa-chevron-right"></i>
+                    <a href="<?php echo base_url(); ?>admin/admin_allusers?redirect=true&gender=female">View female(s) list</a>
                   </div>
                 </div>
               </div>
@@ -93,7 +93,7 @@
               <div class="card card-stats">
                 <div class="card-header card-header-info card-header-icon">
                   <div class="card-icon">
-                    <i class="fa fa-twitter"></i>
+                    <i class="fa fa-facebook"></i>
                   </div>
                   <p class="card-category">Followers</p>
                   <h3 class="card-title">+245</h3>
@@ -106,7 +106,9 @@
               </div>
             </div>
           </div>
-          <div class="row">
+        
+          <!-- Add graphs in page module commented -->
+          <!-- <div class="row">
             <div class="col-md-4">
               <div class="card card-chart">
                 <div class="card-header card-header-success">
@@ -156,10 +158,221 @@
                 </div>
               </div>
             </div>
+          </div> -->
+
+          <!-- membership package add/update/delete form -->
+          <hr>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="card">
+                <div class="card-header theme_bg">
+                  <h4 class="card-title w3-text-white">Add Membership Package</h4>
+                  <p class="card-category">Complete your profile</p>
+                </div>
+                <div class="card-body">
+                  <form>
+                    <div class="row">
+                      <div class="col-md-5">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Company Name</label>
+                          <input type="text" class="form-control" >
+                        </div>
+                      </div>
+                      <div class="col-md-3">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Username</label>
+                          <input type="text" class="form-control">
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Email address</label>
+                          <input type="email" class="form-control">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Fist Name</label>
+                          <input type="text" class="form-control">
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Last Name</label>
+                          <input type="text" class="form-control">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Office Address</label>
+                          <textarea class="form-control" rows="4"></textarea>
+                        </div>
+                      </div>
+                         <div class="col-md-6">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Office Type</label>
+                          <input type="text" class="form-control">
+                        </div>
+                      </div>
+                     
+                    
+                    </div>
+                    <div class="row">
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">City</label>
+                          <input type="text" class="form-control">
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Country</label>
+                          <input type="text" class="form-control">
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Postal Code</label>
+                          <input type="text" class="form-control">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label>About Me</label>
+                          <div class="form-group">
+                          
+                            <textarea class="form-control" rows="3"></textarea>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary pull-right">Update Profile</button>
+                    <div class="clearfix"></div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          <div class="col-md-2">
+            <!--  <a href="#"><img src="<?php echo base_url(); ?>assets/images/wedding-hand.jpg" alt="" style="margin-left: 30px;" /></a> -->
+          </div>
           </div>
         
+
         </div>
       </div>
+
+      <!-- MEMbership plan add/update form -->
+      <div class="content">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-8">
+              <div class="card">
+                <div class="card-header card-header-primary">
+                  <h4 class="card-title">Edit Profile</h4>
+                  <p class="card-category">Complete your profile</p>
+                </div>
+                <div class="card-body">
+                  <form>
+                    <div class="row">
+                      <div class="col-md-5">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Company Name</label>
+                          <input type="text" class="form-control" >
+                        </div>
+                      </div>
+                      <div class="col-md-3">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Username</label>
+                          <input type="text" class="form-control">
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Email address</label>
+                          <input type="email" class="form-control">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Fist Name</label>
+                          <input type="text" class="form-control">
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Last Name</label>
+                          <input type="text" class="form-control">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Office Address</label>
+                          <textarea class="form-control" rows="4"></textarea>
+                        </div>
+                      </div>
+                         <div class="col-md-6">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Office Type</label>
+                          <input type="text" class="form-control">
+                        </div>
+                      </div>
+                     
+                    
+                    </div>
+                    <div class="row">
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">City</label>
+                          <input type="text" class="form-control">
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Country</label>
+                          <input type="text" class="form-control">
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Postal Code</label>
+                          <input type="text" class="form-control">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label>About Me</label>
+                          <div class="form-group">
+                          
+                            <textarea class="form-control" rows="3"></textarea>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary pull-right">Update Profile</button>
+                    <div class="clearfix"></div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          <div class="col-md-2">
+            <!--  <a href="#"><img src="<?php echo base_url(); ?>assets/images/wedding-hand.jpg" alt="" style="margin-left: 30px;" /></a> -->
+          </div>
+          </div>
+        </div>
+      </div>
+      <!-- MEMbership package add/update form ends -->
      
   <!--   Core JS Files   -->
   <script src="<?php echo base_url(); ?>assets/js/core/jquery.min.js" type="text/javascript"></script>
