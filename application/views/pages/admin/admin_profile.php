@@ -2,7 +2,7 @@
 
 <div class="main-panel">
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
+<!--    <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
         <div class="container-fluid">
             <div class="navbar-wrapper">
                 <a class="navbar-brand" href="#pablo">User Profile</a>
@@ -23,7 +23,7 @@
                 </ul>
             </div>
         </div>
-    </nav>
+    </nav>-->
     <!-- End Navbar -->
     <div class="content">
         <div class="container-fluid">
@@ -90,7 +90,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label class="bmd-label-floating">Office Type</label>
-                                            <select name="officeType" class="form-control" id="officeType">
+                                            <select name="officeType" class="form-control" id="officeType" style=" padding: 0px;">
                                                 <option value="">Select Purchase Orders</option>
                                                 <option value="Headquarters / Main Office" <?php if($adminInfo[0]['admin_officetype'] == 'Headquarters / Main Office'){ echo 'selected'; } ?>>Headquarters / Main Office</option>
                                                 <option value="Branch" <?php if($adminInfo[0]['admin_officetype'] == 'Branch'){ echo 'selected'; } ?>>Branch</option>
