@@ -54,7 +54,7 @@
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label class="bmd-label-floating">First Name</label>
-                                            <input type="text" name="firstName" id="firstName" value="<?php echo $adminInfo[0]['admin_firstname']; ?>" class="form-control" required>
+                                            <input type="text" name="firstName" id="firstName" value="<?php echo $adminInfo[0]['admin_firstname']; ?>" class="form-control">
                                         </div>
                                         
                                     </div>
