@@ -53,13 +53,13 @@ $admin_details = $adminInfo[0]['admin_details'];
                         <div class="card-body">
                             <form ng-submit="submit()" method="post">
                                 <div class="row">
-                                    <div class="col-md-5">
+                                 <!--    <div class="col-md-5">
                                         <div class="form-group">
                                             <label class="bmd-label-floating">Company Name</label>
                                             <input type="text" name="companyName" ng-model="companyName" id="companyName" value="<?php echo $company_name; ?>" class="form-control" >
                                         </div>
-                                    </div>
-                                    <div class="col-md-3">
+                                    </div> -->
+                                    <div class="col-md-4">
                                         <div class="form-group">
                                             <label class="bmd-label-floating">Username</label>
                                             <input type="text" name="userName" ng-model="userName" value="<?php echo $username; ?>" id="userName" class="form-control">
@@ -67,22 +67,30 @@ $admin_details = $adminInfo[0]['admin_details'];
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label class="bmd-label-floating">Email address</label>
-                                            <input type="email" name="eMail" ng-model="eMail" id="eMail" value="<?php echo $admin_email; ?>" class="form-control">
+                                            <label class="bmd-label-floating">First Name</label>
+                                            <input type="text" name="firstName" ng-model="firstName" id="firstName" value="<?php echo $admin_firstname; ?>" class="form-control">
                                         </div>
+                                        
+                                    </div>
+                                      <div class="col-md-4">
+                                         <div class="form-group">
+                                            <label class="bmd-label-floating">Last Name</label>
+                                            <input type="text" name="lastName" ng-model="lastName" id="lastName" value="<?php echo $admin_lastname; ?>" class="form-control">
+                                        </div>
+                                       
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label class="bmd-label-floating">Fist Name</label>
-                                            <input type="text" name="firstName" ng-model="firstName" id="firstName" value="<?php echo $admin_firstname; ?>" class="form-control">
+                                            <label class="bmd-label-floating">Email address</label>
+                                            <input type="email" name="eMail" ng-model="eMail" id="eMail" value="<?php echo $admin_email; ?>" class="form-control">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label class="bmd-label-floating">Last Name</label>
-                                            <input type="text" name="lastName" ng-model="lastName" id="lastName" value="<?php echo $admin_lastname; ?>" class="form-control">
+                                            <label class="bmd-label-floating">Password</label>
+                                            <input type="password" name="eMail"  id="eMail" class="form-control">
                                         </div>
                                     </div>
                                 </div>
@@ -104,7 +112,7 @@ $admin_details = $adminInfo[0]['admin_details'];
                                         </div>
                                     </div>                                        
                                 </div>
-                                <div class="row">
+                               <!--  <div class="row">
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label class="bmd-label-floating">City</label>
@@ -123,8 +131,8 @@ $admin_details = $adminInfo[0]['admin_details'];
                                             <input type="text" name="postalCode" ng-model="postalCode" id="postalCode" value="<?php echo $admin_postal_code; ?>" class="form-control">
                                         </div>
                                     </div>
-                                </div>
-                                <div class="row">
+                                </div> -->
+                               <!--  <div class="row">
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label>About Me</label>
@@ -133,8 +141,8 @@ $admin_details = $adminInfo[0]['admin_details'];
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <button type="submit" class="btn btn-primary pull-right">Update Profile</button>
+                                </div> -->
+                                <button type="submit" class="btn btn-primary" style="margin-left:210px;">Update Profile</button>
                                 <div class="clearfix"></div>
                             </form>
                         </div>
