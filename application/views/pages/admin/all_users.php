@@ -11,9 +11,10 @@
                             <thead>
                                 <tr>
                                 <th class="w3-center"><span>User</span></th>
-                                <th class="w3-center"><span>Created</span></th>
-                                <th class="w3-center"><span>Mobile No</span></th>
-                                <th class="w3-center"><span>Email</span></th>
+                                <th class="w3-center"><span>Registration Date</span></th>
+                                <th class="w3-center"><span>City</span></th>
+                                
+                                <th class="w3-center"><span>Marital Status</span></th>
                                 <th class="w3-center"><span>Action</span></th>
                                 </tr>
                             </thead>
@@ -31,9 +32,18 @@
                               <span class="user-subhead w3-left"> <?php echo $key['user_gender']; ?></span>
                       </td>
                           <td class="w3-center"><?php echo $key['user_registraion_date']; ?></td>
-                          <td class="w3-center"><?php echo $key['user_mobile_no']; ?></td>
-                          <td class="w3-center"><?php echo $key['user_email']; ?></td>
+                          <td class="w3-center"><?php echo $key['user_city']; ?></td>
+                         <!--  <td class="w3-center"><?php echo $key['user_email']; ?></td> -->
+                              <td class="w3-center"><?php echo $key['user_marital_status']; ?></td>
                           
+                            <td class="w3-center">
+                                       
+                                            <i class="w3-text-green w3-large fa fa-edit"></i>
+                                        </a>                   
+                                      
+                                            <i class="w3-text-red w3-large fa fa-trash"></i>
+                                        </a>
+                                    </td>
                         </tr>
                         <?php 
                         $count++;
