@@ -39,7 +39,8 @@ class All_users extends CI_Controller {
         extract($_POST);
         $result = $this->Allusers_model->deleteUserDetails($user_id);
         //print_r($result);die();
-        if ($result == 200) {
+        if ($result['status'] == 200) {
+    
             echo '<div class="alert alert-success alert-dismissible fade in alert-fixed w3-round">
       <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
       <strong>Success!</strong> Member Details Deleted SuccessFully.
@@ -54,6 +55,7 @@ class All_users extends CI_Controller {
 
       </script>';
         } else {
+
             echo '<div class="alert alert-danger alert-dismissible fade in alert-fixed w3-round">
       <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
       <strong>Warning!</strong> Member Details Not Deleted SuccessFully.
@@ -68,12 +70,13 @@ class All_users extends CI_Controller {
         }
     }
 
-    //------------fun for deactivate user-----------------------//
+    //------------fun for activate user-----------------------//
       public function activeuser() {
         extract($_POST);
         $result = $this->Allusers_model->activeuser($user_id);
         //print_r($result);die();
-        if ($result == 200) {
+        if ($result['status'] == 200) {
+                echo "check if";
             echo '<div class="alert alert-success alert-dismissible fade in alert-fixed w3-round">
       <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
       <strong>Success!</strong> Member active  SuccessFully.
@@ -88,9 +91,46 @@ class All_users extends CI_Controller {
 
       </script>';
         } else {
+           echo "check else";
             echo '<div class="alert alert-danger alert-dismissible fade in alert-fixed w3-round">
       <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
       <strong>Warning!</strong> Member active Not Deleted SuccessFully.
+      </div>
+      <script>
+      window.setTimeout(function() {
+      $(".alert").fadeTo(500, 0).slideUp(500, function(){
+      $(this).remove(); 
+      });
+      }, 5000);
+      </script>';
+        }
+    }
+
+    //------------fun for deactivate user-----------------------//
+      public function deactiveuser() {
+        extract($_POST);
+        $result = $this->Allusers_model->deactiveuser($user_id);
+        //print_r($result);die();
+        if ($result['status'] == 200) {
+               // echo "check if";
+            echo '<div class="alert alert-success alert-dismissible fade in alert-fixed w3-round">
+      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+      <strong>Success!</strong> Member deactive  SuccessFully.
+      </div>
+      <script>
+      window.setTimeout(function() {
+      $(".alert").fadeTo(500, 0).slideUp(500, function(){
+      $(this).remove();
+      });
+      }, 5000);
+      location.reload();
+
+      </script>';
+        } else {
+          // echo "check else";
+            echo '<div class="alert alert-danger alert-dismissible fade in alert-fixed w3-round">
+      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+      <strong>Warning!</strong> Member deactive Not Deleted SuccessFully.
       </div>
       <script>
       window.setTimeout(function() {

@@ -38,7 +38,7 @@ class Allusers_model extends CI_Model {
     public function deactiveuser($user_id)
     {
       $sql = "UPDATE user_tab SET user_status='0' WHERE user_id='$user_id'";
-
+  //echo $sql;die();
      if ($this->db->query($sql)) {
         $response = array(
             'status' => 200,
@@ -56,7 +56,7 @@ class Allusers_model extends CI_Model {
     public function activeuser($user_id)
     {
       $sql = "UPDATE user_tab SET user_status='1' WHERE user_id='$user_id'";
-
+      //echo $sql;die();
      if ($this->db->query($sql)) {
         $response = array(
             'status' => 200,
