@@ -168,7 +168,7 @@
             <div class="col-md-4">
               <div class="card">
                 <div class="col-md-12 w3-padding">
-                  <center><img src="<?php echo base_url(); ?>assets/images/mem_packages/plan_1.png" class="img img-responsive" style="width: 70%;height: auto;"></center>
+                  <center><img src="<?php echo base_url(); ?>assets/images/mem_packages/plan_1.png" class="img img-responsive" style="width: auto;height: 230px;"></center>
                 </div>
                 <div class="col-md-12 w3-padding theme_bg w3-text-white">
                   <center>
@@ -184,20 +184,23 @@
                   <center>
                     <ul style="list-style: none;padding:0">
                       <li class="w3-padding">
-                        <span class="w3-large">Express Interests:</span> <span class="w3-large">5</span>
+                        <span class="w3-large">Period:</span> <b><span class="w3-large">Monthly</span></b>
+                      </li>
+                      <li class="w3-padding">
+                        <span class="w3-large">Express Interests:</span> <b><span class="w3-large">5</span></b>
                       </li>
                     </ul>
                 </center>
                 </div>
                 <div class="col-mg-12 w3-padding">
-                  <a class="btn btn-primary btn-block" href="<?php echo base_url(); ?>admin/dashboard/edit_package1"><i class="fa fa-edit"></i> Edit Package</a>
+                  <a class="btn btn-primary btn-block" href="<?php echo base_url(); ?>admin/dashboard/edit_package/basic"><i class="fa fa-edit"></i> Edit Package</a>
                 </div>
               </div>
             </div>
             <div class="col-md-4">
               <div class="card">
                 <div class="col-md-12 w3-padding">
-                  <center><img src="<?php echo base_url(); ?>assets/images/mem_packages/plan_4.png" class="img img-responsive" style="width: 70%;height: auto;"></center>
+                  <center><img src="<?php echo base_url(); ?>assets/images/mem_packages/plan_4.png" class="img img-responsive" style="width: auto;height: 230px;"></center>
                 </div>
                 <div class="col-md-12 w3-padding theme_bg w3-text-white">
                   <center>
@@ -213,13 +216,16 @@
                   <center>
                     <ul style="list-style: none;padding:0">
                       <li class="w3-padding">
-                        <span class="w3-large">Express Interests:</span> <span class="w3-large">4</span>
+                        <span class="w3-large">Period:</span> <b><span class="w3-large">Yearly</span></b>
+                      </li>
+                      <li class="w3-padding">
+                        <span class="w3-large">Express Interests:</span> <b><span class="w3-large">4</span></b>
                       </li>
                     </ul>
                 </center>
                 </div>
                 <div class="col-mg-12 w3-padding">
-                  <a class="btn btn-primary btn-block" href="<?php echo base_url(); ?>admin/dashboard/edit_package1"><i class="fa fa-edit"></i> Edit Package</a>
+                  <a class="btn btn-primary btn-block" href="<?php echo base_url(); ?>admin/dashboard/edit_package/gold"><i class="fa fa-edit"></i> Edit Package</a>
                 </div>
               </div>
             </div>

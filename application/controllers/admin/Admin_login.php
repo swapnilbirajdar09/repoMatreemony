@@ -42,11 +42,8 @@ class Admin_login extends CI_Controller {
             );
             //start session of user if login success
             $this->session->set_userdata($session_data);
-            //redirect('admin/dashboard');
             echo '200';
-            //echo '<p class="w3-green w3-padding-small">Login successfull! Welcome Admin.</p>';
         }
-        //print_r($result);
     }
 
     // logout function starts here----------------------------------------------------
@@ -57,7 +54,7 @@ class Admin_login extends CI_Controller {
         //if logout success then destroy session and unset session variables
         $this->session->unset_userdata(array('admin_name'));
         $this->session->sess_destroy();
-        redirect('login');
+        redirect('admin/admin_login');
     }
 
     // logout function ends here---------------------------------------------------------
