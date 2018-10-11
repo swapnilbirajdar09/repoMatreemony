@@ -44,7 +44,7 @@
                             <!-- <h3>General</h3> -->
                             <ul class="nav side-menu">
                                 <li><a href="<?php echo base_url(); ?>admin/dashboard"><i class="fa fa-dashboard"></i> Dashboard </a></li>
-                                <li><a href="<?php echo base_url(); ?>admin/all_members"><i class="fa fa-users"></i> All Members </a></li>
+                                <li><a href="<?php echo base_url(); ?>admin/all_users"><i class="fa fa-users"></i> All Members </a></li>
                                 <li><a href="<?php echo base_url(); ?>admin/admin_profile"><i class="fa fa-user-circle"></i> Admin Profile </a></li>
                             </ul>
                         </div>
