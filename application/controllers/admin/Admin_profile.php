@@ -19,22 +19,21 @@ class Admin_profile extends CI_Controller {
         if ($admin_name == '') {
             redirect('admin/admin_login');
         }
-        $data['adminInfo'] = $this->Adminprofile_model->getAdminDetails();
+        $data['adminInfo'] = $this->Adminprofile_model->getAdminDetails(); //------------get admin details and load on the admin view
         $this->load->view('includes/adminheader');
         $this->load->view('pages/admin/admin_profile', $data); //------loading the admin login view
         $this->load->view('includes/admin_footer');
     }
 
+//---------------------fun for update admin details-------//
     public function updateAdminDetails() {
-        // get data passed through ANGULAR AJAX
-//        $postdata = file_get_contents("php://input");
-//        $request = json_decode($postdata, TRUE);
+        // get data passed through ANGULAR AJAX//        
         $data = $_POST;
-       //print_r($data);die();
+        //print_r($data);die();
         // call to model function to update AdminDetails
         $result = $this->Adminprofile_model->updateAdminDetails($data);
         if ($result) {
-            echo '<div class="alert alert-success alert-dismissible fade in alert-fixed w3-round">
+            echo '<div class="alert alert-success w3-small alert-dismissible fade in alert-fixed w3-round">
 			<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
 			<strong>Success!</strong> Admin Profile Updated successfully.
 			</div>
@@ -47,7 +46,7 @@ class Admin_profile extends CI_Controller {
 			}, 3000);
 			</script>';
         } else {
-            echo '<div class="alert alert-danger alert-dismissible fade in alert-fixed w3-round" >
+            echo '<div class="alert alert-danger w3-small alert-dismissible fade in alert-fixed w3-round" >
 			<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
 			<strong>Failure!</strong> you Have Not Changed Anything.
 			</div>

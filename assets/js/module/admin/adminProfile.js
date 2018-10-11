@@ -3,9 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-//var ProfileApp = angular.module('adminProfileApp', ['ngSanitize']);
-//ProfileApp.controller('adminProfileController', function ($scope, $http, $timeout, $window) {
-
+//-----------------fun for update admin details
     $(function () {
         $("#adminProfileForm").submit(function () {
             dataString = $("#adminProfileForm").serialize();
@@ -25,55 +23,3 @@
             return false;  //stop the actual form post !important!
         });
     });
-
-//    $scope.submit = function ()
-//    {
-//        alert();
-//        // POST form data to controller
-//        $http({
-//            method: 'POST',
-//            url: BASE_URL + 'admin/admin_profile/updateAdminDetails',
-//            headers: {'Content-Type': 'application/json'},
-//            data: JSON.stringify({companyName: $scope.companyName,
-//                username: $scope.username,
-//                eMail: $scope.eMail,
-//                firstName: $scope.firstName,
-//                lastName: $scope.lastName,
-//                officeAddress: $scope.officeAddress,
-//                officeType: $scope.officeType,
-//                adminCity: $scope.adminCity,
-//                adminCountry: $scope.adminCountry,
-//                postalCode: $scope.postalCode,
-//                adminInfo: $scope.adminInfo})
-//        }).then(function (data) {
-//            console.log(data.data);
-//            if (data.data == '200') {
-//                $scope.message = data.data;
-//            } else {
-//                $scope.message = data.data;
-//            }
-//        });
-//    };
-
-
-//    $scope.po = [];
-//
-//    $http.get(BASE_URL + "admin/admin_profile/getAdminDetails").then(function (response) {
-//        console.log(response.data[0].admin_id);
-//        var data = response.data;
-//        if (data != 500) {
-//            $scope.po.push({'admin_id': response.data[0].admin_id,
-//                'username': response.data[0].username,
-//                'eMail': response.data[0].admin_email,
-//                'firstName': response.data[0].admin_firstName,
-//                'lastName': response.data[0].admin_lastName,
-//                'officeAddress': response.data[0].admin_office_address,
-//                'officeType': response.data[0].admin_officeType
-//            });
-//        } else {
-//            $scope.po = 500;
-//        }
-//    });
-//
-//});
-
