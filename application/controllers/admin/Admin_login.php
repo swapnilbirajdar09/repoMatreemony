@@ -17,7 +17,7 @@ class Admin_login extends CI_Controller {
         // start session		
         $admin_name = $this->session->userdata('admin_name'); //----session variable
         if ($admin_name != '') {
-            redirect('admin/admin_dashboard');
+            redirect('admin/dashboard');
         }
         $this->load->view('pages/admin/adminlogin'); //------loading the admin login view
     }
