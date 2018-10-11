@@ -6,7 +6,7 @@ class Adminprofile_model extends CI_Model {
         parent::__construct();
     }
 
-    //------------ update admin details function
+    // update admin details function
     public function updateAdminDetails($data) {
         extract($data);
         $sql = "UPDATE admin_tab SET username = '$userName',password = '$password',admin_email = '$eMail',"
@@ -19,7 +19,7 @@ class Adminprofile_model extends CI_Model {
             return FALSE;
         }
     }
-//-------------------fun for get admin details from admin tab
+
     public function getAdminDetails() {
         $sql = "SELECT * FROM admin_tab";
         $result = $this->db->query($sql);

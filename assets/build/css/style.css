@@ -41,3 +41,10 @@
     float: right;
     border-radius:0px
 }
+
+.pkgDelete_btn {
+    margin: 5px;
+    position: absolute;
+    float: right;
+    padding: 0 4px
+}

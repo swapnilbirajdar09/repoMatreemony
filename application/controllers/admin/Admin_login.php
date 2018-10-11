@@ -42,8 +42,11 @@ class Admin_login extends CI_Controller {
             );
             //start session of user if login success
             $this->session->set_userdata($session_data);
+            //redirect('admin/dashboard');
             echo '200';
+            //echo '<p class="w3-green w3-padding-small">Login successfull! Welcome Admin.</p>';
         }
+        //print_r($result);
     }
 
     // logout function starts here----------------------------------------------------

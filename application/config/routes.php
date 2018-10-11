@@ -52,3 +52,5 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] = 'login';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
+$route['admin/dashboard/delPackage/(:any)'] = "admin/dashboard/delPackage/$1";
+$route['admin/products/viewproduct/(:any)'] = "admin/products/viewproduct/index/$1";

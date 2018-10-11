@@ -6,7 +6,7 @@
       <div class="col-md-12">
         <div class="x_panel">
           <div class="x_title">
-            <h2><i class="fa fa-user-cirlce"></i> Admin Profile</h2><small>Complete admin profile</small>
+            <h2><i class="fa fa-edit"></i> Edit Package</h2>
             <a class="btn btn-primary btn-sm pull-right" href="<?php echo base_url(); ?>admin/dashboard" ><i class="fa fa-chevron-left"></i> Back to Dashboard</a>
             <div class="clearfix"></div>
           </div>
@@ -17,7 +17,7 @@
                 <div class="col-md-3"></div>
                 <div class="col-md-6">
                  <?php 
-                 if($adminInfo){
+                 if($pkg_details && $_GET['packagedetails']=='true' && $_GET['redirect']=='1'){
                   ?>
                   <form id="editPackageForm">
                     <input type="hidden" name="pkg_id" value="<?php echo $pkg_details[0]['package_id']; ?>">
