@@ -10,7 +10,7 @@ class Adminprofile_model extends CI_Model {
     public function updateAdminDetails($data) {
         extract($data);
         $sql = "UPDATE admin_tab SET username = '$userName',password = '$password',admin_email = '$eMail',"
-                . "admin_officetype = '$officeType',admin_office_address = '$officeAddress',admin_firstname = '$firstName',"
+                . "admin_officetype = '$officeType',admin_office_address = '".addslashes($officeAddress)."',admin_firstname = '$firstName',"
                 . "admin_lastname = '$lastName' WHERE admin_id = '1'";
         $this->db->query($sql);
         if ($this->db->affected_rows() > 0) {

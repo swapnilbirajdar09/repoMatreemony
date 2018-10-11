@@ -19,7 +19,7 @@ class Admin_profile extends CI_Controller {
             redirect('admin/admin_login');
         }
         $data['adminInfo'] = $this->Adminprofile_model->getAdminDetails();
-        print_r($data['adminInfo']);die();
+        // print_r($data['adminInfo']);die();
         $this->load->view('includes/header');
         $this->load->view('pages/admin/admin_profile', $data); //------loading the admin login view
         $this->load->view('includes/footer');
@@ -31,30 +31,9 @@ class Admin_profile extends CI_Controller {
         // call to model function to update AdminDetails
         $result = $this->Adminprofile_model->updateAdminDetails($data);
         if ($result) {
-            echo '<div class="alert alert-success alert-dismissible fade in alert-fixed w3-round">
-			<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-			<strong>Success!</strong> Admin Profile Updated successfully.
-			</div>
-			<script>
-			window.setTimeout(function() {
-			$(".alert").fadeTo(500, 0).slideUp(500, function(){
-			$(this).remove(); 
-			});
-			location.reload();
-			}, 3000);
-			</script>';
+            echo '<p class="w3-text-white w3-green w3-padding-small message"><strong>Success!</strong> Admin Profile updated successfully.</p>';
         } else {
-            echo '<div class="alert alert-danger alert-dismissible fade in alert-fixed w3-round" >
-			<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-			<strong>Failure!</strong> you Have Not Changed Anything.
-			</div>
-			<script>
-			window.setTimeout(function() {
-			$(".alert").fadeTo(500, 0).slideUp(500, function(){
-			$(this).remove(); 
-			});
-			}, 5000);
-			</script>';
+            echo '<p class="w3-text-white w3-red w3-padding-small message"><strong>Failure!</strong> None of the fields were changed. Admin Profile updation failed!</p>';
         }
     }
 
