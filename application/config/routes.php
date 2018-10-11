@@ -53,4 +53,3 @@ $route['default_controller'] = 'admin/admin_login';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 $route['admin/dashboard/delPackage/(:any)'] = "admin/dashboard/delPackage/$1";
-$route['admin/products/viewproduct/(:any)'] = "admin/products/viewproduct/index/$1";
