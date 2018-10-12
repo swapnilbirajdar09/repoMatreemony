@@ -27,6 +27,128 @@
 	border-radius: 3px !important;
 }
 </style>
+<link rel="stylesheet" href="<?php echo base_url(); ?>assets/usertop_section/template/css/animate.css">
+  <link rel="stylesheet" href="<?php echo base_url(); ?>assets/usertop_section/template/fonts/ionicons/css/ionicons.min.css">
+
+  <link rel="stylesheet" href="<?php echo base_url(); ?>assets/usertop_section/template/css/owl.carousel.min.css">
+
+  <link rel="stylesheet" href="<?php echo base_url(); ?>assets/usertop_section/template/fonts/flaticon/font/flaticon.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="<?php echo base_url(); ?>assets/usertop_section/template/css/bootstrap-datepicker.css">
+  <link rel="stylesheet" href="<?php echo base_url(); ?>assets/usertop_section/template/css/select2.css">
+
+
+  <link rel="stylesheet" href="<?php echo base_url(); ?>assets/usertop_section/template/css/helpers.css">
+  <link rel="stylesheet" href="<?php echo base_url(); ?>assets/usertop_section/template/css/style.css">
+  <link href="<?php echo base_url(); ?>assets/build/css/w3.css" rel="stylesheet"> 
+<section class="probootstrap-cover overflow-hidden relative"  style="background-image: url('<?php echo base_url(); ?>assets/template/images/background03.jpg');" data-stellar-background-ratio="0.5"  id="section-home" style="padding: 0">
+      <div class="overlay"></div>
+      <div class="container" style="padding: 10px">
+        <div class="row align-items-center probootstrap-animate" style="padding: 10px">
+          <div class="col-md">
+            <!-- text based logo -->
+            <div class="w3-center">
+              <a class="btn w3-center" style="padding:10px" href="bizmo-tech.com" target="_blank">
+                <img src="<?php echo base_url(); ?>assets/usertop_section/images/bizmo_logoDark.jpg" class="img img-responsive" style="width: 200px;height: auto;"/>
+              </a><br>           
+            </div>
+            <div class="w3-center">
+              <a class="btn w3-center" style="background-color: black;border:1px solid;border-color: white;border-radius: 0;padding:10px" href="#">
+                <img src="<?php echo base_url(); ?>assets/usertop_section/images/mea_logo.jpg" class="img img-responsive" style="width: 200px;height: auto;"/>
+              </a>
+              <p style="color: white">
+                <br>
+                Welcomes you for 
+              </p>
+              <h2 class="heading mb-2 display-4 font-light probootstrap-animate">Annual General Meet 2018</h2>
+              <p class="mu-event-date-line probootstrap-animate" style="background-color: black;color: white;border:1px solid;border-color: white">8th September, 2018. Sharp 5pm <br> Siddhi Banquets, D.P. Road, Near Mhatre Bridge, Pune.</p>
+            </div>         
+            <br>
+            <div class="w3-col l12 w3-text-white w3-center w3-padding-bottom probootstrap-animate">
+              <p class="lead mb-5 probootstrap-animate"><span class="fa fa-copyright w3-large"></span> Powered by <a class="btn w3-center" style="padding:10px" href="bizmo-tech.com" target="_blank">
+                <img src="<?php echo base_url(); ?>assets/usertop_section/images/bizmo_logoDark.jpg" class="img img-responsive" style="width: 200px;height: auto;"/>
+              </a>
+              <br>
+              Sponsored by <span class="w3-text-white">Ar. Dakshata Ranjeet Wagh</span></p>
+              <br>
+            </div>
+          </div> 
+
+          <div class="col-md probootstrap-animate">
+            <form id="register_userForm" class="probootstrap-form">
+              <div id="regForm">
+                <h3><i class="fa fa-edit"></i> Register Here !</h3>
+                <br>
+                <div class="form-group">
+                  <div class="row mb-3">
+                    <div class="col-md-12 w3-margin-bottom">
+                      <div class="form-group">
+                        <!-- <label for="id_memberName"><i class="fa fa-user-secret"></i> Member Name</label> -->
+                        <label for="id_memberName" style="width: 100%;">
+                          <input type="text" required placeholder="Enter your full name here *" name="memberName" id="id_memberName" class="form-control" style="width: 100%;">
+                        </label>
+                      </div>
+                    </div>
+
+                    <div class="col-md-6 w3-margin-bottom">                    
+                      <div class="form-group">
+                        <label for="id_gender"><i class="fa fa-male"></i><i class="fa fa-female"></i> Gender <b class="w3-text-red">*</b></label>
+                        <label for="id_gender" style="width: 100%;">
+                          <label for="id_genderMale" class="mr-5"><input required type="radio" value="Male" id="id_genderMale" name="gender">  Male</label>
+                          <label for="id_genderFemale"><input required type="radio" value="Female" id="id_genderFemale" name="gender">  Female</label>
+                        </label>
+                      </div>
+                    </div>
+
+                    <div class="col-md-6 w3-margin-bottom">
+                      <div class="form-group">
+                        <label for="id_foodRef"><i class="fa fa-glass"></i> Food Reference <b class="w3-text-red">*</b></label>
+                        <label for="id_foodRef" style="width: 100%;">
+                          <label for="id_foodRefVeg" class="mr-5"><input required type="radio" value="veg" id="id_foodRefVeg" name="foodRef">  Veg</label>
+                          <label for="id_foodRefNVeg"><input required type="radio" value="nveg" id="id_foodRefNVeg" name="foodRef">  Non Veg</label>
+                        </label>
+                      </div>
+                    </div>
+
+                    <div class="col-md-6 w3-margin-bottom">                    
+                      <div class="form-group">
+                        <label for="id_seatConfirm"><i class="fa fa-check-square"></i> Seat Confirmation <b class="w3-text-red">*</b></label>
+                        <label for="id_seatConfirm" style="width: 100%;">
+                          <label for="id_seatConfirmYes" class="mr-5"><input required type="radio" value="yes" id="id_seatConfirmYes" name="seatConfirm">  Yes</label>
+                          <label for="id_seatConfirmNo"><input required type="radio" value="no" id="id_seatConfirmNo" name="seatConfirm">  No</label>
+                        </label>
+                      </div>
+                    </div>
+
+                    <div class="col-md-12 w3-margin-bottom">
+                      <div class="form-group">
+                        <!-- <label for="id_memberName"><i class="fa fa-user-secret"></i> Member Name</label> -->
+                        <label for="id_mobNumber" style="width: 100%;">
+                          <input type="number" placeholder="Enter your Mobile number(optional)" name="mobNumber" id="id_mobNumber" class="form-control" style="width: 100%;">
+                        </label>
+                      </div>
+                    </div>
+
+                    <div class="col-md-12 w3-margin-bottom ">
+                      <button type="submit" id="register_userBtn" class="btn btn-primary btn-block">Submit</button>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+              <div class="row" class="probootstrap-form" style="padding: 0">
+                <div class="col-md-12">
+                  <ul style="list-style: none;padding: 5px" id="msgList"></ul>
+                </div>
+                <div class="w3-col l10 col-md-offset-1" id="qr_img"></div>
+              </div>
+            </form>
+
+          </div>
+        </div>
+      </div>
+
+    </section>
 <section class="sct-color-1">
 	<div class="container-fluid no-padding">
 		<div class="row row-no-padding">
@@ -58,14 +180,34 @@
 						</div>
 					</div>
 					<div class="container pl-0">
-						<div class="outer-search" style="margin-left: 730px;top: 50px">
+						<div class="outer-search" style="margin-left: 700px;top: 50px">
 							<h4 class="text-white text-center mb-4">
 								<span style="text-shadow: 4px 3px 6px #000;">Search Your Soul Mates</span>
 							</h4>
-							<div class="feature feature--boxed-border feature--bg-1 z-depth-2-bottom px-3 py-4 animated animation-ended s-search" data-animation-in="zoomIn" data-animation-delay="400" style="background: #1b1e23b3;min-width: 400px">
-								<form class="mt-4" data-toggle="validator" role="form" action="http://activeitzone.com/demo/matrimonial/home/listing/home_search" method="POST" style="margin-top: 0px !important;">
+							<div class="feature feature--boxed-border feature--bg-1 z-depth-2-bottom px-3 py-4 animated animation-ended s-search" data-animation-in="zoomIn" data-animation-delay="400" style="background: #1b1e23b3;min-width: 100%">
+								<form class="mt-4" style="margin-top: 0px !important;padding:10px">
 									<div class="row">
-										
+										<div class="col-md-12">
+											<div class="form-group has-feedback">
+												<label for="" class="text-uppercase text-white">Gender* :</label>
+												<div class="radio radio-primary">
+													<input type="radio" name="gender" id="male" value="1">
+													<label for="male" class="pr-3 text-white text-uppercase">Male</label>
+													<input type="radio" name="gender" id="female" value="2">
+													<label for="female" class="text-white text-uppercase">Female</label>
+												</div>
+												<div class="help-block with-errors">
+												</div>
+											</div>
+										</div>
+										<div class="col-md-12">
+											<div class="form-group has-feedback">
+												<label for="" class="text-uppercase text-white">Var/ Vadhu's Name* :</label>
+												<input type="text" class="form-control form-control-sm" name="full_name" id="full_name" value="">
+												<div class="help-block with-errors">
+												</div>
+											</div>
+										</div>
 										<div class="col-lg-12 col-md-5 col-sm-6 col-6">
 											<div class="form-group has-feedback">
 												<label for="" class="text-uppercase text-white">Religion</label>

@@ -179,90 +179,109 @@
       <div class="st-pusher">
         <div class="st-content">
           <div class="st-content-inner">
-            <nav class="navbar navbar-expand-lg navbar-light bg-default navbar--link-arrow navbar--uppercase">
-              <div class="container navbar-container">
-                <!-- Brand/Logo -->
-                <a class="navbar-brand" href="index.html">
-                  <img src="<?php echo base_url(); ?>assets/client/uploads/header_logo/header_logo_1524735792.png" class="img-responsive" height="100%">
-                </a>
-                <div class="d-inline-block">
-                  <!-- Navbar toggler  -->
-                  <button class="navbar-toggler hamburger hamburger-js hamburger--spring" type="button" data-toggle="collapse" data-target="#navbar_main" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="hamburger-box">
-                      <span class="hamburger-inner"></span>
-                    </span>
-                  </button>
-                </div>
-                <div class="collapse navbar-collapse align-items-center justify-content-end" id="navbar_main">
-                  <!-- Navbar links -->
-                  <ul class="navbar-nav" data-hover="dropdown">
-                    <li class="custom-nav">
-                      <a class="nav-link nav_active" href="<?php echo base_url(); ?>assets/client/home" aria-haspopup="true" aria-expanded="false">
-                      Home</a>
-                    </li>
-                    <li class="custom-nav dropdown">
-                      <a class="nav-link " href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      Active Search</a>
-                      <ul class="dropdown-menu" style="border: 1px solid #f1f1f1 !important;">
-                        <li class="dropdown dropdown-submenu">
-                          <li>
-                            <a class="dropdown-item " href="listing.html">
-                            Direct Search</a>
-                          </li>
-                          <li>
-                            <a class="dropdown-item " href="listing/premium_members.html">
-                            Regular Search</a>
-                          </li>
-                          <li>
-                            <a class="dropdown-item " href="listing/free_members.html">
-                            Advance Search</a>
-                          </li>
-                          <li>
-                            <a class="dropdown-item " href="listing/free_members.html">
-                            Search Profile by ID</a>
-                          </li>
-                        </ul>
-                      </li>
-                      <li class="custom-nav">
-                        <a class="nav-link " href="plans.html" aria-haspopup="true" aria-expanded="false">
-                        Membership Plans</a>
-                      </li>
-                      <li class="custom-nav">
-                        <a class="nav-link " href="stories.html" aria-haspopup="true" aria-expanded="false">
-                        Contact Us</a>
-                      </li>
-                    </ul>
+            <!-- Navbar -->
+            <div class="top-navbar align-items-center">
+              <div class="container">
+                <div class="row align-items-center py-1" style="padding-bottom: 0px !important">
+                  <div class="col-md-4"></div>
+                  <div class="col-md-4 text-center" style="padding: 0px"></div>
+                  <div class="col-md-4">
+                    <nav class="top-navbar-menu">
+                      <ul class="float-right top_bar_right">                                                                        
+                        <li class="float-left pb-1">
+                          <a href="http://activeitzone.com/demo/matrimonial/home/login" class="btn btn-styled btn-xs btn-base-1 btn-shadow"><i class="fa fa-power-off"></i> Log In</a>
+                          <a href="http://activeitzone.com/demo/matrimonial/home/registration" class="btn btn-styled btn-xs btn-base-1 btn-shadow"><i class="fa fa-user"></i> Register</a>
+                        </li>
+                      </ul>
+                      </nav>
+                    </div>
                   </div>
                 </div>
-              </nav>
+              </div>
+              <nav class="navbar navbar-expand-lg navbar-light bg-default navbar--link-arrow navbar--uppercase">
+                <div class="container navbar-container">
+                  <!-- Brand/Logo -->
+                  <a class="navbar-brand" href="index.html">
+                    <img src="<?php echo base_url(); ?>assets/client/uploads/header_logo/header_logo_1524735792.png" class="img-responsive" height="100%">
+                  </a>
+                  <div class="d-inline-block">
+                    <!-- Navbar toggler  -->
+                    <button class="navbar-toggler hamburger hamburger-js hamburger--spring" type="button" data-toggle="collapse" data-target="#navbar_main" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+                      <span class="hamburger-box">
+                        <span class="hamburger-inner"></span>
+                      </span>
+                    </button>
+                  </div>
+                  <div class="collapse navbar-collapse align-items-center justify-content-end" id="navbar_main">
+                    <!-- Navbar links -->
+                    <ul class="navbar-nav" data-hover="dropdown">
+                      <li class="custom-nav">
+                        <a class="nav-link nav_active" href="<?php echo base_url(); ?>assets/client/home" aria-haspopup="true" aria-expanded="false">
+                        Home</a>
+                      </li>
+                      <li class="custom-nav dropdown">
+                        <a class="nav-link " href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Active Search</a>
+                        <ul class="dropdown-menu" style="border: 1px solid #f1f1f1 !important;">
+                          <li class="dropdown dropdown-submenu">
+                            <li>
+                              <a class="dropdown-item " href="listing.html">
+                              Direct Search</a>
+                            </li>
+                            <li>
+                              <a class="dropdown-item " href="listing/premium_members.html">
+                              Regular Search</a>
+                            </li>
+                            <li>
+                              <a class="dropdown-item " href="listing/free_members.html">
+                              Advance Search</a>
+                            </li>
+                            <li>
+                              <a class="dropdown-item " href="listing/free_members.html">
+                              Search Profile by ID</a>
+                            </li>
+                          </ul>
+                        </li>
+                        <li class="custom-nav">
+                          <a class="nav-link " href="plans.html" aria-haspopup="true" aria-expanded="false">
+                          Membership Plans</a>
+                        </li>
+                        <li class="custom-nav">
+                          <a class="nav-link " href="stories.html" aria-haspopup="true" aria-expanded="false">
+                          Contact Us</a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </nav>
 
-              <script type="text/javascript">
-                $(document).ready(function () {
-                  $('.set_langs').on('click', function () {
-                    var lang_url = $(this).data('href');
-                    $.ajax({url: lang_url, success: function (result) {
-                      location.reload();
-                    }});
+                <script type="text/javascript">
+                  $(document).ready(function () {
+                    $('.set_langs').on('click', function () {
+                      var lang_url = $(this).data('href');
+                      $.ajax({url: lang_url, success: function (result) {
+                        location.reload();
+                      }});
+                    });
                   });
-                });
-              </script>
-              <style>
-              .navbar-brand {
-                display: inline-block;
-                padding-top: 0px; 
-                padding-bottom: 0px; 
-                margin-right: 0px; 
-                font-size: 1.25rem;
-                line-height: inherit;
-                white-space: nowrap;
-              }
-              .top-navbar .top-navbar-menu > ul.top-menu > li.dropdown > a:after {float: none;}
-              .blink_me {
-                animation: blinker 1.5s linear infinite;
-              }
-              @keyframes blinker {
-                50% {
-                  opacity: 0;
+                </script>
+                <style>
+                .navbar-brand {
+                  display: inline-block;
+                  padding-top: 0px; 
+                  padding-bottom: 0px; 
+                  margin-right: 0px; 
+                  font-size: 1.25rem;
+                  line-height: inherit;
+                  white-space: nowrap;
                 }
-              }
-            </style>
+                .top-navbar .top-navbar-menu > ul.top-menu > li.dropdown > a:after {float: none;}
+                .blink_me {
+                  animation: blinker 1.5s linear infinite;
+                }
+                @keyframes blinker {
+                  50% {
+                    opacity: 0;
+                  }
+                }
+              </style>
