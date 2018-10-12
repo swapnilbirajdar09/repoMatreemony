@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row align-items-center">
             <div class="col-12 text-center">
-                <h2 class="heading heading-3 strong-400 mb-0">Active Members</h2>
+                <h2 class="heading heading-3 strong-400 mb-0">Active Profiles</h2>
             </div>
         </div>
     </div>
@@ -23,8 +23,8 @@
                                     <div class="row">
                                         <div class="col-sm-12">
                                             <div class="form-group has-feedback">
-                                                <label for="" class="text-uppercase">Members Profile Id</label>
-                                                <input type="text" class="form-control form-control-sm" name="filter_member_id" ng-model="filter_member_id" id="filter_member_id" value="">
+                                                <label for="" class="text-uppercase">Profile Id</label>
+                                                <input type="text" class="form-control form-control-sm" name="filter_member_id" ng-model="filter_member_id" id="filter_member_id" value="" placeholder="Enter Profile Id">
                                                 <div class="help-block with-errors">
                                                 </div>
                                             </div>
@@ -45,6 +45,8 @@
 
             <div class="col-lg-8">
                 <input type="hidden" id="member_type" value="">
+                <div ng-show="finderloader" class="w3-center"><center><i class="w3-center fa fa-refresh fa-5x fa-spin"></i><p>Please Wait...</p></center></div>
+
                 <!-----------------------------this Div is for all users profiles---------------------------------->
                 <div class="block-wrapper" id="result">
                     <!-----------------------------this Div is for single user profile---------------------------------->
