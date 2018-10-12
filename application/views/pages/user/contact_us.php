@@ -14,9 +14,10 @@
               foreach ($info as $key) {            
                 ?>
                     <h4><?php echo $key['admin_firstname']; ?>  <?php echo $key['admin_lastname']; ?></h4>
-                     <p>Office : <?php echo $key['admin_officetype']; ?></p>
+                     <p>Office : <?php echo $key['admin_officetype']; ?><br>
+                       Contact Number : <?php echo $key['admin_number']; ?></p>
                      <p>Address : </b><?php echo $key['admin_office_address']; ?>
-                    <?php echo $key['admin_city']; ?> , <?php echo $key['admin_postal_code']; ?></p>
+                    </p>
                    
                  <?php
                 }
