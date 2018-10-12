@@ -1,645 +1,763 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<!-- Mirrored from gusekacreations.com/demo/como/ by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 10 Oct 2018 10:42:05 GMT -->
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Meta  -->
-    <meta name="author" content="Gus eka creations">
-    <meta name="description" content="One Page Modern Template Design HTML. This template contain section by section marketing to market your product">
-    <meta name="keywords" content="web designer, Template design bundles, web design bundles">
-    
-    <title>Parinay Vadhu-Var Suchak Mandal</title>
-
-    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.html">
-
-    <link href="<?php echo base_url(); ?>assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-   <link href="<?php echo base_url(); ?>assets/fa/css/font-awesome-all.min.css" rel="stylesheet">
-    <link href="<?php echo base_url(); ?>assets/userCSS/venobox.css" rel="stylesheet">
-   
-    <link href="<?php echo base_url(); ?>assets/userCSS/swiper.min.css" rel="stylesheet">
-    <link href="<?php echo base_url(); ?>assets/userCSS/style.css" rel="stylesheet">
-    <script src="<?php echo base_url(); ?>assets/userJS/modernizr-2.8.3-respond-1.4.2.min.js"></script>
-
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-
-	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-54192367-2"></script>
-	<script>
-	  window.dataLayer = window.dataLayer || [];
-	  function gtag(){dataLayer.push(arguments);}
-	  gtag('js', new Date());
-
-	  gtag('config', 'UA-54192367-2');
-	</script>
 <style>
-#btnsignup
-{
-float: right;
+@media (max-width: 576px) {
+	.outer-search {
+		top: auto !important; bottom: 0px; margin-left: 0px !important;
+	}
+	.btn-search {
+		margin-top: 0px !important;
+	}
+}
+@media (min-width: 567px) and (max-width: 991px) {
+	.outer-search {
+		position: absolute; top: auto !important; bottom: 0px !important; z-index: 1; margin-left: -25px !important;        
+	}
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+	.outer-search {
+		position: absolute; top: 45% !important; z-index: 1; margin-left: 1.5% !important;       
+	}
+}
+.s-search label {
+	white-space: nowrap;
+}
+.outer-search {
+	position: absolute; top: 45%; z-index: 1; margin-left: 95px;    
+}
+.btn-search {
+	border-radius: 3px !important;
 }
 </style>
-</head>
-<body>
-        <!-- Banner -->
-       	<section id="herobanner" class="hero_section herobanner overlay">
+<section class="sct-color-1">
+	<div class="container-fluid no-padding">
+		<div class="row row-no-padding">
 
-       		<!-- Navigation menu -->
-            <div class="container menu" id="signup">
-                <div class="navigation logo"><h1>PARINAY</h1></div>
-                <div class="navigation nav">
-                	<div class="navbarmenumobile">
-						<a href="#">
-							<div class="bar"></div>
-							<div class="bar"></div>
-						</a>
-                	</div>
-                    <ul>
-                        <li><a href="#herobanner">Home</a></li>
-                        <li><a href="#about">About</a></li>
-                        <!-- <li><a href="#destination">Destinations</a></li> -->
-                        <!-- <li><a href="#benefit">Benefit</a></li> -->
-                        <li><a href="#">Contact Us</a></li>
-                        <li><a href="#">Registration</a></li>
-                        <li><a href="#">Login</a></li>
-                        <!-- <li><a href="#client">Client</a></li> -->
-                        <li><a href="#testimonial">Testimonial</a></li>
-                    </ul>
-                </div>
-                <div class="line"></div>
-            </div>
-
-            <div class="container height-100">
-                <div class="display-table">
-                    <div class="table-cell">
-                        <div class="col-md-7">
-                            <div class="hero_content">
-                                <h1 class="text-white">Your Life Partner Search <br> <label>Ends Here</label></h1>
-                                <p>Search Your Dream Partner, Contact & Meet Directly.</p>
-                            </div>
-                        </div>
-                        <div class="col-md-5">
-                            <div class="form_container">
-                                <h2 class="text-white">Register Now</h2>
-                                <div class="formbanner">
-                                    <form name="ajax_form" action="#"id="ajax_form" method="POST" class="form-horizontal formreg mb-25">
-                                       <div class="form-group">
-                                            <div class="col-md-12">
-                                                <label><i class="far fa-user"></i></label>
-                                                <input type="text" id="fname" name="name" class="form-control" placeholder="Enter your full name" required>
-                                            </div>
-                                        </div>    
-                                        <div class="form-group">    
-                                            <div class="col-md-12">
-                                                <label><i class="far fa-envelope"></i></label>
-                                                <input type="email" id="femail" name="email" class="form-control" placeholder="Enter your email" required>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">        
-                                            <div class="col-md-12">
-                                                <label><i class="fas fa-phone"></i></label>
-                                                <input type="text" id="fphone" name="phone" class="form-control" placeholder="Phone number" required>
-                                            </div>
-                                        </div>
-                                          <div class="form-group">        
-                                            <div class="col-md-12">
-                                                <label><i class="fas fa-phone"></i></label>
-                                                <input type="text" id="fphone" name="phone" class="form-control" placeholder="Enter Your Location Here" required>
-                                            </div>
-                                        </div>
-                                         <div class="form-group">        
-                                            <div class="col-md-12">
-                                                <label><i class="fas fa-phone"></i></label>
-                                                <input type="text" id="fphone" name="phone" class="form-control" placeholder="Enter Your Caste Here" required>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                        <div class="col-md-12">
-                                        	                                        <input type="submit" name="submit" id="btnsignup" class="btnsignup" value="Next">
-
-                                        </div>
-                                    </div>
-  
-                                    </form>
-                                    
-                                </div>
-                            </div>   
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- End Banner -->
-
-		<!-- About -->
-        <section id="about" class="about_section about overlay">
-            <div class="container">
-                <div class="imgposabout" style="background: url(<?php echo base_url(); ?>assets/img/about.jpg) no-repeat center center;"></div>
-                
-                <div class="col-lg-4 col-lg-offset-4">
-                    <h2>ABOUT</h2>
-                    <div class="line"></div>
-                </div>
-                <div class="col-lg-4"></div>
-                <div class="col-lg-4 col-lg-offset-4">
-                    <p>Simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
-                </div>
-
-                <div class="col-lg-4">
-                    <p>It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-                </div>
-            </div>
-        </section>
-        <!-- End About -->
-
-		<!-- Destination -->
-        <section id="destination" class="destination_section overlay">
-			<div class="container">
-				<div class="col-md-4">
-					<div class="display-table wrapdestination">
-						<div class="table-cell">
-							<h2>DESTINATION</h2>
-							<div class="line"></div>
-						
-							<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-8">
-					<div class="display-table wrapdestination">
-						<div class="table-cell">
-
-							<div class="col-md-6">
-								<a href="<?php echo base_url(); ?>assets/img/destination2.jpg" class="venobox" data-gall="destinationgallery" data-title="Lounge"><img src="<?php echo base_url(); ?>assets/img/destination2.jpg" class="img-responsive" alt="destination">
-
-								<span><i class="fas fa-eye"></i></span>
-
-								</a>
-
-								
+			<div class="col-lg-12">
+				<div style="position: relative;">
+					<div class="swiper-js-container background-image-holder">
+						<div class="swiper-container" data-swiper-autoplay="true" data-swiper-effect="coverflow" data-swiper-items="1" data-swiper-space-between="0">
+							<div class="swiper-wrapper">
+								<!-- Slide -->
+								<div class="swiper-slide" data-swiper-autoplay="10000">
+									<div class="slice px-3 holder-item holder-item-light has-bg-cover bg-size-cover same-height" data-same-height="#div_properties_search" style="height: 650px; background-size: cover; background-position: center; background-image: url(<?php echo base_url(); ?>assets/client/uploads/home_page/slider_image/slider_image_1.jpg); background-position: bottom bottom;">
+									</div>
+								</div>
+								<div class="swiper-slide" data-swiper-autoplay="10000">
+									<div class="slice px-3 holder-item holder-item-light has-bg-cover bg-size-cover same-height" data-same-height="#div_properties_search" style="height: 650px; background-size: cover; background-position: center; background-image: url(<?php echo base_url(); ?>assets/client/uploads/home_page/slider_image/slider_image_2.jpg); background-position: bottom bottom;">
+									</div>
+								</div>
+								<div class="swiper-slide" data-swiper-autoplay="10000">
+									<div class="slice px-3 holder-item holder-item-light has-bg-cover bg-size-cover same-height" data-same-height="#div_properties_search" style="height: 650px; background-size: cover; background-position: center; background-image: url(<?php echo base_url(); ?>assets/client/uploads/home_page/slider_image/slider_image_3.jpg); background-position: bottom bottom;">
+									</div>
+								</div>
 							</div>
-							<div class="col-md-6">
-								<a href="<?php echo base_url(); ?>assets/img/destination3.jpg" class="venobox" data-gall="destinationgallery" data-title="Living Room"><img src="<?php echo base_url(); ?>assets/img/destination3.jpg" class="img-responsive" alt="destination">
-
-								<span><i class="fas fa-eye"></i></span>
-
-								</a>
+							<!-- Add Arrows -->
+							<div class="swiper-button swiper-button-next">
 							</div>
-
+							<div class="swiper-button swiper-button-prev">
+							</div>
 						</div>
 					</div>
-				</div>
-
+					<div class="container pl-0">
+						<div class="outer-search" style="margin-left: 730px;top: 50px">
+							<h4 class="text-white text-center mb-4">
+								<span style="text-shadow: 4px 3px 6px #000;">Search Your Soul Mates</span>
+							</h4>
+							<div class="feature feature--boxed-border feature--bg-1 z-depth-2-bottom px-3 py-4 animated animation-ended s-search" data-animation-in="zoomIn" data-animation-delay="400" style="background: #1b1e23b3;min-width: 400px">
+								<form class="mt-4" data-toggle="validator" role="form" action="http://activeitzone.com/demo/matrimonial/home/listing/home_search" method="POST" style="margin-top: 0px !important;">
+									<div class="row">
+										
+										<div class="col-lg-12 col-md-5 col-sm-6 col-6">
+											<div class="form-group has-feedback">
+												<label for="" class="text-uppercase text-white">Religion</label>
+												<select name="religion" onChange="(this.value,this)" class="form-control form-control-sm selectpicker s_religion"  data-placeholder="Choose a religion" tabindex="2" data-hide-disabled="true" ><option value="">Choose one</option><option value="2" >Judaism</option><option value="3" >Cristianity</option><option value="4" >Hinduism</option><option value="5" >Buddhism</option><option value="6" >Atheism</option><option value="7" >Islam</option><option value="8" >Sikhism</option><option value="9" >Jain</option></select>                                    <div class="help-block with-errors">
+												</div>
+											</div>
+										</div>
+										<div class="col-lg-5 col-md-5 col-sm-6 col-6">
+											<div class="form-group has-feedback">
+												<label for="" class="text-uppercase text-white">Mother Tongue</label>
+												<select name="language" onChange="(this.value,this)" class="form-control form-control-sm selectpicker"   data-placeholder="Choose a language" tabindex="2" data-hide-disabled="true" ><option value="">Choose one</option><option value="2" >Bengali</option><option value="4" >German</option><option value="7" >English</option><option value="8" >Hindi</option><option value="9" >Urdu</option></select>                                    <div class="help-block with-errors">
+												</div>
+											</div>
+										</div>
+										<div class="col-lg-2 col-md-2 col-sm-12 col-12 mr-auto">
+											<button type="submit" class="btn btn-styled btn-sm btn-block btn-base-1 btn-search" style="padding: 6.5px 5px !important;margin-top: 29px;">Search</button>
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>    
+			</div>        </div>
+		</div>
+	</section>
+	<section class="slice sct-color-1">
+		<div class="container">
+			<div class="section-title section-title--style-1 text-center">
+				<h3 class="section-title-inner">
+					<span>Premium Members</span>
+				</h3>
+				<span class="section-title-delimiter clearfix d-none"></span>
 			</div>
-
-        </section>
-        <!-- End Destination -->
-
-		<!-- Activity -->
-      <!--   <section id="activity" class="activity_section">
-			
-			<div class="container">
-
-			<div class="col-md-12">
-					<h2>VACATION ACTIVITY</h2>
-					<div class="line"></div>
-			</div>
-
-			<div class="col-md-12">
-					
-					<div class="gridmain">
-						<div class="grid-sizer"></div>
-						<div class="grid-item width1" style="background: url(<?php echo base_url(); ?>assets/img/activity5.jpg) no-repeat center center;">
-							<a href="<?php echo base_url(); ?>assets/img/activity5.jpg" class="venobox" data-gall="activitygallery" data-title="Surfing - We offers adventurous and fun surfing for all levels!">
-								<div class="texting">
-									<div class="wraptext">
-										<h1>Surfing</h1>
-										<p>We offers adventurous and fun surfing for all levels!</p> 
+			<span class="space-xs-xl"></span>
+			<div class="swiper-js-container">
+				<div class="swiper-container" data-swiper-autoplay="true" data-swiper-items="4" data-swiper-space-between="20" data-swiper-md-items="3" data-swiper-md-space-between="20" data-swiper-sm-items="2" data-swiper-sm-space-between="20" data-swiper-xs-items="1" data-swiper-xs-space-between="0">
+					<div class="swiper-wrapper pb-5">
+						<div class="swiper-slide" data-swiper-autoplay="2000">
+							<div class="block block--style-5">
+								<div class="card card-hover--animation-1 z-depth-1-top z-depth-2--hover">
+									<div class="profile-picture profile-picture--style-2">
+										<div class="home_pm" style="background-image: url(<?php echo base_url(); ?>assets/client/uploads/profile_image/default.jpg)"></div>
+									</div>
+									<div class="card-body text-center">
+										<h3 class="heading heading-5 premium_heading">Whitney Stevens Channing Beard</h3>
+										<div class="mt-2">
+											<ul class="inline-links inline-links--style-2">
+												<li>
+													<span class="c-base-1 strong-500">0</span> Follower(s)</li>
+													<li>
+														<span class="c-base-1 strong-500">7</span> Following</li>
+													</ul>
+												</div>
+												<a class="btn btn-styled btn-xs btn-base-1 z-depth-2-bottom mt-2 text-white" onclick="return goto_profile(46)">Full Profile</a>
+											</div>
+										</div>
 									</div>
 								</div>
-								<div class="hovering">
-									<div class="plus">+</div>
-								</div>
-							</a>
-						</div>
+								<div class="swiper-slide" data-swiper-autoplay="2000">
+									<div class="block block--style-5">
+										<div class="card card-hover--animation-1 z-depth-1-top z-depth-2--hover">
+											<div class="profile-picture profile-picture--style-2">
+												<div class="home_pm" style="background-image: url(http://activeitzone.com/demo/matrimonial/uploads/profile_image/default.jpg"></div>
+											</div>
+											<div class="card-body text-center">
+												<h3 class="heading heading-5 premium_heading">Elizabeth Mason</h3>
+												<div class="mt-2">
+													<ul class="inline-links inline-links--style-2">
+														<li>
+															<span class="c-base-1 strong-500">0</span> Follower(s)</li>
+															<li>
+																<span class="c-base-1 strong-500">2</span> Following</li>
+															</ul>
+														</div>
+														<a class="btn btn-styled btn-xs btn-base-1 z-depth-2-bottom mt-2 text-white" onclick="return goto_profile(44)">Full Profile</a>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="swiper-slide" data-swiper-autoplay="2000">
+											<div class="block block--style-5">
+												<div class="card card-hover--animation-1 z-depth-1-top z-depth-2--hover">
+													<div class="profile-picture profile-picture--style-2">
+														<div class="home_pm" style="background-image: url(<?php echo base_url(); ?>assets/client/uploads/profile_image/profile_34.jpg)"></div>
+													</div>
+													<div class="card-body text-center">
+														<h3 class="heading heading-5 premium_heading">Cary  Campbell</h3>
+														<div class="mt-2">
+															<ul class="inline-links inline-links--style-2">
+																<li>
+																	<span class="c-base-1 strong-500">0</span> Follower(s)</li>
+																	<li>
+																		<span class="c-base-1 strong-500">1</span> Following</li>
+																	</ul>
+																</div>
+																<a class="btn btn-styled btn-xs btn-base-1 z-depth-2-bottom mt-2 text-white" onclick="return goto_profile(34)">Full Profile</a>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="swiper-slide" data-swiper-autoplay="2000">
+													<div class="block block--style-5">
+														<div class="card card-hover--animation-1 z-depth-1-top z-depth-2--hover">
+															<div class="profile-picture profile-picture--style-2">
+																<div class="home_pm" style="background-image: url(<?php echo base_url(); ?>assets/client/uploads/profile_image/profile_14.jpg)"></div>
+															</div>
+															<div class="card-body text-center">
+																<h3 class="heading heading-5 premium_heading">Monir Hossain</h3>
+																<div class="mt-2">
+																	<ul class="inline-links inline-links--style-2">
+																		<li>
+																			<span class="c-base-1 strong-500">1</span> Follower(s)</li>
+																			<li>
+																				<span class="c-base-1 strong-500">0</span> Following</li>
+																			</ul>
+																		</div>
+																		<a class="btn btn-styled btn-xs btn-base-1 z-depth-2-bottom mt-2 text-white" onclick="return goto_profile(14)">Full Profile</a>
+																	</div>
+																</div>
+															</div>
+														</div>
+														<div class="swiper-slide" data-swiper-autoplay="2000">
+															<div class="block block--style-5">
+																<div class="card card-hover--animation-1 z-depth-1-top z-depth-2--hover">
+																	<div class="profile-picture profile-picture--style-2">
+																		<div class="home_pm" style="background-image: url(<?php echo base_url(); ?>assets/client/uploads/profile_image/default.jpg)"></div>
+																	</div>
+																	<div class="card-body text-center">
+																		<h3 class="heading heading-5 premium_heading">Miriam Roberson</h3>
+																		<div class="mt-2">
+																			<ul class="inline-links inline-links--style-2">
+																				<li>
+																					<span class="c-base-1 strong-500">0</span> Follower(s)</li>
+																					<li>
+																						<span class="c-base-1 strong-500">0</span> Following</li>
+																					</ul>
+																				</div>
+																				<a class="btn btn-styled btn-xs btn-base-1 z-depth-2-bottom mt-2 text-white" onclick="return goto_profile(45)">Full Profile</a>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+																<div class="swiper-slide" data-swiper-autoplay="2000">
+																	<div class="block block--style-5">
+																		<div class="card card-hover--animation-1 z-depth-1-top z-depth-2--hover">
+																			<div class="profile-picture profile-picture--style-2">
+																				<div class="home_pm" style="background-image: url(<?php echo base_url(); ?>assets/client/uploads/profile_image/profile_10.jpg)"></div>
+																			</div>
+																			<div class="card-body text-center">
+																				<h3 class="heading heading-5 premium_heading">Amber Huffman</h3>
+																				<div class="mt-2">
+																					<ul class="inline-links inline-links--style-2">
+																						<li>
+																							<span class="c-base-1 strong-500">1</span> Follower(s)</li>
+																							<li>
+																								<span class="c-base-1 strong-500">0</span> Following</li>
+																							</ul>
+																						</div>
+																						<a class="btn btn-styled btn-xs btn-base-1 z-depth-2-bottom mt-2 text-white" onclick="return goto_profile(10)">Full Profile</a>
+																					</div>
+																				</div>
+																			</div>
+																		</div>
+																		<div class="swiper-slide" data-swiper-autoplay="2000">
+																			<div class="block block--style-5">
+																				<div class="card card-hover--animation-1 z-depth-1-top z-depth-2--hover">
+																					<div class="profile-picture profile-picture--style-2">
+																						<div class="home_pm" style="background-image: url(<?php echo base_url(); ?>assets/client/uploads/profile_image/profile_40.jpg)"></div>
+																					</div>
+																					<div class="card-body text-center">
+																						<h3 class="heading heading-5 premium_heading">New  User</h3>
+																						<div class="mt-2">
+																							<ul class="inline-links inline-links--style-2">
+																								<li>
+																									<span class="c-base-1 strong-500">0</span> Follower(s)</li>
+																									<li>
+																										<span class="c-base-1 strong-500">0</span> Following</li>
+																									</ul>
+																								</div>
+																								<a class="btn btn-styled btn-xs btn-base-1 z-depth-2-bottom mt-2 text-white" onclick="return goto_profile(40)">Full Profile</a>
+																							</div>
+																						</div>
+																					</div>
+																				</div>
+																				<div class="swiper-slide" data-swiper-autoplay="2000">
+																					<div class="block block--style-5">
+																						<div class="card card-hover--animation-1 z-depth-1-top z-depth-2--hover">
+																							<div class="profile-picture profile-picture--style-2">
+																								<div class="home_pm" style="background-image: url(<?php echo base_url(); ?>assets/client/uploads/profile_image/profile_1.jpg)"></div>
+																							</div>
+																							<div class="card-body text-center">
+																								<h3 class="heading heading-5 premium_heading">Slade Bennett</h3>
+																								<div class="mt-2">
+																									<ul class="inline-links inline-links--style-2">
+																										<li>
+																											<span class="c-base-1 strong-500">7</span> Follower(s)</li>
+																											<li>
+																												<span class="c-base-1 strong-500">6</span> Following</li>
+																											</ul>
+																										</div>
+																										<a class="btn btn-styled btn-xs btn-base-1 z-depth-2-bottom mt-2 text-white" onclick="return goto_profile(1)">Full Profile</a>
+																									</div>
+																								</div>
+																							</div>
+																						</div>
+																						<div class="swiper-slide" data-swiper-autoplay="2000">
+																							<div class="block block--style-5">
+																								<div class="card card-hover--animation-1 z-depth-1-top z-depth-2--hover">
+																									<div class="profile-picture profile-picture--style-2">
+																										<div class="home_pm" style="background-image: url(http://activeitzone.com/demo/matrimonial/uploads/profile_image/default.jpg"></div>
+																									</div>
+																									<div class="card-body text-center">
+																										<h3 class="heading heading-5 premium_heading">Jaden Reyes</h3>
+																										<div class="mt-2">
+																											<ul class="inline-links inline-links--style-2">
+																												<li>
+																													<span class="c-base-1 strong-500">3</span> Follower(s)</li>
+																													<li>
+																														<span class="c-base-1 strong-500">1</span> Following</li>
+																													</ul>
+																												</div>
+																												<a class="btn btn-styled btn-xs btn-base-1 z-depth-2-bottom mt-2 text-white" onclick="return goto_profile(3)">Full Profile</a>
+																											</div>
+																										</div>
+																									</div>
+																								</div>
+																								<div class="swiper-slide" data-swiper-autoplay="2000">
+																									<div class="block block--style-5">
+																										<div class="card card-hover--animation-1 z-depth-1-top z-depth-2--hover">
+																											<div class="profile-picture profile-picture--style-2">
+																												<div class="home_pm" style="background-image: url(<?php echo base_url(); ?>assets/client/uploads/profile_image/profile_5.jpg)"></div>
+																											</div>
+																											<div class="card-body text-center">
+																												<h3 class="heading heading-5 premium_heading">Cole  Bender</h3>
+																												<div class="mt-2">
+																													<ul class="inline-links inline-links--style-2">
+																														<li>
+																															<span class="c-base-1 strong-500">3</span> Follower(s)</li>
+																															<li>
+																																<span class="c-base-1 strong-500">0</span> Following</li>
+																															</ul>
+																														</div>
+																														<a class="btn btn-styled btn-xs btn-base-1 z-depth-2-bottom mt-2 text-white" onclick="return goto_profile(5)">Full Profile</a>
+																													</div>
+																												</div>
+																											</div>
+																										</div>
+																										<div class="swiper-slide" data-swiper-autoplay="2000">
+																											<div class="block block--style-5">
+																												<div class="card card-hover--animation-1 z-depth-1-top z-depth-2--hover">
+																													<div class="profile-picture profile-picture--style-2">
+																														<div class="home_pm" style="background-image: url(<?php echo base_url(); ?>assets/client/uploads/profile_image/profile_2.jpg)"></div>
+																													</div>
+																													<div class="card-body text-center">
+																														<h3 class="heading heading-5 premium_heading">Emma Clark</h3>
+																														<div class="mt-2">
+																															<ul class="inline-links inline-links--style-2">
+																																<li><span class="c-base-1 strong-500">3</span> Follower(s)</li><li>	<span class="c-base-1 strong-500">3</span> Following</li>
+																															</ul>
+																														</div>
+																														<a class="btn btn-styled btn-xs btn-base-1 z-depth-2-bottom mt-2 text-white" onclick="return goto_profile(2)">Full Profile</a>
+																													</div>
+																												</div>
+																											</div>
+																										</div>
+																									</div>
+																									<!-- Add Pagination -->
+																									<div class="swiper-pagination">
+																									</div>
+																								</div>
+																							</div>
+																						</div>
+																					</section>
+																					<script>
+																						var isloggedin = "";
 
-						<div class="grid-item width2" style="background: url(<?php echo base_url(); ?>assets/img/activity1.jpg) no-repeat center center;">
-							<a href="img/activity1.jpg" class="venobox" data-gall="activitygallery" data-title="Snorkeling - You will find a beautiful coral reefs here and enjoy colorful fish">
-								<div class="texting">
-									<div class="wraptext">
-										<h1>Snorkeling</h1>
-										<p>You will find a beautiful coral reefs here and enjoy colorful fish.</p> 
-									</div>
-								</div>
-								<div class="hovering">
-									<div class="plus">+</div>
-								</div>
-							</a>
-						</div>
+																						$(document).ready(function() {
+																							setTimeout(function() {
+																								set_premium_member_box_height();
+																							}, 1000);
+																						});
 
-						<div class="grid-item width2" style="background: url(<?php echo base_url(); ?>assets/img/activity2.jpg) no-repeat center center;">
-							<a href="img/activity2.jpg" class="venobox" data-gall="activitygallery" data-title="Enjoy Sunset - On the evening enjoy sunset with your family and enjoy some tea or coffee.">
-								<div class="texting">
-									<div class="wraptext">
-										<h1>Enjoy Sunset</h1>
-										<p>On the evening enjoy sunset with your family and enjoy some tea or coffee.</p>
-									</div>
-								</div>
-								<div class="hovering">
-									<div class="plus">+</div>
-								</div>
-							</a>
-						</div>
-							
-						<div class="grid-item width2" style="background: url(<?php echo base_url(); ?>assets/img/activity3.jpg) no-repeat center center;">
-							<a href="<?php echo base_url(); ?>assets/img/activity3.jpg" class="venobox" data-gall="activitygallery" data-title="Sun Bathing - Need a bit dark skin? enjoy sun bathing in here.">
-								<div class="texting">
-									<div class="wraptext">
-										<h1>Sun Bathing</h1>
-										<p>Need a bit dark skin? enjoy sun bathing in here. </p> 
-									</div>
-								</div>
-								<div class="hovering">
-									<div class="plus">+</div>
-								</div>
-							</a>
-						</div>
+																						function set_premium_member_box_height() {
+																							var max_title = 0;
+																							$('.swiper-slide .premium_heading').each(function() {
+																								var current_height = parseInt($(this).css('height'));
+																								if (current_height >= max_title) {
+																									max_title = current_height;
+																								}
+																							});
+																							$('.swiper-slide .premium_heading').css('height', max_title);
+																						}
 
-						<div class="grid-item width2" style="background: url(<?php echo base_url(); ?>assets/img/activity4.jpg) no-repeat center center;">
-							<a href="<?php echo base_url(); ?>assets/img/activity4.jpg" class="venobox" data-gall="activitygallery" data-title="Explore Miami - Go and travel around to miami island. Find a beautiful template here.">
-								<div class="texting">
-									<div class="wraptext">
-										<h1>Explore Miami</h1>
-										<p>Go and travel around to miami island. Find a beautiful template here.</p> 
-									</div>
-								</div>
-								<div class="hovering">
-									<div class="plus">+</div>
-								</div>
-							</a>
-						</div>
-					</div>
+																						function goto_profile(id) {
+																							if (isloggedin == "") {
+																								$("#active_modal").modal("toggle");
+																								$("#modal_header").html("Please Login");
+																								$("#modal_body").html("<p class='text-center'>Please Login To View Full Profile Of This Member</p>");
+																								$("#modal_buttons").html("<button type='button' class='btn btn-danger btn-sm btn-shadow' data-dismiss='modal' style='width:25%'>Close</button> <a href='http://activeitzone.com/demo/matrimonial/home/login' class='btn btn-sm btn-base-1 btn-shadow' style='width:25%'>Login</a>");
+																							}
+																							else {
+																								window.location.href = "http://activeitzone.com/demo/matrimonial/home/member_profile/"+id;
+																							}
+																						}
+																					</script>
+																					<section class="slice--offset parallax-section parallax-section-lg" style="background-image: url(<?php echo base_url(); ?>assets/client/uploads/home_page/parallax_image/parallax_image_1513662458.jpg);">
+																						<span class="mask mask-dark--style-2"></span>
+																						<div class="container">
+																							<div class="row py-3 justify-content-center">
+																								<div class="col-lg-8 col-md-8 text-center">
+																									<h1 class="heading heading-inverse heading-1 strong-400 text-normal">
+																									Active  Matrimonial CMS </h1>
+																									<span class="clearfix"></span>
+																									<div class="fluid-paragraph fluid-paragraph-sm mt-3 mb-3 c-white">
+																									Demo in Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas neque diam, luctus at laoreet in, auctor ut tellus. Etiam enim lacus, ornare et tempor, rhoncus rhoncus sem.                </div>
+																									<div class="btn-container mt-5">
+																										<a href="registration.html" class="btn btn-styled btn-md btn-base-1 z-depth-2-bottom">Register Now</a>
+																									</div>
+																								</div>
+																							</div>
+																						</div>
+																					</section>
+																					<section class="slice sct-color-1">
+																						<div class="container">
+																							<div class="section-title section-title--style-1 text-center">
+																								<h3 class="section-title-inner">
+																									<span>Happy Stories</span>
+																								</h3>
+																								<span class="section-title-delimiter clearfix d-none"></span>
+																							</div>
+																							<span class="space-xs-xl"></span>
+																							<div class="swiper-js-container">
+																								<div class="swiper-container" data-swiper-autoplay="true" data-swiper-items="4" data-swiper-space-between="20" data-swiper-md-items="3" data-swiper-md-space-between="20" data-swiper-sm-items="2" data-swiper-sm-space-between="20" data-swiper-xs-items="1" data-swiper-xs-space-between="0">
+																									<div class="swiper-wrapper pb-5">
 
-				</div>
+																										<div class="swiper-slide z-depth-2-bottom" data-swiper-autoplay="2300">
+																											<div class="card">
+																												<div class="card-image">
+																													<div class="home_shory" style="background-image: url('<?php echo base_url(); ?>assets/client/uploads/happy_story_image/img-1.jpg')"></div>
+																												</div>
+																												<div class="card-body">
+																													<small><em>15, July 2018 </em></small>
+																													<h3 class="heading heading-5 strong-500 story_heading">
+																														<a href="stories/story_detail/1.html" style="cursor: pointer !important;">Demo Happy Story Title ..</a>
+																													</h3>
+																												</div>
+																											</div>
+																										</div>
+																										<div class="swiper-slide z-depth-2-bottom" data-swiper-autoplay="2300">
+																											<div class="card">
+																												<div class="card-image">
+																													<div class="home_shory" style="background-image: url('<?php echo base_url(); ?>assets/client/uploads/happy_story_image/img-2.jpg')"></div>
+																												</div>
+																												<div class="card-body">
+																													<small><em>01, February 2018 </em></small>
+																													<h3 class="heading heading-5 strong-500 story_heading">
+																														<a href="stories/story_detail/2.html" style="cursor: pointer !important;">Demo Happy Story Title ..</a>
+																													</h3>
+																												</div>
+																											</div>
+																										</div>
+																										<div class="swiper-slide z-depth-2-bottom" data-swiper-autoplay="2300">
+																											<div class="card">
+																												<div class="card-image">
+																													<div class="home_shory" style="background-image: url('<?php echo base_url(); ?>assets/client/uploads/happy_story_image/img-3.jpg')"></div>
+																												</div>
+																												<div class="card-body">
+																													<small><em>30, December 2017 </em></small>
+																													<h3 class="heading heading-5 strong-500 story_heading">
+																														<a href="stories/story_detail/3.html" style="cursor: pointer !important;">Demo Happy Story Title ..</a>
+																													</h3>
+																												</div>
+																											</div>
+																										</div>
+																										<div class="swiper-slide z-depth-2-bottom" data-swiper-autoplay="2300">
+																											<div class="card">
+																												<div class="card-image">
+																													<div class="home_shory" style="background-image: url('<?php echo base_url(); ?>assets/client/uploads/happy_story_image/img-4.jpg')"></div>
+																												</div>
+																												<div class="card-body">
+																													<small><em>04, February 2018 </em></small>
+																													<h3 class="heading heading-5 strong-500 story_heading">
+																														<a href="stories/story_detail/4.html" style="cursor: pointer !important;">Demo Happy Story Title ..</a>
+																													</h3>
+																												</div>
+																											</div>
+																										</div>
+																										<div class="swiper-slide z-depth-2-bottom" data-swiper-autoplay="2300">
+																											<div class="card">
+																												<div class="card-image">
+																													<div class="home_shory" style="background-image: url('<?php echo base_url(); ?>assets/client/uploads/happy_story_image/img-5.jpg')"></div>
+																												</div>
+																												<div class="card-body">
+																													<small><em>22, November 2017 </em></small>
+																													<h3 class="heading heading-5 strong-500 story_heading">
+																														<a href="stories/story_detail/5.html" style="cursor: pointer !important;">Demo Happy Story Title ..</a>
+																													</h3>
+																												</div>
+																											</div>
+																										</div>
+																										<div class="swiper-slide z-depth-2-bottom" data-swiper-autoplay="2300">
+																											<div class="card">
+																												<div class="card-image">
+																													<div class="home_shory" style="background-image: url('<?php echo base_url(); ?>assets/client/uploads/happy_story_image/happy_story_7_1_thumb.jpg')"></div>
+																												</div>
+																												<div class="card-body">
+																													<small><em>10, July 2018 </em></small>
+																													<h3 class="heading heading-5 strong-500 story_heading">
+																														<a href="stories/story_detail/7.html" style="cursor: pointer !important;">Demo Happy Story</a>
+																													</h3>
+																												</div>
+																											</div>
+																										</div>
 
-			</div>
+																									</div>
+																									<!-- Add Pagination -->
+																									<div class="swiper-pagination">
+																									</div>
+																								</div>
+																							</div>
+																						</div>
+																					</section>
+																					<script>
+																						$(document).ready(function() {
+																							setTimeout(function() {
+																								set_story_box_height();
+																							}, 1000);
+																						});
 
-        </section> -->
-        <!-- End Activity -->
+																						function set_story_box_height() {
+																							var max_title = 0;
+																							$('.swiper-slide .story_heading').each(function() {
+																								var current_height = parseInt($(this).css('height'));
+																								if (current_height >= max_title) {
+																									max_title = current_height;
+																								}
+																							});
+																							$('.swiper-slide .story_heading').css('height', max_title);
+																						}
+																					</script>
+																					<section class="slice--offset parallax-section parallax-section-lg" style="background-image: url(<?php echo base_url(); ?>assets/client/uploads/home_page/premium_plans_image/premium_plans_image_1524736468.jpg)">
+																						<div class="container">
+																							<span class="clearfix"></span>
+																							<div class="row">
+																								<div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+																									<div class="feature feature--boxed-border feature--bg-2 active package_bg">
+																										<div class="icon-block--style-1-v5 text-center">
+																											<div class="block-icon c-gray-dark">
+																												<li style="list-style-type: none;">
+																													<img src="<?php echo base_url(); ?>assets/client/uploads/plan_image/plan_2_thumb.png" class="img-sm" height="80">
+																												</li>
+																											</div>
+																											<div class="block-content">
+																												<h3 class="heading heading-5 strong-500">Bronze</h3>
+																												<h3 class="price-tag"><sup style="font-size: 15px;"></sup>฿565.02</h3>
+																												<ul class="pl-0 pr-0">
+																													<li class="package_items">Express Interests: 10 Times</li>
+																													<li class="package_items">Direct Messages 10 Times</li>
+																													<li class="package_items">Photo Gallery 5 Images</li>
+																												</ul>
+																												<div class="py-2 text-center mb-2">
+																													<a href="plans/subscribe/2.html" class="btn btn-styled btn-sm btn-base-1 btn-outline btn-circle z-depth-2-bottom">
+																														<span class="">Get This Package</span>
+																													</a>
+																												</div>
+																											</div>
+																										</div>
+																									</div>
+																								</div>
+																								<div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+																									<div class="feature feature--boxed-border feature--bg-2 active package_bg">
+																										<div class="icon-block--style-1-v5 text-center">
+																											<div class="block-icon c-gray-dark">
+																												<li style="list-style-type: none;">
+																													<img src="<?php echo base_url(); ?>assets/client/uploads/plan_image/plan_3_thumb.png" class="img-sm" height="80">
+																												</li>
+																											</div>
+																											<div class="block-content">
+																												<h3 class="heading heading-5 strong-500">Silver</h3>
+																												<h3 class="price-tag"><sup style="font-size: 15px;"></sup>฿784.75</h3>
+																												<ul class="pl-0 pr-0">
+																													<li class="package_items">Express Interests: 15 Times</li>
+																													<li class="package_items">Direct Messages 10 Times</li>
+																													<li class="package_items">Photo Gallery 5 Images</li>
+																												</ul>
+																												<div class="py-2 text-center mb-2">
+																													<a href="plans/subscribe/3.html" class="btn btn-styled btn-sm btn-base-1 btn-outline btn-circle z-depth-2-bottom">
+																														<span class="">Get This Package</span>
+																													</a>
+																												</div>
+																											</div>
+																										</div>
+																									</div>
+																								</div>
+																								<div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+																									<div class="feature feature--boxed-border feature--bg-2 active package_bg">
+																										<div class="icon-block--style-1-v5 text-center">
+																											<div class="block-icon c-gray-dark">
+																												<li style="list-style-type: none;">
+																													<img src="<?php echo base_url(); ?>assets/client/uploads/plan_image/plan_4_thumb.png" class="img-sm" height="80">
+																												</li>
+																											</div>
+																											<div class="block-content">
+																												<h3 class="heading heading-5 strong-500">Gold</h3>
+																												<h3 class="price-tag"><sup style="font-size: 15px;"></sup>฿1,098.65</h3>
+																												<ul class="pl-0 pr-0">
+																													<li class="package_items">Express Interests: 20 Times</li>
+																													<li class="package_items">Direct Messages 15 Times</li>
+																													<li class="package_items">Photo Gallery 5 Images</li>
+																												</ul>
+																												<div class="py-2 text-center mb-2">
+																													<a href="plans/subscribe/4.html" class="btn btn-styled btn-sm btn-base-1 btn-outline btn-circle z-depth-2-bottom">
+																														<span class="">Get This Package</span>
+																													</a>
+																												</div>
+																											</div>
+																										</div>
+																									</div>
+																								</div>
+																								<div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+																									<div class="feature feature--boxed-border feature--bg-2 active package_bg">
+																										<div class="icon-block--style-1-v5 text-center">
+																											<div class="block-icon c-gray-dark">
+																												<li style="list-style-type: none;">
+																													<img src="<?php echo base_url(); ?>assets/client/uploads/plan_image/plan_5_thumb.png" class="img-sm" height="80">
+																												</li>
+																											</div>
+																											<div class="block-content">
+																												<h3 class="heading heading-5 strong-500">Platinum</h3>
+																												<h3 class="price-tag"><sup style="font-size: 15px;"></sup>฿1,412.55</h3>
+																												<ul class="pl-0 pr-0">
+																													<li class="package_items">Express Interests: 25 Times</li>
+																													<li class="package_items">Direct Messages 20 Times</li>
+																													<li class="package_items">Photo Gallery 7 Images</li>
+																												</ul>
+																												<div class="py-2 text-center mb-2">
+																													<a href="plans/subscribe/5.html" class="btn btn-styled btn-sm btn-base-1 btn-outline btn-circle z-depth-2-bottom">
+																														<span class="">Get This Package</span>
+																													</a>
+																												</div>
+																											</div>
+																										</div>
+																									</div>
+																								</div>
+																							</div>
+																						</div>
+																					</section>
+																					<section class="slice bg-base-2 no-padding">
+																						<div class="container">
+																							<div class="container-inner sct-color-1">
+																								<div class="block-card-wrapper">
+																									<div class="block-card-section">
+																										<div class="" id="same_height_1">
+																											<div class="row">
+																												<div class="col-lg-12 no-padding">
+																													<div class="same-height bg-base-2" data-same-height="#same_height_1">
+																														<center>
+																															<div class="sct-inner px-4 py-4">
+																																<h3 class="heading heading-5 strong-400">
+																																Contact Information </h3>
+																																<p class="mt-3 mb-3">
+																																Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor                                            </p>
+																																<div class="icon-block--style-3 mb-1 mt-5">
+																																	<i class="icon ion-ios-telephone bg-base-4"></i>
+																																	<span class="heading heading-6 strong-400">
+																																	+11 - 012 3456 7890 </span>
+																																</div>
+																																<div class="icon-block--style-3 mb-3">
+																																	<i class="icon ion-ios-email bg-base-4"></i>
+																																	<span class="heading heading-6 strong-400">
+																																	activeitzone@gmail.com </span>
+																																</div>
+																																<div class="icon-block--style-3">
+																																	<i class="icon ion-ios-location bg-base-4"></i>
+																																	<span class="heading heading-6 strong-400">
+																																	9975 Emerald Escape, LA </span>
+																																</div>
+																																<span class="clearfix"></span>
+																																<a href="contact_us.html" class="btn btn-styled btn-block btn-base-1 btn-outline btn-circle mt-5 z-depth-2-bottom" style="width: 40%;color: #FFF!important">
+																																Contact Us</a>
+																																<span class="clearfix"></span>
+																																<div class="text-center">
+																																	<ul class="social-media social-media--style-1-v4 mt-4">
+																																		<li><a href="http://facebook.com/" class="facebook" target="_blank" title="Facebook"><i class="fa fa-facebook-square"></i></a>
+																																		</li>
+																																		<li><a href="http://google.com/" class="facebook" target="_blank" title="Google-plus"><i class="fa fa-google-plus-square"></i></a>
+																																		</li>
+																																		<li><a href="http://twitter.com/" class="facebook" target="_blank" title="Twitter"><i class="fa fa-twitter-square"></i>	</a>
+																																		</li>
+																																		<li><a href="http://skype.com/" class="facebook" target="_blank" title="Skype"><i class="fa fa-skype"></i>	</a>
+																																		</li>
+																																		<li><a href="http://pinterest.com/" class="facebook" target="_blank" title="Pinterest">	<i class="fa fa-pinterest"></i></a>
+																																		</li>
+																																		<li><a href="http://youtube.com/" class="facebook" target="_blank" title="Youtube"><i class="fa fa-youtube"></i></a>
+																																		</li>
+																																	</ul>
+																																</div>
+																															</div>
+																														</center>
+																													</div>
+																												</div>
+																											</div>
+																										</div>
+																									</div>
+																								</div>
+																							</div>
+																						</div>
+																					</section>
+																					<script src="<?php echo base_url(); ?>assets/client/template/front/js/jquery.inputmask.bundle.min.js"></script>
+																					<script>
+																						$(document).ready(function(){
+																							$(".height_mask").inputmask({
+																								mask: "9.99",
+																								greedy: false,
+																								definitions: {
+																									'*': {
+																										validator: "[0-9]"
+																									}
+																								}
+																							});
+																						});
+																					</script>
+																					<script>
+																						$(document).ready(function(){
+																							$("#aged_from").change(function(){
+																								var from = parseInt($("#aged_from").val());
+																								var to = parseInt($("#aged_to").val());
+																								if (to < from) {
+																									var to = $("#aged_to").val(from);
+																								}
+																							});
+																							$("#aged_to").change(function(){
+																								var from = parseInt($("#aged_from").val());
+																								var to = parseInt($("#aged_to").val());
+																								if (to < from) {
+																									var to = $("#aged_to").val(from);
+																								}
+																							});
+																						});
 
+																						$(".s_religion").change(function(){
+																							var religion_id = $(".s_religion").val();
+																							if (religion_id == "") {
+																								$(".s_caste").html("<option value=''>Choose A Religion First</option>");
+																								$(".s_sub_caste").html("<option value=''>Choose A Caste First</option>");
+																							} else {
+																								$.ajax({
+																									url: "http://activeitzone.com/demo/matrimonial/home/get_dropdown_by_id_caste/caste/religion_id/"+religion_id, 
+																									type: 'POST', 
+                																					// form submit method get/post
+                																					dataType: 'html', 
+                																					// request type html/json/xml
+                																					cache       : false,
+                																					contentType : false,
+                																					processData : false,
+                																					success: function(data) {
+                																						$(".s_caste").html(data);
+                																						$(".s_sub_caste").html("<option value=''>Choose A Caste First</option>");
+                																					},
+                																					error: function(e) {
+                																						console.log(e)
+                																					}
+                																				});
+																							}
+																						});
 
-        <!-- Benefit -->
-        <section id="benefit" class="benefit_section overlay" style="background:url(<?php echo base_url(); ?>assets/img/benefit.jpg) center center no-repeat">
-        	<div class="container">
-        		<div class="col-md-12 col-sm-12">
-        			<h2>BENEFIT</h2>
-        			<div class="line"></div>
-        		</div>
-
-        		<div class="col-md-3 col-sm-6">
-        			<div class="wrap">
-	        			<img src="<?php echo base_url(); ?>assets/img/price-tag.png" class="img-responsive overlay" alt="Price">
-	        			<h3>Unbeatable Price</h3>
-	        			<p>We give you unbeatable price for this offer!</p>
-        			</div>
-        		</div>
-        		<div class="col-md-3 col-sm-6">
-        			<div class="wrap">
-	        			<img src="<?php echo base_url(); ?>assets/img/world.png" class="img-responsive overlay" alt="Plane">
-	        			<h3>1x Airport Transfer</h3>
-	        			<p>For this offer, we give you 1 way airport transfer FREE!</p>
-        			</div>
-        		</div>
-        		<div class="col-md-3 col-sm-6">
-        			<div class="wrap">
-	        			<img src="<?php echo base_url(); ?>assets/img/breakfast.png" class="img-responsive overlay" alt="Breakfast">
-	        			<h3>FREE Breakfast</h3>
-	        			<p>We will give you free breakfast.</p>
-        			</div>
-        		</div>
-        		<div class="col-md-3 col-sm-6">
-        			<div class="wrap">
-	        			<img src="<?php echo base_url(); ?>assets/img/itinerary.png" class="img-responsive overlay" alt="1 Day Free Travel">
-	        			<h3>1 Day Free Service</h3>
-	        			<p>We will give you one day free service</p>
-        			</div>
-        		</div>
-        	
-        	</div>
-        </section>
-        <!-- End Benefit -->
-
-
-		<!-- Client -->
-        <section id="client" class="client">
-			<div class="container">
-
-				<div class="col-md-12">
-        			<h2>CLIENT</h2>
-        			<div class="line"></div>
-        		</div>
-
-				<div class="col-md-12">
-					
-					<div class="col-md-4 clientwrap clienttop">
-						<img src="<?php echo base_url(); ?>assets/img/client/idea.png" class="img-responsive" alt="Idenam UX">
-						<h3>Idenam UX</h3>
-					</div>
-					<div class="col-md-4 clientwrap clienttop">
-						<img src="<?php echo base_url(); ?>assets/img/client/mouse.png" class="img-responsive" alt="Mousan Apps">
-						<h3>Mousan Apps</h3>
-					</div>
-					<div class="col-md-4 clientwrap clienttop">
-						<img src="<?php echo base_url(); ?>assets/img/client/pencil.png" class="img-responsive" alt="Pensilat Corp">
-						<h3>Pensilat Corp</h3>
-					</div>
-
-					<div class="clearfix"></div>
-
-					<div class="col-md-4 clientwrap clientbottom">
-						<img src="<?php echo base_url(); ?>assets/img/client/quality.png" class="img-responsive" alt="Quad Core Duo">
-						<h3>Quad Core Duo</h3>
-					</div>
-					<div class="col-md-4 clientwrap clientbottom">
-						<img src="<?php echo base_url(); ?>assets/img/client/resources.png" class="img-responsive" alt="Remarkable UX">
-						<h3>Remarkable UX</h3>
-					</div>
-					<div class="col-md-4 clientwrap clientbottom">
-						<img src="<?php echo base_url(); ?>assets/img/client/view.png" class="img-responsive" alt="Vkom Plex">
-						<h3>Vkom Plex</h3>
-					</div>
-
-				</div>
-			</div>
-        </section>
-        <!-- End Client -->
-
-		<!-- Customer Experience -->
-        <section id="customerexperience" class="customerexperience">
-			<div class="container">
-					<div class="col-md-8"><h3>A hundrend customer give us a good feedback for this offer. What you waiting for ?</h3></div>
-					<div class="col-md-4">
-						<div class="atag">
-							<a href="#signup">SIGN UP NOW</a>
-						</div>
-					</div>
-			</div>
-        </section>
-        <!-- End Customer Experience -->
-
-		<!-- Testimonial -->
-        <section id="testimonial" class="testimonial">
-        	<div class="container">
-        		<div class="row">
-
-        			<!-- Slider main container -->
-					<div class="swiper-container">
-					    <!-- Additional required wrapper -->
-					    <div class="swiper-wrapper">
-
-					        <!-- Slides -->
-					        <div class="swiper-slide">
-					        	<div class="wraptext">
-					        		<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-					        		<h3>~BEN BENNEDICT~</h3>
-					        	</div>
-					        </div>
-					        <div class="swiper-slide">
-					        	<div class="wraptext">
-					        		<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-					        		<h3>~BEN BENNEDICT~</h3>
-					        	</div>
-					        </div>
-					        <div class="swiper-slide">
-					        	<div class="wraptext">
-					        		<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-					        		<h3>~BEN BENNEDICT~</h3>
-					        	</div>
-					        </div>
-					        
-					    </div>
-					    <!-- If we need pagination 
-					    <div class="swiper-pagination"></div>
-					    -->
-					 
-					    <div class="swiper-button-prev">
-					    	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 27 44"><path d="M0,22L22,0l2.1,2.1L4.2,22l19.9,19.9L22,44L0,22L0,22L0,22z"></path></svg>
-					    </div>
-					    <div class="swiper-button-next">
-					    	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 27 44"><path d="M27,22L27,22L5,44l-2.1-2.1L22.8,22L2.9,2.1L5,0L27,22L27,22z"></path></svg>
-					    </div> 
-					 
-
-					</div>
-
-        		</div>
-        	</div>
-        </section>
-        <!-- End Testimonial -->
-
-        <!-- Map -->
-	    <section id="mapview" class="mapview">
-	    	<h3>Map View</h3>
-	        <div class="map" id="map"></div>
-	    </section>
-	    <!-- End Map -->
-		
-		<!-- Sosmed -->
-	    <section id="sosmed" class="sosmed">
-			<div class="container">
-				<div class="row">
-					<h3>Follow our social link</h3>
-					<ul>
-						<li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-						<li><a href="#"><i class="fab fa-twitter"></i></a></li>
-						<li><a href="#"><i class="fab fa-instagram"></i></a></li>
-						<li><a href="#"><i class="fab fa-tumblr"></i></a></li>
-						<li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
-					</ul>
-				</div>
-			</div>
-	    </section>
-	    <!-- End Sosmed -->
-
-        <!-- Footer -->
-        <section id="footer" class="footer">
-            <div class="container">
-                <div class="col-md-4 col-sm-12">
-                    <div class="widget_content editContent contentmain">
-                        <h2 class="text-white">Parinay</h2>
-                        <p>Your Life Partner Search Ends Here</p>
-                        <p>Search Your Dream Partner, Contact & Meet Directly.</p>
-                        <p>Register Now!</p>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-4">
-                    <div class="widget_content editContent">
-                        <h3 class="text-white">Contact</h3>
-                        <p>Near Bhim Nagar Bus Stop <br>NDA Road, Kondwe-Dhavde<br>Pune</p>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-4">
-                    <div class="widget_content editContent">
-                        <h3 class="text-white">Company</h3>
-                        <ul>
-                            <li><a href="#herobanner">Home</a></li>
-	                        <li><a href="#about">About</a></li>
-	                        <li><a href="#destination">Destinations</a></li>
-	                        <li><a href="#benefit">Benefit</a></li>
-	                        <li><a href="#client">Client</a></li>
-	                        <li><a href="#testimonial">Testimonial</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-md-2 col-sm-4">
-                    <div class="widget_content editContent lastchild">
-                        <h3 class="text-white">Socials</h3>
-                        <ul>
-                            <li><a href="https://www.facebook.com/">Facebook</a></li>
-                            <li><a href="https://twitter.com/">Twitter</a></li>
-                            <li><a href="https://plus.google.com/">Google+</a></li>
-                            <li><a href="http://instagram.com/">Instagram</a></li>
-                            <li><a href="https://www.linkedin.com/">Linkedin</a></li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="col-md-12 col-xs-12 cprights">
-					<p class="text-center"></p>
-                </div>
-            </div>
-        </section>
-        <!-- End Footer -->
- <script src="<?php echo base_url(); ?>assets/js/jquery.min.js"></script>
-  <script src="<?php echo base_url(); ?>assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="<?php echo base_url(); ?>assets/userJS/venobox.min.js"></script>
-    <script src="<?php echo base_url(); ?>assets/userJS/masonry.pkgd.min.js"></script>
-    <script src="<?php echo base_url(); ?>assets/userJS/imagesloaded.pkgd.min.js"></script>
-    <script src="<?php echo base_url(); ?>assets/userJS/swiper.min.js"></script>
-    
-    <script>
-      /*=========================================================================
-        Maps
-      =========================================================================*/
-      var marker;
-      function initMap() {
-        var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 16,
-          center: {lat: -8.619724, lng: 115.087758},
-          // Map Styling
-          styles: [
-                    {
-                        "featureType": "administrative",
-                        "elementType": "all",
-                        "stylers": [
-                            {
-                                "visibility": "on"
-                            },
-                            {
-                                "lightness": 33
-                            }
-                        ]
-                    },
-                    {
-                        "featureType": "landscape",
-                        "elementType": "all",
-                        "stylers": [
-                            {
-                                "color": "#f2e5d4"
-                            }
-                        ]
-                    },
-                    {
-                        "featureType": "poi.park",
-                        "elementType": "geometry",
-                        "stylers": [
-                            {
-                                "color": "#c5dac6"
-                            }
-                        ]
-                    },
-                    {
-                        "featureType": "poi.park",
-                        "elementType": "labels",
-                        "stylers": [
-                            {
-                                "visibility": "on"
-                            },
-                            {
-                                "lightness": 20
-                            }
-                        ]
-                    },
-                    {
-                        "featureType": "road",
-                        "elementType": "all",
-                        "stylers": [
-                            {
-                                "lightness": 20
-                            }
-                        ]
-                    },
-                    {
-                        "featureType": "road.highway",
-                        "elementType": "geometry",
-                        "stylers": [
-                            {
-                                "color": "#c5c6c6"
-                            }
-                        ]
-                    },
-                    {
-                        "featureType": "road.arterial",
-                        "elementType": "geometry",
-                        "stylers": [
-                            {
-                                "color": "#e4d7c6"
-                            }
-                        ]
-                    },
-                    {
-                        "featureType": "road.local",
-                        "elementType": "geometry",
-                        "stylers": [
-                            {
-                                "color": "#fbfaf7"
-                            }
-                        ]
-                    },
-                    {
-                        "featureType": "water",
-                        "elementType": "all",
-                        "stylers": [
-                            {
-                                "visibility": "on"
-                            },
-                            {
-                                "color": "#acbcc9"
-                            }
-                        ]
-                    }
-                ] // End map styling
-        });
-
-        marker = new google.maps.Marker({
-          map: map,
-          draggable: true,
-          animation: google.maps.Animation.DROP,
-          position: {lat: -8.619724, lng: 115.087758}
-        });
-        marker.addListener('click', toggleBounce);
-      }
-
-      function toggleBounce() {
-        if (marker.getAnimation() !== null) {
-          marker.setAnimation(null);
-        } else {
-          marker.setAnimation(google.maps.Animation.BOUNCE);
-        }
-      }
-    </script>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDMzGa-JHjmz7YB-x6OUujlMZW_Kp1fw-g&amp;callback=initMap"></script>
-    <script src="<?php echo base_url(); ?>assets/userJS/custom.js"></script>
-</body>
-
-<!-- Mirrored from gusekacreations.com/demo/como/ by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 10 Oct 2018 10:44:32 GMT -->
-</html>
+																						$(".s_caste").change(function(){
+																							var caste_id = $(".s_caste").val();
+																							if (caste_id == "") {
+																								$(".s_sub_caste").html("<option value=''>Choose A Caste First</option>");
+																							} else {
+																								$.ajax({
+																									url: "http://activeitzone.com/demo/matrimonial/home/get_dropdown_by_id_sub_caste/sub_caste/caste_id/"+caste_id, 
+																									type: 'POST', 
+                																					// form submit method get/post
+                																					dataType: 'html', 
+                																					// request type html/json/xml
+                																					cache       : false,
+                																					contentType : false,
+                																					processData : false,
+                																					success: function (data) {
+                																						if(data == false ){
+                																							$(".s_sub_caste").html("<option value=''>None</option>");
+                																						} else {
+                																							$(".s_sub_caste").html(data);
+                																						};
+                																					},
+                																					error: function(e) {
+                																						console.log(e)
+                																					}
+                																				});
+																							}
+																						});
+																					</script>                    

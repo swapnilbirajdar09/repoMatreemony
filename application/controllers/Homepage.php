@@ -14,6 +14,8 @@ class Homepage extends CI_Controller {
     // main index function
     public function index() {
         
+        $this->load->view('includes/user/userheader.php'); //------user header page
         $this->load->view('pages/user/homepage.php'); //------landing page
+        $this->load->view('includes/user/userfooter.php'); //------user footer page
     }
 }
