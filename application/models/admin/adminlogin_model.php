@@ -9,8 +9,7 @@ class adminlogin_model extends CI_Model {
     // login function to authenticate user
     public function adminlogin($username, $password) {
 
-        //print_r($username);die();
-        // get admin username
+     
         //---get admin details
         $sql = "SELECT * FROM admin_tab";
         $result = $this->db->query($sql);
@@ -31,29 +30,14 @@ class adminlogin_model extends CI_Model {
         if ($Admin_password != $password) {
             echo '<p class="w3-red w3-padding-small">Invalid Key passed for password!</p>';
         }
-//        $admin_username = adminlogin_model::getAdminDetails('username');
-//        // check passed key valid or not
-//        if (!$admin_username) {
-//            echo '<p class="w3-red w3-padding-small">Invalid Key passed for username!</p>';
-//        }
-//
-//        // get admin password
-//        $admin_password = adminlogin_model::getAdminDetails('password');
-//        // check passed key valid or not
-//        if (!$admin_password) {
-//            echo '<p class="w3-red w3-padding-small">Invalid Key passed for password!</p>';
-//        }
+
         // check post values with db values
         if ($Admin_username == $username && $Admin_password == $password) {
             return TRUE;
         } else {
             return FALSE;
         }
-//        if ($admin_username == $username && $admin_password == $password) {
-//            return true;
-//        } else {
-//            return false;
-//        }
+
     }
 
     // -----------------------GET ADMIN DETAILS----------------------//
@@ -71,6 +55,40 @@ class adminlogin_model extends CI_Model {
             return $error;
             die();
         }
+
+        // if no db errors
+        if ($result->num_rows() <= 0) {
+            return false;
+        } else {
+            $value = '';
+            foreach ($result->result_array() as $key) {
+                $value = $key['value'];
+            }
+            return $value;
+        }
+    }
+
+        public function getAdminEmail() {
+        $query = "SELECT * FROM `admin_tab` where admin_email = 'email'";
+        //echo $query;die();
+        $result = $this->db->query($query);
+
+        // if no db errors
+        if ($result->num_rows() <= 0) {
+            return false;
+        } else {
+            $value = '';
+            foreach ($result->result_array() as $key) {
+                $value = $key['value'];
+            }
+            return $value;
+        }
+    }
+
+    public function getAdminPassword() {
+        $query = "SELECT * FROM `admin_tab` where password= 'password'";
+        //echo $query;die();
+        $result = $this->db->query($query);
 
         // if no db errors
         if ($result->num_rows() <= 0) {
