@@ -32,10 +32,6 @@
   	<!-- Custom style - Remove if not necessary -->
   	<link type="text/css" href="<?php echo base_url(); ?>assets/client/template/front/css/custom-style.css" rel="stylesheet">
     <link href="<?php echo base_url(); ?>assets/build/css/w3.css" rel="stylesheet">
-  	<!-- Favicon -->
-
-
-  	<!-- SCRIPTS -->
   	<!-- Core -->
   	<script src="<?php echo base_url(); ?>assets/client/template/front/vendor/jquery/jquery.min.js"></script>    <!-- Favicon -->
   	<link href="<?php echo base_url(); ?>assets/client/uploads/favicon/favicon_1515409281.png" rel="icon" type="image/png">
