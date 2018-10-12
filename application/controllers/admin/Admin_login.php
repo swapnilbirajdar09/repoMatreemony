@@ -65,7 +65,7 @@ class Admin_login extends CI_Controller {
       public function forgetPassword() {
         $postdata = file_get_contents("php://input");
         $request = json_decode($postdata, TRUE);
-        //print_r($request);
+        //sprint_r($request);
 
         $admin_email = $this->Adminlogin_model->getAdminEmail();
         $admin_password = $this->Adminlogin_model->getAdminPassword();
