@@ -39,46 +39,44 @@
                 </div>
             </div>
 
-<!--                        <div class="col-lg-4 size-sm-btn mb-4">
-                            <button type="button" class="btn btn-block btn-base-1 mt-2 z-depth-2-bottom" onclick="adv_search()">Advanced Search</button>
-                        </div>-->
+            <!--                        <div class="col-lg-4 size-sm-btn mb-4">
+                                        <button type="button" class="btn btn-block btn-base-1 mt-2 z-depth-2-bottom" onclick="adv_search()">Advanced Search</button>
+                                    </div>-->
 
             <div class="col-lg-8">
                 <input type="hidden" id="member_type" value="">
                 <!-----------------------------this Div is for all users profiles---------------------------------->
                 <div class="block-wrapper" id="result">
                     <!-----------------------------this Div is for single user profile---------------------------------->
-                    <div class="block block--style-3 list z-depth-1-top" id="block_1" ng-repeat="p in profiles">
+                    <div class="block block--style-3 list z-depth-1-top" ng-if="profiles != 500" id="block_1" ng-repeat="p in profiles | filter:filter_member_id">
                         <div class="block-image">
                             <a onclick="goto_profile(p.user_profile_id)">
                                 <div class="listing-image" style="background-image: url(http://activeitzone.com/demo/matrimonial/uploads/profile_image/profile_1.jpg)"></div>
                             </a>
                         </div>
                         <div class="block-title-wrapper">
-                            <a class="badge-corner badge-corner-red">
-                                <span style="-ms-transform: rotate(45deg);/* IE 9 */-webkit-transform: rotate(45deg);/* Chrome, Safari, Opera */transform: rotate(45deg);font-size: 10px;margin-left: -14px;">Premium</span>
-                            </a>
+                            
                             <h3 class="heading heading-5 strong-500 mt-1">
-                                <a onclick="return goto_profile(1)" class="c-base-1">Slade Bennett</a>
+                                <a onclick="return goto_profile(1)" class="c-base-1">{{p.user_fullname}}</a>
                             </h3>
-                            <h4 class="heading heading-xs c-gray-light text-uppercase strong-400">Lead Developer</h4>
+                            <h4 class="heading heading-xs c-gray-light text-uppercase strong-400">{{p.user_designation}}</h4>
                             <table class="table-striped table-bordered mb-2" style="font-size: 12px;">
                                 <tbody>
                                     <tr>
                                         <td height="30" style="padding-left: 5px;" class="font-dark"><b>Member ID</b></td>
-                                        <td height="30" style="padding-left: 5px;" class="font-dark" colspan="3"><a onclick="return goto_profile(1)" class="c-base-1"><b>479CDDC01</b></a></td>
+                                        <td height="30" style="padding-left: 5px;" class="font-dark" colspan="3"><a onclick="return goto_profile(1)" class="c-base-1"><b>#000{{p.user_profile_id}}</b></a></td>
                                     </tr>
                                     <tr>
                                         <td width="120" height="30" style="padding-left: 5px;" class="font-dark"><b>Age</b></td>
-                                        <td width="120" height="30" style="padding-left: 5px;" class="font-dark">26</td>
+                                        <td width="120" height="30" style="padding-left: 5px;" class="font-dark">{{p.age}}</td>
                                         <td width="120" height="30" style="padding-left: 5px;" class="font-dark"><b>Height</b></td>
-                                        <td width="120" height="30" style="padding-left: 5px;" class="font-dark">6.00 Feet</td>
+                                        <td width="120" height="30" style="padding-left: 5px;" class="font-dark">{{p.user_height}} Feet</td>
                                     </tr>                                    
                                     <tr>
                                         <td width="120" height="30" style="padding-left: 5px;" class="font-dark"><b>Mother Tongue</b></td>
-                                        <td width="120" height="30" style="padding-left: 5px;" class="font-dark">Bengali</td>
+                                        <td width="120" height="30" style="padding-left: 5px;" class="font-dark">{{p.user_mother_tongue}}</td>
                                         <td width="120" height="30" style="padding-left: 5px;"><b>Marital Status</b></td>
-                                        <td width="120" height="30" style="padding-left: 5px;" class="font-dark">Never Married</td>
+                                        <td width="120" height="30" style="padding-left: 5px;" class="font-dark">{{p.user_marital_status}}</td>
                                     </tr>
                                     <tr>
                                         <td width="120" height="30" style="padding-left: 5px;" class="font-dark"><b>Location</b></td>
@@ -92,33 +90,43 @@
                                 <div class="col-sm-12 text-center">
                                     <ul class="inline-links inline-links--style-3">
                                         <li class="listing-hover">
-                                            <a onclick="return goto_profile(1)">
+                                            <a onclick="return goto_profile(p.user_profile_id)">
                                                 <i class="fa fa-id-card"></i>Full Profile</a>
                                         </li>
                                         <li class="listing-hover">
-                                            <a id="interest_a_1" onclick="return confirm_interest(1)" style="">
+                                            <a id="interest_a_1" onclick="confirm_interest(p.user_profile_id)" style="">
                                                 <span id="interest_1" class=""><i class="fa fa-heart"></i> Express Interest</span>
                                             </a>
                                         </li>
-<!--                                        <li class="listing-hover">
-                                            <a id="shortlist_a_1" onclick="return do_shortlist(1)" style="">
-                                                <span id="shortlist_1" class=""><i class="fa fa-list-ul"></i> Shortlist</span>
-                                            </a>
-                                        </li>-->
-<!--                                        <li class="listing-hover">
-                                            <a id="followed_a_1" onclick="return do_follow(1)" style="">
-                                                <span id="followed_1" class=""><i class="fa fa-star"></i> Follow</span>
-                                            </a>
-                                        </li>
-                                        <li class="listing-hover">
-                                            <a onclick="return confirm_ignore(1)"><i class="fa fa-ban"></i>Ignore</a>
-                                        </li>-->
+                                        <!--                                        <li class="listing-hover">
+                                                                                    <a id="shortlist_a_1" onclick="return do_shortlist(1)" style="">
+                                                                                        <span id="shortlist_1" class=""><i class="fa fa-list-ul"></i> Shortlist</span>
+                                                                                    </a>
+                                                                                </li>-->
+                                        <!--                                        <li class="listing-hover">
+                                                                                    <a id="followed_a_1" onclick="return do_follow(1)" style="">
+                                                                                        <span id="followed_1" class=""><i class="fa fa-star"></i> Follow</span>
+                                                                                    </a>
+                                                                                </li>
+                                                                                <li class="listing-hover">
+                                                                                    <a onclick="return confirm_ignore(1)"><i class="fa fa-ban"></i>Ignore</a>
+                                                                                </li>-->
                                     </ul>
                                 </div>
                             </div>
                         </div>
                     </div>
+
+
                     <!-----------------------------this Div is for single user profile---------------------------------->
+                    <div class=" w3-center w3-padding list z-depth-1-top" ng-if="profiles == 500" id="block_1">
+                        <fieldset>
+                            <div class="w3-padding w3-margin-top">
+                                <p class="w3-center w3-medium w3-text-black"> No Match Found..! </p>
+                            </div>
+                        </fieldset>
+                    </div>
+
                     <!--                    <div id="pseudo_pagination" style="display: none;">
                                             <ul class="pagination"><li class="page-item active"><a class="page-link">1<span class="sr-only">(current)</span></a></li><li class="page-item"><a class="page-link" onclick="filter_members(((this.innerHTML - 1) * 5), 'search')">2</a></li><li class="page-item"><a class="page-link" onclick="filter_members(((this.innerHTML - 1) * 5), 'search')">3</a></li><li class="page-item"><a class="page-link" onclick="filter_members('-5', 'search')">&gt;</a></li><li class="page-item"><a class="page-link" onclick="filter_members('25', 'search')">»</a></li></ul>
                                         </div>-->

@@ -13,15 +13,16 @@ app.controller("searchProfileByIdAppController", function ($scope, $http, $windo
             // Assign response to skills object
             var data = response.data;
             //alert(data);
-            var i, user_photos,birthday,today,age;
+            $scope.profiles = [];
+
+            var i, user_photos, birthday, today, age;
             console.log(data);
             if (data != 500) {
                 for (i = 0; i < data.length; i++) {
-                     birthday = new Date(birthday);
-                     today = new Date();
-                     age = ((today - birthday) / (31557600000));
-                     age = Math.floor(age);
-                    
+                    birthday = new Date(data[i].user_dob);
+                    today = new Date();
+                    age = ((today - birthday) / (31557600000));
+                    age = Math.floor(age);
                     if (data[i].user_photos != '') {
                         user_photos = JSON.parse(data[i].user_photos);
                     }
@@ -40,13 +41,12 @@ app.controller("searchProfileByIdAppController", function ($scope, $http, $windo
                         'user_country': data[i].user_country,
                         'user_state': data[i].user_state,
                         'user_city': data[i].user_city,
-                        'po_total': data[i].po_total,
-                        'po_id': data[i].po_id,
+                        'age': age,
                         'user_photos': user_photos
                     });
                 }
             } else {
-                $scope.po = 500;
+                $scope.profiles = 500;
             }
         });
     };
@@ -55,35 +55,65 @@ app.controller("searchProfileByIdAppController", function ($scope, $http, $windo
     $http.get(BASE_URL + "user/search/profilesearch_byid/getAllUserProfiles").then(function (response) {
         var data = response.data;
         //alert(data);
-        var i, user_photos;
+        var i, user_photos, birthday, today,user_fullname,user_designation,user_mother_tongue,user_marital_status,age,newAge,totage;
         console.log(data);
+
         if (data != 500) {
             for (i = 0; i < data.length; i++) {
+                //console.log(data[i].user_dob);
+                birthday = new Date(data[i].user_dob);
+                today = new Date();
+                age = ((today - birthday) / (31557600000));
+                totage = Math.floor(age);
+                if (isNaN(totage)) {
+                    newAge = 'N/A';
+                } else {
+                    newAge = totage;
+                }
                 if (data[i].user_photos != '') {
                     user_photos = JSON.parse(data[i].user_photos);
                 }
-                $scope.profiles.push({'user_profile_id': data[i].customer_name,
-                    'user_id': data[i].order_no,
-                    'user_fullname': data[i].po_duedate,
-                    'user_gender': data[i].line_no,
-                    'user_caste': data[i].unit_rate,
-                    'user_email': data[i].part_drwing_no,
+                if (data[i].user_fullname != '') {
+                    user_fullname = data[i].user_fullname;
+                } else {
+                    user_fullname = 'N/A';
+                }
+                if (data[i].user_designation != '') {
+                    user_designation = data[i].user_designation;
+                } else {
+                    user_designation = 'N/A';
+                }
+                if (data[i].user_mother_tongue != '') {
+                    user_mother_tongue = data[i].user_mother_tongue;
+                } else {
+                    user_mother_tongue = 'N/A';
+                }
+                if (data[i].user_marital_status != '') {
+                    user_marital_status = data[i].user_marital_status;
+                } else {
+                    user_marital_status = 'N/A';
+                }
+                $scope.profiles.push({'user_profile_id': data[i].user_profile_id,
+                    'user_id': data[i].user_id,
+                    'user_fullname': user_fullname,
+                    'user_gender': data[i].user_gender,
+                    'user_caste': data[i].user_caste,
+                    'user_email': data[i].user_email,
                     'user_profile_image': data[i].user_profile_image,
                     'user_height': data[i].user_height,
                     'user_weight': data[i].user_weight,
-                    'user_mother_tongue': data[i].user_mother_tongue,
-                    'user_designation': data[i].user_designation,
-                    'user_marital_status': data[i].user_marital_status,
+                    'user_mother_tongue': user_mother_tongue,
+                    'user_designation': user_designation,
+                    'user_marital_status': user_marital_status,
                     'user_country': data[i].user_country,
                     'user_state': data[i].user_state,
                     'user_city': data[i].user_city,
-                    'po_total': data[i].po_total,
-                    'po_id': data[i].po_id,
+                    'age': newAge,
                     'user_photos': user_photos
                 });
             }
         } else {
-            $scope.po = 500;
+            $scope.profiles = 500;
 
         }
         //console.log($scope.po);
