@@ -40,8 +40,17 @@
 
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/usertop_section/template/css/helpers.css">
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/usertop_section/template/css/style.css">
-  <link href="<?php echo base_url(); ?>assets/build/css/w3.css" rel="stylesheet"> 
-<section class="probootstrap-cover overflow-hidden relative"  style="background-image: url('<?php echo base_url(); ?>assets/template/images/background03.jpg');" data-stellar-background-ratio="0.5"  id="section-home" style="padding: 0">
+  
+  <script src="<?php echo base_url(); ?>assets/usertop_section/template/js/owl.carousel.min.js"></script>
+
+    <script src="<?php echo base_url(); ?>assets/usertop_section/template/js/bootstrap-datepicker.js"></script>
+    <script src="<?php echo base_url(); ?>assets/usertop_section/template/js/jquery.waypoints.min.js"></script>
+    <script src="<?php echo base_url(); ?>assets/usertop_section/template/js/jquery.easing.1.3.js"></script>
+
+    <script src="<?php echo base_url(); ?>assets/usertop_section/template/js/select2.min.js"></script>
+
+    <script src="<?php echo base_url(); ?>assets/usertop_section/template/js/main.js"></script>
+<section class="probootstrap-cover overflow-hidden relative"  style="background-image: url('<?php echo base_url(); ?>assets/usertop_section/template/images/background03.jpg');" data-stellar-background-ratio="0.5"  id="section-home" style="padding: 0">
       <div class="overlay"></div>
       <div class="container" style="padding: 10px">
         <div class="row align-items-center probootstrap-animate" style="padding: 10px">
@@ -74,7 +83,7 @@
             </div>
           </div> 
 
-          <div class="col-md probootstrap-animate">
+          <div class="col-md ">
             <form id="register_userForm" class="probootstrap-form">
               <div id="regForm">
                 <h3><i class="fa fa-edit"></i> Register Here !</h3>
@@ -149,91 +158,7 @@
       </div>
 
     </section>
-<section class="sct-color-1">
-	<div class="container-fluid no-padding">
-		<div class="row row-no-padding">
-
-			<div class="col-lg-12">
-				<div style="position: relative;">
-					<div class="swiper-js-container background-image-holder">
-						<div class="swiper-container" data-swiper-autoplay="true" data-swiper-effect="coverflow" data-swiper-items="1" data-swiper-space-between="0">
-							<div class="swiper-wrapper">
-								<!-- Slide -->
-								<div class="swiper-slide" data-swiper-autoplay="10000">
-									<div class="slice px-3 holder-item holder-item-light has-bg-cover bg-size-cover same-height" data-same-height="#div_properties_search" style="height: 650px; background-size: cover; background-position: center; background-image: url(<?php echo base_url(); ?>assets/client/uploads/home_page/slider_image/slider_image_1.jpg); background-position: bottom bottom;">
-									</div>
-								</div>
-								<div class="swiper-slide" data-swiper-autoplay="10000">
-									<div class="slice px-3 holder-item holder-item-light has-bg-cover bg-size-cover same-height" data-same-height="#div_properties_search" style="height: 650px; background-size: cover; background-position: center; background-image: url(<?php echo base_url(); ?>assets/client/uploads/home_page/slider_image/slider_image_2.jpg); background-position: bottom bottom;">
-									</div>
-								</div>
-								<div class="swiper-slide" data-swiper-autoplay="10000">
-									<div class="slice px-3 holder-item holder-item-light has-bg-cover bg-size-cover same-height" data-same-height="#div_properties_search" style="height: 650px; background-size: cover; background-position: center; background-image: url(<?php echo base_url(); ?>assets/client/uploads/home_page/slider_image/slider_image_3.jpg); background-position: bottom bottom;">
-									</div>
-								</div>
-							</div>
-							<!-- Add Arrows -->
-							<div class="swiper-button swiper-button-next">
-							</div>
-							<div class="swiper-button swiper-button-prev">
-							</div>
-						</div>
-					</div>
-					<div class="container pl-0">
-						<div class="outer-search" style="margin-left: 700px;top: 50px">
-							<h4 class="text-white text-center mb-4">
-								<span style="text-shadow: 4px 3px 6px #000;">Search Your Soul Mates</span>
-							</h4>
-							<div class="feature feature--boxed-border feature--bg-1 z-depth-2-bottom px-3 py-4 animated animation-ended s-search" data-animation-in="zoomIn" data-animation-delay="400" style="background: #1b1e23b3;min-width: 100%">
-								<form class="mt-4" style="margin-top: 0px !important;padding:10px">
-									<div class="row">
-										<div class="col-md-12">
-											<div class="form-group has-feedback">
-												<label for="" class="text-uppercase text-white">Gender* :</label>
-												<div class="radio radio-primary">
-													<input type="radio" name="gender" id="male" value="1">
-													<label for="male" class="pr-3 text-white text-uppercase">Male</label>
-													<input type="radio" name="gender" id="female" value="2">
-													<label for="female" class="text-white text-uppercase">Female</label>
-												</div>
-												<div class="help-block with-errors">
-												</div>
-											</div>
-										</div>
-										<div class="col-md-12">
-											<div class="form-group has-feedback">
-												<label for="" class="text-uppercase text-white">Var/ Vadhu's Name* :</label>
-												<input type="text" class="form-control form-control-sm" name="full_name" id="full_name" value="">
-												<div class="help-block with-errors">
-												</div>
-											</div>
-										</div>
-										<div class="col-lg-12 col-md-5 col-sm-6 col-6">
-											<div class="form-group has-feedback">
-												<label for="" class="text-uppercase text-white">Religion</label>
-												<select name="religion" onChange="(this.value,this)" class="form-control form-control-sm selectpicker s_religion"  data-placeholder="Choose a religion" tabindex="2" data-hide-disabled="true" ><option value="">Choose one</option><option value="2" >Judaism</option><option value="3" >Cristianity</option><option value="4" >Hinduism</option><option value="5" >Buddhism</option><option value="6" >Atheism</option><option value="7" >Islam</option><option value="8" >Sikhism</option><option value="9" >Jain</option></select>                                    <div class="help-block with-errors">
-												</div>
-											</div>
-										</div>
-										<div class="col-lg-5 col-md-5 col-sm-6 col-6">
-											<div class="form-group has-feedback">
-												<label for="" class="text-uppercase text-white">Mother Tongue</label>
-												<select name="language" onChange="(this.value,this)" class="form-control form-control-sm selectpicker"   data-placeholder="Choose a language" tabindex="2" data-hide-disabled="true" ><option value="">Choose one</option><option value="2" >Bengali</option><option value="4" >German</option><option value="7" >English</option><option value="8" >Hindi</option><option value="9" >Urdu</option></select>                                    <div class="help-block with-errors">
-												</div>
-											</div>
-										</div>
-										<div class="col-lg-2 col-md-2 col-sm-12 col-12 mr-auto">
-											<button type="submit" class="btn btn-styled btn-sm btn-block btn-base-1 btn-search" style="padding: 6.5px 5px !important;margin-top: 29px;">Search</button>
-										</div>
-									</div>
-								</form>
-							</div>
-						</div>
-					</div>
-				</div>    
-			</div>        </div>
-		</div>
-	</section>
+<section class="sct-color-1"></section>
 	<section class="slice sct-color-1">
 		<div class="container">
 			<div class="section-title section-title--style-1 text-center">
