@@ -226,7 +226,7 @@
                                                             Direct Search</a>
                                                     </li>
                                                     <li>
-                                                        <a class="dropdown-item " href="listing/premium_members.html">
+                                                        <a class="dropdown-item " href="<?php echo base_url(); ?>user/search/quick_search">
                                                             Regular Search</a>
                                                     </li>
                                                     <li>
