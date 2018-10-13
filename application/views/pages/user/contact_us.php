@@ -15,8 +15,8 @@
                 ?>
                     <h4><?php echo $key['admin_firstname']; ?>  <?php echo $key['admin_lastname']; ?></h4>
                      <p>Office : <?php echo $key['admin_officetype']; ?><br>
-                       Contact Number : <?php echo $key['admin_number']; ?></p>
-                     <p>Address : </b><?php echo $key['admin_office_address']; ?>
+                       Contact Number : <?php echo $key['admin_number']; ?><br>
+                   Address : <?php echo $key['admin_office_address']; ?>
                     </p>
                    
                  <?php

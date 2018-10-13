@@ -5,7 +5,7 @@
         <div class="col-md-3 col-lg-3">
           <div class="col">
             <a class="navbar-brand" href="#">
-              <img src="<?php echo base_url(); ?>assets/client/uploads/footer_logo/footer_logo_1514108335.png" class="img-responsive" width="100%">
+              <img src="<?php echo base_url(); ?>assets/client/uploads/header_logo/logo.jpeg" class="img-responsive" width="100%">
             </a>
             <div class="text-center"><small>Demo text from Admin</small></div>
           </div>

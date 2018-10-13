@@ -186,8 +186,8 @@
                                             <nav class="top-navbar-menu">
                                                 <ul class="float-right top_bar_right">                                                                        
                                                     <li class="float-left pb-1">
-                                                        <a href="http://activeitzone.com/demo/matrimonial/home/login" class="btn btn-styled btn-xs btn-base-1 btn-shadow"><i class="fa fa-power-off"></i> Log In</a>
-                                                        <a href="http://activeitzone.com/demo/matrimonial/home/registration" class="btn btn-styled btn-xs btn-base-1 btn-shadow"><i class="fa fa-user"></i> Register</a>
+                                                        <a href="<?php echo base_url(); ?>" class="btn btn-styled btn-xs btn-base-1 btn-shadow"><i class="fa fa-power-off"></i> Log In</a>
+                                                        <a href="<?php echo base_url(); ?>" class="btn btn-styled btn-xs btn-base-1 btn-shadow"><i class="fa fa-user"></i> Register</a>
                                                     </li>
                                                 </ul>
                                             </nav>
@@ -198,8 +198,8 @@
                             <nav class="navbar navbar-expand-lg navbar-light bg-default navbar--link-arrow navbar--uppercase">
                                 <div class="container navbar-container">
                                     <!-- Brand/Logo -->
-                                    <a class="navbar-brand" href="index.html">
-                                        <img src="<?php echo base_url(); ?>assets/client/uploads/header_logo/header_logo_1524735792.png" class="img-responsive" height="100%">
+                                    <a class="navbar-brand" href="<?php echo base_url(); ?>">
+                                        <img src="<?php echo base_url(); ?>assets/client/uploads/header_logo/logo.jpeg" class="img-responsive" height="100%" style="margin-bottom: 8px">
                                     </a>
                                     <div class="d-inline-block">
                                         <!-- Navbar toggler  -->

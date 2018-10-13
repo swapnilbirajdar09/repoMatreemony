@@ -16,4 +16,15 @@ class Home_model extends CI_Model {
             return $result->result_array();
         }
     }
+
+    // get contact details
+    public function getContactDetails() {
+        $sql = "SELECT * From admin_tab";
+        $result = $this->db->query($sql);
+        if ($result->num_rows() <= 0) {
+            return FALSE;
+        } else {
+            return $result->result_array();
+        }
+    }
 }
