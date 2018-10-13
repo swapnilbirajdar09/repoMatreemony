@@ -40,7 +40,7 @@
             <a class="hiddenanchor" id="signup"></a>
             <a class="hiddenanchor" id="signin"></a>
    <section id="logo">
-            <a href="#"><img src="<?php echo base_url(); ?>assets/images/parinay.png" class="center" alt=""  /></a>
+            <a href="#"><img src="<?php echo base_url(); ?>assets/client/uploads/header_logo/logo.jpeg" class="center" alt=""  /></a>
         </section>
             <div class="login_wrapper" ng-app="loginApp" ng-controller="loginController">
 

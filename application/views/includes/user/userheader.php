@@ -213,7 +213,7 @@
                                         <!-- Navbar links -->
                                         <ul class="navbar-nav" data-hover="dropdown">
                                             <li class="custom-nav">
-                                                <a class="nav-link nav_active" href="<?php echo base_url(); ?>assets/client/home" aria-haspopup="true" aria-expanded="false">
+                                                <a class="nav-link nav_active" href="<?php echo base_url(); ?>" aria-haspopup="true" aria-expanded="false">
                                                     Home</a>
                                             </li>
                                             <li class="custom-nav dropdown">
@@ -222,15 +222,15 @@
                                                 <ul class="dropdown-menu" style="border: 1px solid #f1f1f1 !important;">
                                                     <li class="dropdown dropdown-submenu">
                                                     <li>
-                                                        <a class="dropdown-item " href="listing.html">
+                                                        <a class="dropdown-item " href="<?php echo base_url(); ?>">
                                                             Direct Search</a>
                                                     </li>
                                                     <li>
-                                                        <a class="dropdown-item " href="listing/premium_members.html">
+                                                        <a class="dropdown-item " href="<?php echo base_url(); ?>">
                                                             Regular Search</a>
                                                     </li>
                                                     <li>
-                                                        <a class="dropdown-item " href="listing/free_members.html">
+                                                        <a class="dropdown-item " href="<?php echo base_url(); ?>">
                                                             Advance Search</a>
                                                     </li>
                                                     <li>
@@ -240,7 +240,7 @@
                                                 </ul>
                                             </li>
                                             <li class="custom-nav">
-                                                <a class="nav-link " href="plans.html" aria-haspopup="true" aria-expanded="false">
+                                                <a class="nav-link " href="<?php echo base_url(); ?>" aria-haspopup="true" aria-expanded="false">
                                                     Membership Plans</a>
                                             </li>
                                             <li class="custom-nav">
