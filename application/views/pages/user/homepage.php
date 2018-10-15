@@ -4,7 +4,14 @@
 <script src="<?php echo base_url(); ?>assets/usertop_section/template/js/jquery.waypoints.min.js"></script>
 <script src="<?php echo base_url(); ?>assets/usertop_section/template/js/select2.min.js"></script>
 <script src="<?php echo base_url(); ?>assets/usertop_section/template/js/main.js"></script>
-<section class="probootstrap-cover overflow-hidden relative"  style="background-image: url('<?php echo base_url(); ?>assets/client/uploads/home_page/parallax_image/parallax1.jpg');" data-stellar-background-ratio="0.5"  id="section-home" style="padding: 0">
+<link href="https://fonts.googleapis.com/css?family=Kodchasan:400,500,600,700" rel="stylesheet">
+<style type="text/css">
+	body{
+                font-family: 'Kodchasan', sans-serif;
+
+            }
+</style>
+<section class="probootstrap-cover overflow-hidden relative"  style="background-image: url('<?php echo base_url(); ?>assets/client/uploads/home_page/slider_image/sinew.jpg');" data-stellar-background-ratio="0.5"  id="section-home" style="padding: 0">
 	<div class="overlay"></div>
 	<div class="container" style="padding: 10px">
 		<div class="row align-items-center probootstrap-animate" style="padding: 50px 10px 10px 10px;">
@@ -29,45 +36,58 @@
     </div> 
 
     <div class="col-md-5">
-    	<form id="register_userForm" class="probootstrap-form w3-opacity-min w3-light-grey" style="padding: 20px 40px 20px 40px">
+    	<form id="register_userForm" class="probootstrap-form w3-opacity w3-black" style="padding: 20px 40px 20px 40px">
     		<div id="regForm" >
-    			<h3 class="w3-center"><b> Register Here </b></h3><br>
+    			<h3 class="w3-center text-uppercase"><b> Register Here </b></h3><br>
     			<div class="form-group">
     				<div class="row mb-3">
     					<div class="col-md-12 mb-2">
     						<div class="form-group">
-    							<label for="" class="text-uppercase">Gender* :</label>
+    							<label for="" class="w3-large" style="text-transform: capitalize;">Gender :</label>
     							<div class="radio radio-primary">
     								<input type="radio" name="gender" id="male" value="1" >
-    								<label for="male" class="pr-3">Male</label>
+    								<label for="male" style="text-transform: capitalize;" class="pr-3">Male</label>
     								<input type="radio" name="gender" id="female" value="2" >
-    								<label for="female">Female</label>
+    								<label for="female" style="text-transform: capitalize;">Female</label>
     							</div>
     						</div>
     					</div>
     					<div class="col-md-12 mb-2">
     						<div class="form-group">
-    							<label for="" class="text-uppercase">Var/ Vadhu's Name* :</label>
+    							<label for="" class="w3-large" style="text-transform: capitalize;">Var/ Vadhu's Name :</label>
     							<label for="id_memberName" style="width: 100%;">
-    								<input type="text" required placeholder="Enter your full name here *" name="memberName" id="id_memberName" class="form-control" style="width: 100%;">
+    								<input type="text" required placeholder="Enter your full name here *" name="memberName" id="id_memberName" class="form-control" style="width: 100%;height: calc(1.8125rem + 2px);border-radius: 0;border:none;">
     							</label>
     						</div>
     					</div>
     					<div class="col-md-12 mb-2">
     						<div class="form-group">
-    							<label for="" class="text-uppercase">Email* :</label>
+    							<label for="" class="w3-large" style="text-transform: capitalize;">Email :</label>
     							<label for="id_email" style="width: 100%;">
-    								<input type="email" placeholder="Enter your Email ID here *" name="emailId" id="id_email" class="form-control" style="width: 100%;">
+    								<input type="email" placeholder="Enter your Email ID here *" name="emailId" id="id_email" class="w3-input" style="width: 100%;height: calc(1.8125rem + 2px);">
+    							</label>
+    						</div>
+    					</div>
+
+    					<div class="col-md-12 mb-2">
+    						<div class="form-group">
+    							<label for="" class="w3-large" style="text-transform: capitalize;">Caste :</label>
+    							<label for="id_location" style="width: 100%;">
+    								<select class="w3-input" style="width: 100%;padding-bottom: 0;padding-top: 0;height: calc(1.8125rem + 2px);">
+    									<option value="0" class="w3-light-grey" selected>Select your Caste*</option>
+    									<option value="21">Brahmin</option>
+    									
+    								</select>
     							</label>
     						</div>
     					</div>
     					<div class="col-md-12 mb-2">
     						<div class="form-group">
-    							<label for="" class="text-uppercase">Mobile Number* :</label>
+    							<label for="" class="w3-large" style="text-transform: none;">Mobile Number :</label>
     							<label for="id_mobileNumber" style="width: 100%;">
     								<div>
     									<div class="w3-col l4 s5">
-    										<select class="form-control form-control-lg" style="width: 100%;margin-bottom: 0;margin-top: 0;height: 46px">
+    										<select class="w3-input" style="width: 100%;margin-bottom: 0;margin-top: 0;height: calc(1.8125rem + 2px);">
     											<?php 															
     											foreach($all_countries as $key) {
     												$selected='';
@@ -80,244 +100,9 @@
     										</select>
     									</div>
     									<div class="w3-col l8 s7" style="padding-left: 8px">
-    										<input type="number" class="form-control" id="id_mobileNumber" placeholder="Mobile Number here *" style="width: 100%;">
+    										<input type="number" class="w3-input" id="id_mobileNumber" placeholder="Mobile Number here *" style="width: 100%;height: calc(1.8125rem + 2px);">
     									</div>
     								</div>
-    							</label>
-    						</div>
-    					</div>
-    					<div class="col-md-12 mb-2">
-    						<div class="form-group">
-    							<label for="" class="text-uppercase">Caste* :</label>
-    							<label for="id_location" style="width: 100%;">
-    								<select class="form-control form-control-lg" style="width: 100%;padding-bottom: 0;padding-top: 0;height: 46px">
-    									<option value="0" class="w3-light-grey" selected>Select your Caste*</option>
-    									<option value="21">Brahmin</option>
-    									<option value="83">Maratha</option>
-    									<option value="22">Buddhist</option>
-    									<option value="72">Kunbi</option>
-    									<option value="25">Chambhar</option>
-    									<option value="168"> Arora</option>
-    									<option value="1">Agarwal</option>
-    									<option value="2">Agri</option>
-    									<option value="3">Ahir Sonar</option>
-    									<option value="4">Arya Kshatriya</option>
-    									<option value="182">Arya Samaj</option>
-    									<option value="5">Arya Vaishya</option>
-    									<option value="6">Arya Vysya</option>
-    									<option value="154">Badgujar</option>
-    									<option value="7">Bairagi</option>
-    									<option value="8">Banjara</option>
-    									<option value="10">Barai</option>
-    									<option value="11">Bari</option>
-    									<option value="12">Beldar</option>
-    									<option value="3231">Bengali Kayastha</option>
-    									<option value="3229">Berad</option>
-    									<option value="13">Bhandari</option>
-    									<option value="14">Bhanushali</option>
-    									<option value="140">Bharadi</option>
-    									<option value="2203">Bhat</option>
-    									<option value="163">Bhatt</option>
-    									<option value="15">Bhavasar kshatriya</option>
-    									<option value="16">Bhavsar</option>
-    									<option value="17">Bhavsar Shimpi</option>
-    									<option value="18">Bhilla</option>
-    									<option value="19">Bhoi</option>
-    									<option value="131">Bhope</option>
-    									<option value="189">Billava</option>
-    									<option value="1198">Borul</option>
-    									<option value="20">Brahma kshatriya</option>
-    									<option value="23">Burud</option>
-    									<option value="149">Chandravanshi</option>
-    									<option value="2210">Chaurasia</option>
-    									<option value="159">Chitode Wani</option>
-    									<option value="145">CKP</option>
-    									<option value="26">Daivadnya Brahmin</option>
-    									<option value="135">Dangat</option>
-    									<option value="2201">Dashnam</option>
-    									<option value="27">Devadiga</option>
-    									<option value="28">Devang Koshthi</option>
-    									<option value="3216">Dever</option>
-    									<option value="2207">Devli</option>
-    									<option value="29">Dhangar</option>
-    									<option value="30">Dhobi</option>
-    									<option value="31">Dhor</option>
-    									<option value="32">Do not want to disclose</option>
-    									<option value="143">Ezhava</option>
-    									<option value="33">Gabit</option>
-    									<option value="34">Ganali</option>
-    									<option value="35">Gavandi</option>
-    									<option value="36">Gawali</option>
-    									<option value="37">Ghisadi</option>
-    									<option value="3219">Golha </option>
-    									<option value="38">Gomantak</option>
-    									<option value="39">Gond</option>
-    									<option value="40">Gondhali</option>
-    									<option value="170">Gopal</option>
-    									<option value="41">Gosavi</option>
-    									<option value="42">Goswami</option>
-    									<option value="1201">Gowari</option>
-    									<option value="179">Gowda </option>
-    									<option value="43">Gujar</option>
-    									<option value="3224">Gujarati Mochi</option>
-    									<option value="44">Gujrathi</option>
-    									<option value="45">Gurav</option>
-    									<option value="196">Halba</option>
-    									<option value="46">Halba Koshti</option>
-    									<option value="147">Halbi </option>
-    									<option value="142">Hindu (Mavchi)</option>
-    									<option value="47">Hindu joshi</option>
-    									<option value="2206">Hindu Namdhari</option>
-    									<option value="139">Hindu Nirhali</option>
-    									<option value="3215">Hindu Pardeshi </option>
-    									<option value="48">Hindu Raval</option>
-    									<option value="180">Hindu Shegar</option>
-    									<option value="1200">Hindu Takari</option>
-    									<option value="146">Hindu Talwar</option>
-    									<option value="162">Hindu-Joshi</option>
-    									<option value="49">Holar</option>
-    									<option value="1199">If One of the Parents Belongs to Brahmin</option>
-    									<option value="51">Jain</option>
-    									<option value="164">Jaiswal</option>
-    									<option value="52">Jangam</option>
-    									<option value="53">Jogi (Nath)</option>
-    									<option value="3217">Joshi</option>
-    									<option value="185">Kachhi </option>
-    									<option value="155">Kahar(Hindu)</option>
-    									<option value="54">Kaikadi</option>
-    									<option value="3230">Kakayya</option>
-    									<option value="55">kalal</option>
-    									<option value="56">Kalan</option>
-    									<option value="57">Kalar</option>
-    									<option value="3221">Kapewar</option>
-    									<option value="3235">Kapu</option>
-    									<option value="2209">Karwari</option>
-    									<option value="58">Kasar</option>
-    									<option value="197">Kashi Kapadi</option>
-    									<option value="59">Kayastha</option>
-    									<option value="176">Kharvi</option>
-    									<option value="60">khatik</option>
-    									<option value="158">Khatri </option>
-    									<option value="2212">Kohli</option>
-    									<option value="62">kolhati</option>
-    									<option value="63">Koli</option>
-    									<option value="64">Koli Mahadev</option>
-    									<option value="65">komati</option>
-    									<option value="66">Konkani</option>
-    									<option value="67">Koshti</option>
-    									<option value="69">Kshatriya</option>
-    									<option value="3223">kshatriya kumawat</option>
-    									<option value="70">KUDAL,DESHAKAR</option>
-    									<option value="130">Kulwant Vani</option>
-    									<option value="71">Kumbhar</option>
-    									<option value="134">Lad</option>
-    									<option value="73">Lad Sonar</option>
-    									<option value="74">Lad Wani</option>
-    									<option value="75">Ladshakhiy Vani</option>
-    									<option value="171">Leva Gurjar</option>
-    									<option value="156">Leva Patidar</option>
-    									<option value="76">Leva patil</option>
-    									<option value="77">Lingayat</option>
-    									<option value="78">Lingayatwani</option>
-    									<option value="79">Lohar</option>
-    									<option value="80">Lonari</option>
-    									<option value="2214">Loni</option>
-    									<option value="188">Madiga</option>
-    									<option value="81">Mahar</option>
-    									<option value="178">Maheshwari</option>
-    									<option value="82">Mali</option>
-    									<option value="186">Mana</option>
-    									<option value="138">Mang</option>
-    									<option value="3237">Mangalorean Tulu</option>
-    									<option value="172">Mannervarlu</option>
-    									<option value="84">Marwari</option>
-    									<option value="85">Matang</option>
-    									<option value="86">Modh Vania</option>
-    									<option value="174">Mogaveera </option>
-    									<option value="191">Munnuru Kapu</option>
-    									<option value="87">Nabhik</option>
-    									<option value="195">Naidu</option>
-    									<option value="194">Nair </option>
-    									<option value="3239">Namdev</option>
-    									<option value="88">Nath</option>
-    									<option value="198">Nathpanthi Gosavi</option>
-    									<option value="89">Navnath Gosavi</option>
-    									<option value="90">Neve</option>
-    									<option value="187">Neve Vani</option>
-    									<option value="91">Nhavi</option>
-    									<option value="93">Otari</option>
-    									<option value="181">Pachkalshi</option>
-    									<option value="94">Padmashali</option>
-    									<option value="95">PANCHAL</option>
-    									<option value="96">Parit</option>
-    									<option value="97">Patel</option>
-    									<option value="98">Pathare Prabhu</option>
-    									<option value="166">Patharvat</option>
-    									<option value="3222">Perika</option>
-    									<option value="3218">Prajapati</option>
-    									<option value="136">Punjabi</option>
-    									<option value="99">Raghuvanshi</option>
-    									<option value="3226">Rajasthani Brahmin </option>
-    									<option value="100">Rajput</option>
-    									<option value="102">Ramoshi</option>
-    									<option value="3236">Rawal</option>
-    									<option value="103">Reddy</option>
-    									<option value="3234">Rohidas</option>
-    									<option value="104">S.K Panchkalshi</option>
-    									<option value="105">Sagar</option>
-    									<option value="2204">Sahastrarjun Kshatriya</option>
-    									<option value="106">Sangar</option>
-    									<option value="2202">Sarode</option>
-    									<option value="107">Savji</option>
-    									<option value="108">SC</option>
-    									<option value="109">Shimpi</option>
-    									<option value="169">Sindhi</option>
-    									<option value="152">Somavanshi Arya Kshatriya</option>
-    									<option value="2205">Somvanshi Arya Kshatriya</option>
-    									<option value="157">Somvanshi Kayastha Prabhu</option>
-    									<option value="3225">Somvanshi Kshatriya</option>
-    									<option value="175">somvanshi kshatriya chaukalshi mali</option>
-    									<option value="110">Somvanshi Kshatriya Pathare</option>
-    									<option value="111">Sonar</option>
-    									<option value="112">ST</option>
-    									<option value="113">Suryavanshi Kshatriya</option>
-    									<option value="114">Sutar</option>
-    									<option value="115">Swakula Sali</option>
-    									<option value="183">Tambat</option>
-    									<option value="3227">Tamil</option>
-    									<option value="190">Tamrakar</option>
-    									<option value="117">Teli</option>
-    									<option value="118">Telugu</option>
-    									<option value="150">Telugu Mali </option>
-    									<option value="119">Thakar</option>
-    									<option value="120">Thakur</option>
-    									<option value="121">Vadar</option>
-    									<option value="153">Vaidu</option>
-    									<option value="122">Vaishnav</option>
-    									<option value="3220">Vaishya</option>
-    									<option value="123">Vaishya Vani</option>
-    									<option value="167">Valmiki</option>
-    									<option value="124">Vani</option>
-    									<option value="125">Vaniya</option>
-    									<option value="126">Vanjari</option>
-    									<option value="127">Vankar</option>
-    									<option value="151">Vasudev(Bhatkya Jamati)</option>
-    									<option value="2213">veershaiv kakkaya</option>
-    									<option value="3214">Velama</option>
-    									<option value="3238">vishwakarma</option>
-    									<option value="128">Vysya</option>
-    									<option value="3232">Walmiki</option>
-    									<option value="193">Warli</option>
-    									<option value="129">Yadav</option>
-    								</select>
-    							</label>
-    						</div>
-    					</div>
-    					<div class="col-md-12 mb-2">
-    						<div class="form-group">
-    							<label for="" class="text-uppercase">Location* :</label>
-    							<label for="id_location" style="width: 100%;">
-    								<input type="number" placeholder="Search your Location here *" name="location" id="id_location" class="form-control" style="width: 100%;">
     							</label>
     						</div>
     					</div>

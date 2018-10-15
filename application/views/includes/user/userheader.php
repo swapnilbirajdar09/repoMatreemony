@@ -9,7 +9,8 @@
         <!-- Bootstrap -->
         <link rel="stylesheet" href="<?php echo base_url(); ?>assets/client/template/front/vendor/bootstrap/css/bootstrap.min.css" type="text/css">
         <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,900" rel="stylesheet">
+        <!-- <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,900" rel="stylesheet"> -->
+
         <!-- Plugins -->
         <link rel="stylesheet" href="<?php echo base_url(); ?>assets/client/template/front/vendor/swiper/css/swiper.min.css">
         <link rel="stylesheet" href="<?php echo base_url(); ?>assets/client/template/front/vendor/hamburgers/hamburgers.min.css" type="text/css">
@@ -30,16 +31,22 @@
         <!-- Custom style - Remove if not necessary -->
         <link type="text/css" href="<?php echo base_url(); ?>assets/client/template/front/css/custom-style.css" rel="stylesheet">
         <link href="<?php echo base_url(); ?>assets/build/css/w3.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Kodchasan:400,500,600,700" rel="stylesheet">
+
         <script src="<?php echo base_url(); ?>assets/js/const.js"></script>
         <script src="<?php echo base_url(); ?>assets/js/angular.js"></script>
         <script src="<?php echo base_url(); ?>assets/js/angular-sanitize.js"></script>
         <!-- Core -->
         <script src="<?php echo base_url(); ?>assets/client/template/front/vendor/jquery/jquery.min.js"></script>    <!-- Favicon -->
         <link href="<?php echo base_url(); ?>assets/client/uploads/favicon/favicon_1515409281.png" rel="icon" type="image/png">
+
     </head>
     <body>
         <style>
-            font-family: 'Roboto', sans-serif;
+            body{
+                font-family: 'Kodchasan', sans-serif;
+
+            }
             #loading-center{
                 width: 100%;
                 height: 100%;
@@ -177,7 +184,7 @@
                     <div class="st-content">
                         <div class="st-content-inner">
                             <!-- Navbar -->
-                            <div class="top-navbar align-items-center">
+                            <!-- <div class="top-navbar align-items-center">
                                 <div class="container">
                                     <div class="row align-items-center py-1" style="padding-bottom: 0px !important">
                                         <div class="col-md-4"></div>
@@ -194,12 +201,12 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <nav class="navbar navbar-expand-lg navbar-light bg-default navbar--link-arrow navbar--uppercase">
+                            </div> -->
+                            <nav class="navbar navbar-expand-lg navbar-fixed-top navbar--link-arrow navbar--uppercase">
                                 <div class="container navbar-container">
                                     <!-- Brand/Logo -->
                                     <a class="navbar-brand" href="<?php echo base_url(); ?>">
-                                        <img src="<?php echo base_url(); ?>assets/client/uploads/header_logo/logo.jpeg" class="img-responsive" height="100%" style="margin-bottom: 8px">
+                                        <img src="<?php echo base_url(); ?>assets/client/uploads/header_logo/logo.jpeg" class="img-responsive" height="100%" style="margin-bottom: 8px;">
                                     </a>
                                     <div class="d-inline-block">
                                         <!-- Navbar toggler  -->
