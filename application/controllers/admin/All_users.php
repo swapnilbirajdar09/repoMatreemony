@@ -39,7 +39,7 @@ class All_users extends CI_Controller {
         extract($_POST);
         $result = $this->Allusers_model->deleteUserDetails($user_id);
         //print_r($result);die();
-        if ($result['status'] == 200) {
+        if ($result == 200) {
     
             echo '<div class="alert alert-success alert-dismissible fade in alert-fixed w3-round">
       <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>

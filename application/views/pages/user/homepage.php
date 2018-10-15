@@ -4,7 +4,7 @@
 <script src="<?php echo base_url(); ?>assets/usertop_section/template/js/jquery.waypoints.min.js"></script>
 <script src="<?php echo base_url(); ?>assets/usertop_section/template/js/select2.min.js"></script>
 <script src="<?php echo base_url(); ?>assets/usertop_section/template/js/main.js"></script>
-<section class="probootstrap-cover overflow-hidden relative"  style="background-image: url('<?php echo base_url(); ?>assets/client/uploads/home_page/parallax_image/parallax2.jpg');" data-stellar-background-ratio="0.5"  id="section-home" style="padding: 0">
+<section class="probootstrap-cover overflow-hidden relative"  style="background-image: url('<?php echo base_url(); ?>assets/client/uploads/home_page/parallax_image/parallax1.jpg');" data-stellar-background-ratio="0.5"  id="section-home" style="padding: 0">
 	<div class="overlay"></div>
 	<div class="container" style="padding: 10px">
 		<div class="row align-items-center probootstrap-animate" style="padding: 50px 10px 10px 10px;">
@@ -57,7 +57,7 @@
     						<div class="form-group">
     							<label for="" class="text-uppercase">Email* :</label>
     							<label for="id_email" style="width: 100%;">
-    								<input type="number" placeholder="Enter your Email ID here *" name="emailId" id="id_email" class="form-control" style="width: 100%;">
+    								<input type="email" placeholder="Enter your Email ID here *" name="emailId" id="id_email" class="form-control" style="width: 100%;">
     							</label>
     						</div>
     					</div>
