@@ -25,11 +25,13 @@ class Quick_search extends CI_Controller {
         $this->load->view('includes/user/userfooter');
     }
 
+//------fun for filter the users--------------------------//
     public function getAllUserProfilesByRegularSearch() {
-
         $postdata = file_get_contents("php://input");
         $request = json_decode($postdata, TRUE);
+        extract($request);
         $result = $this->Quicksearch_model->getAllUserProfilesByRegularSearch($request);
+        //print_r($result);die();
         if (!$result) {
             echo '500';
         } else {
@@ -37,4 +39,5 @@ class Quick_search extends CI_Controller {
         }
     }
 
+//------fun for filter the users--------------------------//
 }

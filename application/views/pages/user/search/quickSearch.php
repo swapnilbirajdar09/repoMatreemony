@@ -19,7 +19,7 @@
                             </div>
                             <div class="card-body">
                                 <form class="form-default" id="quickSearchFilter_form" name="quickSearchFilter_form" data-toggle="validator" role="form">
-                                    <div class="row">
+<!--                                    <div class="row">
                                         <div class="col-sm-12">
                                             <div class="form-group has-feedback">
                                                 <label for="" class="text-uppercase">Looking For</label>
@@ -31,7 +31,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div>-->
                                     <div class="row">
                                         <div class="col-sm-6">
                                             <div class="form-group has-feedback">
@@ -118,7 +118,7 @@
                                 <a onclick="goto_profile(p.user_profile_id)" class="c-base-1">{{p.user_fullname}}</a>
                             </h3>
                             <h4 class="heading heading-xs c-gray-light text-uppercase strong-400">{{p.user_designation}}</h4>
-                            <table class="table-striped table-bordered mb-2" style="font-size: 12px;">
+                            <table class=" mb-2" style="font-size: 12px;">
                                 <tbody>
                                     <tr>
                                         <td height="30" style="padding-left: 5px;" class="font-dark"><b>Member ID</b></td>
