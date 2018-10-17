@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="<?php echo base_url(); ?>assets/demo/css/linearicons.css">
     <link rel="stylesheet" href="<?php echo base_url(); ?>assets/demo/css/magnific-popup.css">
     <link rel="stylesheet" href="<?php echo base_url(); ?>assets/demo/css/animate.css">
+    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/client/template/front/fonts/font-awesome/css/font-awesome.min.css" type="text/css">
     <!-- Main-Stylesheets -->
     <link rel="stylesheet" href="<?php echo base_url(); ?>assets/demo/css/normalize.css">
     <link rel="stylesheet" href="<?php echo base_url(); ?>assets/demo/style.css">
@@ -50,6 +51,79 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+}
+ul.social-network {
+    list-style: none;
+    display: inline;
+    margin-left:0 !important;
+    padding: 0;
+}
+ul.social-network li {
+    display: inline;
+    margin: 0 5px;
+}
+
+
+/* footer social icons */
+.social-network a.icoFacebook:hover {
+    background-color:#3B5998;
+}
+.social-network a.icoTwitter:hover {
+    background-color:#33ccff;
+}
+
+
+.social-network a.icoLinkedin:hover {
+    background-color:#007bb7;
+}
+.social-network a.icoRss:hover i, .social-network a.icoFacebook:hover i, .social-network a.icoTwitter:hover i,
+.social-network a.icoGoogle:hover i, .social-network a.icoVimeo:hover i, .social-network a.icoLinkedin:hover i {
+    color:#fff;
+}
+a.socialIcon:hover, .socialHoverClass {
+    color:#44BCDD;
+}
+
+.social-circle li a {
+    display:inline-block;
+    position:relative;
+    margin:0 auto 0 auto;
+    -moz-border-radius:50%;
+    -webkit-border-radius:50%;
+    border-radius:50%;
+    text-align:center;
+    width: 50px;
+    height: 50px;
+    font-size:20px;
+}
+.social-circle li i {
+    margin:0;
+    line-height:50px;
+    text-align: center;
+}
+
+.social-circle li a:hover i, .triggeredHover {
+    -moz-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -ms--transform: rotate(360deg);
+    transform: rotate(360deg);
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    -o-transition: all 0.2s;
+    -ms-transition: all 0.2s;
+    transition: all 0.2s;
+}
+.social-circle i {
+    color: #fff;
+    -webkit-transition: all 0.8s;
+    -moz-transition: all 0.8s;
+    -o-transition: all 0.8s;
+    -ms-transition: all 0.8s;
+    transition: all 0.8s;
+}
+
+a {
+ background-color: #D3D3D3;   
 }
 </style>
 </head>
@@ -166,10 +240,10 @@
                         </div>
                             <div class="col-lg-12 w3-margin-top">
                                 <div class="col-md-6 col-sm-4">
-                     <button class="btn btn-block w3-margin-bottom" style="background: linear-gradient(45deg, rgba(72, 44, 191, 1) 0%, rgba(106, 198, 240, 1) 100%);">Register</button> 
+                     <button class="btn btn-block w3-margin-bottom" style="border-radius: 5px; background: linear-gradient(45deg, rgba(72, 44, 191, 1) 0%, rgba(106, 198, 240, 1) 100%);">Register</button> 
                  </div>
                  <div class="col-md-6 col-sm-4">
-                   <button class="btn btn-block w3-margin-bottom" style="background: linear-gradient(45deg, rgba(72, 44, 191, 1) 0%, rgba(106, 198, 240, 1) 100%);">Log In</button>
+                   <button class="btn btn-block w3-margin-bottom" style="border-radius: 5px; background: linear-gradient(45deg, rgba(72, 44, 191, 1) 0%, rgba(106, 198, 240, 1) 100%);">Log In</button>
                 </div>
                 </div>
 
@@ -251,7 +325,45 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-xs-12 col-sm-6 col-md-4">
+                <div class="col-lg-6">
+                <div class="w3-col m6 w3-center w3-padding-large">
+               <img src="<?php echo base_url(); ?>assets/demo/images/profile_1.jpg" class="w3-round w3-image w3-opacity w3-hover-opacity-off" alt="Photo of Me" width="500" height="333">
+               <div class="col-md-12  w3-padding-top">
+                  <ul class="social-network social-circle">
+                      
+                        <li><a href="#" class="icoFacebook" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#" class="icoTwitter" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+                       
+                        <li><a href="#" class="icoLinkedin" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
+                    </ul>
+                </div>
+              </div>
+
+  
+             <div class="w3-col m6  w3-padding-large">
+               <p style="line-height: 25px">I am lorem ipsum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure</p>
+               <a href="single.html" class="read-more">Read More</a>
+            </div>
+          </div>
+            <div class="col-lg-6">
+                <div class="w3-col m6 w3-center w3-padding-large">
+              <img src="<?php echo base_url(); ?>assets/demo/images/profile_1.jpg" class="w3-round w3-image w3-opacity w3-hover-opacity-off" alt="Photo of Me" width="500" height="333">
+              <div class="col-md-12  w3-padding-top">
+                  <ul class="social-network social-circle">
+                      
+                        <li><a href="#" class="icoFacebook" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#" class="icoTwitter" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+                       
+                        <li><a href="#" class="icoLinkedin" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
+                    </ul>
+                </div>
+           </div>
+             <div class="w3-col m6  w3-padding-large">
+           <p style="line-height: 25px">I am lorem ipsum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure</p>
+           <a href="single.html" class="read-more">Read More</a>
+    </div>
+          </div>
+            <!--     <div class="col-xs-12 col-sm-6 col-md-4">
                     <article class="post-single" style="padding: 0">
                         <figure class="post-media" style="margin: 0">
                             <img src="<?php echo base_url(); ?>assets/demo/images/profile_1.jpg" alt="">
@@ -278,8 +390,8 @@
                             <a href="single.html" class="read-more">Know More</a>
                         </div>
                     </article>
-                </div>
-                <div class="col-xs-12 col-sm-6 col-md-4">
+                </div> -->
+              <!--   <div class="col-xs-12 col-sm-6 col-md-4">
                     <article class="post-single" style="padding: 0">
                         <figure class="post-media" style="margin: 0">
                             <img src="<?php echo base_url(); ?>assets/demo/images/profile_1.jpg" alt="">
@@ -292,17 +404,18 @@
                             <a href="single.html" class="read-more">Know More</a>
                         </div>
                     </article>
-                </div>
+                </div> -->
             </div>
         </div>
     
     </div>
     
    <!-- Download-Area -->
-    <div class="parallax download-area overlay" style="background-image: url('<?php echo base_url(); ?>assets/client/uploads/home_page/parallax_image/parallax1.jpg');">
+    <div class="parallax download-area overlay" style="background-image: url('<?php echo base_url(); ?>assets/client/uploads/home_page/parallax_image/parallax1.jpg'); height: 450px;">
         <div class="container">
             <div class="row">
-                <div class="col-xs-12 col-md-12 text-center" style="padding:40px">
+                <div class="col-xs-12 col-md-12 text-center" style="padding:80px">
+                    <div class="space-20"></div>
                     <h3 class="white-color">Join <b>PARINAAY</b> and Find your perfect match.</h3>
                     <div class="space-20"></div>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam possimus eaque magnam eum praesentium unde.</p>
