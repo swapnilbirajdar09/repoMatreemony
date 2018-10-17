@@ -235,15 +235,15 @@ a.socialIcon:hover, .socialHoverClass {
     									</div>
                         		
     					</div>
-    					<div class="col-lg-12 text-center">
+    					<div class="w3-col l12 text-center">
     						<div class="space-20"></div>
     						<a href="#" class="bttn-default wow fadeInUp " style="border-radius: 5px"> Proceed Next <i class="lnr lnr-arrow-right"></i></a>
                         </div>
-                            <div class="col-lg-12 w3-margin-top">
-                                <div class="col-md-6 col-sm-4">
+                            <div class="w3-col l12 w3-margin-top">
+                                <div class="w3-col l6 col-sm-4">
                      <button class="btn btn-block w3-margin-bottom" style="border-radius: 5px; background: linear-gradient(45deg, rgba(72, 44, 191, 1) 0%, rgba(106, 198, 240, 1) 100%);">Register</button> 
                  </div>
-                 <div class="col-md-6 col-sm-4">
+                 <div class="w3-col l6 col-sm-4">
                    <button class="btn btn-block w3-margin-bottom" style="border-radius: 5px; background: linear-gradient(45deg, rgba(72, 44, 191, 1) 0%, rgba(106, 198, 240, 1) 100%);">Log In</button>
                 </div>
                 </div>
@@ -551,7 +551,7 @@ a.socialIcon:hover, .socialHoverClass {
         <div class="footer-bottom" style="">
             <div class="container" >
                 <div class="row">
-                    <div class="col-xs-12 col-md-5">
+                    <div class="col-xs-12 col-md-5 w3-text-white">
                         <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
             <span>Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Website Designed with <i class="lnr lnr-heart" aria-hidden="true"></i> by <a href="https://bizmo-tech.com" target="_blank">Bizmo Technologies</a></span>
             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
