@@ -162,18 +162,17 @@
     					</div>
     					<div class="col-lg-12 text-center">
     						<div class="space-20"></div>
-    						<a href="#" class="bttn-default wow fadeInUp btn-block" style="border-radius: 5px"> Proceed Next <i class="lnr lnr-arrow-right"></i></a>
+    						<a href="#" class="bttn-default wow fadeInUp " style="border-radius: 5px"> Proceed Next <i class="lnr lnr-arrow-right"></i></a>
                         </div>
                             <div class="col-lg-12 w3-margin-top">
                                 <div class="col-md-6 col-sm-4">
-                     <button class="btn btn-block" style="background: linear-gradient(45deg, rgba(72, 44, 191, 1) 0%, rgba(106, 198, 240, 1) 100%);">Register</button> 
+                     <button class="btn btn-block w3-margin-bottom" style="background: linear-gradient(45deg, rgba(72, 44, 191, 1) 0%, rgba(106, 198, 240, 1) 100%);">Register</button> 
                  </div>
                  <div class="col-md-6 col-sm-4">
-                   <button class="btn btn-block" style="background: linear-gradient(45deg, rgba(72, 44, 191, 1) 0%, rgba(106, 198, 240, 1) 100%);">Log In</button>
+                   <button class="btn btn-block w3-margin-bottom" style="background: linear-gradient(45deg, rgba(72, 44, 191, 1) 0%, rgba(106, 198, 240, 1) 100%);">Log In</button>
                 </div>
                 </div>
 
-    						<div class="space-20"></div>
     					</div>
                         </form>
                     </div>
