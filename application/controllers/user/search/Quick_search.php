@@ -41,9 +41,9 @@ class Quick_search extends CI_Controller {
 
 //------fun for filter the users--------------------------//
     public function showPackage() {
-//        $this->load->view('includes/user/userheader');
+        $this->load->view('includes/user/userheader');
         $this->load->view('pages/user/search/temp'); //------loading the profile page for Quick search 
-//        $this->load->view('includes/user/userfooter');
+        $this->load->view('includes/user/userfooter');
     }
 
 }
