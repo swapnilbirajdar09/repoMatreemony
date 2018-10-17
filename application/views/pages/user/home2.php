@@ -38,6 +38,20 @@
 
             }
 </style>
+<style>
+.parallax { 
+    /*/ The image used /*/
+
+    /*/ Set a specific height /*/
+    height: auto; 
+
+    /*/ Create the parallax scrolling effect /*/
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+</style>
 </head>
 
 <body data-spy="scroll" data-target=".mainmenu-area">
@@ -54,7 +68,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#"><img src="<?php echo base_url(); ?>assets/demo/images/logo.png" alt="Logo" style="margin-right: 20px"></a>
+                <a class="navbar-brand" href="#"><h3 class="w3-text-white"><b><i>Budhisht Parinay</i></b></h3></a>
             </div>
             <div class="collapse navbar-collapse" id="primary_menu">
                 <ul class="nav navbar-nav mainmenu">
@@ -63,7 +77,7 @@
                     <li><a href="#about_page">About Parinaay</a></li>
                     <li><a href="#pillars_page">Our Pillars</a></li>
                     <li><a href="#testimonial_page">Testimonials</a></li>
-                    <li><a href="<?php echo base_url(); ?>login">Log In</a></li>
+                    <!-- <li><a href="<?php echo base_url(); ?>login">Log In</a></li> -->
                 </ul><!-- 
                 <div class="right-button hidden-xs">
                     <a href="#">Contact Us</a>
@@ -88,9 +102,10 @@
                     <a href="#contact_page" class="bttn-white wow fadeInUp" data-wow-delay="0.8s"><i class="lnr lnr-phone-handset"></i>Contact Us For any Inquiry</a>
                 </div>
                 <div class="col-xs-12 col-md-4">
-                	<div class="col-md-12 w3-black w3-opacity-min w3-padding">
+                	<div class="col-md-12 w3-black w3-padding" style ="opacity: 0.5;
+    filter: alpha(opacity=50);">
                 		<div class="subscribe-form" style="padding:20px">
-                        <h3 class="blue-color">REGISTER</h3>
+                        <h3 class="blue-color"><b>Register Now</b></h3>
                         <form id="mc-form">
                         	<div class="w3-col l12">
                         		<label class="w3-large">Gender : </label>
@@ -145,9 +160,19 @@
     									</div>
                         		
     					</div>
-    					<div class="w3-col l12 text-center">
+    					<div class="col-lg-12 text-center">
     						<div class="space-20"></div>
     						<a href="#" class="bttn-default wow fadeInUp btn-block" style="border-radius: 5px"> Proceed Next <i class="lnr lnr-arrow-right"></i></a>
+                        </div>
+                            <div class="col-lg-12 w3-margin-top">
+                                <div class="col-md-6 col-sm-4">
+                     <button class="btn btn-block" style="background: linear-gradient(45deg, rgba(72, 44, 191, 1) 0%, rgba(106, 198, 240, 1) 100%);">Register</button> 
+                 </div>
+                 <div class="col-md-6 col-sm-4">
+                   <button class="btn btn-block" style="background: linear-gradient(45deg, rgba(72, 44, 191, 1) 0%, rgba(106, 198, 240, 1) 100%);">Log In</button>
+                </div>
+                </div>
+
     						<div class="space-20"></div>
     					</div>
                         </form>
@@ -166,7 +191,7 @@
             <div class="row">
                 <div class="col-xs-12 col-md-10 col-md-offset-1">
                     <div class="page-title text-center">
-                        <img src="<?php echo base_url(); ?>assets/client/uploads/header_logo/logo.jpeg" alt="About Logo">
+                        <!-- <img src="<?php echo base_url(); ?>assets/client/uploads/header_logo/logo.jpeg" alt="About Logo"> -->
                         <div class="space-20"></div>
                         <h5 class="title">About Parinaay</h5>
                         <div class="space-30"></div>
@@ -275,7 +300,7 @@
     </div>
     
    <!-- Download-Area -->
-    <div class="download-area overlay" style="background-image: url('<?php echo base_url(); ?>assets/client/uploads/home_page/parallax_image/parallax1.jpg');">
+    <div class="parallax download-area overlay" style="background-image: url('<?php echo base_url(); ?>assets/client/uploads/home_page/parallax_image/parallax1.jpg');">
         <div class="container">
             <div class="row">
                 <div class="col-xs-12 col-md-12 text-center" style="padding:40px">
