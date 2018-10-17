@@ -428,12 +428,14 @@
                 </div>
             </div>
         </div>
+        <div>
         <section class="col-md-12 no-padding">
 	<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3784.578573098557!2d73.76471457487463!3d18.45743398155607!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc295eb7242f4f9%3A0xbb7abb920bc02587!2sAnandtara&#39;s+Haritara!5e0!3m2!1sen!2sin!4v1539411827476" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
 </section>
+</div>
         <!-- Footer-Bootom -->
-        <div class="footer-bottom">
-            <div class="container">
+        <div class="footer-bottom" style="background: linear-gradient(45deg, rgba(72, 44, 191, 1) 0%, rgba(106, 198, 240, 1) 100%);">
+            <div class="container" >
                 <div class="row">
                     <div class="col-xs-12 col-md-5">
                         <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
