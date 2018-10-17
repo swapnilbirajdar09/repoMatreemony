@@ -19,19 +19,19 @@
                             </div>
                             <div class="card-body">
                                 <form class="form-default" id="quickSearchFilter_form" name="quickSearchFilter_form" data-toggle="validator" role="form">
-<!--                                    <div class="row">
-                                        <div class="col-sm-12">
-                                            <div class="form-group has-feedback">
-                                                <label for="" class="text-uppercase">Looking For</label>
-                                                <div class="radio radio-primary">
-                                                    <input type="radio" name="gender" id="bride" value="2" >
-                                                    <label for="bride" class="pr-3">Female</label>
-                                                    <input type="radio" name="gender" id="groom" value="1" >
-                                                    <label for="groom">Male</label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>-->
+                                    <!--                                    <div class="row">
+                                                                            <div class="col-sm-12">
+                                                                                <div class="form-group has-feedback">
+                                                                                    <label for="" class="text-uppercase">Looking For</label>
+                                                                                    <div class="radio radio-primary">
+                                                                                        <input type="radio" name="gender" id="bride" value="2" >
+                                                                                        <label for="bride" class="pr-3">Female</label>
+                                                                                        <input type="radio" name="gender" id="groom" value="1" >
+                                                                                        <label for="groom">Male</label>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>-->
                                     <div class="row">
                                         <div class="col-sm-6">
                                             <div class="form-group has-feedback">
@@ -93,17 +93,14 @@
                 </div>
             </div>
 
-
             <div class="col-lg-8">
-                <input type="hidden" id="member_type" value="">
-                
+                <input type="hidden" id="member_type" value="">                
                 <div ng-show="finderloader" class="w3-center">
                     <center>
                         <i class="w3-center fa fa-refresh fa-5x fa-spin"></i>
                         <p>Please Wait...</p>
                     </center>
                 </div>
-
                 <!-----------------------------this Div is for all users profiles---------------------------------->
                 <div class="block-wrapper" id="result">
                     <!-----------------------------this Div is for single user profile---------------------------------->
@@ -115,10 +112,10 @@
                         </div>
                         <div class="block-title-wrapper">
                             <h3 class="heading heading-5 strong-500 mt-1">
-                                <a onclick="goto_profile(p.user_profile_id)" class="c-base-1">{{p.user_fullname}}</a>
+                                <a onclick="goto_profile(p.user_profile_id)" class="c-base-1"> {{p.user_fullname}}</a>
                             </h3>
-                            <h4 class="heading heading-xs c-gray-light text-uppercase strong-400">{{p.user_designation}}</h4>
-                            <table class=" mb-2" style="font-size: 12px;">
+                            <h4 class="heading heading-xs c-gray-light text-uppercase strong-400"> {{p.user_designation}}</h4>
+                            <table class="mb-2" style="font-size: 12px;">
                                 <tbody>
                                     <tr>
                                         <td height="30" style="padding-left: 5px;" class="font-dark"><b>Member ID</b></td>
@@ -133,7 +130,7 @@
                                     <tr>
                                         <td width="120" height="30" style="padding-left: 5px;" class="font-dark"><b>Mother Tongue</b></td>
                                         <td width="120" height="30" style="padding-left: 5px;" class="font-dark">{{p.user_mother_tongue}}</td>
-                                        <td width="120" height="30" style="padding-left: 5px;"><b>Marital Status</b></td>
+                                        <td width="120" height="30" style="padding-left: 5px;" class="font-dark"><b>Marital Status</b></td>
                                         <td width="120" height="30" style="padding-left: 5px;" class="font-dark">{{p.user_marital_status}}</td>
                                     </tr>
                                     <tr>
@@ -141,10 +138,8 @@
                                         <td colspan="3" height="30" style="padding-left: 5px;" class="font-dark">Nidwalden, Switzerland</td>
                                     </tr>
                                 </tbody>
-                            </table>
-                        </div>
-                        <div class="block-footer b-xs-top">
-                            <div class="row align-items-center">
+                            </table
+                            <div class="row align-items-center w3-padding">
                                 <div class="col-sm-12 text-center">
                                     <ul class="inline-links inline-links--style-3">
                                         <li class="listing-hover">
@@ -160,16 +155,16 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <!-----------------------------this Div is for single user profile---------------------------------->
-                    <div class=" w3-center w3-padding list z-depth-1-top" ng-if="profiles == 500" id="block_1">
-                        <fieldset>
+                        <!-----------------------------this Div is for single user profile---------------------------------->
+                        <div class=" w3-center w3-padding list z-depth-1-top" ng-if="profiles == 500" id="block_1">
                             <div class="w3-padding w3-margin-top">
                                 <p class="w3-center w3-medium w3-text-black"> No Match Found..! </p>
                             </div>
-                        </fieldset>
+                        </div>
+                        <!-----------------------------this Div is for single user profile---------------------------------->
+
                     </div>
-                  
+
                 </div>
                 <!-----------------------------this Div is for all users profiles---------------------------------->
                 <div id="pagination" style="float: right;">
