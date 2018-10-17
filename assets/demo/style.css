@@ -992,8 +992,9 @@ input:-webkit-autofill:focus {
 
 .footer-bottom {
     padding: 20px 0;
-    background-color: #f5f6ff;
+    /*background-color: #f5f6ff;*/
     border-top: 1px solid #5e88fc;
+    background: linear-gradient(45deg, rgba(72, 44, 191, 1) 0%, rgba(106, 198, 240, 1) 100%);
 }
 
 .footer-bottom .footer-menu ul {
