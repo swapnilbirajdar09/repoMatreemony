@@ -13,7 +13,7 @@
             <div class="col-lg-4">
                 <div class="sidebar">
                     <div class="">
-                        <div class="card">
+                        <div class="w3-card-2">
                             <div class="card-title b-xs-bottom">
                                 <h3 class="heading heading-sm text-uppercase">Quick Search</h3>
                             </div>
@@ -35,7 +35,7 @@
                                     <div class="row">
                                         <div class="col-sm-6">
                                             <div class="form-group has-feedback">
-                                                <label for="" class="text-uppercase">Age From</label>
+                                                <label for="" class="text-uppercase" >Age From</label>
                                                 <input type="number" class="form-control form-control-sm" min="0" name="filter_aged_from" id="filter_aged_from" value="">
                                                 <div class="help-block with-errors">
                                                 </div>
