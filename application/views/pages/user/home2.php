@@ -235,15 +235,15 @@ a.socialIcon:hover, .socialHoverClass {
     									</div>
                         		
     					</div>
-    					<div class="w3-col l12 text-center">
+    					<div class="w3-col l12 text-center w3-margin-bottom">
     						<div class="space-20"></div>
     						<a href="#" class="bttn-default wow fadeInUp " style="border-radius: 5px"> Proceed Next <i class="lnr lnr-arrow-right"></i></a>
                         </div>
-                            <div class="w3-col l12 w3-margin-top">
-                                <div class="w3-col l6 col-sm-4">
+                            <div class="col-md-12" >
+                                <div class="w3-col l6 w3-col s6" style="padding: 0 3px 0 8px">
                      <button class="btn btn-block w3-margin-bottom" style="border-radius: 5px; background: linear-gradient(45deg, rgba(72, 44, 191, 1) 0%, rgba(106, 198, 240, 1) 100%);">Register</button> 
                  </div>
-                 <div class="w3-col l6 col-sm-4">
+                 <div class="w3-col l6 w3-col s6" style="padding: 0 5px 0 3px">
                    <button class="btn btn-block w3-margin-bottom" style="border-radius: 5px; background: linear-gradient(45deg, rgba(72, 44, 191, 1) 0%, rgba(106, 198, 240, 1) 100%);">Log In</button>
                 </div>
                 </div>
