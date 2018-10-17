@@ -230,7 +230,7 @@
                 <div class="col-xs-12 col-sm-6 col-md-4">
                     <article class="post-single" style="padding: 0">
                         <figure class="post-media" style="margin: 0">
-                            <img src="<?php echo base_url(); ?>assets/demo/images/blog-1.jpg" alt="">
+                            <img src="<?php echo base_url(); ?>assets/demo/images/profile_1.jpg" alt="">
                         </figure>
                         <div class="post-body" style="padding:0 30px 10px 30px">
                             <h4 class="dark-color" style="margin: 10px 0 8px 0"><a href="single.html">Person Name</a></h4>
@@ -244,7 +244,7 @@
                 <div class="col-xs-12 col-sm-6 col-md-4">
                     <article class="post-single" style="padding: 0">
                         <figure class="post-media" style="margin: 0">
-                            <img src="<?php echo base_url(); ?>assets/demo/images/blog-1.jpg" alt="">
+                            <img src="<?php echo base_url(); ?>assets/demo/images/profile_1.jpg" alt="">
                         </figure>
                         <div class="post-body" style="padding:0 30px 10px 30px">
                             <h4 class="dark-color" style="margin: 10px 0 8px 0"><a href="single.html">Person Name</a></h4>
@@ -258,7 +258,7 @@
                 <div class="col-xs-12 col-sm-6 col-md-4">
                     <article class="post-single" style="padding: 0">
                         <figure class="post-media" style="margin: 0">
-                            <img src="<?php echo base_url(); ?>assets/demo/images/blog-1.jpg" alt="">
+                            <img src="<?php echo base_url(); ?>assets/demo/images/profile_1.jpg" alt="">
                         </figure>
                         <div class="post-body" style="padding:0 30px 10px 30px">
                             <h4 class="dark-color" style="margin: 10px 0 8px 0"><a href="single.html">Person Name</a></h4>
@@ -417,7 +417,7 @@
             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                         <div class="space-30 hidden visible-xs"></div>
                     </div>
-                    <div class="col-xs-12 col-md-7">
+                    <div class="col-xs-12 col-md-7"><!-- 
                         <div class="footer-menu">
                             <ul>
                                 <li><a href="#">About</a></li>
@@ -428,7 +428,7 @@
                                 <li><a href="#">Contacts</a></li>
                             </ul>
                         </div>
-                    </div>
+                     --></div>
                 </div>
             </div>
         </div>
