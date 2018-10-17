@@ -229,12 +229,11 @@
                                                 <ul class="dropdown-menu" style="border: 1px solid #f1f1f1 !important;">
                                                     <li class="dropdown dropdown-submenu">
                                                     <li>
-                                                        <a class="dropdown-item " href="<?php echo base_url(); ?>">
-                                                            Direct Search</a>
+                                                        <a class="dropdown-item " href="<?php echo base_url(); ?>user/search/quick_search">
+                                                            Quick Search</a>
                                                     </li>
                                                     <li>
-
-                                                        <a class="dropdown-item " href="<?php echo base_url(); ?>user/search/quick_search">
+                                                        <a class="dropdown-item " href="<?php echo base_url(); ?>user/search/regular_search">
                                                             Regular Search</a>
                                                     </li>
                                                     <li>
