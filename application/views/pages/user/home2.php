@@ -87,18 +87,19 @@ a.socialIcon:hover, .socialHoverClass {
 .social-circle li a {
     display:inline-block;
     position:relative;
-    margin:0 auto 0 auto;
+    margin:5px auto 0 auto;
+
     -moz-border-radius:50%;
     -webkit-border-radius:50%;
     border-radius:50%;
     text-align:center;
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     font-size:20px;
 }
 .social-circle li i {
     margin:0;
-    line-height:50px;
+    line-height:40px;
     text-align: center;
 }
 
@@ -122,7 +123,7 @@ a.socialIcon:hover, .socialHoverClass {
     transition: all 0.8s;
 }
 
-a {
+.social-circle a {
  background-color: #D3D3D3;   
 }
 </style>
