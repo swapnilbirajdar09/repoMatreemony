@@ -26,11 +26,11 @@ class Quick_search extends CI_Controller {
     }
 
 //------fun for filter the users--------------------------//
-    public function getAllUserProfilesByRegularSearch() {
+    public function getAllUserProfilesByQuickSearch() {
         $postdata = file_get_contents("php://input");
         $request = json_decode($postdata, TRUE);
         extract($request);
-        $result = $this->Quicksearch_model->getAllUserProfilesByRegularSearch($request);
+        $result = $this->Quicksearch_model->getAllUserProfilesByQuickSearch($request);
         //print_r($result);die();
         if (!$result) {
             echo '500';

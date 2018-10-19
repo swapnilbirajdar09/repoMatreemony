@@ -69,7 +69,7 @@ app.controller("quickSearchProfileController", function ($scope, $http, $window)
 
     });
 // ------------get User Profile Details controller--------------
-    $scope.getAllUserProfilesByRegularSearch = function () {
+    $scope.getAllUserProfilesByQuickSearch = function () {
         $scope.finderloader = true;
 //        var gender = $('input[name=gender]:checked').val();
         var filter_aged_from = $('#filter_aged_from').val();
@@ -78,7 +78,7 @@ app.controller("quickSearchProfileController", function ($scope, $http, $window)
         var language = $('#language').val();
         $http({
             method: 'POST',
-            url: BASE_URL + 'user/search/quick_search/getAllUserProfilesByRegularSearch',
+            url: BASE_URL + 'user/search/quick_search/getAllUserProfilesByQuickSearch',
             headers: {'Content-Type': 'application/json'},
             data: JSON.stringify({
 //                gender: gender,

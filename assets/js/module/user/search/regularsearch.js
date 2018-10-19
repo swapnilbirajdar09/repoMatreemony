@@ -71,17 +71,18 @@ app.controller("regularSearchProfileController", function ($scope, $http, $windo
 // ------------get User Profile Details controller--------------
     $scope.getAllUserProfilesByRegularSearch = function () {
         $scope.finderloader = true;
-//        var gender = $('input[name=gender]:checked').val();
+        //var gender = $('input[name=gender]:checked').val();
         var filter_aged_from = $('#filter_aged_from').val();
         var filter_aged_to = $('#filter_aged_to').val();
         var religion = $('#religion').val();
         var language = $('#language').val();
+        var maritalStatus = $('#maritalStatus').val();
         $http({
             method: 'POST',
-            url: BASE_URL + 'user/search/quick_search/getAllUserProfilesByRegularSearch',
+            url: BASE_URL + 'user/search/Regular_search/getAllUserProfilesByRegularSearch',
             headers: {'Content-Type': 'application/json'},
             data: JSON.stringify({
-//                gender: gender,
+                maritalStatus: maritalStatus,
                 filter_aged_from: filter_aged_from,
                 filter_aged_to: filter_aged_to,
                 religion: religion,

@@ -72,7 +72,7 @@
                                             </div>                                                                                       
                                         </div>
                                     </div>
-                                    <button type="button" class="btn btn-block btn-base-1 mt-2 z-depth-2-bottom" ng-click="getAllUserProfilesByRegularSearch();">Search</button>
+                                    <button type="button" class="btn btn-block btn-base-1 mt-2 z-depth-2-bottom" ng-click="getAllUserProfilesByQuickSearch();">Search</button>
                                 </form>
                             </div>
                         </div>
@@ -135,7 +135,7 @@
                                         </li>
                                         <li class="listing-hover">
                                             <a id="interest_a_1" onclick="confirm_interest(p.user_profile_id)" style="">
-                                                <span id="interest_1" class=""><i class="fa fa-heart"></i> Express Interest</span>
+                                                <span id="interest_1" class=""><i class="fa fa-heart"></i> Add To Favourite</span>
                                             </a>
                                         </li>
                                     </ul>

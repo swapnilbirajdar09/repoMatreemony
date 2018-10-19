@@ -72,7 +72,7 @@
                                             </div>
                                             <div class="form-group has-feedback">
                                                 <label for="" class="text-uppercase w3-medium">Marital Status</label>
-                                                <select name="language" id="language" class="w3-input selectpicker" data-placeholder="Choose a language" tabindex="2" data-hide-disabled="true" >
+                                                <select name="maritalStatus" id="maritalStatus" class="w3-input selectpicker" data-placeholder="Choose a language" tabindex="2" data-hide-disabled="true" >
                                                     <option value=""><b>Choose one</b></option>
                                                     <option value="Never Married" >Never Married</option>
                                                     <option value="Divorced" >Divorced</option>
@@ -148,7 +148,7 @@
                                         </li>
                                         <li class="listing-hover">
                                             <a id="interest_a_1" onclick="confirm_interest(p.user_profile_id)" style="">
-                                                <span id="interest_1" class=""><i class="fa fa-heart"></i> Express Interest</span>
+                                                <span id="interest_1" class=""><i class="fa fa-heart"></i> Add To Favourite</span>
                                             </a>
                                         </li>
                                     </ul>

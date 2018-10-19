@@ -92,7 +92,7 @@
                                         </li>
                                         <li class="listing-hover">
                                             <a id="interest_a_1" onclick="confirm_interest(p.user_profile_id)" style="">
-                                                <span id="interest_1" class=""><i class="fa fa-heart"></i> Express Interest</span>
+                                                <span id="interest_1" class=""><i class="fa fa-heart"></i> Add To Favourite</span>
                                             </a>
                                         </li>               
                                     </ul>
