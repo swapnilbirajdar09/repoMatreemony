@@ -23,8 +23,8 @@
                                     <div class="row">
                                         <div class="col-sm-12">
                                             <div class="form-group has-feedback">
-                                                <label for="" class="text-uppercase w3-text-black">Profile Id</label>
-                                                <input type="text" class="form-control form-control" name="filter_member_id" ng-model="filter_member_id" id="filter_member_id" value="" placeholder="Enter Profile Id">
+                                                <label for="" class="text-uppercase w3-medium w3-text-black">Profile Id</label>
+                                                <input type="text" class="w3-input" name="filter_member_id" ng-model="filter_member_id" id="filter_member_id" value="" placeholder="Enter Profile Id">
                                                 <div class="help-block with-errors">
                                                 </div>
                                             </div>

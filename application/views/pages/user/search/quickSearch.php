@@ -18,33 +18,20 @@
                                 <h3 class="heading heading-sm text-uppercase">Quick Search</h3>
                             </div>
                             <div class="card-body">
-                                <form class="form-default" id="quickSearchFilter_form" name="quickSearchFilter_form" data-toggle="validator" role="form">
-                                    <!--                                    <div class="row">
-                                                                            <div class="col-sm-12">
-                                                                                <div class="form-group has-feedback">
-                                                                                    <label for="" class="text-uppercase">Looking For</label>
-                                                                                    <div class="radio radio-primary">
-                                                                                        <input type="radio" name="gender" id="bride" value="2" >
-                                                                                        <label for="bride" class="pr-3">Female</label>
-                                                                                        <input type="radio" name="gender" id="groom" value="1" >
-                                                                                        <label for="groom">Male</label>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>-->
+                                <form class="form-default" id="quickSearchFilter_form" name="quickSearchFilter_form" data-toggle="validator" role="form">                          
                                     <div class="row">
                                         <div class="col-sm-6">
                                             <div class="form-group has-feedback">
-                                                <label for="" class="text-uppercase" >Age From</label>
-                                                <input type="number" class="form-control form-control-sm" min="0" name="filter_aged_from" id="filter_aged_from" value="">
+                                                <label for="" class="text-uppercase w3-medium" >Age From</label>
+                                                <input type="number" class="w3-input" min="0" name="filter_aged_from" id="filter_aged_from" value="">
                                                 <div class="help-block with-errors">
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-sm-6">
                                             <div class="form-group has-feedback">
-                                                <label for="" class="text-uppercase">To</label>
-                                                <input type="number" class="form-control form-control-sm" min="0" name="filter_aged_to" id="filter_aged_to" value="">
+                                                <label for="" class="text-uppercase w3-medium">To</label>
+                                                <input type="number" class="w3-input" min="0" name="filter_aged_to" id="filter_aged_to" value="">
                                             </div>
                                             <div class="help-block with-errors">
                                             </div>
@@ -54,8 +41,8 @@
                                     <div class="row">
                                         <div class="col-sm-12">
                                             <div class="form-group has-feedback">
-                                                <label for="" class="text-uppercase">Religion</label>
-                                                <select name="religion" id="religion" class="form-control form-control-sm selectpicker s_religion" data-placeholder="Choose a religion" tabindex="2" data-hide-disabled="true" >
+                                                <label for="" class="text-uppercase w3-medium">Religion</label>
+                                                <select name="religion" id="religion" class="w3-input selectpicker s_religion" data-placeholder="Choose a religion" tabindex="2" data-hide-disabled="true" >
                                                     <option value="">Choose one</option>
                                                     <option value="Judaism" >Judaism</option>
                                                     <option value="Cristianity" >Cristianity</option>
@@ -70,8 +57,8 @@
                                                 </div>
                                             </div>                                                                                                                       
                                             <div class="form-group has-feedback">
-                                                <label for="" class="text-uppercase">Mother Tongue</label>
-                                                <select name="language" id="language" class="form-control form-control-sm selectpicker" data-placeholder="Choose a language" tabindex="2" data-hide-disabled="true" >
+                                                <label for="" class="text-uppercase w3-medium">Mother Tongue</label>
+                                                <select name="language" id="language" class="w3-input selectpicker" data-placeholder="Choose a language" tabindex="2" data-hide-disabled="true" >
                                                     <option value="">Choose one</option>
                                                     <option value="Marathi" >Marathi</option>
                                                     <option value="Bengali" >Bengali</option>
