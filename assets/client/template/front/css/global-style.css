@@ -1339,7 +1339,7 @@ URL: https://www.activeitzone.com
     overflow-y: scroll; }
 
   .navbar-nav .nav-link {
-    color: #666;
+    color: white;
     padding: 0.875rem 1rem;
     margin-right: 0;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1); }
@@ -1349,7 +1349,7 @@ URL: https://www.activeitzone.com
   .navbar-nav .show .nav-link,
   .navbar-nav .show .nav-link:focus,
   .navbar-nav .show .nav-link:hover {
-    color: #5E32E1;
+    color: white;
     background: transparent;
     border-radius: 0 !important; }
 

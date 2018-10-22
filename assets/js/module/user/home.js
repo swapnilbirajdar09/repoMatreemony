@@ -9,7 +9,7 @@ loginApp.controller('loginController', function ($scope, $http, $timeout, $windo
     $scope.loginMessage = '';
     // spinner on button
     $scope.loginDisable = "true";
-    $scope.loginBtnText = "<i class='fa fa-circle-o-notch fa-spin'></i> Authenticating user...";
+    $scope.loginBtnText = "<i class='fa fa-circle-o-notch fa-spin'></i> Authenticating user";
 
     $timeout(function () {
       $http({

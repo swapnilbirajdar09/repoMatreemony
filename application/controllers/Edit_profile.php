@@ -15,7 +15,8 @@ class Edit_profile extends CI_Controller {
         
      
         $this->load->view('includes/user/userheader.php'); //------user header page
-        $this->load->view('pages/user/edit_profile.php'); //------user profile page
+        // $this->load->view('pages/user/edit_profile.php'); //------user profile page
+        $this->load->view('pages/user/edit_profile2.php'); //------user profile page
         $this->load->view('includes/user/userfooter.php'); //------user footer page
     }
 }

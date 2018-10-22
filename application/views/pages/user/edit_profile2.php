@@ -29,123 +29,7 @@
                     </div>
                 </div>
                 <!-- Alerts for Member actions -->
-                <div class="col-lg-4">
-                    <div class="sidebar sidebar-inverse sidebar--style-1 bg-base-1 z-depth-2-top">
-                        <div class="sidebar-object mb-0">
-                            <!-- Profile picture -->
-                            <div class="profile-picture profile-picture--style-2">
-                                <div style="border: 10px solid rgba(255, 255, 255, 0.1);width: 200px;border-radius: 50%;margin-top: 30px;">
-                                    <div class="profile_img" id="show_img" style="background-image: url(http://activeitzone.com/demo/matrimonial/uploads/profile_image/profile_1_thumb.jpg)"></div>
-                                </div>
-                                <div class="profile-connect mt-1 mb-0" id="save_button_section" style="display: none">
-                                    <button type="button" class="btn btn-styled btn-xs btn-base-2" id="save_image">Save Image</button>
-                                </div>
-                                <label class="btn-aux" for="profile_image" style="cursor: pointer;">
-                                    <i class="ion ion-edit"></i>
-                                </label>
-                                <form action="http://activeitzone.com/demo/matrimonial/home/profile/update_image" method="POST" id="profile_image_form" enctype="multipart/form-data">
-                                    <input type="file" style="display: none;" id="profile_image" name="profile_image">
-                                </form>
-                            </div>
-                            <!-- Profile details -->
-                            <div class="profile-details">
-                                <h2 class="heading heading-3 strong-500 profile-name">Slade Bennett</h2>
-                                <h3 class="heading heading-6 strong-400 profile-occupation mt-3">Lead Developer</h3>
-                                <div class="profile-stats clearfix mt-2">
-                                    <div class="stats-entry" style="width: 100%">
-                                        <span class="stats-count">8</span>
-                                        <span class="stats-label text-uppercase">Followers</span>
-                                    </div>
-                                </div>
-                                <!-- Profile connect -->
-                                <div class="profile-connect mt-5">
-                <!-- <a href="#" class="btn btn-styled btn-block btn-circle btn-sm btn-base-5">Follow</a>
-                    <a href="#" class="btn btn-styled btn-block btn-circle btn-sm btn-base-2">Send message</a> -->
-                    <h4 class="heading strong-400">Official Information</h4>
-                </div>
-                <div class="profile-stats clearfix mt-0">
-                    <div class="stats-entry">
-                        <span class="stats-count">Bronze</span>
-                        <span class="stats-label text-uppercase">Current Package</span>
-                    </div>
-                    <div class="stats-entry">
-                        <span class="stats-count"><i class="fa fa-inr"></i> 15.00</span>
-                        <span class="stats-label text-uppercase">Package Price</span>
-                    </div>
-                </div>
-                <div class="profile-stats clearfix mt-2">
-                    <div class="stats-entry">
-                        <span class="stats-count">107</span>
-                        <span class="stats-label text-uppercase">Incoming Interests</span>
-                    </div>
-                    <div class="stats-entry">
-                        <span class="stats-count">5</span>
-                        <span class="stats-label text-uppercase">Remaining Interests</span>
-                    </div>
-                </div>
-                <div class="profile-stats clearfix mt-2">
-                    <div class="stats-entry" style="width: 100%">
-                        <span class="stats-count">22/10/2018</span>
-                        <span class="stats-label text-uppercase">Registration date</span>
-                    </div>
-
-                </div>
-
-            </div>
-            <!-- Profile stats -->
-            <div class="profile-useful-links clearfix">
-
-                <div class="w3-container w3-margin-top w3-center no-padding">
-                    <div class="w3-col l6" style="padding:4px 4px 4px 4px">
-                        <div class="w3-col l12 w3-card-2 w3-round" style="background-image: url(http://activeitzone.com/demo/matrimonial/uploads/profile_image/profile_1_thumb.jpg);background-repeat: no-repeat;background-position: center;background-size: contain;height:150px;background-color: white"></div>
-                    </div>
-                    <div class="w3-col l6" style="padding:4px 4px 4px 4px">
-                        <div class="w3-col l12 w3-card-2 w3-round" style="background-image: url(http://activeitzone.com/demo/matrimonial/uploads/profile_image/profile_1_thumb.jpg);background-repeat: no-repeat;background-position: center;background-size: contain;height:150px;background-color: white"></div>
-                    </div>
-                    <div class="w3-col l6" style="padding:4px 4px 4px 4px">
-                        <div class="w3-col l12 w3-card-2 w3-round" style="background-image: url(http://activeitzone.com/demo/matrimonial/uploads/profile_image/profile_1_thumb.jpg);background-repeat: no-repeat;background-position: center;background-size: contain;height:150px;background-color: white"></div>
-                    </div>
-                    <div class="w3-col l6" style="padding:4px 4px 4px 4px">
-                        <div class="w3-col l12 w3-card-2 w3-round" style="background-image: url(http://activeitzone.com/demo/matrimonial/uploads/profile_image/profile_1_thumb.jpg);background-repeat: no-repeat;background-position: center;background-size: contain;height:150px;background-color: white"></div>
-                    </div>
-                </div>
-                <div class="useful-links">
-                 <a class="btn btn-styled btn-sm btn-white z-depth-2-bottom mb-3 change_pass l_nav" onclick="profile_load('change_pass')">
-                    <b style="font-size: 12px">Change Password</b>
-                </a>
-                <a class="btn btn-styled btn-sm btn-white z-depth-2-bottom mb-3 change_pass l_nav" href="<?php echo base_url(); ?>user/login/logoutUser">
-                    <b style="font-size: 12px">Logout</b>
-                </a>
-
-            </div>
-        </div>
-    </div>
-</div>
-
-<script>
-    $("#profile_image").change(function () {
-        readURL(this);
-    });
-    function readURL(input) {
-        if (input.files && input.files[0]) {
-            var reader = new FileReader();
-            reader.onload = function (e) {
-                $("#show_img").css({
-                    "background-image" : "url("+ e.target.result +")"
-                });
-            }
-            reader.readAsDataURL(input.files[0]);
-            $("#save_button_section").show();
-        }
-    }
-    $("#save_image").click(function(e) {
-        e.preventDefault();
-            // alert('asdas');
-            $("#profile_image_form").submit();
-        })
-    </script>                    
-</div>
-<div class="col-lg-8">
+<div class="col-lg-12">
     <div class="widget">
         <div class="card z-depth-2-top" id="profile_load">
             <div class="card-title">
@@ -202,12 +86,15 @@
                                 <tbody>
                                     <tr>
                                         <td class="">
+                                            <textarea name="about_me" class="form-control">
                                             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
                                             tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
                                             quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
                                             consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
                                             cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                                        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.                            </td>
+                                        proident, sunt in culpa qui officia deserunt mollit anim id est laborum. 
+                                        </textarea>
+                                                                   </td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -299,7 +186,7 @@
                                     <td>Marathi
                                     </td>
                                 </tr>
-
+                                
                             </tbody>
                         </table>
                     </div>
@@ -486,8 +373,7 @@
         <div id="info_life_style">
             <div class="card-inner-title-wrapper pt-0">
                 <h3 class="card-inner-title pull-left">
-                    Life Style            
-                </h3>
+                Life Style            </h3>
             </div>
             <div class="table-full-width">
                 <div class="table-full-width">
@@ -498,28 +384,24 @@
                                     <span>Diet</span>
                                 </td>
                                 <td>
-                                    xyz                            
-                                </td>
+                                xyz                            </td>
                                 <td class="td-label">
                                     <span>Drink</span>
                                 </td>
                                 <td>
-                                    No                            
-                                </td>
+                                No                            </td>
                             </tr>
                             <tr>
                                 <td class="td-label">
                                     <span>Smoke</span>
                                 </td>
                                 <td>
-                                    No                            
-                                </td>
+                                No                            </td>
                                 <td class="td-label">
                                     <span>Living With</span>
                                 </td>
                                 <td>
-                                    Family                            
-                                </td>
+                                Family                            </td>
                             </tr>
                         </tbody>
                     </table>
