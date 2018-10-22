@@ -11,7 +11,7 @@ class Searchbyprofileid_model extends CI_Model {
         if ($filter_member_id == '') {
             $sql = "SELECT * FROM user_profile_tab,user_tab where user_tab.user_id = user_profile_tab.user_id";
         } else {
-            $sql = "SELECT * FROM user_profile_tab,user_tab where user_tab.user_id = user_profile_tab.user_id AND user_profile_id like '%$filter_member_id%'";
+            $sql = "SELECT * FROM user_profile_tab,user_tab where user_tab.user_id = user_profile_tab.user_id AND user_profile_key like '%$filter_member_id%'";
         }
         $result = $this->db->query($sql);
         //echo $sql;die();

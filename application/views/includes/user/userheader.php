@@ -229,6 +229,10 @@
                                                 <ul class="dropdown-menu" style="border: 1px solid #f1f1f1 !important;">
                                                     <li class="dropdown dropdown-submenu">
                                                     <li>
+                                                        <a class="dropdown-item " href="<?php echo base_url(); ?>user/search/profilesearch_byid">
+                                                            Search Profile by ID</a>
+                                                    </li>
+                                                    <li>
                                                         <a class="dropdown-item " href="<?php echo base_url(); ?>user/search/quick_search">
                                                             Quick Search</a>
                                                     </li>
@@ -237,13 +241,9 @@
                                                             Regular Search</a>
                                                     </li>
                                                     <li>
-                                                        <a class="dropdown-item " href="<?php echo base_url(); ?>">
+                                                        <a class="dropdown-item " href="<?php echo base_url(); ?>user/search/advance_search">
                                                             Advance Search</a>
-                                                    </li>
-                                                    <li>
-                                                        <a class="dropdown-item " href="<?php echo base_url(); ?>user/search/profilesearch_byid">
-                                                            Search Profile by ID</a>
-                                                    </li>
+                                                    </li>                                                    
                                                 </ul>
                                             </li>
                                             <li class="custom-nav">
