@@ -141,7 +141,7 @@
                 top: 0px; 
                 right: 0px; 
                 margin: 10px;
-                /*width: 100px;*/
+                width: 100px;
                 z-index:9999; 
                 float: right;
                 border-radius:0px
