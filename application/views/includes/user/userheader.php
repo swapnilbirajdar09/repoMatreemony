@@ -202,12 +202,13 @@
                                     </div>
                                 </div>
                             </div> -->
-                            <nav class="navbar navbar-expand-lg navbar-fixed-top navbar--link-arrow navbar--uppercase">
+                            <nav class="navbar navbar-expand-lg navbar-fixed-top navbar--link-arrow navbar--uppercase" style="background: linear-gradient(45deg, rgba(72, 44, 191, 1) 0%, rgba(106, 198, 240, 1) 100%);padding:14px 0 14px 0">
                                 <div class="container navbar-container">
                                     <!-- Brand/Logo -->
-                                    <a class="navbar-brand" href="<?php echo base_url(); ?>">
+                                    <a class="navbar-brand" href="<?php echo base_url(); ?>"><h3 class="w3-text-white"><b><i>Buddhist Parinay</i></b></h3></a>
+                                    <!-- <a class="navbar-brand" href="<?php echo base_url(); ?>">
                                         <img src="<?php echo base_url(); ?>assets/client/uploads/header_logo/logo.jpeg" class="img-responsive" height="100%" style="margin-bottom: 8px;">
-                                    </a>
+                                    </a> -->
                                     <div class="d-inline-block">
                                         <!-- Navbar toggler  -->
                                         <button class="navbar-toggler hamburger hamburger-js hamburger--spring" type="button" data-toggle="collapse" data-target="#navbar_main" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
@@ -220,7 +221,7 @@
                                         <!-- Navbar links -->
                                         <ul class="navbar-nav" data-hover="dropdown">
                                             <li class="custom-nav">
-                                                <a class="nav-link nav_active" href="<?php echo base_url(); ?>" aria-haspopup="true" aria-expanded="false">
+                                                <a class="nav-link nav_active w3-text-white" href="<?php echo base_url(); ?>" aria-haspopup="true" aria-expanded="false">
                                                     Home</a>
                                             </li>
                                             <li class="custom-nav dropdown">

@@ -32,7 +32,11 @@
     <![endif]-->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
     <!--Vendor-JS-->
-    <script src="<?php echo base_url(); ?>assets/demo/js/vendor/jquery-1.12.4.min.js"></script>
+    <!-- angular-->
+    <script src="<?php echo base_url(); ?>assets/js/angular.js"></script>
+    <script src="<?php echo base_url(); ?>assets/js/angular-sanitize.js"></script>
+    <script src="<?php echo base_url(); ?>assets/js/jquery.min.js"></script>
+    <script src="<?php echo base_url(); ?>assets/js/const.js"></script>
     <script src="<?php echo base_url(); ?>assets/demo/js/vendor/jquery-ui.js"></script>
     <script src="<?php echo base_url(); ?>assets/demo/js/vendor/bootstrap.min.js"></script>
 
@@ -46,3 +50,35 @@
 </head>
 
 <body data-spy="scroll" data-target=".mainmenu-area">
+	<!-- Preloader-content -->
+<div class="preloader">
+	<span><i class="lnr lnr-sun"></i></span>
+</div>
+<!-- MainMenu-Area -->
+<nav class="mainmenu-area" data-spy="affix" data-offset-top="200">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#primary_menu">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="<?php echo base_url(); ?>"><h3 class="w3-text-white"><b><i>Buddhist Parinay</i></b></h3></a>
+		</div>
+		<div class="collapse navbar-collapse" id="primary_menu">
+			<ul class="nav navbar-nav mainmenu">
+				<li class="active">
+					<li><a href="#home_page">Home</a></li>
+					<li><a href="#about_page">About Parinaay</a></li>
+					<li><a href="#pillars_page">Our Pillars</a></li>
+					<li><a href="#testimonial_page">Testimonials</a></li>
+					<!-- <li><a href="<?php echo base_url(); ?>login">Log In</a></li> -->
+                </ul><!-- 
+                <div class="right-button hidden-xs">
+                    <a href="#">Contact Us</a>
+                    <a href="#">Log In</a>
+                </div> -->
+            </div>
+        </div>
+    </nav>
+    <!-- MainMenu-Area-End -->

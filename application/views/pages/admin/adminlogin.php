@@ -39,8 +39,9 @@
             
             <a class="hiddenanchor" id="signup"></a>
             <a class="hiddenanchor" id="signin"></a>
-   <section id="logo">
-            <a href="#"><img src="<?php echo base_url(); ?>assets/client/uploads/header_logo/logo.jpeg" class="center" alt=""  /></a>
+   <section id="logo" class="w3-center" style="margin-top: 26px">
+            <!-- <a href="#"><img src="<?php echo base_url(); ?>assets/client/uploads/header_logo/logo.jpeg" class="center" alt=""  /></a> -->
+            <h1 class=""><b><i>Buddhist Parinay</i></b></h1>
         </section>
             <div class="login_wrapper" ng-app="loginApp" ng-controller="loginController">
 

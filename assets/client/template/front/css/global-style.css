@@ -637,11 +637,11 @@ URL: https://www.activeitzone.com
     margin-right: 0; } }
 .navbar-nav .nav-link {
   font-size: 0.875rem;
-  font-family: "Roboto", sans-serif;
-  font-weight: 500;
+  /*font-family: "Roboto", sans-serif;*/
+  font-weight: bold;
   text-transform: none;
   letter-spacing: 0;
-  color: #555;
+  color: white;
   background: transparent; }
 
 .navbar-nav .nav-link,
@@ -15803,7 +15803,7 @@ a {
   height: 2px;
   bottom: 0;
   left: 0;
-  background: #5E32E1;
+  background: white;
   border-radius: 5px;
 }
 .nav_active_dropdown {

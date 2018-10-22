@@ -4,9 +4,7 @@
       <div class="row cols-xs-space cols-sm-space cols-md-space">
         <div class="col-md-3 col-lg-3">
           <div class="col">
-            <a class="navbar-brand" href="#">
-              <img src="<?php echo base_url(); ?>assets/client/uploads/header_logo/logo.jpeg" class="img-responsive" width="100%">
-            </a>
+            <a class="navbar-brand" href="<?php echo base_url(); ?>"><h3 class="w3-text-white"><b><i>Buddhist Parinay</i></b></h3></a>
             <div class="text-center"><small>Demo text from Admin</small></div>
           </div>
         </div>
