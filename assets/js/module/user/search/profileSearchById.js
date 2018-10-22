@@ -146,4 +146,25 @@ app.controller("searchProfileByIdAppController", function ($scope, $http, $windo
         //$scope.poData = $scope.po;
     });
 
+
+    $scope.sendRequestToUser = function (user_id) {
+        //alert(user_profile_id);
+        $http({
+            method: 'get',
+            url: BASE_URL + 'user/search/profilesearch_byid/sendRequestToUser?profile_user_id=' + user_id
+        }).then(function successCallback(response) {
+            //alert(response.data);
+            console.log(response.data);
+            $('#ajax_success_alert').css('display', 'block');
+            alert(response.data);
+            if (response.data == '200') {
+                $scope.message = 'Request Sent Successfully.'
+//                $scope.message = '<div class="alert alert-success alert-dismissible fade in alert-fixed w3-round"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><strong>Success!</strong> Request Sent Successfully.</div><script>window.setTimeout(function() {	$(".alert").fadeTo(500, 0).slideUp(500, function(){$(this).remove(); });}, 3000);</script>';
+            } else {
+                $scope.message = '<div class="alert alert-danger alert-dismissible fade in alert-fixed w3-round"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><strong>Success!</strong> Request Not Sent successfully added.</div><script>window.setTimeout(function() {	$(".alert").fadeTo(500, 0).slideUp(500, function(){$(this).remove(); });}, 3000);</script>';
+
+            }
+        });
+    };
+
 });

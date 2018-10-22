@@ -10,6 +10,24 @@
 <section class="slice sct-color-1">
     <div class="container">
         <div class="row" ng-app="searchProfileByIdApp" ng-controller="searchProfileByIdAppController">
+            
+            <!--success div-->
+            <div class="col-lg-3 col-md-4" id="ajax_success_alert" style="display: none; position: fixed; top: 15px; right: 0; z-index: 9999">
+                <div class="alert alert-success ajax_success_alert alert-dismissable fade show" role="alert">
+                    <!-- Success Alert Content -->
+                    {{message}}
+                </div>
+            </div>
+            <!--success div-->
+            <!--error div-->
+            <div class="col-lg-3 col-md-4" id="ajax_danger_alert" style="display: none; position: fixed; top: 15px; right: 0; z-index: 9999">
+                <div class="alert alert-danger ajax_danger_alert fade show" role="alert">
+                    <!-- Success Alert Content -->
+                    {{message}}
+                </div>
+            </div>
+            <!--error div-->
+            
             <div class="col-lg-4">
                 <div class="sidebar">
                     <div class="">
@@ -87,6 +105,10 @@
                                 <div class="col-sm-12 text-center">
                                     <ul class="inline-links inline-links--style-3">
                                         <li class="listing-hover">
+                                            <a ng-click="sendRequestToUser(p.user_id);">
+                                                <i class="fa fa-user-plus w3-text-green"></i>Send Request</a>
+                                        </li>
+                                        <li class="listing-hover">
                                             <a onclick="return goto_profile(p.user_profile_id)">
                                                 <i class="fa fa-id-card"></i>Full Profile</a>
                                         </li>
@@ -117,6 +139,7 @@
                     <!-- Loads Ajax Pagination Links -->
                 </div>
             </div>
+
         </div>
     </div>
 </section>

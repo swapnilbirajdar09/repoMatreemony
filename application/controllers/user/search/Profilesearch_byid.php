@@ -52,4 +52,21 @@ class Profilesearch_byid extends CI_Controller {
         }
     }
 
+//-------------------fun for send request to user
+    public function sendRequestToUser() {
+        extract($_GET);
+        //print_r($_GET);die();
+        $encodedkey = $this->session->userdata('PariKey_session');
+        $key = base64_decode($encodedkey);
+        $keyarr = explode('|', $key);
+        $user_id = $keyarr[2];
+        $result = $this->Searchbyprofileid_model->sendRequestToUser($profile_user_id, $user_id);
+        //print_r($result);die();
+        if ($result) {
+            echo 200;
+        } else {
+            echo 500;
+        }
+    }
+
 }
