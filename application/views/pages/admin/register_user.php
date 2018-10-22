@@ -1,4 +1,4 @@
-<title>Parinaay Matrimony | Edit Package</title>
+<title>Parinaay Matrimony | Register User</title>
 <!-- page content -->
 <div class="right_col" role="main" id="editPkgApp">
   <div class="">
@@ -6,7 +6,7 @@
       <div class="col-md-12">
         <div class="x_panel">
           <div class="x_title">
-            <h2><i class="fa fa-user-cirlce"></i> Admin Profile <small>Complete admin profile</small></h2>
+            <h2><i class="fa fa-user-cirlce"></i> Register User</h2>
             <a class="btn btn-primary btn-sm pull-right" href="<?php echo base_url(); ?>admin/dashboard" ><i class="fa fa-chevron-left"></i> Back to Dashboard</a>
             <div class="clearfix"></div>
           </div>
@@ -16,19 +16,10 @@
               <div class="col-md-12">
                 <div class="col-md-2"></div>
                 <div class="col-md-8">
-                 <?php 
-                 if($adminInfo){
-                  ?>
+               
                   <form id="editAdminProfileForm" name="editAdminProfileForm" enctype="multipart/form">
                     <div class="col-md-12">
                       <h5><b>General Details</b></h5>
-                       <div class="col-md-4 w3-margin-bottom w3-right">
-                          <label>Profile Image: </label>
-                          <input type="file" name="profile_image" value="" class="form-control w3-small">
-                            <input type="hidden" class="form-control w3-small" name="profile_image" id="profile_image" value="<?php echo $adminInfo[0]['profile_image']; ?>">
-                        </div>
-
-              
                       <div class="w3-col l12">
                         <div class="col-md-4 w3-margin-bottom">
                           <label>Username: </label>

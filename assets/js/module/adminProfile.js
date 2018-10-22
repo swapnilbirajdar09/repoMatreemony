@@ -15,10 +15,11 @@ $(function () {
         $.ajax({
             type: "POST",
             url: BASE_URL + "admin/admin_profile/updateAdminDetails",
-            dataType: 'text',
-            data: dataString,
-            return: false, //stop the actual form post !important!
-            beforeSend: function () {
+            data:  new FormData(this),
+                contentType: false,
+                cache: false,
+                processData:false,
+              beforeSend: function () {
                 $("#editAdminProfileBtn").attr("disabled", true);
                 $('#editAdminProfileBtn').html(' <i class="fa fa-circle-o-notch fa-spin w3-large"></i> Updating Admin details ... ');
             },
