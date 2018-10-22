@@ -136,6 +136,16 @@
                 margin-top: 0px;
                 top: 0px;
             }
+            .alert-fixed {
+                position:fixed; 
+                top: 0px; 
+                right: 0px; 
+                margin: 10px;
+                /*width: 100px;*/
+                z-index:9999; 
+                float: right;
+                border-radius:0px
+            }
         </style>
         <div id="loading">
             <div id="loading-center">
