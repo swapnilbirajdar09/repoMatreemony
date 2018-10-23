@@ -193,25 +193,8 @@
                     <div class="st-pusher">
                         <div class="st-content">
                             <div class="st-content-inner">
-                                <!-- Navbar -->
-                            <!-- <div class="top-navbar align-items-center">
-                                <div class="container">
-                                    <div class="row align-items-center py-1" style="padding-bottom: 0px !important">
-                                        <div class="col-md-4"></div>
-                                        <div class="col-md-4 text-center" style="padding: 0px"></div>
-                                        <div class="col-md-4">
-                                            <nav class="top-navbar-menu">
-                                                <ul class="float-right top_bar_right">                                                                        
-                                                    <li class="float-left pb-1">
-                                                        <a href="<?php echo base_url(); ?>" class="btn btn-styled btn-xs btn-base-1 btn-shadow"><i class="fa fa-power-off"></i> Log In</a>
-                                                        <a href="<?php echo base_url(); ?>" class="btn btn-styled btn-xs btn-base-1 btn-shadow"><i class="fa fa-user"></i> Register</a>
-                                                    </li>
-                                                </ul>
-                                            </nav>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div> -->
+                            
+                            
                             <nav class="navbar navbar-expand-lg navbar-fixed-top navbar--link-arrow navbar--uppercase" style="background: linear-gradient(45deg, rgba(72, 44, 191, 1) 0%, rgba(106, 198, 240, 1) 100%);padding:14px 0 14px 0">
                                 <div class="container navbar-container">
                                     <!-- Brand/Logo -->
@@ -269,6 +252,30 @@
                                         </div>
                                     </div>
                                 </nav>
+                                    <!-- Navbar -->
+                            <div class="top-navbar align-items-center">
+                                <div class="container">
+                                    <div class="row align-items-center py-1" style="padding-bottom: 0px !important">
+                                        <div class="col-md-4"></div>
+                                        <div class="col-md-4 text-center" style="padding: 0px"></div>
+                                        <div class="col-md-4">
+                                            <nav class="top-navbar-menu">
+                                                <ul class="float-right top_bar_right">    
+                                                    <li class="float-left pb-1">
+                                                        <a class="c-base-1" href="<?php echo base_url(); ?>user/user_profile">
+                                                        <div class="top_nav_img" style="background-image: url(http://activeitzone.com/demo/matrimonial/uploads/profile_image/profile_1_thumb.jpg)"></div>
+                                                        <span class="strong-500 d-none d-lg-inline-block d-xl-inline-block" style="margin-top: 5px">Slade</span>
+                                                    </a>
+                                                    </li>                                                                    
+                                                    <li class="float-left pb-1">
+                                                        <a href="<?php echo base_url(); ?>user/login/logoutUser" class="btn btn-styled btn-xs btn-base-1 btn-shadow w3-margin-left"><i class="fa fa-power-off"></i> Log out</a>
+                                                    </li>
+                                                </ul>
+                                            </nav>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
                                 <script type="text/javascript">
                                     $(document).ready(function () {
