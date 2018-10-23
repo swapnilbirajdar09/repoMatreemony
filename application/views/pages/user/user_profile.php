@@ -99,6 +99,7 @@
                                 <!-- Profile stats -->
                                 <div class="profile-useful-links clearfix">
                                     <div class="profile-connect mt-5">
+                                        <hr>
                                         <h4 class="heading strong-400">Gallery</h4>
                                     </div>
 
@@ -149,25 +150,21 @@
                                                     <div class="w3-col l12 w3-left">
                                                         <a title="View Full Image" class="btn w3-small w3-text-white allImage-btn" data-toggle="modal" data-target="#imgModal"><span class="w3-large fa fa-search-plus"></span> View picture</a>                                    
                                                         <a title="Set as Profile Picture" class="btn w3-small w3-text-white allImage-btn" data-toggle="modal" data-target="#imgModal"><span class="w3-medium fa fa-user-circle"></span> Set Profile picture</a>                                    
-                                                        <a title="Remove Picture from Gallery" class="btn w3-small w3-text-white allImage-btn" data-toggle="modal" data-target="#imgModal"><span class="w3-large fa fa-remove"></span> Remove picture</a>                                    
+                                                        <a title="Remove Picture from Gallery" class="btn w3-small w3-text-white allImage-btn" data-toggle="modal" data-target="#imgModal"><span class="w3-large ion-close"></span> Remove picture</a>                                    
                                                     </div>                          
                                                 </div>
                                                 <!-- overlay for action div ends -->
                                             </div>
                                         </div>
-                                        <div class="w3-col l6" style="padding:4px 4px 4px 4px">
-                                            <div class="w3-col l12 allImage w3-round-xxlarge" style="background-image: url(<?php echo base_url(); ?>assets/client/template/front/images/icons/addmore1.jpg);background-repeat: no-repeat;background-position: center;background-size: cover;height:150px;">
-                                                <!-- overlay for action div -->
-                                                <div class="w3-col l12 w3-lightgrey saved-image w3-round">
-                                                    <a class="w3-col l12" class="btn w3-text-large" data-toggle="modal" data-target="#addMoreImageModal" style="height: 100%">Upload More Pictures</a>  
-
-                                                </div>
-                                                <!-- overlay for action div ends -->
+                                        <div class="w3-col l12" style="padding:4px 4px 4px 4px">
+                                            <div class="pull-right">
+                                                <button type="button" class="btn btn-success btn-icon-only btn-shadow" onclick="load_section('relatives_info')"><i class="ion-plus"></i> Upload Pictures</button>
                                             </div>
                                         </div>
                                     </div>
+                                    <hr>
                                     <div class="useful-links">
-                                     <a class="btn btn-styled btn-sm btn-white z-depth-2-bottom mb-3 change_pass l_nav" onclick="profile_load('change_pass')">
+                                       <a class="btn btn-styled btn-sm btn-white z-depth-2-bottom mb-3 change_pass l_nav" onclick="profile_load('change_pass')">
                                         <b style="font-size: 12px">Change Password</b>
                                     </a>
                                     <a class="btn btn-styled btn-sm btn-white z-depth-2-bottom mb-3 change_pass l_nav" href="<?php echo base_url(); ?>user/login/logoutUser">
@@ -324,9 +321,9 @@
                                                                     <span>Blood Group</span>
                                                                 </td>
                                                                 <td>
-                                                                 O+                          
-                                                             </td>
-                                                             <td class="td-label">
+                                                                   O+                          
+                                                               </td>
+                                                               <td class="td-label">
                                                                 <span>Mother Tongue</span>
                                                             </td>
                                                             <td>Marathi
@@ -408,11 +405,11 @@
                                                         <select name="mother_tongue" onchange="(this.value,this)" class="form-control form-control selectpicker" data-placeholder="Choose one language" tabindex="2" data-hide-disabled="true">
                                                             <option value="0" class="w3-light-grey">Choose one language</option>
                                                             <option value="Marathi" >Marathi</option>
-                                                    <option value="Bengali" >Bengali</option>
-                                                    <option value="German" >German</option>
-                                                    <option value="English" >English</option>
-                                                    <option value="Hindi" >Hindi</option>
-                                                    <option value="Urdu" >Urdu</option>
+                                                            <option value="Bengali" >Bengali</option>
+                                                            <option value="German" >German</option>
+                                                            <option value="English" >English</option>
+                                                            <option value="Hindi" >Hindi</option>
+                                                            <option value="Urdu" >Urdu</option>
                                                         </select>
                                                         <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                                                         <div class="help-block with-errors"></div>
@@ -444,230 +441,471 @@
                                                         <select name="body_type" onchange="(this.value,this)" class="form-control form-control selectpicker" data-placeholder="Choose one Type" tabindex="2" data-hide-disabled="true">
                                                             <option value="0" class="w3-light-grey">Choose one Type</option>
                                                             <option value="Average" >Average</option>
-                                                    <option value="Athletic" >Athletic</option>
-                                                    <option value="Slim" >Slim</option>
-                                                    <option value="Heavy" >Heavy</option>                                                        </select>
-                                                        <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
-                                                        <div class="help-block with-errors"></div>
+                                                            <option value="Athletic" >Athletic</option>
+                                                            <option value="Slim" >Slim</option>
+                                                            <option value="Heavy" >Heavy</option>                                                        </select>
+                                                            <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                                                            <div class="help-block with-errors"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6 w3-margin-top">
+                                                        <div class="form-group has-feedback">
+                                                            <label for="body_complexion" class="text-uppercase c-gray-light">Body Complexion</label>
+                                                            <select name="body_complexion" onchange="(this.value,this)" class="form-control form-control selectpicker" data-placeholder="Choose one option" tabindex="2" data-hide-disabled="true">
+                                                                <option value="0" class="w3-light-grey">Choose one option</option>
+                                                                <option value="Fair">Fair</option>
+                                                                <option value="Very Fair">Very Fair</option>
+                                                                <option value="Wheatish">Wheatish</option>
+                                                                <option value="Wheatish Brown">Wheatish Brown</option>
+                                                                <option value="Dark">Dark</option>
+                                                            </select>      
+                                                            <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                                                            <div class="help-block with-errors"></div>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-6 w3-margin-top">
-                                                    <div class="form-group has-feedback">
-                                                        <label for="body_complexion" class="text-uppercase c-gray-light">Body Complexion</label>
-                                                        <select name="body_complexion" onchange="(this.value,this)" class="form-control form-control selectpicker" data-placeholder="Choose one option" tabindex="2" data-hide-disabled="true">
-                                                            <option value="0" class="w3-light-grey">Choose one option</option>
-                                                            <option value="Fair">Fair</option>
-                                                            <option value="Very Fair">Very Fair</option>
-                                                            <option value="Wheatish">Wheatish</option>
-                                                            <option value="Wheatish Brown">Wheatish Brown</option>
-                                                            <option value="Dark">Dark</option>
-                                                        </select>      
-                                                        <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
-                                                        <div class="help-block with-errors"></div>
+                                                <div class="row">
+                                                    <div class="col-md-6 w3-margin-top">
+                                                        <div class="form-group has-feedback">
+                                                            <label for="weight" class="text-uppercase c-gray-light">Weight (in KG)</label>
+                                                            <input type="number" step="0.01" min="0" value="80" class="form-control no-resize" name="weight">
+                                                            <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                                                            <div class="help-block with-errors"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6 w3-margin-top">
+                                                        <div class="form-group has-feedback">
+                                                            <label for="height" class="text-uppercase c-gray-light">Height (in Feet)</label>
+                                                            <input type="number" step="0.01" min="0" value="6" class="form-control no-resize" name="height">
+                                                            <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                                                            <div class="help-block with-errors"></div>
+                                                        </div>
                                                     </div>
                                                 </div>
+                                            </form>
+                                        </div>
+                                        <!-- edit basic info div ends -->
+                                    </div>                        
+                                </div>
+                                <!-- BASIC INFO ENDS -->
+                                <!-- EDUCATIONAL and PROFESSIONAL -->
+                                <div id="section_edu_professional">
+                                  <div class="feature feature--boxed-border feature--bg-1 pt-3 pb-0 pl-3 pr-3 mb-3 border_top2x">
+                                    <!-- view education and professional div -->
+                                    <div id="view_edu_professional">
+                                        <div class="card-inner-title-wrapper pt-0">
+                                            <h3 class="card-inner-title pull-left">
+                                                Educational and Professional Information
+                                            </h3>
+                                            <div class="pull-right">
+                                                <button type="button" class="btn btn-base-1 btn-sm btn-icon-only btn-shadow mb-1" onclick="edit_section('edu_professional')">
+                                                    <i class="ion-edit"></i> Edit
+                                                </button>
                                             </div>
-                                            <div class="row">
-                                                <div class="col-md-6 w3-margin-top">
-                                                    <div class="form-group has-feedback">
-                                                        <label for="weight" class="text-uppercase c-gray-light">Weight (in KG)</label>
-                                                        <input type="number" step="0.01" min="0" value="80" class="form-control no-resize" name="weight">
-                                                        <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
-                                                        <div class="help-block with-errors"></div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6 w3-margin-top">
-                                                    <div class="form-group has-feedback">
-                                                        <label for="height" class="text-uppercase c-gray-light">Height (in Feet)</label>
-                                                        <input type="number" step="0.01" min="0" value="6" class="form-control no-resize" name="height">
-                                                        <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
-                                                        <div class="help-block with-errors"></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </div>
-                                    <!-- edit basic info div ends -->
-                                </div>                        
-                            </div>
-                            <!-- BASIC INFO ENDS -->
-                            <div id="section_present_address">
-                              <div class="feature feature--boxed-border feature--bg-1 pt-3 pb-0 pl-3 pr-3 mb-3 border_top2x">
-                                <div id="info_present_address">
-                                    <div class="card-inner-title-wrapper pt-0">
-                                        <h3 class="card-inner-title pull-left">
-                                            Educational and Professional Information
-                                        </h3>
-                                    </div>
-                                    <div class="table-full-width">
+                                        </div>
                                         <div class="table-full-width">
-                                            <table class="table table-profile table-responsive table-striped table-bordered table-slick">
-                                                <tbody>
-                                                    <tr>
-                                                        <td class="td-label">
-                                                            <span>Educational Field</span>
+                                            <div class="table-full-width">
+                                                <table class="table table-profile table-responsive table-striped table-bordered table-slick">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td class="td-label">
+                                                                <span>Educational Field</span>
+                                                            </td>
+                                                            <td>
+                                                                Engineering
+                                                            </td>
+                                                            <td class="td-label">
+                                                                <span>School/College Name</span>
+                                                            </td>
+                                                            <td>
+                                                                KIT College                       
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="td-label">
+                                                                <span>University Name</span>
+                                                            </td>
+                                                            <td>
+                                                                XYZ
+                                                            </td>
+                                                            <td class="td-label">
+                                                                <span>Additional Education</span>
+                                                            </td>
+                                                            <td>
+                                                                NA
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="td-label">
+                                                                <span>Occupation Type</span>
+                                                            </td>
+                                                            <td>
+                                                                Employee
+                                                            </td>
+                                                            <td class="td-label">
+                                                                <span>Working Field</span>
+                                                            </td>
+                                                            <td>
+                                                                Private Sector
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="td-label">
+                                                                <span>Company Name</span>
+                                                            </td>
+                                                            <td>
+                                                             Bizmo Tech
+                                                         </td>
+                                                         <td class="td-label">
+                                                            <span>Designation</span>
                                                         </td>
                                                         <td>
-                                                            Engineering
-                                                        </td>
-                                                        <td class="td-label">
-                                                            <span>School/College Name</span>
-                                                        </td>
-                                                        <td>
-                                                            KIT College                       
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="td-label">
-                                                            <span>University Name</span>
-                                                        </td>
-                                                        <td>
-                                                            XYZ
-                                                        </td>
-                                                        <td class="td-label">
-                                                            <span>Additional Education</span>
-                                                        </td>
-                                                        <td>
-                                                         NA                     
-                                                     </td>
-                                                 </tr>
-                                                 <tr>
+                                                          Software Developer                     
+                                                      </td>
+                                                  </tr>
+                                                  <tr>
                                                     <td class="td-label">
-                                                        <span>Occupation Type</span>
+                                                        <span>Workplace Address</span>
                                                     </td>
-                                                    <td>
-                                                        Employee
-                                                    </td>
-                                                    <td class="td-label">
-                                                        <span>Working Field</span>
-                                                    </td>
-                                                    <td>
-                                                      Private Sector                      
-                                                  </td>
-                                              </tr>
-                                              <tr>
+                                                    <td colspan="3">
+                                                     Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                                     tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                                                     quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                                                     consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                                                     cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat nonproident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                                 </td>
+
+                                             </tr>
+                                             <tr>
                                                 <td class="td-label">
-                                                    <span>Company Name</span>
+                                                    <span>Monthly Income</span>
                                                 </td>
                                                 <td>
-                                                   Bizmo Tech
-                                               </td>
-                                               <td class="td-label">
-                                                <span>Designation</span>
+                                                 12000
+                                             </td>
+                                             <td class="td-label">
+                                                <span>Annual Income</span>
                                             </td>
                                             <td>
-                                              Software Developer                     
-                                          </td>
-                                      </tr>
-                                      <tr>
-                                        <td class="td-label">
-                                            <span>Monthly Income</span>
-                                        </td>
-                                        <td>
-                                           12000
-                                       </td>
-                                       <td class="td-label">
-                                        <span>Annual Income</span>
+                                               1,44,000                     
+                                           </td>
+                                       </tr>
+                                   </tbody>
+                               </table>
+                           </div>
+                       </div>
+                   </div>
+                   <!-- view eductaion and professional div ends -->
+                   <!-- edit education and professional div -->
+                   <div id="edit_edu_professional" style="display: none;">
+                    <div class="card-inner-title-wrapper pt-0">
+                        <h3 class="card-inner-title pull-left">Edit Educational and Professional</h3>
+                        <div class="pull-right">
+                            <button type="button" class="btn btn-success btn-sm btn-icon-only btn-shadow" onclick="save_section('edu_professional')"><i class="ion-checkmark"></i> Save</button>
+                            <button type="button" class="btn btn-danger btn-sm btn-icon-only btn-shadow" onclick="load_section('edu_professional')"><i class="ion-close"></i> Cancel</button>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <form id="form_basic_info" class="form-default" role="form">
+                        <div class="row">
+                            <div class="col-md-6 w3-margin-top">
+                                <div class="form-group has-feedback">
+                                    <label for="educational_field" class="text-uppercase c-gray-light">Educational Field</label>
+                                    <input type="text" class="form-control no-resize" name="educational_field" value="B.E. Computer science">
+                                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 w3-margin-top">
+                                <div class="form-group has-feedback">
+                                    <label for="clg_name" class="text-uppercase c-gray-light">School/ College Name</label>
+                                    <input type="text" class="form-control no-resize" name="clg_name">   
+                                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 w3-margin-top">
+                                <div class="form-group has-feedback">
+                                    <label for="university" class="text-uppercase c-gray-light">University/ Board Name</label>
+                                    <input type="text" class="form-control no-resize" name="university">
+                                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 w3-margin-top">
+                                <div class="form-group has-feedback">
+                                    <label for="additional_education" class="text-uppercase c-gray-light">Additional Education</label>
+                                    <input type="text" class="form-control no-resize" name="additional_education">
+                                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 w3-margin-top">
+                                <div class="form-group has-feedback">
+                                    <label for="occupation_type" class="text-uppercase c-gray-light">Occupation Type</label>
+                                    <input type="text" class="form-control no-resize" name="occupation_type">
+                                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 w3-margin-top">
+                                <div class="form-group has-feedback">
+                                    <label for="working_sector" class="text-uppercase c-gray-light">Working Sector</label>
+                                    <select name="working_sector" onchange="(this.value,this)" class="form-control form-control selectpicker" data-placeholder="Choose one sector" tabindex="2" data-hide-disabled="true">
+                                        <option value="0" class="w3-light-grey">Choose one sector</option>
+                                        <option value="Private Sector">Private Sector</option>
+                                        <option value="Government Sector">Government Sector</option>
+                                        <option value="Business Sector">Business Sector</option>
+                                        <option value="Other">Other</option>
+                                    </select>      
+                                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 w3-margin-top">
+                                <div class="form-group has-feedback">
+                                    <label for="company_name" class="text-uppercase c-gray-light">Company Name</label>
+                                    <input type="text" class="form-control no-resize" name="company_name">
+                                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 w3-margin-top">
+                                <div class="form-group has-feedback">
+                                    <label for="designation" class="text-uppercase c-gray-light">Designation</label>
+                                    <input type="text" class="form-control no-resize" name="designation">
+                                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 w3-margin-top">
+                                <div class="form-group has-feedback">
+                                    <label for="workplace_address" class="text-uppercase c-gray-light">Workplace Address</label>
+                                    <textarea name="workplace_address" class="form-control no-resize" rows="5">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmodm tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodoconsequat. Duis aute irure dolor in reprehenderit in voluptate velit essecillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat nonproident, sunt in culpa qui officia deserunt mollit anim id est laborum.</textarea>
+                                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 w3-margin-top">
+                                <div class="form-group has-feedback">
+                                    <label for="monthly_income" class="text-uppercase c-gray-light">Monthly Income</label>
+                                    <input type="text" class="form-control no-resize" name="monthly_income">
+                                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 w3-margin-top">
+                                <div class="form-group has-feedback">
+                                    <label for="annual_income" class="text-uppercase c-gray-light">Annual Income</label>
+                                    <input type="text" class="form-control no-resize" name="annual_income">
+                                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <!-- edit education and professional div ends -->
+            </div>
+        </div>
+        <!-- EDU and PROFESSIONAL DIV ENDS -->
+        <!-- FAMILY INFO DIV -->
+        <div id="section_family_info">
+            <div class="feature feature--boxed-border feature--bg-1 pt-3 pb-0 pl-3 pr-3 mb-3 border_top2x">
+                <!-- view family info div -->
+                <div id="view_family_info">
+                    <div class="card-inner-title-wrapper pt-0">
+                        <h3 class="card-inner-title pull-left">
+                          Family Information          
+                      </h3>
+                      <div class="pull-right">
+                        <button type="button" class="btn btn-base-1 btn-sm btn-icon-only btn-shadow mb-1" onclick="edit_section('family_info')">
+                            <i class="ion-edit"></i> Edit
+                        </button>
+                    </div>
+                </div>
+                <div class="table-full-width">
+                    <div class="table-full-width">
+                        <table class="table table-profile table-responsive table-striped table-bordered table-slick">
+                            <tbody>
+                                <tr>
+                                    <td class="td-label">
+                                        <span>Father Name</span>
                                     </td>
                                     <td>
-                                     1,44,000                     
+                                        ABC
+                                    </td>
+                                    <td class="td-label">
+                                        <span>Father Occupation</span>
+                                    </td>
+                                    <td>
+                                        Lead Developer                            
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="td-label">
+                                        <span>Mother Name</span>
+                                    </td>
+                                    <td>
+                                        XYZ                          
+                                    </td>
+                                    <td class="td-label">
+                                        <span>Mother Occupation</span>
+                                    </td>
+                                    <td>
+                                        Home Maker                           
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="td-label">
+                                        <span>Native Place</span>
+                                    </td>
+                                    <td>
+                                        Kolhapur
+                                    </td>
+                                    <td class="td-label">
+                                        Residential Address
+                                    </td>
+                                    <td>
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                        tempor incididunt ut labore et dolore magna aliqua.
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td class="td-label">
+                                     Contact number 1
                                  </td>
-                             </tr>
-                         </tbody>
-                     </table>
-                 </div>
-             </div>
-         </div>
-     </div>
- </div>
- <div id="section_education_and_career">
-    <div class="feature feature--boxed-border feature--bg-1 pt-3 pb-0 pl-3 pr-3 mb-3 border_top2x">
-        <div id="info_education_and_career">
-            <div class="card-inner-title-wrapper pt-0">
-                <h3 class="card-inner-title pull-left">
-                  Family Information          
-              </h3>
-              <div class="pull-right">
-
-              </div>
-          </div>
-          <div class="table-full-width">
-            <div class="table-full-width">
-                <table class="table table-profile table-responsive table-striped table-bordered table-slick">
-                    <tbody>
-                        <tr>
-                            <td class="td-label">
-                                <span>Father Name</span>
-                            </td>
-                            <td>
-                                ABC
-                            </td>
-                            <td class="td-label">
-                                <span>Father Occupation</span>
-                            </td>
-                            <td>
-                                Lead Developer                            
+                                 <td>
+                                    987654321
+                                </td>
+                                <td class="td-label">
+                                 Contact number 2
+                             </td>
+                             <td>
+                                987654321
                             </td>
                         </tr>
-                        <tr>
-                            <td class="td-label">
-                                <span>Mother Name</span>
-                            </td>
-                            <td>
-                                XYZ                          
-                            </td>
-                            <td class="td-label">
-                                <span>Mother Occupation</span>
-                            </td>
-                            <td>
-                                Home Maker                           
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="td-label">
-                                <span>Native Place</span>
-                            </td>
-                            <td>
-                                Kolhapur
-                            </td>
-                            <td class="td-label">
-                                Residential Address
-                            </td>
-                            <td>
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                tempor incididunt ut labore et dolore magna aliqua.
-                            </td>
-
-                        </tr>
-                        <tr>
-                            <td class="td-label">
-                               Contact number 1
-                           </td>
-                           <td>
-                            987654321
-                        </td>
-                        <td class="td-label">
-                           Contact number 2
-                       </td>
-                       <td>
-                        987654321
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
+    <!-- view family info div ends -->
+    <!-- edit family info div -->
+    <div id="edit_family_info" style="display: none;">
+        <div class="card-inner-title-wrapper pt-0">
+            <h3 class="card-inner-title pull-left">Edit Family Information</h3>
+            <div class="pull-right">
+                <button type="button" class="btn btn-success btn-sm btn-icon-only btn-shadow" onclick="save_section('family_info')"><i class="ion-checkmark"></i> Save</button>
+                <button type="button" class="btn btn-danger btn-sm btn-icon-only btn-shadow" onclick="load_section('family_info')"><i class="ion-close"></i> Cancel</button>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <form id="form_basic_info" class="form-default" role="form">
+            <div class="row">
+                <div class="col-md-6 w3-margin-top">
+                    <div class="form-group has-feedback">
+                        <label for="father_name" class="text-uppercase c-gray-light">Father's Name</label>
+                        <input type="text" class="form-control no-resize" name="father_name" value="B.E. Computer science">
+                        <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                        <div class="help-block with-errors"></div>
+                    </div>
+                </div>
+                <div class="col-md-6 w3-margin-top">
+                    <div class="form-group has-feedback">
+                        <label for="father_occupation" class="text-uppercase c-gray-light">Father's Occupation</label>
+                        <input type="text" class="form-control no-resize" name="father_occupation">   
+                        <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                        <div class="help-block with-errors"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 w3-margin-top">
+                    <div class="form-group has-feedback">
+                        <label for="mother_name" class="text-uppercase c-gray-light">Mother's Name</label>
+                        <input type="text" class="form-control no-resize" name="mother_name">
+                        <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                        <div class="help-block with-errors"></div>
+                    </div>
+                </div>
+                <div class="col-md-6 w3-margin-top">
+                    <div class="form-group has-feedback">
+                        <label for="mother_occupation" class="text-uppercase c-gray-light">Mother's Occupation</label>
+                        <input type="text" class="form-control no-resize" name="mother_occupation">
+                        <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                        <div class="help-block with-errors"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 w3-margin-top">
+                    <div class="form-group has-feedback">
+                        <label for="native_place" class="text-uppercase c-gray-light">Native Place</label>
+                        <input type="text" class="form-control no-resize" name="native_place">
+                        <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                        <div class="help-block with-errors"></div>
+                    </div>
+                </div>
+                <div class="col-md-6 w3-margin-top">
+                    <div class="form-group has-feedback">
+                        <label for="residence_address" class="text-uppercase c-gray-light">Residential Address</label>
+                        <textarea name="residence_address" class="form-control no-resize" rows="5">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmodm tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodoconsequat. Duis aute irure dolor in reprehenderit in voluptate velit essecillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat nonproident, sunt in culpa qui officia deserunt mollit anim id est laborum.</textarea>  
+                        <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                        <div class="help-block with-errors"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 w3-margin-top">
+                    <div class="form-group has-feedback">
+                        <label for="contact_no_1" class="text-uppercase c-gray-light">Contact No.1</label>
+                        <input type="number" class="form-control no-resize" name="contact_no_1">
+                        <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                        <div class="help-block with-errors"></div>
+                    </div>
+                </div>
+                <div class="col-md-6 w3-margin-top">
+                    <div class="form-group has-feedback">
+                        <label for="contact_no_2" class="text-uppercase c-gray-light">Contact No.2</label>
+                        <input type="number" class="form-control no-resize" name="contact_no_2">
+                        <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                        <div class="help-block with-errors"></div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <!-- edit family info div ends -->
 </div>
 </div>
-
-</div>
-</div>
+<!-- FAMILY INFO DIV -->
+<!-- LIFESTYLE DIV -->
 <div id="section_life_style">
     <div class="feature feature--boxed-border feature--bg-1 pt-3 pb-0 pl-3 pr-3 mb-3 border_top2x">
-        <div id="info_life_style">
+        <!-- view lifestyle div -->
+        <div id="view_life_style">
             <div class="card-inner-title-wrapper pt-0">
                 <h3 class="card-inner-title pull-left">
                     Life Style            
                 </h3>
+                <div class="pull-right">
+                    <button type="button" class="btn btn-base-1 btn-sm btn-icon-only btn-shadow mb-1" onclick="edit_section('life_style')">
+                        <i class="ion-edit"></i> Edit
+                    </button>
+                </div>
             </div>
             <div class="table-full-width">
                 <div class="table-full-width">
@@ -706,14 +944,16 @@
                 </div>
             </div>
         </div>
-
+        <!-- view life style div ends -->
+        <!-- edit lifestyle div -->
         <div id="edit_life_style" style="display: none;">
             <div class="card-inner-title-wrapper pt-0">
                 <h3 class="card-inner-title pull-left">
-                Life Style            </h3>
+                    Edit Life Style   
+                </h3>
                 <div class="pull-right">
-                    <button type="button" class="btn btn-success btn-sm btn-icon-only btn-shadow" onclick="save_section('life_style')"><i class="ion-checkmark"></i></button>
-                    <button type="button" class="btn btn-danger btn-sm btn-icon-only btn-shadow" onclick="load_section('life_style')"><i class="ion-close"></i></button>
+                    <button type="button" class="btn btn-success btn-sm btn-icon-only btn-shadow" onclick="save_section('life_style')"><i class="ion-checkmark"></i> Save</button>
+                    <button type="button" class="btn btn-danger btn-sm btn-icon-only btn-shadow" onclick="load_section('life_style')"><i class="ion-close"></i> Cancel</button>
                 </div>
             </div>
 
@@ -723,7 +963,12 @@
                     <div class="col-md-6">
                         <div class="form-group has-feedback">
                             <label for="diet" class="text-uppercase c-gray-light">Diet</label>
-                            <input type="text" class="form-control no-resize" name="diet" value="xyz">
+                            <select name="diet" onchange="(this.value,this)" class="form-control form-control selectpicker" data-placeholder="Choose one option" tabindex="2" data-hide-disabled="true">
+                                <option value="0" class="w3-light-grey">Choose one option</option>
+                                <option value="Vegeterian">Vegeterian</option>
+                                <option value="Non-Vegeterian">Non-Vegeterian</option>
+                                <option value="Eggeterian">Eggeterian</option>
+                            </select>  
                             <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                             <div class="help-block with-errors"></div>
                         </div>
@@ -731,7 +976,13 @@
                     <div class="col-md-6">
                         <div class="form-group has-feedback">
                             <label for="drink" class="text-uppercase c-gray-light">Drink</label>
-                            <select name="drink" onchange="(this.value,this)" class="form-control form-control-sm selectpicker" data-placeholder="Choose a drink" tabindex="2" data-hide-disabled="true"><option value="">Choose one</option><option value="1">Yes</option><option value="2" selected=".&quot;selected&quot;">No</option><option value="3">Doesn't Matter</option></select>                        <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                            <select name="drink" onchange="(this.value,this)" class="form-control form-control-sm selectpicker" data-placeholder="Choose one option" tabindex="2" data-hide-disabled="true">
+                                <option value="">Choose one option</option>
+                                <option value="Yes">Yes</option>
+                                <option value="No">No</option>
+                                <option value="Doesn't Matter">Doesn't Matter</option>
+                            </select>                       
+                            <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                             <div class="help-block with-errors"></div>
                         </div>
                     </div>
@@ -740,14 +991,20 @@
                     <div class="col-md-6">
                         <div class="form-group has-feedback">
                             <label for="smoke" class="text-uppercase c-gray-light">Smoke</label>
-                            <select name="smoke" onchange="(this.value,this)" class="form-control form-control-sm selectpicker" data-placeholder="Choose a smoke" tabindex="2" data-hide-disabled="true"><option value="">Choose one</option><option value="1">Yes</option><option value="2" selected=".&quot;selected&quot;">No</option><option value="3">Doesn't Matter</option></select>                        <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                            <select name="smoke" onchange="(this.value,this)" class="form-control form-control-sm selectpicker" data-placeholder="Choose one option" tabindex="2" data-hide-disabled="true">    
+                                <option value="">Choose one option</option>
+                                <option value="Yes">Yes</option>
+                                <option value="No">No</option>
+                                <option value="Doesn't Matter">Doesn't Matter</option>
+                            </select>                        
+                            <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                             <div class="help-block with-errors"></div>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group has-feedback">
                             <label for="living_with" class="text-uppercase c-gray-light">Living With</label>
-                            <input type="text" class="form-control no-resize" name="living_with" value="Family">
+                            <input type="text" class="form-control no-resize" name="living_with">
                             <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                             <div class="help-block with-errors"></div>
                         </div>
@@ -755,20 +1012,26 @@
                 </div>
             </form>
         </div>
+        <!-- edit life style div ends -->
     </div>        
 </div>
-<div id="section_education_and_career">
+<!-- LIFESTYLE DIV ENDS -->
+<!-- RELATIVES DIV -->
+<div id="section_relatives_info">
     <div class="feature feature--boxed-border feature--bg-1 pt-3 pb-0 pl-3 pr-3 mb-3 border_top2x">
-        <div id="info_education_and_career">
+        <!-- view relatives info div -->
+        <div id="view_relatives_info">
             <div class="card-inner-title-wrapper pt-0">
                 <h3 class="card-inner-title pull-left">
                   Relatives Information          
               </h3>
               <div class="pull-right">
-
-              </div>
-          </div>
-          <div class="table-full-width">
+                <button type="button" class="btn btn-base-1 btn-sm btn-icon-only btn-shadow mb-1" onclick="edit_section('relatives_info')">
+                    <i class="ion-edit"></i> Edit
+                </button>
+            </div>
+        </div>
+        <div class="table-full-width">
             <div class="table-full-width">
                 <table class="table table-profile table-responsive table-striped table-bordered table-slick">
                     <tbody>
@@ -786,14 +1049,14 @@
                                 <span>Relation with Me</span>
                             </td>
                             <td>
-                               Maternal Uncle/ Mama                          
-                           </td>
-                       </tr>
-                       <tr>
+                             Maternal Uncle/ Mama                          
+                         </td>
+                     </tr>
+                     <tr>
                         <td class="td-label">
-                           Contact number
-                       </td>
-                       <td>
+                         Contact number
+                     </td>
+                     <td>
                         987654321
                     </td>
                     <td class="td-label">
@@ -819,14 +1082,14 @@
                         <span>Relation with Me</span>
                     </td>
                     <td>
-                       Paternal Uncle/ Kaka                          
-                   </td>
-               </tr>
-               <tr>
+                     Paternal Uncle/ Kaka                          
+                 </td>
+             </tr>
+             <tr>
                 <td class="td-label">
-                   Contact number
-               </td>
-               <td>
+                 Contact number
+             </td>
+             <td>
                 987654321
             </td>
             <td class="td-label">
@@ -836,21 +1099,89 @@
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
                 tempor incididunt ut labore et dolore magna aliqua.
             </td>
-
         </tr>
     </tbody>
 </table>
 </div>
 </div>
 </div>
+<!-- view relatives div ends -->
+<!-- edit relatives div -->
+<div id="edit_relatives_info" style="display: none;">
+    <div class="card-inner-title-wrapper pt-0">
+        <h3 class="card-inner-title pull-left">
+            Edit Relatives Information
+        </h3>
+        <div class="pull-right">
+            <button type="button" class="btn btn-success btn-sm btn-icon-only btn-shadow" onclick="save_section('relatives_info')"><i class="ion-checkmark"></i> Save</button>
+            <button type="button" class="btn btn-danger btn-sm btn-icon-only btn-shadow" onclick="load_section('relatives_info')"><i class="ion-close"></i> Cancel</button>
+        </div>
+    </div>
 
+    <div class="clearfix"></div>
+    <form id="form_life_style" class="form-default" role="form">
+        <div class="row w3-margin-top">
+            <div class="col-md-12 w3-text-white">
+                <p class=" w3-padding-small" style="background:#5E32E1">Relative No.1</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group has-feedback">
+                    <label for="relative_name_1" class="text-uppercase c-gray-light">Relative Full Name</label>
+                    <input type="text" class="form-control no-resize" name="relative_name_1">  
+                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                    <div class="help-block with-errors"></div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group has-feedback">
+                    <label for="relative_contact_1" class="text-uppercase c-gray-light">Relative Contact Number</label>
+                    <input type="text" class="form-control no-resize" name="relative_contact_1">  
+                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                    <div class="help-block with-errors"></div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group has-feedback">
+                    <label for="relative_relation_1" class="text-uppercase c-gray-light">Relation with you</label>
+                    <input type="text" class="form-control no-resize" name="relative_relation_1">
+                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                    <div class="help-block with-errors"></div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group has-feedback">
+                    <label for="relative_address_1" class="text-uppercase c-gray-light">Relative Address</label>
+                    <textarea name="residence_address" class="form-control no-resize" rows="5">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmodm tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodoconsequat. Duis aute irure dolor in reprehenderit in voluptate velit essecillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat nonproident, sunt in culpa qui officia deserunt mollit anim id est laborum.</textarea> 
+                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                    <div class="help-block with-errors"></div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<!-- edit relatives div ends -->
 </div>
 </div>
+<!-- RELATIVES DIV -->
+<!-- EXPECTATIONS DIV -->
 <div class="feature feature--boxed-border feature--bg-1 pt-3 pb-0 pl-3 pr-3 mb-3 border_top2x">
-    <div id="info_introduction">
+    <!-- view expectations div -->
+    <div id="view_expectations">
         <div class="card-inner-title-wrapper pt-0">
             <h3 class="card-inner-title pull-left">
-            Expectations  </h3>
+                Expectations 
+            </h3>
+            <div class="pull-right">
+                <button type="button" class="btn btn-base-1 btn-sm btn-icon-only btn-shadow mb-1" onclick="edit_section('expectations')">
+                    <i class="ion-edit"></i> Edit
+                </button>
+            </div>
         </div>
         <div class="table-full-width">
             <div class="table-full-width">
@@ -871,8 +1202,32 @@
             </div>
         </div>
     </div>
+    <!-- view expectations div ends -->
+    <!-- edit expectations div -->
+    <div id="edit_expectations" style="display: none;">
+        <div class="card-inner-title-wrapper pt-0">
+            <h3 class="card-inner-title pull-left">Edit Expectations</h3>
+            <div class="pull-right">
+                <button type="button" class="btn btn-success btn-sm btn-icon-only btn-shadow" onclick="save_section('expectations')"><i class="ion-checkmark"></i> Save</button>
+                <button type="button" class="btn btn-danger btn-sm btn-icon-only btn-shadow" onclick="load_section('expectations')"><i class="ion-close"></i> Cancel</button>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <form id="form_about_me" class="form-default" role="form">
+            <div class="row">
+                <div class="col-md-12 w3-margin-top">
+                    <div class="form-group has-feedback">
+                        <textarea name="expectations" class="form-control no-resize" rows="5">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmodm tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodoconsequat. Duis aute irure dolor in reprehenderit in voluptate velit essecillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat nonproident, sunt in culpa qui officia deserunt mollit anim id est laborum.</textarea>
+                        <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                        <div class="help-block with-errors"></div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <!-- edit expectations div ends -->
 </div> 
-
+<!-- EXPECTATIONS DIV ENDS -->
 <!-- documents div -->
 <div class="feature feature--boxed-border feature--bg-1 pt-3 pb-0 pl-3 pr-3 mb-3 border_top2x">
     <div id="info_introduction">
