@@ -15,20 +15,20 @@
  <div class="parallax download-area overlay" style="background-image: url('<?php echo base_url(); ?>assets/client/uploads/home_page/slider_image/sinew.jpg'); height: 250px;">
     	<div class="col-lg-12 w3-text-white wide-text title">
 		<div class="w3-col l6 w3-padding">
-			<h2 class="w3-left w3-margin-top">ABOUT US</h2>
+			<h2 class="w3-left w3-margin-top">Our Piller</h2>
 		</div>
 		<div class="w3-col l6 w3-padding w3-margin-top">
-			<h3 class="w3-center"><span class="yellow-text">Home</span> / About Us</h3>
+			<h3 class="w3-center"><span class="yellow-text">Home</span> / Our Pillers</h3>
 		</div>
 	</div>	
     </div>
   <!-- About Section -->
   <div class="w3-row w3-padding-64" id="about">
     <div class="w3-col m6 w3-padding-large ">
-    	<h1 class="w3-center" style="color: #5E32E1;">About us</h1><br>
+    	<h1 class="w3-center" style="color: #5E32E1;">Our Piller</h1><br>
      
       <div class="w3-col l12 w3-margin-top">
-				<h4><b>We make them meet, Love brings them Together</b></h4>
+				<h4 class=""><b>New User</b></h4>
 				<p>
 					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
