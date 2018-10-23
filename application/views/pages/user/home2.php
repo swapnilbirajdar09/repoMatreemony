@@ -245,7 +245,7 @@ a.socialIcon:hover, .socialHoverClass {
     						<p>Lorem ipsum dolor sit amet, consectetur adipiing elit, sed do eiusmod tempor incididunt ut labore et laborused sed do eiusmod tempor incididunt ut labore et laborused.</p>
     					</div>
     					<div class="space-50 hidden-md"></div>
-    					<a href="#" class="bttn-default wow fadeInUp" data-wow-delay="0.8s">Learn More</a>
+    					<a href="<?php echo base_url();?>user/about_us" class="bttn-default wow fadeInUp" data-wow-delay="0.8s">Learn More</a>
     				</div>
     			</div>
     			<div class="col-xs-12 col-md-6 hidden-md hidden-lg">
@@ -258,7 +258,7 @@ a.socialIcon:hover, .socialHoverClass {
     						<p>Lorem ipsum dolor sit amet, consectetur adipiing elit, sed do eiusmod tempor incididunt ut labore et laborused sed do eiusmod tempor incididunt ut labore et laborused.</p>
     					</div>
     					<div class="space-50"></div>
-    					<a href="#" class="bttn-default wow fadeInUp" data-wow-delay="0.8s">Learn More</a>
+    					<a href="<?php echo base_url();?>user/about_us" class="bttn-default wow fadeInUp" data-wow-delay="0.8s">Learn More</a>
     				</div>
     			</div>
     		</div>
