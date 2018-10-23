@@ -258,7 +258,7 @@
                                                     </ul>
                                                 </li>
                                                 <li class="custom-nav">
-                                                    <a class="nav-link " href="<?php echo base_url(); ?>user/search/quick_search/showPackage" aria-haspopup="true" aria-expanded="false">
+                                                    <a class="nav-link " href="<?php echo base_url(); ?>user/pricing_plan" aria-haspopup="true" aria-expanded="false">
                                                     Membership Plans</a>
                                                 </li>
                                                 <li class="custom-nav">
