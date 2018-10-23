@@ -2,7 +2,7 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class User_profile extends CI_Controller {
+class About_us extends CI_Controller {
 
     // Login controller
     public function __construct() {
@@ -13,8 +13,9 @@ class User_profile extends CI_Controller {
     // main index function
     public function index() {
         
+     
         $this->load->view('includes/user/userheader.php'); //------user header page
-        $this->load->view('pages/user/User_profile.php'); //------user profile page
+        $this->load->view('pages/user/about_us.php'); //------user profile page
         $this->load->view('includes/user/userfooter.php'); //------user footer page
     }
 }

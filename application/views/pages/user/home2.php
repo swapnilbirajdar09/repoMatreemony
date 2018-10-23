@@ -245,7 +245,7 @@ a.socialIcon:hover, .socialHoverClass {
     						<p>Lorem ipsum dolor sit amet, consectetur adipiing elit, sed do eiusmod tempor incididunt ut labore et laborused sed do eiusmod tempor incididunt ut labore et laborused.</p>
     					</div>
     					<div class="space-50 hidden-md"></div>
-    					<a href="#" class="bttn-default wow fadeInUp" data-wow-delay="0.8s">Learn More</a>
+    					<a href="<?php echo base_url();?>user/about_us" class="bttn-default wow fadeInUp" data-wow-delay="0.8s">Learn More</a>
     				</div>
     			</div>
     			<div class="col-xs-12 col-md-6 hidden-md hidden-lg">
@@ -258,7 +258,7 @@ a.socialIcon:hover, .socialHoverClass {
     						<p>Lorem ipsum dolor sit amet, consectetur adipiing elit, sed do eiusmod tempor incididunt ut labore et laborused sed do eiusmod tempor incididunt ut labore et laborused.</p>
     					</div>
     					<div class="space-50"></div>
-    					<a href="#" class="bttn-default wow fadeInUp" data-wow-delay="0.8s">Learn More</a>
+    					<a href="<?php echo base_url();?>user/about_us" class="bttn-default wow fadeInUp" data-wow-delay="0.8s">Learn More</a>
     				</div>
     			</div>
     		</div>
@@ -295,7 +295,7 @@ a.socialIcon:hover, .socialHoverClass {
 
     				<div class="w3-col m6  w3-padding-large">
     					<p style="line-height: 25px">I am lorem ipsum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure</p>
-    					<a href="single.html" class="read-more">Read More</a>
+    					<a href="<?php echo base_url();?>user/piller_1" class="read-more">Read More</a>
     				</div>
     			</div>
     			<div class="col-lg-6">
@@ -313,7 +313,7 @@ a.socialIcon:hover, .socialHoverClass {
     				</div>
     				<div class="w3-col m6  w3-padding-large">
     					<p style="line-height: 25px">I am lorem ipsum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure</p>
-    					<a href="single.html" class="read-more">Read More</a>
+    					<a href="<?php echo base_url();?>user/piller_2" class="read-more">Read More</a>
     				</div>
     			</div>
             <!--     <div class="col-xs-12 col-sm-6 col-md-4">
