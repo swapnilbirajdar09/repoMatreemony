@@ -265,27 +265,35 @@
                                                                 <td class="td-label">
                                                                     <span>Full Name</span>
                                                                 </td>
-                                                                <td>
+                                                                <td colspan="3">
                                                                     Samrat Ashok Munde                           
                                                                 </td>
+                                                            </tr>
+                                                            <tr>
                                                                 <td class="td-label">
                                                                     <span>Profile created by</span>
                                                                 </td>
                                                                 <td>
                                                                     Self                           
                                                                 </td>
-                                                            </tr>
-                                                            <tr>
                                                                 <td class="td-label">
                                                                     <span>Date Of Birth</span>
                                                                 </td>
                                                                 <td>
                                                                 26 April 1995 </td>
+                                                            </tr>
+                                                            <tr>
                                                                 <td class="td-label">
                                                                     <span>Marital Status</span>
                                                                 </td>
                                                                 <td>
                                                                     Never Married
+                                                                </td>                                                                
+                                                                <td class="td-label">
+                                                                    <span>Number of Children</span>
+                                                                </td>
+                                                                <td>
+                                                                    2
                                                                 </td>
                                                             </tr>
                                                             <tr>
@@ -327,6 +335,14 @@
                                                                 <span>Mother Tongue</span>
                                                             </td>
                                                             <td>Marathi
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="td-label">
+                                                                <span>Hobbies</span>
+                                                            </td>
+                                                            <td colspan="3">
+                                                                Trekking, Painting, Reading Books.
                                                             </td>
                                                         </tr>
 
@@ -384,14 +400,31 @@
                                                 </div>
                                                 <div class="col-md-6 w3-margin-top">
                                                     <div class="form-group has-feedback">
-                                                        <label for="profile_created_by" class="text-uppercase c-gray-light">Marital Status</label>
-                                                        <select name="profile_created_by" onchange="(this.value,this)" class="form-control form-control selectpicker" data-placeholder="Choose one status" tabindex="2" data-hide-disabled="true">
+                                                        <label for="marital_status" class="text-uppercase c-gray-light">Marital Status</label>
+                                                        <select name="marital_status" id="marital_status" class="form-control form-control selectpicker" data-placeholder="Choose one status" tabindex="2" data-hide-disabled="true">
                                                             <option value="0" class="w3-light-grey">Choose one status</option>
                                                             <option value="Never Married">Never Married</option>
                                                             <option value="Divorced">Divorced</option>
                                                             <option value="Widow" >Widow</option>
                                                             <option value="Widower" >Widower</option>
                                                             <option value=">Awaiting divorced / Legally separated">Awaiting divorced / Legally separated</option>
+                                                        </select>      
+                                                        <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                                                        <div class="help-block with-errors"></div>
+                                                    </div>
+                                                </div>                                                
+                                            </div>
+                                            <div class="row" id="children_div">
+                                                <div class="col-md-6 w3-margin-top"></div>
+                                                <div class="col-md-6 w3-margin-top">
+                                                    <div class="form-group has-feedback">
+                                                        <label for="no_of_children" class="text-uppercase c-gray-light">Number of Children</label>
+                                                        <select name="no_of_children" onchange="(this.value,this)" class="form-control form-control selectpicker" data-placeholder="Choose one option" tabindex="2" data-hide-disabled="true">
+                                                            <option value="0" class="w3-light-grey">Choose one option</option>
+                                                            <option value="0">0</option>
+                                                            <option value="1">1</option>
+                                                            <option value="2">2</option>
+                                                            <option value="More">More</option>
                                                         </select>      
                                                         <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                                                         <div class="help-block with-errors"></div>
@@ -1161,6 +1194,12 @@
                     <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                     <div class="help-block with-errors"></div>
                 </div>
+            </div>
+        </div>
+        <div class="container no-padding" id="multiple_relativeDiv"></div>
+        <div class="row w3-margin-bottom">
+            <div class="col-md-12">
+                <button type="button" id="add_moreRelative" class="btn btn-sm w3-right btn-primary btn-icon-only btn-shadow"><i class="ion-plus"></i> Add more Relative</button>
             </div>
         </div>
     </form>
