@@ -114,4 +114,17 @@ class Allusers_model extends CI_Model {
         }
         return $response;
     }
+
+    //----code for user csv download
+    public function downloadAllUsers()
+    {
+        $sql = "SELECT up.user_fullname , ut.user_gender, ut.user_reg_date,up.user_city,up.user_marital_status FROM user_profile_tab as up,user_tab as ut where ut.user_id = up.user_id";
+        $result = $this->db->query($sql);
+        if ($result->num_rows() <= 0) {
+            return false;
+        } else {
+           return $result->result_array();
+        }
+  
+    }
 }

@@ -35,7 +35,11 @@
                 <button class = "btn btn-primary" type="submit">
                  <i class="fa fa-search"></i> Search
                </button>
+               <a  href="<?php echo base_url(); ?>admin/all_users/downloadAllUsers" class = "btn btn-primary w3-right" >
+                 <i class="fa fa-download"></i> Download Csv
+               </a>
              </form>
+             
                 </div>
             </div>
              <div class="row clearfix" style=" margin-top: 5px;">
