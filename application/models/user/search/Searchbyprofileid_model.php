@@ -38,38 +38,45 @@ class Searchbyprofileid_model extends CI_Model {
 //--------------fun for send request to user
     public function sendRequestToUser($profile_user_id, $user_id) {
         //sql query to get all user profile details
-        $query = "SELECT * FROM user_profile_tab WHERE user_id='$user_id'";
+        $query = "SELECT * FROM user_profile_tab as up_tab join user_tab as u_tab WHERE up_tab.user_id='$user_id'";
         //echo $query;die();
         $result = $this->db->query($query);
 
         $sentRequests = array();
         $sentReqs = '';
+        $userRequestCount = '';
         foreach ($result->result_array() as $row) {
             $sentRequests = json_decode($row['user_sent_requests'], TRUE);
+            $userRequestCount = json_decode($row['user_remaining_requests'], TRUE);
         }
-
-        //if no record found for user
-        if ($sentRequests == '') {
-            $sentRequests[] = $profile_user_id;
-        } else {
-            //---------condition --------//  
-            $count = count($sentRequests);
-            $sentRequests[] = $profile_user_id;
-        }
-
-        $sentReqs = json_encode($sentRequests);
-        $sql = "UPDATE user_profile_tab SET user_sent_requests = '$sentReqs' WHERE user_id = '$user_id'";
-
-        $this->db->query($sql);
-        if ($this->db->affected_rows() > 0) {
-            $response = Searchbyprofileid_model::updateUserReceivedRequests($profile_user_id, $user_id);
-            if ($response) {
-                return TRUE;
+        $userRequestCount = $userRequestCount - 1;
+        
+        if ($userRequestCount != 0 && $userRequestCount <= 5) {
+            //if no record found for user
+            if ($sentRequests == '') {
+                $sentRequests[] = $profile_user_id;
             } else {
-                return FALSE;
+                //---------condition --------//  
+                $count = count($sentRequests);
+                $sentRequests[] = $profile_user_id;
+            }
+
+            $sentReqs = json_encode($sentRequests);
+            $sql = "UPDATE user_profile_tab SET user_sent_requests = '$sentReqs' WHERE user_id = '$user_id'";
+
+            $this->db->query($sql);
+            if ($this->db->affected_rows() > 0) {
+                $response = Searchbyprofileid_model::updateUserReceivedRequests($profile_user_id, $user_id);
+                if ($response) {
+                    return 200;
+                } else {
+                    return 500;
+                }
+            } else {
+                return 500;
             }
         } else {
-            return FALSE;
+            return 700;
         }
     }
 

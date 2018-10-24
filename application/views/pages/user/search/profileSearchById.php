@@ -10,10 +10,10 @@
 <section class="slice sct-color-1">
     <div class="container">
         <div class="row" ng-app="searchProfileByIdApp" ng-controller="searchProfileByIdAppController">
-            
+
             <!--success div-->
             <div class="col-lg-3 col-md-4" id="ajax_success_alert" style="display: none; position: fixed; top: 15px; right: 0; z-index: 9999">
-                <div class="alert alert-success ajax_success_alert alert-dismissable fade show" role="alert">
+                <div class="alert alert-success ajax_success_alert alert-dismissible fade show" role="alert">
                     <!-- Success Alert Content -->
                     {{message}}
                 </div>
@@ -21,13 +21,13 @@
             <!--success div-->
             <!--error div-->
             <div class="col-lg-3 col-md-4" id="ajax_danger_alert" style="display: none; position: fixed; top: 15px; right: 0; z-index: 9999">
-                <div class="alert alert-danger ajax_danger_alert fade show" role="alert">
+                <div class="alert alert-danger ajax_danger_alert alert-dismissible fade show" role="alert">
                     <!-- Success Alert Content -->
                     {{message}}
                 </div>
             </div>
             <!--error div-->
-            
+
             <div class="col-lg-4">
                 <div class="sidebar">
                     <div class="">
@@ -67,13 +67,13 @@
                     <!-----------------------------this Div is for single user profile---------------------------------->
                     <div class="block block--style-3 list z-depth-1-top" ng-if="profiles != 500" id="block_1" ng-repeat="p in profiles">
                         <div class="block-image">
-                            <a onclick="goto_profile(p.user_profile_id)">
+                            <a onclick="goto_profile(p.user_id)">
                                 <div class="listing-image" style="background-image: url(http://activeitzone.com/demo/matrimonial/uploads/profile_image/profile_1.jpg)"></div>
                             </a>
                         </div>
                         <div class="block-title-wrapper">
                             <h3 class="heading heading-5 strong-500 mt-1">
-                                <a onclick="return goto_profile(1)" class="c-base-1">{{p.user_fullname}}</a>
+                                <a onclick="return goto_profile(p.user_id)" class="c-base-1">{{p.user_fullname}}</a>
                             </h3>
                             <h4 class="heading heading-xs c-gray-light text-uppercase strong-400">{{p.user_designation}}</h4>
                             <table class="mb-2" style="font-size: 12px;">
@@ -104,16 +104,20 @@
                             <div class="row align-items-center">
                                 <div class="col-sm-12 text-center">
                                     <ul class="inline-links inline-links--style-3">
-                                        <li class="listing-hover">
+                                        <li class="listing-hover" ng-if="p.alreadySent == '0'">
                                             <a ng-click="sendRequestToUser(p.user_id);">
                                                 <i class="fa fa-user-plus w3-text-green"></i>Send Request</a>
                                         </li>
+                                        <li class="listing-hover" ng-if="p.alreadySent != '0'">
+                                            <a>
+                                                <i class="fa fa-user-plus w3-text-black"></i> Already Sent</a>
+                                        </li>
                                         <li class="listing-hover">
-                                            <a onclick="return goto_profile(p.user_profile_id)">
+                                            <a onclick="return goto_profile(p.user_id)">
                                                 <i class="fa fa-id-card"></i>Full Profile</a>
                                         </li>
                                         <li class="listing-hover">
-                                            <a id="interest_a_1" onclick="confirm_interest(p.user_profile_id)" style="">
+                                            <a id="interest_a_1" onclick="confirm_interest(p.user_id)" style="">
                                                 <span id="interest_1" class=""><i class="fa fa-heart"></i> Add To Favourite</span>
                                             </a>
                                         </li>               
@@ -179,4 +183,195 @@
         }
     }
 </style>
-<script src="<?php echo base_url(); ?>assets/js/module/user/search/profileSearchById.js"></script>
+<!--<script src="<?php echo base_url(); ?>assets/js/module/user/search/profileSearchById.js">-->
+<script>
+// Angular script to add required skills in ad product form
+    var app = angular.module("searchProfileByIdApp", ['ngSanitize']);
+    app.controller("searchProfileByIdAppController", function ($scope, $http, $window) {
+//------------------------------------------------------------------------------------------------------//
+        $scope.profiles = [];
+<?php
+$encodedkey = $this->session->userdata('PariKey_session');
+$key = base64_decode($encodedkey);
+$keyarr = explode('|', $key);
+$session_user_id = $keyarr[2];
+?>
+        var session_user_id = <?php echo $session_user_id; ?>
+// ------------get User Profile Details controller--------------
+        $scope.searchByProfile_id = function () {
+            $scope.finderloader = true;
+            $http({
+                method: 'get',
+                url: BASE_URL + 'user/search/profilesearch_byid/searchByProfile_id?filter_member_id=' + $scope.filter_member_id
+            }).then(function successCallback(response) {
+                // Assign response to skills object
+                var data = response.data;
+                //alert(data);
+                $scope.profiles = [];
+                var i, user_photos, receivedReq, birthday, today, user_fullname, user_designation, user_mother_tongue, user_marital_status, age, newAge, totage;
+                console.log(data);
+                $scope.finderloader = false;
+                if (data != 500) {
+                    for (i = 0; i < data.length; i++) {
+                        birthday = new Date(data[i].user_dob);
+                        today = new Date();
+                        age = ((today - birthday) / (31557600000));
+                        totage = Math.floor(age);
+                        if (isNaN(totage)) {
+                            newAge = 'N/A';
+                        } else {
+                            newAge = totage;
+                        }
+                        if (data[i].user_photos != '') {
+                            user_photos = JSON.parse(data[i].user_photos);
+                        }
+                        if (data[i].user_fullname != '') {
+                            user_fullname = data[i].user_fullname;
+                        } else {
+                            user_fullname = 'N/A';
+                        }
+                        if (data[i].user_designation != '') {
+                            user_designation = data[i].user_designation;
+                        } else {
+                            user_designation = 'N/A';
+                        }
+                        if (data[i].user_mother_tongue != '') {
+                            user_mother_tongue = data[i].user_mother_tongue;
+                        } else {
+                            user_mother_tongue = 'N/A';
+                        }
+                        if (data[i].user_marital_status != '') {
+                            user_marital_status = data[i].user_marital_status;
+                        } else {
+                            user_marital_status = 'N/A';
+                        }
+                        $scope.profiles.push({'user_profile_id': data[i].user_profile_id,
+                            'user_id': data[i].user_id,
+                            'user_fullname': user_fullname,
+                            'user_gender': data[i].user_gender,
+                            'user_caste': data[i].user_caste,
+                            'user_email': data[i].user_email,
+                            'user_profile_image': data[i].user_profile_image,
+                            'user_height': data[i].user_height,
+                            'user_weight': data[i].user_weight,
+                            'user_mother_tongue': user_mother_tongue,
+                            'user_designation': user_designation,
+                            'user_marital_status': user_marital_status,
+                            'user_country': data[i].user_country,
+                            'user_state': data[i].user_state,
+                            'user_city': data[i].user_city,
+                            'age': newAge,
+                            'user_photos': user_photos
+                        });
+                    }
+                } else {
+                    $scope.profiles = 500;
+                }
+            });
+        };
+        // ------------get User Details controller--------------
+
+        $http.get(BASE_URL + "user/search/profilesearch_byid/getAllUserProfiles").then(function (response) {
+            var data = response.data;
+            //alert(data);
+            var i, user_photos, alreadySent, receivedReq, birthday, today, user_fullname, user_designation, user_mother_tongue, user_marital_status, age, newAge, totage;
+            console.log(data);
+            if (data != 500) {
+                for (i = 0; i < data.length; i++) {
+                    alreadySent = 0;
+                    receivedReq = 0;
+                    //-----------check the received requests are null or not null
+                    if (data[i].user_received_requests != '') {
+                        receivedReq = JSON.parse(data[i].user_received_requests);
+                    }
+                    // Make sure user hasnt already added this item
+                    angular.forEach(receivedReq, function (item) {
+                        //alert(session_user_id);
+                        if (session_user_id == item) {
+                            alreadySent = 1;
+                        }
+                    });
+                    //console.log(data[i].user_dob);
+                    birthday = new Date(data[i].user_dob);
+                    today = new Date();
+                    age = ((today - birthday) / (31557600000));
+                    totage = Math.floor(age);
+                    if (isNaN(totage)) {
+                        newAge = 'N/A';
+                    } else {
+                        newAge = totage;
+                    }
+                    if (data[i].user_photos != '') {
+                        user_photos = JSON.parse(data[i].user_photos);
+                    }
+                    if (data[i].user_fullname != '') {
+                        user_fullname = data[i].user_fullname;
+                    } else {
+                        user_fullname = 'N/A';
+                    }
+                    if (data[i].user_designation != '') {
+                        user_designation = data[i].user_designation;
+                    } else {
+                        user_designation = 'N/A';
+                    }
+                    if (data[i].user_mother_tongue != '') {
+                        user_mother_tongue = data[i].user_mother_tongue;
+                    } else {
+                        user_mother_tongue = 'N/A';
+                    }
+                    if (data[i].user_marital_status != '') {
+                        user_marital_status = data[i].user_marital_status;
+                    } else {
+                        user_marital_status = 'N/A';
+                    }
+                    $scope.profiles.push({'user_profile_id': data[i].user_profile_id,
+                        'user_id': data[i].user_id,
+                        'user_fullname': user_fullname,
+                        'user_gender': data[i].user_gender,
+                        'user_caste': data[i].user_caste,
+                        'user_email': data[i].user_email,
+                        'user_profile_image': data[i].user_profile_image,
+                        'user_height': data[i].user_height,
+                        'user_weight': data[i].user_weight,
+                        'user_mother_tongue': user_mother_tongue,
+                        'user_designation': user_designation,
+                        'user_marital_status': user_marital_status,
+                        'user_country': data[i].user_country,
+                        'user_state': data[i].user_state,
+                        'user_city': data[i].user_city,
+                        'age': newAge,
+                        'user_photos': user_photos,
+                        'alreadySent': alreadySent
+                    });
+                }
+            } else {
+                $scope.profiles = 500;
+            }
+            //console.log($scope.po);
+            //$scope.poData = $scope.po;
+        });
+        $scope.sendRequestToUser = function (user_id) {
+            //alert(user_profile_id);
+            $http({
+                method: 'get',
+                url: BASE_URL + 'user/search/profilesearch_byid/sendRequestToUser?profile_user_id=' + user_id
+            }).then(function successCallback(response) {
+                //alert(response.data);
+                console.log(response.data);
+                $('#ajax_success_alert').css('display', 'block');
+
+                if (response.data == '200') {
+                    $scope.message = 'Request Sent Successfully.';
+                }
+                if (response.data == '700') {
+                    $scope.message = 'No Requests Tockens Are Available.';
+
+                }
+                if (response.data == '500') {
+                    $scope.message = 'Request Not Sent Successfully.';
+                }
+            });
+        };
+
+    });
+</script>

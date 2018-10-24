@@ -4,6 +4,8 @@ app.controller("searchProfileByIdAppController", function ($scope, $http, $windo
 //------------------------------------------------------------------------------------------------------//
     $scope.profiles = [];
 
+
+
 // ------------get User Profile Details controller--------------
     $scope.searchByProfile_id = function () {
         $scope.finderloader = true;
@@ -15,7 +17,7 @@ app.controller("searchProfileByIdAppController", function ($scope, $http, $windo
             var data = response.data;
             //alert(data);
             $scope.profiles = [];
-            var i, user_photos, birthday, today, user_fullname, user_designation, user_mother_tongue, user_marital_status, age, newAge, totage;
+            var i, user_photos, receivedReq, birthday, today, user_fullname, user_designation, user_mother_tongue, user_marital_status, age, newAge, totage;
             console.log(data);
             $scope.finderloader = false;
             if (data != 500) {
@@ -81,11 +83,31 @@ app.controller("searchProfileByIdAppController", function ($scope, $http, $windo
     $http.get(BASE_URL + "user/search/profilesearch_byid/getAllUserProfiles").then(function (response) {
         var data = response.data;
         //alert(data);
-        var i, user_photos, birthday, today, user_fullname, user_designation, user_mother_tongue, user_marital_status, age, newAge, totage;
+        var i, user_photos, receivedReq, birthday, today, user_fullname, user_designation, user_mother_tongue, user_marital_status, age, newAge, totage;
         console.log(data);
 
         if (data != 500) {
             for (i = 0; i < data.length; i++) {
+
+
+
+
+                if (data[i].user_received_requests != '') {
+                    receivedReq = JSON.parse(data[i].user_received_requests);
+                }
+                var profile_user_id = data[i].user_id;
+                // Make sure user hasnt already added this item
+                angular.forEach(receivedReq, function (item) {
+//                    alert(item);
+//                    alert(user_id);
+                    if (profile_user_id == item) {
+                        //alert('found');
+
+                    }
+                });
+
+
+
                 //console.log(data[i].user_dob);
                 birthday = new Date(data[i].user_dob);
                 today = new Date();
@@ -160,7 +182,11 @@ app.controller("searchProfileByIdAppController", function ($scope, $http, $windo
             if (response.data == '200') {
                 $scope.message = 'Request Sent Successfully.'
 //                $scope.message = '<div class="alert alert-success alert-dismissible fade in alert-fixed w3-round"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><strong>Success!</strong> Request Sent Successfully.</div><script>window.setTimeout(function() {	$(".alert").fadeTo(500, 0).slideUp(500, function(){$(this).remove(); });}, 3000);</script>';
-            } else {
+            }
+            if (response.data == '700') {
+                
+            }
+            if (response.data == '500') {
                 $scope.message = '<div class="alert alert-danger alert-dismissible fade in alert-fixed w3-round"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><strong>Success!</strong> Request Not Sent successfully added.</div><script>window.setTimeout(function() {	$(".alert").fadeTo(500, 0).slideUp(500, function(){$(this).remove(); });}, 3000);</script>';
 
             }

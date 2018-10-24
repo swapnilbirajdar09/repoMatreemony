@@ -62,8 +62,10 @@ class Profilesearch_byid extends CI_Controller {
         $user_id = $keyarr[2];
         $result = $this->Searchbyprofileid_model->sendRequestToUser($profile_user_id, $user_id);
         //print_r($result);die();
-        if ($result) {
+        if ($result == 200) {
             echo 200;
+        } elseif ($result == 700) {
+            echo 700;
         } else {
             echo 500;
         }

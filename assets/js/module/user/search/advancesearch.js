@@ -219,7 +219,7 @@ app.controller("advanceSearchProfileController", function ($scope, $http, $windo
             success: function (data) {
                 //alert(data);
                 var cityData = '';
-                //console.log(JSON.parse(data));
+                console.log(JSON.parse(data));
                 cityData = JSON.parse(data);
                 var i;
 
