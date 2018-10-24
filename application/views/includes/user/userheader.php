@@ -45,107 +45,109 @@
     <style>
     body{
         font-family: 'Kodchasan', sans-serif;
+    }
+    .modal-backdrop {
+      z-index: -1;
+  }
+  #loading-center{
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+#loading-center-absolute {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    height: 50px;
+    width: 150px;
+    margin-top: -25px;
+    margin-left: -75px;
 
-    }
-    #loading-center{
-        width: 100%;
-        height: 100%;
-        position: relative;
-    }
-    #loading-center-absolute {
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        height: 50px;
-        width: 150px;
-        margin-top: -25px;
-        margin-left: -75px;
+}
+.object{
+    width: 8px;
+    height: 50px;
+    margin-right:5px;
+    background-color: white;
+    -webkit-animation: animate 1s infinite;
+    animation: animate 1s infinite;
+    float: left;
+}
 
-    }
-    .object{
-        width: 8px;
-        height: 50px;
-        margin-right:5px;
-        background-color: white;
-        -webkit-animation: animate 1s infinite;
-        animation: animate 1s infinite;
-        float: left;
-    }
+.object:last-child {
+    margin-right: 0px;
+}
 
-    .object:last-child {
-        margin-right: 0px;
-    }
+.object:nth-child(10){
+    -webkit-animation-delay: 0.9s;
+    animation-delay: 0.9s;  
+}
+.object:nth-child(9){
+    -webkit-animation-delay: 0.8s;
+    animation-delay: 0.8s;  
+} 
+.object:nth-child(8){
+    -webkit-animation-delay: 0.7s;
+    animation-delay: 0.7s;  
+}
+.object:nth-child(7){
+    -webkit-animation-delay: 0.6s;
+    animation-delay: 0.6s;  
+}
+.object:nth-child(6){
+    -webkit-animation-delay: 0.5s;
+    animation-delay: 0.5s;  
+}
+.object:nth-child(5){
+    -webkit-animation-delay: 0.4s;
+    animation-delay: 0.4s;
+}
+.object:nth-child(4){
+    -webkit-animation-delay: 0.3s;
+    animation-delay: 0.3s;    
+}
+.object:nth-child(3){
+    -webkit-animation-delay: 0.2s;
+    animation-delay: 0.2s;  
+}
+.object:nth-child(2){
+    -webkit-animation-delay: 0.1s;
+    animation-delay: 0.1s;
+}           
+@-webkit-keyframes animate {
 
-    .object:nth-child(10){
-        -webkit-animation-delay: 0.9s;
-        animation-delay: 0.9s;  
+    50% {
+        -ms-transform: scaleY(0); 
+        -webkit-transform: scaleY(0);
+        transform: scaleY(0); 
     }
-    .object:nth-child(9){
-        -webkit-animation-delay: 0.8s;
-        animation-delay: 0.8s;  
-    } 
-    .object:nth-child(8){
-        -webkit-animation-delay: 0.7s;
-        animation-delay: 0.7s;  
+}
+@keyframes animate {
+    50% {
+        -ms-transform: scaleY(0); 
+        -webkit-transform: scaleY(0);
+        transform: scaleY(0);
     }
-    .object:nth-child(7){
-        -webkit-animation-delay: 0.6s;
-        animation-delay: 0.6s;  
-    }
-    .object:nth-child(6){
-        -webkit-animation-delay: 0.5s;
-        animation-delay: 0.5s;  
-    }
-    .object:nth-child(5){
-        -webkit-animation-delay: 0.4s;
-        animation-delay: 0.4s;
-    }
-    .object:nth-child(4){
-        -webkit-animation-delay: 0.3s;
-        animation-delay: 0.3s;    
-    }
-    .object:nth-child(3){
-        -webkit-animation-delay: 0.2s;
-        animation-delay: 0.2s;  
-    }
-    .object:nth-child(2){
-        -webkit-animation-delay: 0.1s;
-        animation-delay: 0.1s;
-    }           
-    @-webkit-keyframes animate {
-
-        50% {
-            -ms-transform: scaleY(0); 
-            -webkit-transform: scaleY(0);
-            transform: scaleY(0); 
-        }
-    }
-    @keyframes animate {
-        50% {
-            -ms-transform: scaleY(0); 
-            -webkit-transform: scaleY(0);
-            transform: scaleY(0);
-        }
-    }
-    #loading{
-        background-color: #5E32E1;
-        height: 100%;
-        width: 100%;
-        position: fixed;
-        z-index: 1050;
-        margin-top: 0px;
-        top: 0px;
-    }
-    .alert-fixed {
-        position:fixed; 
-        top: 0px; 
-        right: 0px; 
-        margin: 10px;
-        width: 100px;
-        z-index:9999; 
-        float: right;
-        border-radius:0px
-    }
+}
+#loading{
+    background-color: #5E32E1;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    z-index: 1050;
+    margin-top: 0px;
+    top: 0px;
+}
+.alert-fixed {
+    position:fixed; 
+    top: 0px; 
+    right: 0px; 
+    margin: 10px;
+    width: 100px;
+    z-index:9999; 
+    float: right;
+    border-radius:0px
+}
 </style>
 <div id="loading">
     <div id="loading-center">
@@ -193,12 +195,12 @@
                     <div class="st-pusher">
                         <div class="st-content">
                             <div class="st-content-inner">
-                            
-                            
-                            <nav class="navbar navbar-expand-lg navbar-fixed-top navbar--link-arrow navbar--uppercase" style="background: linear-gradient(45deg, rgba(72, 44, 191, 1) 0%, rgba(106, 198, 240, 1) 100%);padding:14px 0 14px 0">
-                                <div class="container navbar-container">
-                                    <!-- Brand/Logo -->
-                                    <a class="navbar-brand" href="<?php echo base_url(); ?>"><h3 class="w3-text-white"><b><i>Buddhist Parinay</i></b></h3></a>
+
+
+                                <nav class="navbar navbar-expand-lg navbar-fixed-top navbar--link-arrow navbar--uppercase" style="background: linear-gradient(45deg, rgba(72, 44, 191, 1) 0%, rgba(106, 198, 240, 1) 100%);padding:14px 0 14px 0">
+                                    <div class="container navbar-container">
+                                        <!-- Brand/Logo -->
+                                        <a class="navbar-brand" href="<?php echo base_url(); ?>"><h3 class="w3-text-white"><b><i>Buddhist Parinay</i></b></h3></a>
                                     <!-- <a class="navbar-brand" href="<?php echo base_url(); ?>">
                                         <img src="<?php echo base_url(); ?>assets/client/uploads/header_logo/logo.jpeg" class="img-responsive" height="100%" style="margin-bottom: 8px;">
                                     </a> -->
@@ -252,30 +254,30 @@
                                         </div>
                                     </div>
                                 </nav>
-                                    <!-- Navbar -->
-                            <div class="top-navbar align-items-center">
-                                <div class="container">
-                                    <div class="row align-items-center py-1" style="padding-bottom: 0px !important">
-                                        <div class="col-md-4"></div>
-                                        <div class="col-md-4 text-center" style="padding: 0px"></div>
-                                        <div class="col-md-4">
-                                            <nav class="top-navbar-menu">
-                                                <ul class="float-right top_bar_right">    
-                                                    <li class="float-left pb-1">
-                                                        <a class="c-base-1" href="<?php echo base_url(); ?>user/user_profile">
-                                                        <div class="top_nav_img" style="background-image: url(http://activeitzone.com/demo/matrimonial/uploads/profile_image/profile_1_thumb.jpg)"></div>
-                                                        <span class="strong-500 d-none d-lg-inline-block d-xl-inline-block" style="margin-top: 5px">Slade</span>
-                                                    </a>
-                                                    </li>                                                                    
-                                                    <li class="float-left pb-1">
-                                                        <a href="<?php echo base_url(); ?>user/login/logoutUser" class="btn btn-styled btn-xs btn-base-1 btn-shadow w3-margin-left"><i class="fa fa-power-off"></i> Log out</a>
-                                                    </li>
-                                                </ul>
-                                            </nav>
+                                <!-- Navbar -->
+                                <div class="top-navbar align-items-center" style="z-index: 0">
+                                    <div class="container">
+                                        <div class="row align-items-center py-1" style="padding-bottom: 0px !important">
+                                            <div class="col-md-4"></div>
+                                            <div class="col-md-4 text-center" style="padding: 0px"></div>
+                                            <div class="col-md-4">
+                                                <nav class="top-navbar-menu">
+                                                    <ul class="float-right top_bar_right">    
+                                                        <li class="float-left pb-1">
+                                                            <a class="c-base-1" href="<?php echo base_url(); ?>user/user_profile">
+                                                                <div class="top_nav_img" style="background-image: url(http://activeitzone.com/demo/matrimonial/uploads/profile_image/profile_1_thumb.jpg)"></div>
+                                                                <span class="strong-500 d-none d-lg-inline-block d-xl-inline-block" style="margin-top: 5px">Slade</span>
+                                                            </a>
+                                                        </li>                                                                    
+                                                        <li class="float-left pb-1">
+                                                            <a href="<?php echo base_url(); ?>user/login/logoutUser" class="btn btn-styled btn-xs btn-base-1 btn-shadow w3-margin-left"><i class="fa fa-power-off"></i> Log out</a>
+                                                        </li>
+                                                    </ul>
+                                                </nav>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
 
                                 <script type="text/javascript">
                                     $(document).ready(function () {

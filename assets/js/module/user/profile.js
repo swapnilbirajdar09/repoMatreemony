@@ -95,6 +95,64 @@ $(document).ready(function () {
 	})
 });
 
+// angular js script
+var app = angular.module("profileSectionApp", ['ngSanitize']);
+app.controller("profileSectionCtrl", function ($scope, $http, $window) { 
+
+	$scope.getCountryState = function () {
+		var country = $("#country").val();
+		$.ajax({
+			type: "GET",
+			url: BASE_URL + "user/search/advance_search/getCountryState",
+			data: {
+				country: country
+			},
+			cache: false,
+			success: function (data) {
+                //alert(data);
+                var stateData = '';
+                //console.log(JSON.parse(data));
+                stateData = JSON.parse(data);
+                var i;
+
+                var state = $('#state');
+                state.find('option:not(:first-child)').remove();
+
+                for (i = 0; i < stateData.length; i++) {
+                	$('#state').append('<option value="' + stateData[i].name + '/' + stateData[i].id + '">' + stateData[i].name + '</option>');
+                }
+            }
+        });
+	};
+
+	$scope.getStateCity = function () {
+		var state = $("#state").val();
+		$.ajax({
+			type: "GET",
+			url: BASE_URL + "user/search/advance_search/getStateCity",
+			data: {
+				state: state
+			},
+			cache: false,
+			success: function (data) {
+                //alert(data);
+                var cityData = '';
+                //console.log(JSON.parse(data));
+                cityData = JSON.parse(data);
+                var i;
+
+                var city = $('#native_place');
+                city.find('option:not(:first-child)').remove();
+
+                for (i = 0; i < cityData.length; i++) {
+                	$('#native_place').append('<option value="' + cityData[i].name + '">' + cityData[i].name + '</option>');
+                }
+            }
+        });
+	};
+
+});
+
 // script to submit sectional forms
 function save_section(section)
 {   
