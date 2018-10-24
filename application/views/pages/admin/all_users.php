@@ -70,7 +70,7 @@
                                  
                                  <span class=""> <?php echo $key['user_fullname'];?><br><?php echo $key['user_gender']; ?></span>
                                  </td>
-                              <td class="w3-center"><?php echo $key['user_registraion_date']; ?></td>
+                              <td class="w3-center"><?php echo $key['user_reg_date']; ?></td>
                               <td class="w3-center"><?php echo $key['user_city']; ?></td>
                              <!--  <td class="w3-center"><?php echo $key['user_email']; ?></td> -->
                                   <td class="w3-center"><?php echo $key['user_marital_status']; ?></td>
