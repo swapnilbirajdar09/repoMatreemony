@@ -32,12 +32,14 @@ class Login extends CI_Controller {
             echo 'false';
         } else {
             // success scope
+            $resultArr=explode('|', $result);
             //----create session array--------//
-            $key=base64_encode('PARInaayKEY|'.$request['login_email_id'].'|'.$result);  
+            $key=base64_encode('PARInaayKEY|'.$request['login_email_id'].'|'.$resultArr[0]);  
             //session key format is PARInaayKEY|email_id|user_id
 
             $session_data = array(
-                'PariKey_session' => $key
+                'PariKey_session' => $key,
+                'key_gender' => $resultArr[1]
             );
             //start session of user if login success
             $this->session->set_userdata($session_data);
@@ -56,6 +58,7 @@ class Login extends CI_Controller {
         $result = $this->userlogin_model->logoutUser($keyarr[2]);
         //if logout success then destroy session and unset session variables
         $this->session->unset_userdata(array('PariKey_session'));
+        $this->session->unset_userdata(array('key_gender'));
         $this->session->sess_destroy();
         redirect('/');
     }

@@ -23,7 +23,7 @@ class User_profile extends CI_Controller {
         else{
             $key=base64_decode($encodedkey);
             $keyarr=explode('|', $key);
-            // print_r($keyarr);die();
+            // print_r($this->session->userdata('key_gender'));die();
             //session key format is PARInaayKEY|email_id|user_id
 
             if($keyarr[0]!='PARInaayKEY' && $keyarr[1]!='' && $keyarr[2]!=''){

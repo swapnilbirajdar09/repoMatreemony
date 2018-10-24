@@ -310,7 +310,7 @@
                                                                         echo $userDetails[0]['user_about_me'];
                                                                     }
                                                                     else{
-                                                                        echo '<label class="w3-medium"> Click on <button class="btn btn-base-1 btn-sm btn-icon-only btn-shadow mb-1" click="edit_section(\'about_me\')"><i class="ion-edit"></i> Edit</button> to add <b>About Me</b>. </label>';
+                                                                        echo '<label class="w3-medium"> Click  <button class="btn btn-base-1 btn-sm btn-icon-only btn-shadow mb-1" onclick="edit_section(\'about_me\')"><i class="ion-edit"></i> Edit</button>  to add <b>About Me</b>. </label>';
                                                                     }
                                                                     ?>
                                                                     <?php echo $userDetails[0]['user_about_me']; ?>                           
@@ -336,7 +336,9 @@
                                                 <div class="row">
                                                     <div class="col-md-12 w3-margin-top">
                                                         <div class="form-group has-feedback">
-                                                            <textarea name="about_me" class="form-control no-resize" rows="5">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmodm tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodoconsequat. Duis aute irure dolor in reprehenderit in voluptate velit essecillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat nonproident, sunt in culpa qui officia deserunt mollit anim id est laborum.</textarea>
+                                                            <textarea name="about_me" class="form-control no-resize" rows="5">
+                                                                <?php echo $userDetails[0]['user_about_me']; ?>
+                                                            </textarea>
                                                             <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                                                             <div class="help-block with-errors"></div>
                                                         </div>

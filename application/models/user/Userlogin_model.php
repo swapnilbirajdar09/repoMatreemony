@@ -14,8 +14,10 @@ class Userlogin_model extends CI_Model {
             return false;
         } else {
             $user_id='';
+            $user_gender='';
             foreach ($result->result_array() as $key) {
                 $user_id = $key['user_id'];
+                $user_gender = $key['user_gender'];
             }
 
             // update login time
@@ -26,7 +28,7 @@ class Userlogin_model extends CI_Model {
 
             $this->db->where('user_id', $user_id);
             $this->db->update('user_tab', $updateuser);
-            return $user_id;
+            return $user_id.'|'.$user_gender;
         }
     }
 

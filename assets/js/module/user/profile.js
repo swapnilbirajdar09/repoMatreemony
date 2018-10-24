@@ -162,7 +162,7 @@ function save_section(section)
             
             $.ajax({
             	type: "POST",
-            	url: "http://activeitzone.com/demo/matrimonial/home/profile/update_"+section,
+            	url: BASE_URL+"user/user_profile/update_"+section,
             	cache: false,
             	data: $('#form_'+section).serialize(),
             	success: function(response) {
