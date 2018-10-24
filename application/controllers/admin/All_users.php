@@ -18,6 +18,7 @@ class All_users extends CI_Controller {
     // main index function
     public function index() {
         // start session		
+      
        if(isset($_GET['search_byID']) || isset($_GET['search_byName']) || isset($_GET['valid']) && $_GET['valid']=='true'){
       extract($_GET);
       //echo "check if";

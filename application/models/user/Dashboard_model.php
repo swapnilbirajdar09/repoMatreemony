@@ -6,18 +6,14 @@ class Dashboard_model extends CI_Model {
         parent::__construct();
     }
 
-//------tget all user list--------------//
-     public function getUserInformation() {
-        $sql = "SELECT * FROM user_profile_tab,user_tab where user_tab.user_id = user_profile_tab.user_id";
+  public function getAllUserProfiles($gender) {
+        $sql = "SELECT * FROM user_profile_tab,user_tab where user_tab.user_id = user_profile_tab.user_id AND user_tab.user_gender!='$gender' order by user_tab.user_id DESC  limit 5";
         $result = $this->db->query($sql);
+        //echo $sql;die();
         if ($result->num_rows() <= 0) {
-            $response = array(
-                'status' => 500,
-                'status_message' => 'No data found.');
+            return false;
         } else {
-            $response = array(
-                'status' => 200,
-                'status_message' => $result->result_array());
+            return $result->result_array();
         }
-        return $response;
     }
+}
