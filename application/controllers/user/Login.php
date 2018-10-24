@@ -33,7 +33,9 @@ class Login extends CI_Controller {
         } else {
             // success scope
             //----create session array--------//
-            $key=base64_encode('PARInaayKEY|'.$request['login_email_id'].'|'.$result);
+            $key=base64_encode('PARInaayKEY|'.$request['login_email_id'].'|'.$result);  
+            //session key format is PARInaayKEY|email_id|user_id
+
             $session_data = array(
                 'PariKey_session' => $key
             );

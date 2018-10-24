@@ -19,6 +19,7 @@
   margin: 0
 }
 </style>
+<?php print_r($userDetails); ?>
 <section class="slice sct-color-2">
     <div class="profile" ng-app="profileSectionApp" ng-controller="profileSectionCtrl">
         <div class="container">
@@ -304,8 +305,15 @@
                                                         <tbody>
                                                             <tr>
                                                                 <td class="">
-                                                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                                                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.                            
+                                                                    <?php 
+                                                                    if($userDetails[0]['user_about_me']!=''){
+                                                                        echo $userDetails[0]['user_about_me'];
+                                                                    }
+                                                                    else{
+                                                                        echo '<label class="w3-medium"> Click on <button class="btn btn-base-1 btn-sm btn-icon-only btn-shadow mb-1" click="edit_section(\'about_me\')"><i class="ion-edit"></i> Edit</button> to add <b>About Me</b>. </label>';
+                                                                    }
+                                                                    ?>
+                                                                    <?php echo $userDetails[0]['user_about_me']; ?>                           
                                                                 </td>
                                                             </tr>
                                                         </tbody>
