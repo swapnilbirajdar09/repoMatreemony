@@ -2,20 +2,19 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class User_profile extends CI_Controller {
+class Dashboard extends CI_Controller {
 
-    // Login controller
+    
     public function __construct() {
         parent::__construct();
-        $this->load->model('user/search/Advancesearch_model');
+                $this->load->model('admin/Allusers_model');  
     }
 
     // main index function
     public function index() {
-
-        $data['country'] = $this->Advancesearch_model->getAllCountries();        
+        $data['user_info'] = $this->Allusers_model->getAllUsers();
         $this->load->view('includes/user/userheader.php'); //------user header page
-        $this->load->view('pages/user/User_profile.php',$data); //------user profile page
+        $this->load->view('pages/user/dashboard.php',$data); //------user profile page
         $this->load->view('includes/user/userfooter.php'); //------user footer page
     }
 }

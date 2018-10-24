@@ -20,7 +20,7 @@
 }
 </style>
 <section class="slice sct-color-2">
-    <div class="profile">
+    <div class="profile" ng-app="profileSectionApp" ng-controller="profileSectionCtrl">
         <div class="container">
             <div class="row cols-md-space cols-sm-space cols-xs-space">
                 <!-- Alert for Ajax Profile Edit Section -->
@@ -105,72 +105,171 @@
 
                                     <div class="w3-container w3-margin-top w3-center no-padding">
                                         <div class="w3-col l6" style="padding:4px 4px 4px 4px">
-                                            <div class="w3-col l12 w3-card-2 w3-round allImage" style="background-image: url(http://activeitzone.com/demo/matrimonial/uploads/profile_image/profile_1_thumb.jpg);background-repeat: no-repeat;background-position: center;background-size: contain;height:150px;background-color: white">
-                                                <!-- overlay for action div -->
-                                                <div class="w3-col l12 w3-lightgrey saved-image w3-round">
-                                                    <div class="w3-col l12 w3-left">
-                                                        <a title="View Full Image" class="btn w3-small w3-text-white allImage-btn" data-toggle="modal" data-target="#imgModal"><span class="w3-large fa fa-search-plus"></span> View picture</a>                                    
-                                                        <a title="Set as Profile Picture" class="btn w3-hide w3-small w3-text-white allImage-btn" data-toggle="modal" data-target="#imgModal"><span class="w3-medium fa fa-user-circle"></span> Set Profile picture</a>                                    
-                                                        <a title="Remove Picture from Gallery" class="btn w3-small w3-text-white allImage-btn" data-toggle="modal" data-target="#imgModal"><span class="w3-large fa fa-remove"></span> Remove picture</a>                                    
-                                                    </div>                          
+                                            <div class="block-image relative">
+                                                <div class="view view-second view--rounded light-gallery">
+                                                    <img src="http://activeitzone.com/demo/matrimonial/uploads/gallery_image/gallery_1_2.jpg" style="max-height: 150px;">
+                                                    <div class="mask mask-base-1--style-2">
+                                                        <div class="view-buttons text-center">
+                                                            <div class="view-buttons-inner text-center">
+                                                                <a target="_blank" href="http://activeitzone.com/demo/matrimonial/uploads/gallery_image/gallery_1_2.jpg" class="c-white mr-2 l-gallery" data-toggle="light-gallery">
+                                                                    <i class="fa fa-search"></i>
+                                                                </a>
+                                                                <a class="c-white ml-2" onclick="return confirm_delete(2)">
+                                                                    <i class="fa fa-trash"></i>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                                <!-- overlay for action div ends -->
                                             </div>
                                         </div>
                                         <div class="w3-col l6" style="padding:4px 4px 4px 4px">
-                                            <div class="w3-col l12 w3-card-2 w3-round allImage" style="background-image: url(http://activeitzone.com/demo/matrimonial/uploads/profile_image/profile_3_thumb.jpg);background-repeat: no-repeat;background-position: center;background-size: contain;height:150px;background-color: white">
-                                                <!-- overlay for action div -->
-                                                <div class="w3-col l12 w3-lightgrey saved-image w3-round">
-                                                    <div class="w3-col l12 w3-left">
-                                                        <a title="View Full Image" class="btn w3-small w3-text-white allImage-btn" data-toggle="modal" data-target="#imgModal"><span class="w3-large fa fa-search-plus"></span> View picture</a>                                    
-                                                        <a title="Set as Profile Picture" class="btn w3-small w3-text-white allImage-btn" data-toggle="modal" data-target="#imgModal"><span class="w3-medium fa fa-user-circle"></span> Set Profile picture</a>                                    
-                                                        <a title="Remove Picture from Gallery" class="btn w3-small w3-text-white allImage-btn" data-toggle="modal" data-target="#imgModal"><span class="w3-large fa fa-remove"></span> Remove picture</a>                                    
-                                                    </div>                          
+                                            <div class="block-image relative">
+                                                <div class="view view-second view--rounded light-gallery">
+                                                    <img src="http://activeitzone.com/demo/matrimonial/uploads/profile_image/profile_3_thumb.jpg" style="max-height: 150px;">
+                                                    <div class="mask mask-base-1--style-2">
+                                                        <div class="view-buttons text-center">
+                                                            <div class="view-buttons-inner text-center">
+                                                                <a target="_blank" href="http://activeitzone.com/demo/matrimonial/uploads/gallery_image/gallery_1_2.jpg" class="c-white mr-2 l-gallery" data-toggle="light-gallery">
+                                                                    <i class="fa fa-search"></i>
+                                                                </a>
+                                                                <a class="c-white ml-2" onclick="return confirm_delete(2)">
+                                                                    <i class="fa fa-trash"></i>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                                <!-- overlay for action div ends -->
                                             </div>
                                         </div>
                                         <div class="w3-col l6" style="padding:4px 4px 4px 4px">
-                                            <div class="w3-col l12 w3-card-2 w3-round allImage" style="background-image: url(http://activeitzone.com/demo/matrimonial/uploads/profile_image/profile_7_thumb.jpg);background-repeat: no-repeat;background-position: center;background-size: contain;height:150px;background-color: white">
-                                                <!-- overlay for action div -->
-                                                <div class="w3-col l12 w3-lightgrey saved-image w3-round">
-                                                    <div class="w3-col l12 w3-left">
-                                                        <a title="View Full Image" class="btn w3-small w3-text-white allImage-btn" data-toggle="modal" data-target="#imgModal"><span class="w3-large fa fa-search-plus"></span> View picture</a>                                    
-                                                        <a title="Set as Profile Picture" class="btn w3-small w3-text-white allImage-btn" data-toggle="modal" data-target="#imgModal"><span class="w3-medium fa fa-user-circle"></span> Set Profile picture</a>                                    
-                                                        <a title="Remove Picture from Gallery" class="btn w3-small w3-text-white allImage-btn" data-toggle="modal" data-target="#imgModal"><span class="w3-large fa fa-remove"></span> Remove picture</a>                                    
-                                                    </div>                          
+                                            <div class="block-image relative">
+                                                <div class="view view-second view--rounded light-gallery">
+                                                    <img src="http://activeitzone.com/demo/matrimonial/uploads/profile_image/profile_7_thumb.jpg" style="max-height: 150px;">
+                                                    <div class="mask mask-base-1--style-2">
+                                                        <div class="view-buttons text-center">
+                                                            <div class="view-buttons-inner text-center">
+                                                                <a target="_blank" href="http://activeitzone.com/demo/matrimonial/uploads/gallery_image/gallery_1_2.jpg" class="c-white mr-2 l-gallery" data-toggle="light-gallery">
+                                                                    <i class="fa fa-search"></i>
+                                                                </a>
+                                                                <a class="c-white ml-2" onclick="return confirm_delete(2)">
+                                                                    <i class="fa fa-trash"></i>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                                <!-- overlay for action div ends -->
                                             </div>
                                         </div>
                                         <div class="w3-col l6" style="padding:4px 4px 4px 4px">
-                                            <div class="w3-col l12 w3-card-2 w3-round allImage" style="background-image: url(http://activeitzone.com/demo/matrimonial/uploads/profile_image/profile_5_thumb.jpg);background-repeat: no-repeat;background-position: center;background-size: contain;height:150px;background-color: white">
-                                                <!-- overlay for action div -->
-                                                <div class="w3-col l12 w3-lightgrey saved-image w3-round">
-                                                    <div class="w3-col l12 w3-left">
-                                                        <a title="View Full Image" class="btn w3-small w3-text-white allImage-btn" data-toggle="modal" data-target="#imgModal"><span class="w3-large fa fa-search-plus"></span> View picture</a>                                    
-                                                        <a title="Set as Profile Picture" class="btn w3-small w3-text-white allImage-btn" data-toggle="modal" data-target="#imgModal"><span class="w3-medium fa fa-user-circle"></span> Set Profile picture</a>                                    
-                                                        <a title="Remove Picture from Gallery" class="btn w3-small w3-text-white allImage-btn" data-toggle="modal" data-target="#imgModal"><span class="w3-large ion-close"></span> Remove picture</a>                                    
-                                                    </div>                          
+                                            <div class="block-image relative">
+                                                <div class="view view-second view--rounded light-gallery">
+                                                    <img src="http://activeitzone.com/demo/matrimonial/uploads/profile_image/profile_5_thumb.jpg" style="max-height: 150px;">
+                                                    <div class="mask mask-base-1--style-2">
+                                                        <div class="view-buttons text-center">
+                                                            <div class="view-buttons-inner text-center">
+                                                                <a target="_blank" href="http://activeitzone.com/demo/matrimonial/uploads/gallery_image/gallery_1_2.jpg" class="c-white mr-2 l-gallery" data-toggle="light-gallery">
+                                                                    <i class="fa fa-search"></i>
+                                                                </a>
+                                                                <a class="c-white ml-2" onclick="return confirm_delete(2)">
+                                                                    <i class="fa fa-trash"></i>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                                <!-- overlay for action div ends -->
                                             </div>
                                         </div>
                                         <div class="w3-col l12" style="padding:4px 4px 4px 4px">
                                             <div class="pull-right">
-                                                <button type="button" class="btn btn-success btn-icon-only btn-shadow" onclick="load_section('relatives_info')"><i class="ion-plus"></i> Upload Pictures</button>
+                                                <button type="button" data-toggle="modal" data-target="#uploadPhotoModal" class="btn btn-success btn-icon-only btn-shadow"><i class="ion-plus"></i> Upload Pictures</button>
                                             </div>
+
+                                            <!-- Modal Upload picture -->
+                                            <div class="modal fade" id="uploadPhotoModal" role="dialog" aria-hidden="true">
+                                                <div class="modal-dialog modal-md">
+                                                    <div class="modal-content">
+
+                                                        <div class="modal-header">
+
+                                                            <h4 class="modal-title"> Upload your Picture </h4>
+                                                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true"><i class="ion-close"></i></span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body" style="padding: 2rem 0 2rem 0">
+                                                            <form class="col-12" id="gallery_upload_form" role="form" enctype="multipart/form-data">
+                                                                <div class="form-group has-feedback col-10 ml-auto mr-auto">
+                                                                    <label for="img_title" class="text-uppercase w3-left c-gray-light">Image Title</label>
+                                                                    <input type="text" class="form-control no-resize" name="img_title" required>
+                                                                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                                                                    <div class="help-block with-errors"></div>
+                                                                </div>
+                                                                <div class="form-group has-feedback col-10 ml-auto mr-auto select_div" id="img_main">
+                                                                    <label class="text-uppercase w3-left c-gray-light">Upload Image</label>
+                                                                    <div class="col-sm-12" style="margin:2px; padding:2px;">
+                                                                        <img class="img-responsive img-border blah z-depth-1-bottom" style="width: 100%;border: 1px solid #e6e6e6;" src="http://activeitzone.com/demo/matrimonial/uploads/happy_story_image/default_image.jpg">
+                                                                    </div>
+                                                                    <input type="file" id="selected_image" name="selected_image" class="form-control w3-margin-top" required>
+                                                                </div>
+                                                                <div class="form-group has-feedback col-10 ml-auto mr-auto text-center">
+                                                                    <button type="submit" id="btn_gallery_upload" class="btn btn-block btn-base-1 btn-shadow">Upload to Gallery</button>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- end upload picture modal --> 
                                         </div>
                                     </div>
                                     <hr>
                                     <div class="useful-links">
-                                       <a class="btn btn-styled btn-sm btn-white z-depth-2-bottom mb-3 change_pass l_nav" onclick="profile_load('change_pass')">
+                                       <a class="btn btn-styled btn-sm btn-white z-depth-2-bottom mb-3 change_pass l_nav" data-toggle="modal" data-target="#changePasswordModal">
                                         <b style="font-size: 12px">Change Password</b>
                                     </a>
                                     <a class="btn btn-styled btn-sm btn-white z-depth-2-bottom mb-3 change_pass l_nav" href="<?php echo base_url(); ?>user/login/logoutUser">
                                         <b style="font-size: 12px">Logout</b>
                                     </a>
+                                    <!-- Modal Change password -->
+                                    <div class="modal fade" id="changePasswordModal" role="dialog" aria-hidden="true">
+                                        <div class="modal-dialog modal-sm">
+                                            <div class="modal-content">
 
+                                                <div class="modal-header">
+
+                                                    <h5 class="modal-title"> Change Password </h5>
+                                                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true"><i class="ion-close"></i></span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body" style="padding: 2rem 0 2rem 0">
+                                                    <form class="col-12" id="form_change_password" role="form" enctype="multipart/form-data">
+                                                        <div class="form-group has-feedback col-10 ml-auto mr-auto">
+                                                            <label for="img_title" class="text-uppercase w3-left c-gray-light">Old Password</label>
+                                                            <input type="text" class="form-control no-resize" name="img_title" required>
+                                                            <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                                                            <div class="help-block with-errors"></div>
+                                                        </div>
+                                                        <div class="form-group has-feedback col-10 ml-auto mr-auto">
+                                                            <label for="img_title" class="text-uppercase w3-left c-gray-light">New Password</label>
+                                                            <input type="text" class="form-control no-resize" name="img_title" required>
+                                                            <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                                                            <div class="help-block with-errors"></div>
+                                                        </div>
+                                                        <div class="form-group has-feedback col-10 ml-auto mr-auto">
+                                                            <label for="img_title" class="text-uppercase w3-left c-gray-light">Confirm Password</label>
+                                                            <input type="text" class="form-control no-resize" name="img_title" required>
+                                                            <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                                                            <div class="help-block with-errors"></div>
+                                                        </div>
+                                                        <div class="form-group has-feedback col-10 ml-auto mr-auto text-center">
+                                                            <button type="submit" id="btn_gallery_upload" class="btn btn-block btn-base-1 btn-shadow">Change Password</button>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- end chnage password modal --> 
                                 </div>
                             </div>
                         </div>
@@ -265,27 +364,35 @@
                                                                 <td class="td-label">
                                                                     <span>Full Name</span>
                                                                 </td>
-                                                                <td>
+                                                                <td colspan="3">
                                                                     Samrat Ashok Munde                           
                                                                 </td>
+                                                            </tr>
+                                                            <tr>
                                                                 <td class="td-label">
                                                                     <span>Profile created by</span>
                                                                 </td>
                                                                 <td>
                                                                     Self                           
                                                                 </td>
-                                                            </tr>
-                                                            <tr>
                                                                 <td class="td-label">
                                                                     <span>Date Of Birth</span>
                                                                 </td>
                                                                 <td>
                                                                 26 April 1995 </td>
+                                                            </tr>
+                                                            <tr>
                                                                 <td class="td-label">
                                                                     <span>Marital Status</span>
                                                                 </td>
                                                                 <td>
                                                                     Never Married
+                                                                </td>                                                                
+                                                                <td class="td-label">
+                                                                    <span>Number of Children</span>
+                                                                </td>
+                                                                <td>
+                                                                    2
                                                                 </td>
                                                             </tr>
                                                             <tr>
@@ -327,6 +434,14 @@
                                                                 <span>Mother Tongue</span>
                                                             </td>
                                                             <td>Marathi
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="td-label">
+                                                                <span>Hobbies</span>
+                                                            </td>
+                                                            <td colspan="3">
+                                                                Trekking, Painting, Reading Books.
                                                             </td>
                                                         </tr>
 
@@ -384,14 +499,31 @@
                                                 </div>
                                                 <div class="col-md-6 w3-margin-top">
                                                     <div class="form-group has-feedback">
-                                                        <label for="profile_created_by" class="text-uppercase c-gray-light">Marital Status</label>
-                                                        <select name="profile_created_by" onchange="(this.value,this)" class="form-control form-control selectpicker" data-placeholder="Choose one status" tabindex="2" data-hide-disabled="true">
+                                                        <label for="marital_status" class="text-uppercase c-gray-light">Marital Status</label>
+                                                        <select name="marital_status" id="marital_status" class="form-control form-control selectpicker" data-placeholder="Choose one status" tabindex="2" data-hide-disabled="true">
                                                             <option value="0" class="w3-light-grey">Choose one status</option>
                                                             <option value="Never Married">Never Married</option>
                                                             <option value="Divorced">Divorced</option>
                                                             <option value="Widow" >Widow</option>
                                                             <option value="Widower" >Widower</option>
                                                             <option value=">Awaiting divorced / Legally separated">Awaiting divorced / Legally separated</option>
+                                                        </select>      
+                                                        <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                                                        <div class="help-block with-errors"></div>
+                                                    </div>
+                                                </div>                                                
+                                            </div>
+                                            <div class="row" id="children_div">
+                                                <div class="col-md-6 w3-margin-top"></div>
+                                                <div class="col-md-6 w3-margin-top">
+                                                    <div class="form-group has-feedback">
+                                                        <label for="no_of_children" class="text-uppercase c-gray-light">Number of Children</label>
+                                                        <select name="no_of_children" onchange="(this.value,this)" class="form-control form-control selectpicker" data-placeholder="Choose one option" tabindex="2" data-hide-disabled="true">
+                                                            <option value="0" class="w3-light-grey">Choose one option</option>
+                                                            <option value="0">0</option>
+                                                            <option value="1">1</option>
+                                                            <option value="2">2</option>
+                                                            <option value="More">More</option>
                                                         </select>      
                                                         <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                                                         <div class="help-block with-errors"></div>
@@ -769,6 +901,20 @@
                                 </tr>
                                 <tr>
                                     <td class="td-label">
+                                        <span>Country</span>
+                                    </td>
+                                    <td>
+                                        India
+                                    </td>
+                                    <td class="td-label">
+                                        State
+                                    </td>
+                                    <td>Maharashtra
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td class="td-label">
                                         <span>Native Place</span>
                                     </td>
                                     <td>
@@ -853,16 +999,47 @@
             <div class="row">
                 <div class="col-md-6 w3-margin-top">
                     <div class="form-group has-feedback">
-                        <label for="native_place" class="text-uppercase c-gray-light">Native Place</label>
-                        <input type="text" class="form-control no-resize" name="native_place">
+                        <label for="residence_address" class="text-uppercase c-gray-light">Residential Address</label>
+                        <textarea name="residence_address" class="form-control no-resize" rows="5">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmodm tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodoconsequat. Duis aute irure dolor in reprehenderit in voluptate velit essecillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat nonproident, sunt in culpa qui officia deserunt mollit anim id est laborum.</textarea>  
                         <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                         <div class="help-block with-errors"></div>
                     </div>
                 </div>
                 <div class="col-md-6 w3-margin-top">
                     <div class="form-group has-feedback">
-                        <label for="residence_address" class="text-uppercase c-gray-light">Residential Address</label>
-                        <textarea name="residence_address" class="form-control no-resize" rows="5">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmodm tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodoconsequat. Duis aute irure dolor in reprehenderit in voluptate velit essecillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat nonproident, sunt in culpa qui officia deserunt mollit anim id est laborum.</textarea>  
+                        <label for="country" class="text-uppercase c-gray-light">Country</label>
+                        <select name="country" id="country" ng-model="country" ng-change="getCountryState()" class="form-control form-control selectpicker" data-placeholder="Choose country" tabindex="2" data-hide-disabled="true">
+                            <option value="">Choose country</option>
+                            <?php
+                            for ($i = 0; $i < count($country); $i++) {         ?>
+                                <option value="<?php echo $country[$i]['name'].'/'.$country[$i]['id']; ?>">
+                                    <?php echo $country[$i]['name']; ?>
+                                </option>
+                            <?php } ?>
+                        </select>
+                        <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                        <div class="help-block with-errors"></div>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="row">
+                <div class="col-md-6 w3-margin-top">
+                    <div class="form-group has-feedback">
+                        <label for="state" class="text-uppercase c-gray-light">State</label>
+                        <select ng-change="getStateCity()" ng-model="state" id="state" name="state" class="form-control form-control selectpicker" tabindex="2" data-hide-disabled="true">
+                            <option value="">Choose a Country first</option>
+                        </select>
+                        <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                        <div class="help-block with-errors"></div>
+                    </div>
+                </div>
+                <div class="col-md-6 w3-margin-top">
+                    <div class="form-group has-feedback">
+                        <label for="native_place" class="text-uppercase c-gray-light">Native Place</label>
+                        <select id="native_place" name="native_place" class="form-control form-control selectpicker" tabindex="2" data-hide-disabled="true">
+                            <option value="">Choose a State first</option>
+                        </select>
                         <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                         <div class="help-block with-errors"></div>
                     </div>
@@ -1161,6 +1338,12 @@
                     <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                     <div class="help-block with-errors"></div>
                 </div>
+            </div>
+        </div>
+        <div class="container no-padding" id="multiple_relativeDiv"></div>
+        <div class="row w3-margin-bottom">
+            <div class="col-md-12">
+                <button type="button" id="add_moreRelative" class="btn btn-sm w3-right btn-primary btn-icon-only btn-shadow"><i class="ion-plus"></i> Add more Relative</button>
             </div>
         </div>
     </form>

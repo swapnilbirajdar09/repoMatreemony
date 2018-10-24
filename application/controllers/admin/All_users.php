@@ -10,6 +10,9 @@ class All_users extends CI_Controller {
 
         // load common model
         $this->load->model('admin/Allusers_model');
+        $this->load->helper('file');
+        $this->load->helper('url');
+        $this->load->helper('download');
     }
 
     // main index function
@@ -152,4 +155,32 @@ class All_users extends CI_Controller {
         $response = $this->Allusers_model->filtermember();
         return $response;
     }
+
+    //-------download user list csv
+    public function downloadAllUsers() {
+        extract($_GET);
+        $result = $this->Allusers_model->downloadAllUsers();
+        //print_r(json_encode($result));
+        $filename = 'All_User_list_' . date('Y-m-d') . '.csv';
+        header("Content-Type: application/csv; ");
+        header("Content-Description: File Transfer");
+        header("Content-Disposition: attachment; filename=$filename");
+// get data 
+        $usersData = $result;
+// file creation 
+        $file = fopen('php://output', 'w');
+        $header = array("Full Name", "Gender", "Registration Date", "City", "Marital Status");
+        fputcsv($file, $header);
+        if ($result) {
+            foreach ($usersData as $key => $line) {
+                fputcsv($file, $line);
+            }
+        } else {
+            fputcsv($file, array('------------No data available-----------'));
+        }
+        fclose($file);
+        //force_download($file);
+        exit;
+    }
+
 }
