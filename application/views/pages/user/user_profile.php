@@ -27,8 +27,8 @@
                 <!-- Alert for Ajax Profile Edit Section -->
                 <div class="col-lg-3 col-md-4" id="ajax_alert" style="display: none; position: fixed; top: 15px; right: 0; z-index: 9999">
                     <div class="alert alert-success fade show" id="ajax_alert_message" role="alert">
-                    You Have Successfully Edited Your Profile!
-                </div>
+                        You Have Successfully Edited Your Profile!
+                    </div>
                 </div>
                 <!-- Alert for Ajax Profile Edit Section -->
                 <!-- Alert for Validating Ajax Profile Edit Section -->
@@ -231,7 +231,7 @@
                                     </div>
                                     <hr>
                                     <div class="useful-links">
-                                       <a class="btn btn-styled btn-sm btn-white z-depth-2-bottom mb-3 change_pass l_nav" data-toggle="modal" data-target="#changePasswordModal">
+                                     <a class="btn btn-styled btn-sm btn-white z-depth-2-bottom mb-3 change_pass l_nav" data-toggle="modal" data-target="#changePasswordModal">
                                         <b style="font-size: 12px">Change Password</b>
                                     </a>
                                     <a class="btn btn-styled btn-sm btn-white z-depth-2-bottom mb-3 change_pass l_nav" href="<?php echo base_url(); ?>user/login/logoutUser">
@@ -330,15 +330,15 @@
                                         <!-- edit about me div -->
                                         <div id="edit_about_me" style="display: none;">
                                             <form id="form_about_me" class="form-default" role="form">
-                                            <div class="card-inner-title-wrapper pt-0">
-                                                <h3 class="card-inner-title pull-left">Edit About Me</h3>
-                                                <div class="pull-right">
-                                                    <button type="submit" class="btn btn-success btn-sm btn-icon-only btn-shadow" onclick="save_section('about_me')"><i class="ion-checkmark"></i> Save</button>
-                                                    <button type="button" class="btn btn-danger btn-sm btn-icon-only btn-shadow" onclick="load_section('about_me')"><i class="ion-close"></i> Cancel</button>
+                                                <div class="card-inner-title-wrapper pt-0">
+                                                    <h3 class="card-inner-title pull-left">Edit About Me</h3>
+                                                    <div class="pull-right">
+                                                        <button type="submit" class="btn btn-success btn-sm btn-icon-only btn-shadow" onclick="save_section('about_me')"><i class="ion-checkmark"></i> Save</button>
+                                                        <button type="button" class="btn btn-danger btn-sm btn-icon-only btn-shadow" onclick="load_section('about_me')"><i class="ion-close"></i> Cancel</button>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="clearfix"></div>
-                                            
+                                                <div class="clearfix"></div>
+
                                                 <div class="row">
                                                     <div class="col-md-12 w3-margin-top">
                                                         <div class="form-group has-feedback">
@@ -379,7 +379,7 @@
                                                                     <span>Full Name</span>
                                                                 </td>
                                                                 <td colspan="3">
-                                                                    Samrat Ashok Munde                           
+                                                                    <?php echo $userDetails[0]['user_fullname']; ?>
                                                                 </td>
                                                             </tr>
                                                             <tr>
@@ -387,26 +387,27 @@
                                                                     <span>Profile created by</span>
                                                                 </td>
                                                                 <td>
-                                                                    Self                           
+                                                                    <?php echo $userDetails[0]['user_profile_created_by']; ?>
                                                                 </td>
                                                                 <td class="td-label">
                                                                     <span>Date Of Birth</span>
                                                                 </td>
                                                                 <td>
-                                                                26 April 1995 </td>
+                                                                    <?php echo date('d M Y',strtotime($userDetails[0]['user_dob'])); ?>
+                                                                </td>
                                                             </tr>
                                                             <tr>
                                                                 <td class="td-label">
                                                                     <span>Marital Status</span>
                                                                 </td>
                                                                 <td>
-                                                                    Never Married
+                                                                    <?php echo $userDetails[0]['user_marital_status']; ?>
                                                                 </td>                                                                
                                                                 <td class="td-label">
                                                                     <span>Number of Children</span>
                                                                 </td>
                                                                 <td>
-                                                                    2
+                                                                    <?php if($userDetails[0]['user_no_of_children']=='0'){ echo 'N/A';}else { echo $userDetails[0]['user_no_of_children']; } ?>
                                                                 </td>
                                                             </tr>
                                                             <tr>
@@ -414,13 +415,13 @@
                                                                     <span>Height(In Feet)</span>
                                                                 </td>
                                                                 <td>
-                                                                    5.11                            
+                                                                    <?php echo $userDetails[0]['user_height']; ?>
                                                                 </td>
                                                                 <td class="td-label">
                                                                     <span>Weight(In Kg)</span>
                                                                 </td>
                                                                 <td>
-                                                                    80                          
+                                                                    <?php echo $userDetails[0]['user_weight']; ?>
                                                                 </td>
                                                             </tr>
                                                             <tr>
@@ -428,13 +429,13 @@
                                                                     <span>Body Type</span>
                                                                 </td>
                                                                 <td>
-                                                                    Average                    
+                                                                    <?php echo $userDetails[0]['user_body_type']; ?>
                                                                 </td>
                                                                 <td class="td-label">
                                                                     <span>Body Complexian</span>
                                                                 </td>
                                                                 <td>
-                                                                    Fair                        
+                                                                    <?php echo $userDetails[0]['user_body_complexion']; ?>
                                                                 </td>
                                                             </tr>
                                                             <tr>
@@ -442,32 +443,32 @@
                                                                     <span>Blood Group</span>
                                                                 </td>
                                                                 <td>
-                                                                   O+                          
-                                                               </td>
-                                                               <td class="td-label">
+                                                                 <?php echo $userDetails[0]['user_blood_grp']; ?>                          
+                                                             </td>
+                                                             <td class="td-label">
                                                                 <span>Mother Tongue</span>
                                                             </td>
-                                                            <td>Marathi
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="td-label">
-                                                                <span>Hobbies</span>
-                                                            </td>
-                                                            <td colspan="3">
-                                                                Trekking, Painting, Reading Books.
-                                                            </td>
-                                                        </tr>
+                                                            <td><?php echo $userDetails[0]['user_mother_tongue']; ?>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="td-label">
+                                                            <span>Hobbies</span>
+                                                        </td>
+                                                        <td colspan="3">
+                                                            <?php echo $userDetails[0]['user_hobbies']; ?>
+                                                        </td>
+                                                    </tr>
 
-                                                    </tbody>
-                                                </table>
-                                            </div>
+                                                </tbody>
+                                            </table>
                                         </div>
                                     </div>
-                                    <!-- view basic info div ends -->
-                                    <!-- edit basic info div -->
-                                    <div id="edit_basic_info" style="display: none;">
-                                        <form id="form_basic_info" class="form-default" role="form">
+                                </div>
+                                <!-- view basic info div ends -->
+                                <!-- edit basic info div -->
+                                <div id="edit_basic_info" style="display: none;">
+                                    <form id="form_basic_info" class="form-default" role="form">
                                         <div class="card-inner-title-wrapper pt-0">
                                             <h3 class="card-inner-title pull-left">Edit Basic Information</h3>
                                             <div class="pull-right">
@@ -477,610 +478,633 @@
                                         </div>
                                         <div class="clearfix"></div>
                                         
-                                            <div class="row">
-                                                <div class="col-md-6 w3-margin-top">
-                                                    <div class="form-group has-feedback">
-                                                        <label for="full_name" class="text-uppercase c-gray-light">Full Name</label>
-                                                        <input type="text" class="form-control no-resize" name="full_name" value="<?php echo $userDetails[0]['user_fullname']; ?>" required>
-                                                        <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
-                                                        <div class="help-block with-errors"></div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6 w3-margin-top">
-                                                    <div class="form-group has-feedback">
-                                                        <label for="profile_created_by" class="text-uppercase c-gray-light">Profile created by</label>
-                                                        <select name="profile_created_by" onchange="(this.value,this)" class="form-control form-control selectpicker" data-placeholder="Choose one option" tabindex="2" data-hide-disabled="true">
-                                                            <option value="0" class="w3-light-grey">Choose one option</option>
-                                                            <option value="Self" <?php if($userDetails[0]['user_profile_created_by']=='Self'){ echo 'selected';} ?>>Self</option>
-                                                            <option value="Father" <?php if($userDetails[0]['user_profile_created_by']=='Father'){ echo 'selected';} ?>>Father</option>
-                                                            <option value="Mother" <?php if($userDetails[0]['user_profile_created_by']=='Mother'){ echo 'selected';} ?>>Mother</option>
-                                                            <option value="Brother" <?php if($userDetails[0]['user_profile_created_by']=='Brother'){ echo 'selected';} ?>>Brother</option>
-                                                            <option value="Sister" <?php if($userDetails[0]['user_profile_created_by']=='Sister'){ echo 'selected';} ?>>Sister</option>
-                                                            <option value="Other" <?php if($userDetails[0]['user_profile_created_by']=='Other'){ echo 'selected';} ?>>Other</option>
-                                                        </select>      
-                                                        <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
-                                                        <div class="help-block with-errors"></div>
-                                                    </div>
+                                        <div class="row">
+                                            <div class="col-md-6 w3-margin-top">
+                                                <div class="form-group has-feedback">
+                                                    <label for="full_name" class="text-uppercase c-gray-light">Full Name</label>
+                                                    <input type="text" class="form-control no-resize" name="full_name" value="<?php echo $userDetails[0]['user_fullname']; ?>" required>
+                                                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                                                    <div class="help-block with-errors"></div>
                                                 </div>
                                             </div>
-                                            <div class="row">
-                                                <div class="col-md-6 w3-margin-top">
-                                                    <div class="form-group has-feedback">
-                                                        <label for="dob" class="text-uppercase c-gray-light">Date of Birth</label>
-                                                        <input type="date" class="form-control no-resize" value="<?php echo $userDetails[0]['user_dob']; ?>" name="dob" required>
-                                                        <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
-                                                        <div class="help-block with-errors"></div>
-                                                    </div>
+                                            <div class="col-md-6 w3-margin-top">
+                                                <div class="form-group has-feedback">
+                                                    <label for="profile_created_by" class="text-uppercase c-gray-light">Profile created by</label>
+                                                    <select name="profile_created_by" onchange="(this.value,this)" class="form-control form-control selectpicker" data-placeholder="Choose one option" tabindex="2" data-hide-disabled="true">
+                                                        <option value="0" class="w3-light-grey">Choose one option</option>
+                                                        <option value="Self" <?php if($userDetails[0]['user_profile_created_by']=='Self'){ echo 'selected';} ?>>Self</option>
+                                                        <option value="Father" <?php if($userDetails[0]['user_profile_created_by']=='Father'){ echo 'selected';} ?>>Father</option>
+                                                        <option value="Mother" <?php if($userDetails[0]['user_profile_created_by']=='Mother'){ echo 'selected';} ?>>Mother</option>
+                                                        <option value="Brother" <?php if($userDetails[0]['user_profile_created_by']=='Brother'){ echo 'selected';} ?>>Brother</option>
+                                                        <option value="Sister" <?php if($userDetails[0]['user_profile_created_by']=='Sister'){ echo 'selected';} ?>>Sister</option>
+                                                        <option value="Other" <?php if($userDetails[0]['user_profile_created_by']=='Other'){ echo 'selected';} ?>>Other</option>
+                                                    </select>      
+                                                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                                                    <div class="help-block with-errors"></div>
                                                 </div>
-                                                <div class="col-md-6 w3-margin-top">
-                                                    <div class="form-group has-feedback">
-                                                        <label for="marital_status" class="text-uppercase c-gray-light">Marital Status</label>
-                                                        <select name="marital_status" id="marital_status" class="form-control form-control selectpicker" data-placeholder="Choose one status" tabindex="2" data-hide-disabled="true">
-                                                            <option value="0" class="w3-light-grey">Choose one status</option>
-                                                            <option value="Never Married" <?php if($userDetails[0]['user_profile_created_by']=='Never Married'){ echo 'selected';} ?>>Never Married</option>
-                                                            <option value="Divorced" <?php if($userDetails[0]['user_profile_created_by']=='Divorced'){ echo 'selected';} ?>>Divorced</option>
-                                                            <option value="Widow"  <?php if($userDetails[0]['user_profile_created_by']=='Widow'){ echo 'selected';} ?>>Widow</option>
-                                                            <option value="Widower"  <?php if($userDetails[0]['user_profile_created_by']=='Widower'){ echo 'selected';} ?>>Widower</option>
-                                                            <option value=">Awaiting divorced / Legally separated" <?php if($userDetails[0]['user_profile_created_by']=='Awaiting divorced / Legally separated'){ echo 'selected';} ?>>Awaiting divorced / Legally separated</option>
-                                                        </select>      
-                                                        <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
-                                                        <div class="help-block with-errors"></div>
-                                                    </div>
-                                                </div>                                                
-                                            </div>
-                                            <div class="row" id="children_div">
-                                                <div class="col-md-6 w3-margin-top"></div>
-                                                <div class="col-md-6 w3-margin-top">
-                                                    <div class="form-group has-feedback">
-                                                        <label for="no_of_children" class="text-uppercase c-gray-light">Number of Children</label>
-                                                        <select name="no_of_children" onchange="(this.value,this)" class="form-control form-control selectpicker" data-placeholder="Choose one option" tabindex="2" data-hide-disabled="true">
-                                                            <option value="0" class="w3-light-grey">Choose one option</option>
-                                                            <option value="NA" <?php if($userDetails[0]['user_profile_created_by']=='NA'){ echo 'selected';} ?>>NA</option>
-                                                            <option value="1" <?php if($userDetails[0]['user_profile_created_by']=='1'){ echo 'selected';} ?>>1</option>
-                                                            <option value="2" <?php if($userDetails[0]['user_profile_created_by']=='2'){ echo 'selected';} ?>>2</option>
-                                                            <option value="More" <?php if($userDetails[0]['user_profile_created_by']=='More'){ echo 'selected';} ?>>More</option>
-                                                        </select>      
-                                                        <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
-                                                        <div class="help-block with-errors"></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-6 w3-margin-top">
-                                                    <div class="form-group has-feedback">
-                                                        <label for="mother_tongue" class="text-uppercase c-gray-light">Mother Tongue</label>
-                                                        <select name="mother_tongue" onchange="(this.value,this)" class="form-control form-control selectpicker" data-placeholder="Choose one language" tabindex="2" data-hide-disabled="true">
-                                                            <option value="0" class="w3-light-grey">Choose one language</option>
-                                                            <option value="Marathi" <?php if($userDetails[0]['user_profile_created_by']=='Marathi'){ echo 'selected';} ?>>Marathi</option>
-                                                            <option value="Bengali" <?php if($userDetails[0]['user_profile_created_by']=='Bengali'){ echo 'selected';} ?>>Bengali</option>
-                                                            <option value="German" <?php if($userDetails[0]['user_profile_created_by']=='German'){ echo 'selected';} ?>>German</option>
-                                                            <option value="English" <?php if($userDetails[0]['user_profile_created_by']=='English'){ echo 'selected';} ?>>English</option>
-                                                            <option value="Hindi" <?php if($userDetails[0]['user_profile_created_by']=='Hindi'){ echo 'selected';} ?>>Hindi</option>
-                                                            <option value="Urdu" <?php if($userDetails[0]['user_profile_created_by']=='Urdu'){ echo 'selected';} ?>>Urdu</option>
-                                                        </select>
-                                                        <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
-                                                        <div class="help-block with-errors"></div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6 w3-margin-top">
-                                                    <div class="form-group has-feedback">
-                                                        <label for="blood_group" class="text-uppercase c-gray-light">Blood Group</label>
-                                                        <select name="blood_group" onchange="(this.value,this)" class="form-control form-control selectpicker" data-placeholder="Choose one group" tabindex="2" data-hide-disabled="true">
-                                                            <option value="0" class="w3-light-grey">Choose one group</option>
-                                                            <option value="O+" <?php if($userDetails[0]['user_profile_created_by']=='O+'){ echo 'selected';} ?>>O+</option>
-                                                            <option value="O-" <?php if($userDetails[0]['user_profile_created_by']=='O-'){ echo 'selected';} ?>>O-</option>
-                                                            <option value="A+" <?php if($userDetails[0]['user_profile_created_by']=='A+'){ echo 'selected';} ?>>A+</option>
-                                                            <option value="A-" <?php if($userDetails[0]['user_profile_created_by']=='A-'){ echo 'selected';} ?>>A-</option>
-                                                            <option value="B+" <?php if($userDetails[0]['user_profile_created_by']=='B+'){ echo 'selected';} ?>>B+</option>
-                                                            <option value="B-" <?php if($userDetails[0]['user_profile_created_by']=='B-'){ echo 'selected';} ?>>B-</option>
-                                                            <option value="AB+" <?php if($userDetails[0]['user_profile_created_by']=='AB+'){ echo 'selected';} ?>>AB+</option>
-                                                            <option value="AB-" <?php if($userDetails[0]['user_profile_created_by']=='AB-'){ echo 'selected';} ?>>AB-</option>
-                                                        </select>      
-                                                        <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
-                                                        <div class="help-block with-errors"></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-6 w3-margin-top">
-                                                    <div class="form-group has-feedback">
-                                                        <label for="body_type" class="text-uppercase c-gray-light">Body Type</label>
-                                                        <select name="body_type" onchange="(this.value,this)" class="form-control form-control selectpicker" data-placeholder="Choose one Type" tabindex="2" data-hide-disabled="true">
-                                                            <option value="0" class="w3-light-grey">Choose one Type</option>
-                                                            <option value="Average" <?php if($userDetails[0]['user_profile_created_by']=='Average'){ echo 'selected';} ?>>Average</option>
-                                                            <option value="Athletic" <?php if($userDetails[0]['user_profile_created_by']=='Athletic'){ echo 'selected';} ?>>Athletic</option>
-                                                            <option value="Slim" <?php if($userDetails[0]['user_profile_created_by']=='Slim'){ echo 'selected';} ?>>Slim</option>
-                                                            <option value="Heavy" <?php if($userDetails[0]['user_profile_created_by']=='Heavy'){ echo 'selected';} ?>>Heavy</option>                                                        </select>
-                                                            <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
-                                                            <div class="help-block with-errors"></div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-6 w3-margin-top">
-                                                        <div class="form-group has-feedback">
-                                                            <label for="body_complexion" class="text-uppercase c-gray-light">Body Complexion</label>
-                                                            <select name="body_complexion" onchange="(this.value,this)" class="form-control form-control selectpicker" data-placeholder="Choose one option" tabindex="2" data-hide-disabled="true">
-                                                                <option value="0" class="w3-light-grey">Choose one option</option>
-                                                                <option value="Fair" <?php if($userDetails[0]['user_profile_created_by']=='Fair'){ echo 'selected';} ?>>Fair</option>
-                                                                <option value="Very Fair" <?php if($userDetails[0]['user_profile_created_by']=='Very Fair'){ echo 'selected';} ?>>Very Fair</option>
-                                                                <option value="Wheatish" <?php if($userDetails[0]['user_profile_created_by']=='Wheatish'){ echo 'selected';} ?>>Wheatish</option>
-                                                                <option value="Wheatish Brown" <?php if($userDetails[0]['user_profile_created_by']=='Wheatish Brown'){ echo 'selected';} ?>>Wheatish Brown</option>
-                                                                <option value="Dark" <?php if($userDetails[0]['user_profile_created_by']=='Dark'){ echo 'selected';} ?>>Dark</option>
-                                                            </select>      
-                                                            <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
-                                                            <div class="help-block with-errors"></div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-md-6 w3-margin-top">
-                                                        <div class="form-group has-feedback">
-                                                            <label for="weight" class="text-uppercase c-gray-light">Weight (in KG)</label>
-                                                            <input type="number" step="0.01" min="0" value="<?php echo $userDetails[0]['user_weight']; ?>" class="form-control no-resize" name="weight" required>
-                                                            <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
-                                                            <div class="help-block with-errors"></div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-6 w3-margin-top">
-                                                        <div class="form-group has-feedback">
-                                                            <label for="height" class="text-uppercase c-gray-light">Height (in Feet)</label>
-                                                            <input type="number" step="0.01" min="0" value="<?php echo $userDetails[0]['user_height']; ?>" class="form-control no-resize" name="height" required>
-                                                            <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
-                                                            <div class="help-block with-errors"></div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </form>
-                                        </div>
-                                        <!-- edit basic info div ends -->
-                                    </div>                        
-                                </div>
-                                <!-- BASIC INFO ENDS -->
-                                <!-- EDUCATIONAL and PROFESSIONAL -->
-                                <div id="section_edu_professional">
-                                  <div class="feature feature--boxed-border feature--bg-1 pt-3 pb-0 pl-3 pr-3 mb-3 border_top2x">
-                                    <!-- view education and professional div -->
-                                    <div id="view_edu_professional">
-                                        <div class="card-inner-title-wrapper pt-0">
-                                            <h3 class="card-inner-title pull-left">
-                                                Educational and Professional Information
-                                            </h3>
-                                            <div class="pull-right">
-                                                <button type="button" class="btn btn-base-1 btn-sm btn-icon-only btn-shadow mb-1" onclick="edit_section('edu_professional')">
-                                                    <i class="ion-edit"></i> Edit
-                                                </button>
                                             </div>
                                         </div>
+                                        <div class="row">
+                                            <div class="col-md-6 w3-margin-top">
+                                                <div class="form-group has-feedback">
+                                                    <label for="dob" class="text-uppercase c-gray-light">Date of Birth</label>
+                                                    <input type="date" class="form-control no-resize" value="<?php echo $userDetails[0]['user_dob']; ?>" name="dob" required>
+                                                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                                                    <div class="help-block with-errors"></div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 w3-margin-top">
+                                                <div class="form-group has-feedback">
+                                                    <label for="marital_status" class="text-uppercase c-gray-light">Marital Status</label>
+                                                    <select name="marital_status" id="marital_status" class="form-control form-control selectpicker" data-placeholder="Choose one status" tabindex="2" data-hide-disabled="true">
+                                                        <option value="0" class="w3-light-grey">Choose one status</option>
+                                                        <option value="Never Married" <?php if($userDetails[0]['user_marital_status']=='Never Married'){ echo 'selected';} ?>>Never Married</option>
+                                                        <option value="Divorced" <?php if($userDetails[0]['user_marital_status']=='Divorced'){ echo 'selected';} ?>>Divorced</option>
+                                                        <option value="Widow"  <?php if($userDetails[0]['user_marital_status']=='Widow'){ echo 'selected';} ?>>Widow</option>
+                                                        <option value="Widower"  <?php if($userDetails[0]['user_marital_status']=='Widower'){ echo 'selected';} ?>>Widower</option>
+                                                        <option value=">Awaiting divorced / Legally separated" <?php if($userDetails[0]['user_marital_status']=='Awaiting divorced / Legally separated'){ echo 'selected';} ?>>Awaiting divorced / Legally separated</option>
+                                                    </select>      
+                                                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                                                    <div class="help-block with-errors"></div>
+                                                </div>
+                                            </div>                                                
+                                        </div>
+                                        <div class="row" id="children_div">
+                                            <div class="col-md-6 w3-margin-top"></div>
+                                            <div class="col-md-6 w3-margin-top">
+                                                <div class="form-group has-feedback">
+                                                    <label for="no_of_children" class="text-uppercase c-gray-light">Number of Children</label>
+                                                    <select name="no_of_children" onchange="(this.value,this)" class="form-control form-control selectpicker" data-placeholder="Choose one option" tabindex="2" data-hide-disabled="true">
+                                                        <option value="0" class="w3-light-grey">Choose one option</option>
+                                                        <option value="NA" <?php if($userDetails[0]['user_no_of_children']=='NA'){ echo 'selected';} ?>>NA</option>
+                                                        <option value="1" <?php if($userDetails[0]['user_no_of_children']=='1'){ echo 'selected';} ?>>1</option>
+                                                        <option value="2" <?php if($userDetails[0]['user_no_of_children']=='2'){ echo 'selected';} ?>>2</option>
+                                                        <option value="More" <?php if($userDetails[0]['user_no_of_children']=='More'){ echo 'selected';} ?>>More</option>
+                                                    </select>      
+                                                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                                                    <div class="help-block with-errors"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6 w3-margin-top">
+                                                <div class="form-group has-feedback">
+                                                    <label for="mother_tongue" class="text-uppercase c-gray-light">Mother Tongue</label>
+                                                    <select name="mother_tongue" onchange="(this.value,this)" class="form-control form-control selectpicker" data-placeholder="Choose one language" tabindex="2" data-hide-disabled="true">
+                                                        <option value="0" class="w3-light-grey">Choose one language</option>
+                                                        <option value="Marathi" <?php if($userDetails[0]['user_mother_tongue']=='Marathi'){ echo 'selected';} ?>>Marathi</option>
+                                                        <option value="Bengali" <?php if($userDetails[0]['user_mother_tongue']=='Bengali'){ echo 'selected';} ?>>Bengali</option>
+                                                        <option value="German" <?php if($userDetails[0]['user_mother_tongue']=='German'){ echo 'selected';} ?>>German</option>
+                                                        <option value="English" <?php if($userDetails[0]['user_mother_tongue']=='English'){ echo 'selected';} ?>>English</option>
+                                                        <option value="Hindi" <?php if($userDetails[0]['user_mother_tongue']=='Hindi'){ echo 'selected';} ?>>Hindi</option>
+                                                        <option value="Urdu" <?php if($userDetails[0]['user_mother_tongue']=='Urdu'){ echo 'selected';} ?>>Urdu</option>
+                                                    </select>
+                                                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                                                    <div class="help-block with-errors"></div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 w3-margin-top">
+                                                <div class="form-group has-feedback">
+                                                    <label for="blood_group" class="text-uppercase c-gray-light">Blood Group</label>
+                                                    <select name="blood_group" onchange="(this.value,this)" class="form-control form-control selectpicker" data-placeholder="Choose one group" tabindex="2" data-hide-disabled="true">
+                                                        <option value="0" class="w3-light-grey">Choose one group</option>
+                                                        <option value="O+" <?php if($userDetails[0]['user_blood_grp']=='O+'){ echo 'selected';} ?>>O+</option>
+                                                        <option value="O-" <?php if($userDetails[0]['user_blood_grp']=='O-'){ echo 'selected';} ?>>O-</option>
+                                                        <option value="A+" <?php if($userDetails[0]['user_blood_grp']=='A+'){ echo 'selected';} ?>>A+</option>
+                                                        <option value="A-" <?php if($userDetails[0]['user_blood_grp']=='A-'){ echo 'selected';} ?>>A-</option>
+                                                        <option value="B+" <?php if($userDetails[0]['user_blood_grp']=='B+'){ echo 'selected';} ?>>B+</option>
+                                                        <option value="B-" <?php if($userDetails[0]['user_blood_grp']=='B-'){ echo 'selected';} ?>>B-</option>
+                                                        <option value="AB+" <?php if($userDetails[0]['user_blood_grp']=='AB+'){ echo 'selected';} ?>>AB+</option>
+                                                        <option value="AB-" <?php if($userDetails[0]['user_blood_grp']=='AB-'){ echo 'selected';} ?>>AB-</option>
+                                                    </select>      
+                                                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                                                    <div class="help-block with-errors"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6 w3-margin-top">
+                                                <div class="form-group has-feedback">
+                                                    <label for="body_type" class="text-uppercase c-gray-light">Body Type</label>
+                                                    <select name="body_type" onchange="(this.value,this)" class="form-control form-control selectpicker" data-placeholder="Choose one Type" tabindex="2" data-hide-disabled="true">
+                                                        <option value="0" class="w3-light-grey">Choose one Type</option>
+                                                        <option value="Average" <?php if($userDetails[0]['user_body_type']=='Average'){ echo 'selected';} ?>>Average</option>
+                                                        <option value="Athletic" <?php if($userDetails[0]['user_body_type']=='Athletic'){ echo 'selected';} ?>>Athletic</option>
+                                                        <option value="Slim" <?php if($userDetails[0]['user_body_type']=='Slim'){ echo 'selected';} ?>>Slim</option>
+                                                        <option value="Heavy" <?php if($userDetails[0]['user_body_type']=='Heavy'){ echo 'selected';} ?>>Heavy</option>                                                        </select>
+                                                        <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                                                        <div class="help-block with-errors"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 w3-margin-top">
+                                                    <div class="form-group has-feedback">
+                                                        <label for="body_complexion" class="text-uppercase c-gray-light">Body Complexion</label>
+                                                        <select name="body_complexion" onchange="(this.value,this)" class="form-control form-control selectpicker" data-placeholder="Choose one option" tabindex="2" data-hide-disabled="true">
+                                                            <option value="0" class="w3-light-grey">Choose one option</option>
+                                                            <option value="Fair" <?php if($userDetails[0]['user_body_complexion']=='Fair'){ echo 'selected';} ?>>Fair</option>
+                                                            <option value="Very Fair" <?php if($userDetails[0]['user_body_complexion']=='Very Fair'){ echo 'selected';} ?>>Very Fair</option>
+                                                            <option value="Wheatish" <?php if($userDetails[0]['user_body_complexion']=='Wheatish'){ echo 'selected';} ?>>Wheatish</option>
+                                                            <option value="Wheatish Brown" <?php if($userDetails[0]['user_body_complexion']=='Wheatish Brown'){ echo 'selected';} ?>>Wheatish Brown</option>
+                                                            <option value="Dark" <?php if($userDetails[0]['user_body_complexion']=='Dark'){ echo 'selected';} ?>>Dark</option>
+                                                        </select>      
+                                                        <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                                                        <div class="help-block with-errors"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6 w3-margin-top">
+                                                    <div class="form-group has-feedback">
+                                                        <label for="weight" class="text-uppercase c-gray-light">Weight (in KG)</label>
+                                                        <input type="number" step="0.01" min="0" value="<?php echo $userDetails[0]['user_weight']; ?>" class="form-control no-resize" name="weight" required>
+                                                        <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                                                        <div class="help-block with-errors"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 w3-margin-top">
+                                                    <div class="form-group has-feedback">
+                                                        <label for="height" class="text-uppercase c-gray-light">Height (in Feet)</label>
+                                                        <input type="number" step="0.01" min="0" value="<?php echo $userDetails[0]['user_height']; ?>" class="form-control no-resize" name="height" required>
+                                                        <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                                                        <div class="help-block with-errors"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12 w3-margin-top">
+                                                    <div class="form-group has-feedback">
+                                                        <label for="hobbies" class="text-uppercase c-gray-light">Hobbies</label>
+                                                        <input type="text" value="<?php echo $userDetails[0]['user_hobbies']; ?>" class="form-control no-resize" name="hobbies" required>
+                                                        <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                                                        <div class="help-block with-errors"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <!-- edit basic info div ends -->
+                                </div>                        
+                            </div>
+                            <!-- BASIC INFO ENDS -->
+                            <!-- EDUCATIONAL and PROFESSIONAL -->
+                            <div id="section_edu_professional">
+                              <div class="feature feature--boxed-border feature--bg-1 pt-3 pb-0 pl-3 pr-3 mb-3 border_top2x">
+                                <!-- view education and professional div -->
+                                <div id="view_edu_professional">
+                                    <div class="card-inner-title-wrapper pt-0">
+                                        <h3 class="card-inner-title pull-left">
+                                            Educational and Professional Information
+                                        </h3>
+                                        <div class="pull-right">
+                                            <button type="button" class="btn btn-base-1 btn-sm btn-icon-only btn-shadow mb-1" onclick="edit_section('edu_professional')">
+                                                <i class="ion-edit"></i> Edit
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="table-full-width">
                                         <div class="table-full-width">
-                                            <div class="table-full-width">
-                                                <table class="table table-profile table-responsive table-striped table-bordered table-slick">
-                                                    <tbody>
-                                                        <tr>
-                                                            <td class="td-label">
-                                                                <span>Educational Field</span>
-                                                            </td>
-                                                            <td>
-                                                                Engineering
-                                                            </td>
-                                                            <td class="td-label">
-                                                                <span>School/College Name</span>
-                                                            </td>
-                                                            <td>
-                                                                KIT College                       
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="td-label">
-                                                                <span>University Name</span>
-                                                            </td>
-                                                            <td>
-                                                                XYZ
-                                                            </td>
-                                                            <td class="td-label">
-                                                                <span>Additional Education</span>
-                                                            </td>
-                                                            <td>
-                                                                NA
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="td-label">
-                                                                <span>Occupation Type</span>
-                                                            </td>
-                                                            <td>
-                                                                Employee
-                                                            </td>
-                                                            <td class="td-label">
-                                                                <span>Working Field</span>
-                                                            </td>
-                                                            <td>
-                                                                Private Sector
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="td-label">
-                                                                <span>Company Name</span>
-                                                            </td>
-                                                            <td>
-                                                             Bizmo Tech
-                                                         </td>
-                                                         <td class="td-label">
-                                                            <span>Designation</span>
+                                            <table class="table table-profile table-responsive table-striped table-bordered table-slick">
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="td-label">
+                                                            <span>Educational Field</span>
                                                         </td>
                                                         <td>
-                                                          Software Developer                     
-                                                      </td>
-                                                  </tr>
-                                                  <tr>
+                                                            <?php echo $userDetails[0]['user_educational_field']; ?>
+                                                        </td>
+                                                        <td class="td-label">
+                                                            <span>School/College Name</span>
+                                                        </td>
+                                                        <td>
+                                                            <?php echo $userDetails[0]['user_school/clg_name']; ?>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="td-label">
+                                                            <span>University Name</span>
+                                                        </td>
+                                                        <td>
+                                                            <?php echo $userDetails[0]['user_university_name']; ?>
+                                                        </td>
+                                                        <td class="td-label">
+                                                            <span>Additional Education</span>
+                                                        </td>
+                                                        <td>
+                                                            <?php echo $userDetails[0]['user_additional_edu']; ?>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="td-label">
+                                                            <span>Occupation Type</span>
+                                                        </td>
+                                                        <td>
+                                                            <?php echo $userDetails[0]['user_occupation_type']; ?>
+                                                        </td>
+                                                        <td class="td-label">
+                                                            <span>Working Field</span>
+                                                        </td>
+                                                        <td>
+                                                         <?php echo $userDetails[0]['user_working_field']; ?>
+                                                     </td>
+                                                 </tr>
+                                                 <tr>
                                                     <td class="td-label">
-                                                        <span>Workplace Address</span>
+                                                        <span>Company Name</span>
                                                     </td>
-                                                    <td colspan="3">
-                                                     Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                                     tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                                     quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                                                     consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                                                     cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat nonproident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                                 </td>
-
-                                             </tr>
-                                             <tr>
-                                                <td class="td-label">
-                                                    <span>Monthly Income</span>
+                                                    <td>
+                                                       <?php echo $userDetails[0]['user_company_name']; ?>
+                                                   </td>
+                                                   <td class="td-label">
+                                                    <span>Designation</span>
                                                 </td>
                                                 <td>
-                                                 12000
-                                             </td>
-                                             <td class="td-label">
-                                                <span>Annual Income</span>
+                                                  <?php echo $userDetails[0]['user_designation']; ?>                    
+                                              </td>
+                                          </tr>
+                                          <tr>
+                                            <td class="td-label">
+                                                <span>Workplace Address</span>
+                                            </td>
+                                            <td colspan="3"><?php echo $userDetails[0]['user_workplace_address']; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="td-label">
+                                                <span>Monthly Income</span>
                                             </td>
                                             <td>
-                                               1,44,000                     
+                                               <?php echo $userDetails[0]['user_monthly_income']; ?>
                                            </td>
-                                       </tr>
-                                   </tbody>
-                               </table>
-                           </div>
-                       </div>
-                   </div>
-                   <!-- view eductaion and professional div ends -->
-                   <!-- edit education and professional div -->
-                   <div id="edit_edu_professional" style="display: none;">
+                                           <td class="td-label">
+                                            <span>Annual Income</span>
+                                        </td>
+                                        <td>
+                                         <?php echo $userDetails[0]['user_annual_income']; ?>                   
+                                     </td>
+                                 </tr>
+                             </tbody>
+                         </table>
+                     </div>
+                 </div>
+             </div>
+             <!-- view eductaion and professional div ends -->
+             <!-- edit education and professional div -->
+             <div id="edit_edu_professional" style="display: none;">
+                <form id="form_edu_professional" class="form-default" role="form">
                     <div class="card-inner-title-wrapper pt-0">
                         <h3 class="card-inner-title pull-left">Edit Educational and Professional</h3>
                         <div class="pull-right">
-                            <button type="button" class="btn btn-success btn-sm btn-icon-only btn-shadow" onclick="save_section('edu_professional')"><i class="ion-checkmark"></i> Save</button>
+                            <button type="submit" class="btn btn-success btn-sm btn-icon-only btn-shadow" onclick="save_section('edu_professional')"><i class="ion-checkmark"></i> Save</button>
                             <button type="button" class="btn btn-danger btn-sm btn-icon-only btn-shadow" onclick="load_section('edu_professional')"><i class="ion-close"></i> Cancel</button>
                         </div>
                     </div>
                     <div class="clearfix"></div>
-                    <form id="form_basic_info" class="form-default" role="form">
-                        <div class="row">
-                            <div class="col-md-6 w3-margin-top">
-                                <div class="form-group has-feedback">
-                                    <label for="educational_field" class="text-uppercase c-gray-light">Educational Field</label>
-                                    <input type="text" class="form-control no-resize" name="educational_field" value="B.E. Computer science">
-                                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
-                                    <div class="help-block with-errors"></div>
-                                </div>
-                            </div>
-                            <div class="col-md-6 w3-margin-top">
-                                <div class="form-group has-feedback">
-                                    <label for="clg_name" class="text-uppercase c-gray-light">School/ College Name</label>
-                                    <input type="text" class="form-control no-resize" name="clg_name">   
-                                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
-                                    <div class="help-block with-errors"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6 w3-margin-top">
-                                <div class="form-group has-feedback">
-                                    <label for="university" class="text-uppercase c-gray-light">University/ Board Name</label>
-                                    <input type="text" class="form-control no-resize" name="university">
-                                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
-                                    <div class="help-block with-errors"></div>
-                                </div>
-                            </div>
-                            <div class="col-md-6 w3-margin-top">
-                                <div class="form-group has-feedback">
-                                    <label for="additional_education" class="text-uppercase c-gray-light">Additional Education</label>
-                                    <input type="text" class="form-control no-resize" name="additional_education">
-                                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
-                                    <div class="help-block with-errors"></div>
-                                </div>
+                    
+                    <div class="row">
+                        <div class="col-md-6 w3-margin-top">
+                            <div class="form-group has-feedback">
+                                <label for="educational_field" class="text-uppercase c-gray-light">Educational Field</label>
+                                <select name="educational_field" onchange="(this.value,this)" class="form-control form-control selectpicker" data-placeholder="Choose one field" tabindex="2" data-hide-disabled="true">
+                                    <option value="0" class="w3-light-grey">Choose one field</option>
+                                    <?php
+                                    for($i = 0; $i < count($educations); $i++) {
+                                        ?>
+                                        <option value="<?php echo $educations[$i]['edu_name']; ?>" <?php if($userDetails[0]['user_educational_field']==$educations[$i]['edu_name']){ echo 'selected';} ?>>
+                                            <?php echo ucfirst($educations[$i]['edu_name']); ?>
+                                        </option>
+                                    <?php } ?>
+                                </select>
+                                <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                                <div class="help-block with-errors"></div>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-md-6 w3-margin-top">
-                                <div class="form-group has-feedback">
-                                    <label for="occupation_type" class="text-uppercase c-gray-light">Occupation Type</label>
-                                    <input type="text" class="form-control no-resize" name="occupation_type">
-                                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
-                                    <div class="help-block with-errors"></div>
-                                </div>
-                            </div>
-                            <div class="col-md-6 w3-margin-top">
-                                <div class="form-group has-feedback">
-                                    <label for="working_sector" class="text-uppercase c-gray-light">Working Sector</label>
-                                    <select name="working_sector" onchange="(this.value,this)" class="form-control form-control selectpicker" data-placeholder="Choose one sector" tabindex="2" data-hide-disabled="true">
-                                        <option value="0" class="w3-light-grey">Choose one sector</option>
-                                        <option value="Private Sector">Private Sector</option>
-                                        <option value="Government Sector">Government Sector</option>
-                                        <option value="Business Sector">Business Sector</option>
-                                        <option value="Other">Other</option>
-                                    </select>      
-                                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
-                                    <div class="help-block with-errors"></div>
-                                </div>
+                        <div class="col-md-6 w3-margin-top">
+                            <div class="form-group has-feedback">
+                                <label for="clg_name" class="text-uppercase c-gray-light">School/ College Name</label>
+                                <input type="text" class="form-control no-resize" value="<?php echo $userDetails[0]['user_school/clg_name']; ?>" name="clg_name">   
+                                <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                                <div class="help-block with-errors"></div>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-md-6 w3-margin-top">
-                                <div class="form-group has-feedback">
-                                    <label for="company_name" class="text-uppercase c-gray-light">Company Name</label>
-                                    <input type="text" class="form-control no-resize" name="company_name">
-                                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
-                                    <div class="help-block with-errors"></div>
-                                </div>
-                            </div>
-                            <div class="col-md-6 w3-margin-top">
-                                <div class="form-group has-feedback">
-                                    <label for="designation" class="text-uppercase c-gray-light">Designation</label>
-                                    <input type="text" class="form-control no-resize" name="designation">
-                                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
-                                    <div class="help-block with-errors"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12 w3-margin-top">
-                                <div class="form-group has-feedback">
-                                    <label for="workplace_address" class="text-uppercase c-gray-light">Workplace Address</label>
-                                    <textarea name="workplace_address" class="form-control no-resize" rows="5">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmodm tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodoconsequat. Duis aute irure dolor in reprehenderit in voluptate velit essecillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat nonproident, sunt in culpa qui officia deserunt mollit anim id est laborum.</textarea>
-                                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
-                                    <div class="help-block with-errors"></div>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6 w3-margin-top">
-                                <div class="form-group has-feedback">
-                                    <label for="monthly_income" class="text-uppercase c-gray-light">Monthly Income</label>
-                                    <input type="text" class="form-control no-resize" name="monthly_income">
-                                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
-                                    <div class="help-block with-errors"></div>
-                                </div>
-                            </div>
-                            <div class="col-md-6 w3-margin-top">
-                                <div class="form-group has-feedback">
-                                    <label for="annual_income" class="text-uppercase c-gray-light">Annual Income</label>
-                                    <input type="text" class="form-control no-resize" name="annual_income">
-                                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
-                                    <div class="help-block with-errors"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-                <!-- edit education and professional div ends -->
-            </div>
-        </div>
-        <!-- EDU and PROFESSIONAL DIV ENDS -->
-        <!-- FAMILY INFO DIV -->
-        <div id="section_family_info">
-            <div class="feature feature--boxed-border feature--bg-1 pt-3 pb-0 pl-3 pr-3 mb-3 border_top2x">
-                <!-- view family info div -->
-                <div id="view_family_info">
-                    <div class="card-inner-title-wrapper pt-0">
-                        <h3 class="card-inner-title pull-left">
-                          Family Information          
-                      </h3>
-                      <div class="pull-right">
-                        <button type="button" class="btn btn-base-1 btn-sm btn-icon-only btn-shadow mb-1" onclick="edit_section('family_info')">
-                            <i class="ion-edit"></i> Edit
-                        </button>
                     </div>
+                    <div class="row">
+                        <div class="col-md-6 w3-margin-top">
+                            <div class="form-group has-feedback">
+                                <label for="university" class="text-uppercase c-gray-light">University/ Board Name</label>
+                                <input type="text" value="<?php echo $userDetails[0]['user_university_name']; ?>" class="form-control no-resize" name="university">
+                                <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                                <div class="help-block with-errors"></div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 w3-margin-top">
+                            <div class="form-group has-feedback">
+                                <label for="additional_education" class="text-uppercase c-gray-light">Additional Education</label>
+                                <input type="text" value="<?php echo $userDetails[0]['user_additional_edu']; ?>" class="form-control no-resize" name="additional_education">
+                                <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                                <div class="help-block with-errors"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 w3-margin-top">
+                            <div class="form-group has-feedback">
+                                <label for="occupation_type" class="text-uppercase c-gray-light">Occupation Type</label>
+                                <select name="occupation_type" onchange="(this.value,this)" class="form-control form-control selectpicker" data-placeholder="Choose one option" tabindex="2" data-hide-disabled="true">
+                                    <option value="0" class="w3-light-grey">Choose one option</option>
+                                    <?php
+                                    for($i = 0; $i < count($occupations); $i++) {
+                                        ?>
+                                        <option value="<?php echo $occupations[$i]['occupation_name']; ?>" <?php if($userDetails[0]['user_occupation_type']==$occupations[$i]['occupation_name']){ echo 'selected';} ?>>
+                                            <?php echo ucfirst($occupations[$i]['occupation_name']); ?>
+                                        </option>
+                                    <?php } ?>
+                                </select>
+                                <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                                <div class="help-block with-errors"></div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 w3-margin-top">
+                            <div class="form-group has-feedback">
+                                <label for="working_sector" class="text-uppercase c-gray-light">Working Sector</label>
+                                <select name="working_sector" onchange="(this.value,this)" class="form-control form-control selectpicker" data-placeholder="Choose one sector" tabindex="2" data-hide-disabled="true">
+                                    <option value="0" class="w3-light-grey">Choose one sector</option>
+                                    <option value="Government" <?php if($userDetails[0]['user_working_field']=='Government'){ echo 'selected';} ?>>Government</option>
+                                    <option value="Own Business" <?php if($userDetails[0]['user_working_field']=='Own Business'){ echo 'selected';} ?>>Own Business</option>
+                                    <option value="Private Sector" <?php if($userDetails[0]['user_working_field']=='Private Sector'){ echo 'selected';} ?>>Private Sector</option>
+                                    <option value="Public Sector" <?php if($userDetails[0]['user_working_field']=='Public Sector'){ echo 'selected';} ?>>Public Sector</option>
+                                    <option value="Any" <?php if($userDetails[0]['user_working_field']=='Any'){ echo 'selected';} ?>>Any</option>
+                                </select>      
+                                <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                                <div class="help-block with-errors"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 w3-margin-top">
+                            <div class="form-group has-feedback">
+                                <label for="company_name" class="text-uppercase c-gray-light">Company Name</label>
+                                <input type="text" value="<?php echo $userDetails[0]['user_company_name']; ?>" class="form-control no-resize" name="company_name">
+                                <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                                <div class="help-block with-errors"></div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 w3-margin-top">
+                            <div class="form-group has-feedback">
+                                <label for="designation" class="text-uppercase c-gray-light">Designation</label>
+                                <input type="text" value="<?php echo $userDetails[0]['user_designation']; ?>" class="form-control no-resize" name="designation">
+                                <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                                <div class="help-block with-errors"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 w3-margin-top">
+                            <div class="form-group has-feedback">
+                                <label for="workplace_address" class="text-uppercase c-gray-light">Workplace Address</label>
+                                <textarea name="workplace_address" class="form-control no-resize" rows="5"><?php echo $userDetails[0]['user_workplace_address']; ?></textarea>
+                                <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                                <div class="help-block with-errors"></div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 w3-margin-top">
+                            <div class="form-group has-feedback">
+                                <label for="monthly_income" class="text-uppercase c-gray-light">Monthly Income</label>
+                                <input type="text" value="<?php echo $userDetails[0]['user_monthly_income']; ?>" class="form-control no-resize" name="monthly_income">
+                                <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                                <div class="help-block with-errors"></div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 w3-margin-top">
+                            <div class="form-group has-feedback">
+                                <label for="annual_income" class="text-uppercase c-gray-light">Annual Income</label>
+                                <input type="text" value="<?php echo $userDetails[0]['user_annual_income']; ?>" class="form-control no-resize" name="annual_income">
+                                <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                                <div class="help-block with-errors"></div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!-- edit education and professional div ends -->
+        </div>
+    </div>
+    <!-- EDU and PROFESSIONAL DIV ENDS -->
+    <!-- FAMILY INFO DIV -->
+    <div id="section_family_info">
+        <div class="feature feature--boxed-border feature--bg-1 pt-3 pb-0 pl-3 pr-3 mb-3 border_top2x">
+            <!-- view family info div -->
+            <div id="view_family_info">
+                <div class="card-inner-title-wrapper pt-0">
+                    <h3 class="card-inner-title pull-left">
+                      Family Information          
+                  </h3>
+                  <div class="pull-right">
+                    <button type="button" class="btn btn-base-1 btn-sm btn-icon-only btn-shadow mb-1" onclick="edit_section('family_info')">
+                        <i class="ion-edit"></i> Edit
+                    </button>
                 </div>
+            </div>
+            <div class="table-full-width">
                 <div class="table-full-width">
-                    <div class="table-full-width">
-                        <table class="table table-profile table-responsive table-striped table-bordered table-slick">
-                            <tbody>
-                                <tr>
-                                    <td class="td-label">
-                                        <span>Father Name</span>
-                                    </td>
-                                    <td>
-                                        ABC
-                                    </td>
-                                    <td class="td-label">
-                                        <span>Father Occupation</span>
-                                    </td>
-                                    <td>
-                                        Lead Developer                            
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="td-label">
-                                        <span>Mother Name</span>
-                                    </td>
-                                    <td>
-                                        XYZ                          
-                                    </td>
-                                    <td class="td-label">
-                                        <span>Mother Occupation</span>
-                                    </td>
-                                    <td>
-                                        Home Maker                           
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="td-label">
-                                        <span>Country</span>
-                                    </td>
-                                    <td>
-                                        India
-                                    </td>
-                                    <td class="td-label">
-                                        State
-                                    </td>
-                                    <td>Maharashtra
-                                    </td>
-
-                                </tr>
-                                <tr>
-                                    <td class="td-label">
-                                        <span>Native Place</span>
-                                    </td>
-                                    <td>
-                                        Kolhapur
-                                    </td>
-                                    <td class="td-label">
-                                        Residential Address
-                                    </td>
-                                    <td>
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                        tempor incididunt ut labore et dolore magna aliqua.
-                                    </td>
-
-                                </tr>
-                                <tr>
-                                    <td class="td-label">
-                                     Contact number 1
-                                 </td>
-                                 <td>
-                                    987654321
+                    <table class="table table-profile table-responsive table-striped table-bordered table-slick">
+                        <tbody>
+                            <tr>
+                                <td class="td-label">
+                                    <span>Father Name</span>
+                                </td>
+                                <td>
+                                    ABC
                                 </td>
                                 <td class="td-label">
-                                 Contact number 2
-                             </td>
-                             <td>
+                                    <span>Father Occupation</span>
+                                </td>
+                                <td>
+                                    Lead Developer                            
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="td-label">
+                                    <span>Mother Name</span>
+                                </td>
+                                <td>
+                                    XYZ                          
+                                </td>
+                                <td class="td-label">
+                                    <span>Mother Occupation</span>
+                                </td>
+                                <td>
+                                    Home Maker                           
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="td-label">
+                                    <span>Country</span>
+                                </td>
+                                <td>
+                                    India
+                                </td>
+                                <td class="td-label">
+                                    State
+                                </td>
+                                <td>Maharashtra
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td class="td-label">
+                                    <span>Native Place</span>
+                                </td>
+                                <td>
+                                    Kolhapur
+                                </td>
+                                <td class="td-label">
+                                    Residential Address
+                                </td>
+                                <td>
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                    tempor incididunt ut labore et dolore magna aliqua.
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td class="td-label">
+                                   Contact number 1
+                               </td>
+                               <td>
                                 987654321
                             </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+                            <td class="td-label">
+                               Contact number 2
+                           </td>
+                           <td>
+                            987654321
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
-    <!-- view family info div ends -->
-    <!-- edit family info div -->
-    <div id="edit_family_info" style="display: none;">
-        <div class="card-inner-title-wrapper pt-0">
-            <h3 class="card-inner-title pull-left">Edit Family Information</h3>
-            <div class="pull-right">
-                <button type="button" class="btn btn-success btn-sm btn-icon-only btn-shadow" onclick="save_section('family_info')"><i class="ion-checkmark"></i> Save</button>
-                <button type="button" class="btn btn-danger btn-sm btn-icon-only btn-shadow" onclick="load_section('family_info')"><i class="ion-close"></i> Cancel</button>
+</div>
+<!-- view family info div ends -->
+<!-- edit family info div -->
+<div id="edit_family_info" style="display: none;">
+    <div class="card-inner-title-wrapper pt-0">
+        <h3 class="card-inner-title pull-left">Edit Family Information</h3>
+        <div class="pull-right">
+            <button type="button" class="btn btn-success btn-sm btn-icon-only btn-shadow" onclick="save_section('family_info')"><i class="ion-checkmark"></i> Save</button>
+            <button type="button" class="btn btn-danger btn-sm btn-icon-only btn-shadow" onclick="load_section('family_info')"><i class="ion-close"></i> Cancel</button>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <form id="form_basic_info" class="form-default" role="form">
+        <div class="row">
+            <div class="col-md-6 w3-margin-top">
+                <div class="form-group has-feedback">
+                    <label for="father_name" class="text-uppercase c-gray-light">Father's Name</label>
+                    <input type="text" class="form-control no-resize" name="father_name" value="B.E. Computer science">
+                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                    <div class="help-block with-errors"></div>
+                </div>
+            </div>
+            <div class="col-md-6 w3-margin-top">
+                <div class="form-group has-feedback">
+                    <label for="father_occupation" class="text-uppercase c-gray-light">Father's Occupation</label>
+                    <input type="text" class="form-control no-resize" name="father_occupation">   
+                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                    <div class="help-block with-errors"></div>
+                </div>
             </div>
         </div>
-        <div class="clearfix"></div>
-        <form id="form_basic_info" class="form-default" role="form">
-            <div class="row">
-                <div class="col-md-6 w3-margin-top">
-                    <div class="form-group has-feedback">
-                        <label for="father_name" class="text-uppercase c-gray-light">Father's Name</label>
-                        <input type="text" class="form-control no-resize" name="father_name" value="B.E. Computer science">
-                        <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
-                        <div class="help-block with-errors"></div>
-                    </div>
-                </div>
-                <div class="col-md-6 w3-margin-top">
-                    <div class="form-group has-feedback">
-                        <label for="father_occupation" class="text-uppercase c-gray-light">Father's Occupation</label>
-                        <input type="text" class="form-control no-resize" name="father_occupation">   
-                        <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
-                        <div class="help-block with-errors"></div>
-                    </div>
+        <div class="row">
+            <div class="col-md-6 w3-margin-top">
+                <div class="form-group has-feedback">
+                    <label for="mother_name" class="text-uppercase c-gray-light">Mother's Name</label>
+                    <input type="text" class="form-control no-resize" name="mother_name">
+                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                    <div class="help-block with-errors"></div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-6 w3-margin-top">
-                    <div class="form-group has-feedback">
-                        <label for="mother_name" class="text-uppercase c-gray-light">Mother's Name</label>
-                        <input type="text" class="form-control no-resize" name="mother_name">
-                        <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
-                        <div class="help-block with-errors"></div>
-                    </div>
-                </div>
-                <div class="col-md-6 w3-margin-top">
-                    <div class="form-group has-feedback">
-                        <label for="mother_occupation" class="text-uppercase c-gray-light">Mother's Occupation</label>
-                        <input type="text" class="form-control no-resize" name="mother_occupation">
-                        <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
-                        <div class="help-block with-errors"></div>
-                    </div>
+            <div class="col-md-6 w3-margin-top">
+                <div class="form-group has-feedback">
+                    <label for="mother_occupation" class="text-uppercase c-gray-light">Mother's Occupation</label>
+                    <input type="text" class="form-control no-resize" name="mother_occupation">
+                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                    <div class="help-block with-errors"></div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-6 w3-margin-top">
-                    <div class="form-group has-feedback">
-                        <label for="residence_address" class="text-uppercase c-gray-light">Residential Address</label>
-                        <textarea name="residence_address" class="form-control no-resize" rows="5">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmodm tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodoconsequat. Duis aute irure dolor in reprehenderit in voluptate velit essecillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat nonproident, sunt in culpa qui officia deserunt mollit anim id est laborum.</textarea>  
-                        <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
-                        <div class="help-block with-errors"></div>
-                    </div>
-                </div>
-                <div class="col-md-6 w3-margin-top">
-                    <div class="form-group has-feedback">
-                        <label for="country" class="text-uppercase c-gray-light">Country</label>
-                        <select name="country" id="country" ng-model="country" ng-change="getCountryState()" class="form-control form-control selectpicker" data-placeholder="Choose country" tabindex="2" data-hide-disabled="true">
-                            <option value="">Choose country</option>
-                            <?php
-                            for ($i = 0; $i < count($country); $i++) {         ?>
-                                <option value="<?php echo $country[$i]['name'].'/'.$country[$i]['id']; ?>">
-                                    <?php echo $country[$i]['name']; ?>
-                                </option>
-                            <?php } ?>
-                        </select>
-                        <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
-                        <div class="help-block with-errors"></div>
-                    </div>
-                </div>
-                
-            </div>
-            <div class="row">
-                <div class="col-md-6 w3-margin-top">
-                    <div class="form-group has-feedback">
-                        <label for="state" class="text-uppercase c-gray-light">State</label>
-                        <select ng-change="getStateCity()" ng-model="state" id="state" name="state" class="form-control form-control selectpicker" tabindex="2" data-hide-disabled="true">
-                            <option value="">Choose a Country first</option>
-                        </select>
-                        <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
-                        <div class="help-block with-errors"></div>
-                    </div>
-                </div>
-                <div class="col-md-6 w3-margin-top">
-                    <div class="form-group has-feedback">
-                        <label for="native_place" class="text-uppercase c-gray-light">Native Place</label>
-                        <select id="native_place" name="native_place" class="form-control form-control selectpicker" tabindex="2" data-hide-disabled="true">
-                            <option value="">Choose a State first</option>
-                        </select>
-                        <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
-                        <div class="help-block with-errors"></div>
-                    </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 w3-margin-top">
+                <div class="form-group has-feedback">
+                    <label for="residence_address" class="text-uppercase c-gray-light">Residential Address</label>
+                    <textarea name="residence_address" class="form-control no-resize" rows="5">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmodm tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodoconsequat. Duis aute irure dolor in reprehenderit in voluptate velit essecillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat nonproident, sunt in culpa qui officia deserunt mollit anim id est laborum.</textarea>  
+                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                    <div class="help-block with-errors"></div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-6 w3-margin-top">
-                    <div class="form-group has-feedback">
-                        <label for="contact_no_1" class="text-uppercase c-gray-light">Contact No.1</label>
-                        <input type="number" class="form-control no-resize" name="contact_no_1">
-                        <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
-                        <div class="help-block with-errors"></div>
-                    </div>
-                </div>
-                <div class="col-md-6 w3-margin-top">
-                    <div class="form-group has-feedback">
-                        <label for="contact_no_2" class="text-uppercase c-gray-light">Contact No.2</label>
-                        <input type="number" class="form-control no-resize" name="contact_no_2">
-                        <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
-                        <div class="help-block with-errors"></div>
-                    </div>
+            <div class="col-md-6 w3-margin-top">
+                <div class="form-group has-feedback">
+                    <label for="country" class="text-uppercase c-gray-light">Country</label>
+                    <select name="country" id="country" ng-model="country" ng-change="getCountryState()" class="form-control form-control selectpicker" data-placeholder="Choose country" tabindex="2" data-hide-disabled="true">
+                        <option value="">Choose country</option>
+                        <?php
+                        for ($i = 0; $i < count($country); $i++) {         ?>
+                            <option value="<?php echo $country[$i]['name'].'/'.$country[$i]['id']; ?>">
+                                <?php echo $country[$i]['name']; ?>
+                            </option>
+                        <?php } ?>
+                    </select>
+                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                    <div class="help-block with-errors"></div>
                 </div>
             </div>
-        </form>
-    </div>
-    <!-- edit family info div ends -->
+
+        </div>
+        <div class="row">
+            <div class="col-md-6 w3-margin-top">
+                <div class="form-group has-feedback">
+                    <label for="state" class="text-uppercase c-gray-light">State</label>
+                    <select ng-change="getStateCity()" ng-model="state" id="state" name="state" class="form-control form-control selectpicker" tabindex="2" data-hide-disabled="true">
+                        <option value="">Choose a Country first</option>
+                    </select>
+                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                    <div class="help-block with-errors"></div>
+                </div>
+            </div>
+            <div class="col-md-6 w3-margin-top">
+                <div class="form-group has-feedback">
+                    <label for="native_place" class="text-uppercase c-gray-light">Native Place</label>
+                    <select id="native_place" name="native_place" class="form-control form-control selectpicker" tabindex="2" data-hide-disabled="true">
+                        <option value="">Choose a State first</option>
+                    </select>
+                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                    <div class="help-block with-errors"></div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 w3-margin-top">
+                <div class="form-group has-feedback">
+                    <label for="contact_no_1" class="text-uppercase c-gray-light">Contact No.1</label>
+                    <input type="number" class="form-control no-resize" name="contact_no_1">
+                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                    <div class="help-block with-errors"></div>
+                </div>
+            </div>
+            <div class="col-md-6 w3-margin-top">
+                <div class="form-group has-feedback">
+                    <label for="contact_no_2" class="text-uppercase c-gray-light">Contact No.2</label>
+                    <input type="number" class="form-control no-resize" name="contact_no_2">
+                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                    <div class="help-block with-errors"></div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<!-- edit family info div ends -->
 </div>
 </div>
 <!-- FAMILY INFO DIV -->
@@ -1108,13 +1132,13 @@
                                     <span>Diet</span>
                                 </td>
                                 <td>
-                                    xyz                            
+                                    <?php echo $userDetails[0]['user_diet']; ?>                           
                                 </td>
                                 <td class="td-label">
                                     <span>Drink</span>
                                 </td>
                                 <td>
-                                    No                            
+                                    <?php echo $userDetails[0]['user_drink']; ?>                            
                                 </td>
                             </tr>
                             <tr>
@@ -1122,13 +1146,13 @@
                                     <span>Smoke</span>
                                 </td>
                                 <td>
-                                    No                            
+                                    <?php echo $userDetails[0]['user_smoke']; ?>                            
                                 </td>
                                 <td class="td-label">
                                     <span>Living With</span>
                                 </td>
                                 <td>
-                                    Family                            
+                                    <?php echo $userDetails[0]['user_living_with']; ?>                            
                                 </td>
                             </tr>
                         </tbody>
@@ -1139,6 +1163,7 @@
         <!-- view life style div ends -->
         <!-- edit lifestyle div -->
         <div id="edit_life_style" style="display: none;">
+            <form id="form_life_style" class="form-default" role="form">
             <div class="card-inner-title-wrapper pt-0">
                 <h3 class="card-inner-title pull-left">
                     Edit Life Style   
@@ -1150,16 +1175,16 @@
             </div>
 
             <div class="clearfix"></div>
-            <form id="form_life_style" class="form-default" role="form">
+            
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group has-feedback">
                             <label for="diet" class="text-uppercase c-gray-light">Diet</label>
                             <select name="diet" onchange="(this.value,this)" class="form-control form-control selectpicker" data-placeholder="Choose one option" tabindex="2" data-hide-disabled="true">
                                 <option value="0" class="w3-light-grey">Choose one option</option>
-                                <option value="Vegeterian">Vegeterian</option>
-                                <option value="Non-Vegeterian">Non-Vegeterian</option>
-                                <option value="Eggeterian">Eggeterian</option>
+                                <option value="Vegeterian" <?php if($userDetails[0]['user_diet']=='Vegeterian'){ echo 'selected';} ?>>Vegeterian</option>
+                                <option value="Non-Vegeterian" <?php if($userDetails[0]['user_diet']=='Non-Vegeterian'){ echo 'selected';} ?>>Non-Vegeterian</option>
+                                <option value="Eggeterian" <?php if($userDetails[0]['user_diet']=='Eggeterian'){ echo 'selected';} ?>>Eggeterian</option>
                             </select>  
                             <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                             <div class="help-block with-errors"></div>
@@ -1169,10 +1194,10 @@
                         <div class="form-group has-feedback">
                             <label for="drink" class="text-uppercase c-gray-light">Drink</label>
                             <select name="drink" onchange="(this.value,this)" class="form-control form-control-sm selectpicker" data-placeholder="Choose one option" tabindex="2" data-hide-disabled="true">
-                                <option value="">Choose one option</option>
-                                <option value="Yes">Yes</option>
-                                <option value="No">No</option>
-                                <option value="Doesn't Matter">Doesn't Matter</option>
+                                <option value="0" class="w3-light-grey">Choose one option</option>
+                                <option value="Yes" <?php if($userDetails[0]['user_drink']=='Yes'){ echo 'selected';} ?>>Yes</option>
+                                <option value="No" <?php if($userDetails[0]['user_drink']=='No'){ echo 'selected';} ?>>No</option>
+                                <option value="Occasionally" <?php if($userDetails[0]['user_drink']=='Occasionally'){ echo 'selected';} ?>>Occasionally</option>
                             </select>                       
                             <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                             <div class="help-block with-errors"></div>
@@ -1184,10 +1209,10 @@
                         <div class="form-group has-feedback">
                             <label for="smoke" class="text-uppercase c-gray-light">Smoke</label>
                             <select name="smoke" onchange="(this.value,this)" class="form-control form-control-sm selectpicker" data-placeholder="Choose one option" tabindex="2" data-hide-disabled="true">    
-                                <option value="">Choose one option</option>
-                                <option value="Yes">Yes</option>
-                                <option value="No">No</option>
-                                <option value="Doesn't Matter">Doesn't Matter</option>
+                                <option value="0" class="w3-light-grey">Choose one option</option>
+                                <option value="Yes" <?php if($userDetails[0]['user_smoke']=='Yes'){ echo 'selected';} ?>>Yes</option>
+                                <option value="No" <?php if($userDetails[0]['user_smoke']=='No'){ echo 'selected';} ?>>No</option>
+                                <option value="Occasionally" <?php if($userDetails[0]['user_smoke']=='Occasionally'){ echo 'selected';} ?>>Occasionally</option>
                             </select>                        
                             <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                             <div class="help-block with-errors"></div>
@@ -1196,7 +1221,7 @@
                     <div class="col-md-6">
                         <div class="form-group has-feedback">
                             <label for="living_with" class="text-uppercase c-gray-light">Living With</label>
-                            <input type="text" class="form-control no-resize" name="living_with">
+                            <input type="text" value="<?php echo $userDetails[0]['user_living_with']; ?>" class="form-control no-resize" name="living_with">
                             <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                             <div class="help-block with-errors"></div>
                         </div>
@@ -1241,14 +1266,14 @@
                                 <span>Relation with Me</span>
                             </td>
                             <td>
-                             Maternal Uncle/ Mama                          
-                         </td>
-                     </tr>
-                     <tr>
+                               Maternal Uncle/ Mama                          
+                           </td>
+                       </tr>
+                       <tr>
                         <td class="td-label">
-                         Contact number
-                     </td>
-                     <td>
+                           Contact number
+                       </td>
+                       <td>
                         987654321
                     </td>
                     <td class="td-label">
@@ -1274,14 +1299,14 @@
                         <span>Relation with Me</span>
                     </td>
                     <td>
-                     Paternal Uncle/ Kaka                          
-                 </td>
-             </tr>
-             <tr>
+                       Paternal Uncle/ Kaka                          
+                   </td>
+               </tr>
+               <tr>
                 <td class="td-label">
-                 Contact number
-             </td>
-             <td>
+                   Contact number
+               </td>
+               <td>
                 987654321
             </td>
             <td class="td-label">
@@ -1404,15 +1429,15 @@
     <!-- edit expectations div -->
     <div id="edit_expectations" style="display: none;">
         <form id="form_expectations" class="form-default" role="form">
-        <div class="card-inner-title-wrapper pt-0">
-            <h3 class="card-inner-title pull-left">Edit Expectations</h3>
-            <div class="pull-right">
-                <button type="submit" class="btn btn-success btn-sm btn-icon-only btn-shadow" onclick="save_section('expectations')"><i class="ion-checkmark"></i> Save</button>
-                <button type="button" class="btn btn-danger btn-sm btn-icon-only btn-shadow" onclick="load_section('expectations')"><i class="ion-close"></i> Cancel</button>
+            <div class="card-inner-title-wrapper pt-0">
+                <h3 class="card-inner-title pull-left">Edit Expectations</h3>
+                <div class="pull-right">
+                    <button type="submit" class="btn btn-success btn-sm btn-icon-only btn-shadow" onclick="save_section('expectations')"><i class="ion-checkmark"></i> Save</button>
+                    <button type="button" class="btn btn-danger btn-sm btn-icon-only btn-shadow" onclick="load_section('expectations')"><i class="ion-close"></i> Cancel</button>
+                </div>
             </div>
-        </div>
-        <div class="clearfix"></div>
-        
+            <div class="clearfix"></div>
+
             <div class="row">
                 <div class="col-md-12 w3-margin-top">
                     <div class="form-group has-feedback">

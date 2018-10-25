@@ -167,6 +167,7 @@ function save_section(section)
             $('#section_'+section).find('.btn').prop('disabled', true);
         },
         success: function (response) {
+        	// console.log(response);return false;
         	var data=JSON.parse(response);
 
         	// Re_Enabling the Elements
@@ -194,6 +195,8 @@ function save_section(section)
         		case 'validation':
         		$('#ajax_validation_alert').show();
             	$('.ajax_validation_alert').html(data.message);
+            	$("input[name='"+data.field+"']").focus();
+            	$("select[name='"+data.field+"']").focus();
             	setTimeout(function() {
             		$('.alert_message').fadeOut('fast');
                         }, 8000); // <-- time in milliseconds
