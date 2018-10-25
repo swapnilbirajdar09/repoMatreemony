@@ -91,15 +91,15 @@ class Allusers_model extends CI_Model {
     //--- fun. to get member records on filter
     public function filtermember($sort_byID,$query_string,$sortbyGender){
        
-        $sql="SELECT * FROM user_profile_tab,user_tab where user_tab.user_id = user_profile_tab.user_id AND user_profile_tab.user_fullname LIKE '$query_string%' OR user_profile_tab.user_profile_id='$sort_byID' OR user_profile_tab.user_gender = '$sortbyGender' ";
+        $sql="SELECT * FROM user_profile_tab,user_tab where user_tab.user_id = user_profile_tab.user_id AND user_profile_tab.user_fullname LIKE '$query_string%' OR user_profile_tab.user_profile_id='$sort_byID' OR user_tab.user_gender = '$sortbyGender' ";
         //echo $sql;die();
             if($sortbyGender== 0)
             {
-                $sql = "SELECT * FROM user_profile_tab,user_tab where user_tab.user_id = user_profile_tab.user_id AND user_profile_tab.user_fullname LIKE '$query_string%' OR user_profile_tab.user_profile_id ='$sort_byID'";
+                $sql = "SELECT * FROM user_profile_tab,user_tab where user_tab.user_id = user_profile_tab.user_id AND user_profile_tab.user_firstname LIKE '$query_string%' OR user_profile_tab.user_profile_id ='$sort_byID'";
             }
             if($query_string =='')
             {
-               $sql="SELECT * FROM user_profile_tab,user_tab where user_tab.user_id = user_profile_tab.user_id  AND user_profile_tab.user_profile_id='$sort_byID' OR user_profile_tab.user_gender = '$sortbyGender' ";
+               $sql="SELECT * FROM user_profile_tab,user_tab where user_tab.user_id = user_profile_tab.user_id  AND user_profile_tab.user_profile_id='$sort_byID' OR user_tab.user_gender = '$sortbyGender' ";
             }
             // echo $sql;die();
         $result = $this->db->query($sql);
