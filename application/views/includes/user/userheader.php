@@ -255,6 +255,10 @@
                                     </div>
                                 </nav>
                                 <!-- Navbar -->
+                                <?php 
+                                $encodedkey = $this->session->userdata('PariKey_session');
+                                if($encodedkey!=''){
+                                ?>
                                 <div class="top-navbar align-items-center" style="z-index: 0">
                                     <div class="container">
                                         <div class="row align-items-center py-1" style="padding-bottom: 0px !important">
@@ -278,7 +282,7 @@
                                         </div>
                                     </div>
                                 </div>
-
+                            <?php } ?>
                                 <script type="text/javascript">
                                     $(document).ready(function () {
                                         $('.set_langs').on('click', function () {

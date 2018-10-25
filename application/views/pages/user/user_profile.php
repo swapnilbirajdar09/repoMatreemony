@@ -26,27 +26,33 @@
             <div class="row cols-md-space cols-sm-space cols-xs-space">
                 <!-- Alert for Ajax Profile Edit Section -->
                 <div class="col-lg-3 col-md-4" id="ajax_alert" style="display: none; position: fixed; top: 15px; right: 0; z-index: 9999">
-                    <div class="alert alert-success fade show" role="alert">
-                    You Have Successfully Edited Your Profile!                        </div>
+                    <div class="alert alert-success fade show" id="ajax_alert_message" role="alert">
+                    You Have Successfully Edited Your Profile!
+                </div>
                 </div>
                 <!-- Alert for Ajax Profile Edit Section -->
                 <!-- Alert for Validating Ajax Profile Edit Section -->
-                <div class="col-lg-3 col-md-4" id="ajax_validation_alert" style="display: none; position: fixed; top: 15px; right: 0; z-index: 9999">
-                    <div class="alert alert-danger fade show" role="alert">
+                <div class="col-lg-3 col-md-4 alert_message" id="ajax_validation_alert" style="display: none; position: fixed; top: 15px; right: 0; z-index: 9999">
+                    <div class="alert alert-warning  fade show alert-dismissible" role="alert">
+                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
 
-                        <span id="validation_info"></span>
+                        <span class="ajax_validation_alert"></span>
                     </div>
                 </div>
                 <!-- Alert for Validating Ajax Profile Edit Section -->
                 <!-- Alerts for Member actions -->
-                <div class="col-lg-3 col-md-4" id="ajax_success_alert" style="display: none; position: fixed; top: 15px; right: 0; z-index: 9999">
-                    <div class="alert alert-success ajax_success_alert fade show" role="alert">
+                <div class="col-lg-3 col-md-4 alert_message" id="ajax_success_alert" style="display: none; position: fixed; top: 15px; right: 0; z-index: 9999">
+                    <div class="alert alert-success  fade show alert-dismissible" role="alert">
+                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
                         <!-- Success Alert Content -->
+                        <span class="ajax_success_alert"></span>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-4" id="ajax_danger_alert" style="display: none; position: fixed; top: 15px; right: 0; z-index: 9999">
-                    <div class="alert alert-danger ajax_danger_alert fade show" role="alert">
+                <div class="col-lg-3 col-md-4 alert_message" id="ajax_danger_alert" style="display: none; position: fixed; top: 15px; right: 0; z-index: 9999">
+                    <div class="alert alert-danger  fade show alert-dismissible" role="alert">
+                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
                         <!-- Success Alert Content -->
+                        <span class="ajax_danger_alert"></span>
                     </div>
                 </div>
                 <!-- Alerts for Member actions -->
@@ -313,7 +319,6 @@
                                                                         echo '<label class="w3-medium"> Click  <button class="btn btn-base-1 btn-sm btn-icon-only btn-shadow mb-1" onclick="edit_section(\'about_me\')"><i class="ion-edit"></i> Edit</button>  to add <b>About Me</b>. </label>';
                                                                     }
                                                                     ?>
-                                                                    <?php echo $userDetails[0]['user_about_me']; ?>                           
                                                                 </td>
                                                             </tr>
                                                         </tbody>
@@ -324,21 +329,20 @@
                                         <!-- view about me ends -->
                                         <!-- edit about me div -->
                                         <div id="edit_about_me" style="display: none;">
+                                            <form id="form_about_me" class="form-default" role="form">
                                             <div class="card-inner-title-wrapper pt-0">
                                                 <h3 class="card-inner-title pull-left">Edit About Me</h3>
                                                 <div class="pull-right">
-                                                    <button type="button" class="btn btn-success btn-sm btn-icon-only btn-shadow" onclick="save_section('about_me')"><i class="ion-checkmark"></i> Save</button>
+                                                    <button type="submit" class="btn btn-success btn-sm btn-icon-only btn-shadow" onclick="save_section('about_me')"><i class="ion-checkmark"></i> Save</button>
                                                     <button type="button" class="btn btn-danger btn-sm btn-icon-only btn-shadow" onclick="load_section('about_me')"><i class="ion-close"></i> Cancel</button>
                                                 </div>
                                             </div>
                                             <div class="clearfix"></div>
-                                            <form id="form_about_me" class="form-default" role="form">
+                                            
                                                 <div class="row">
                                                     <div class="col-md-12 w3-margin-top">
                                                         <div class="form-group has-feedback">
-                                                            <textarea name="about_me" class="form-control no-resize" rows="5">
-                                                                <?php echo $userDetails[0]['user_about_me']; ?>
-                                                            </textarea>
+                                                            <textarea name="about_me" class="form-control no-resize" rows="5" required><?php echo $userDetails[0]['user_about_me']; ?></textarea>
                                                             <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                                                             <div class="help-block with-errors"></div>
                                                         </div>
@@ -463,20 +467,21 @@
                                     <!-- view basic info div ends -->
                                     <!-- edit basic info div -->
                                     <div id="edit_basic_info" style="display: none;">
+                                        <form id="form_basic_info" class="form-default" role="form">
                                         <div class="card-inner-title-wrapper pt-0">
                                             <h3 class="card-inner-title pull-left">Edit Basic Information</h3>
                                             <div class="pull-right">
-                                                <button type="button" class="btn btn-success btn-sm btn-icon-only btn-shadow" onclick="save_section('basic_info')"><i class="ion-checkmark"></i> Save</button>
+                                                <button type="submit" class="btn btn-success btn-sm btn-icon-only btn-shadow" onclick="save_section('basic_info')"><i class="ion-checkmark"></i> Save</button>
                                                 <button type="button" class="btn btn-danger btn-sm btn-icon-only btn-shadow" onclick="load_section('basic_info')"><i class="ion-close"></i> Cancel</button>
                                             </div>
                                         </div>
                                         <div class="clearfix"></div>
-                                        <form id="form_basic_info" class="form-default" role="form">
+                                        
                                             <div class="row">
                                                 <div class="col-md-6 w3-margin-top">
                                                     <div class="form-group has-feedback">
                                                         <label for="full_name" class="text-uppercase c-gray-light">Full Name</label>
-                                                        <input type="text" class="form-control no-resize" name="full_name" value="xyz">
+                                                        <input type="text" class="form-control no-resize" name="full_name" value="<?php echo $userDetails[0]['user_fullname']; ?>" required>
                                                         <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                                                         <div class="help-block with-errors"></div>
                                                     </div>
@@ -486,12 +491,12 @@
                                                         <label for="profile_created_by" class="text-uppercase c-gray-light">Profile created by</label>
                                                         <select name="profile_created_by" onchange="(this.value,this)" class="form-control form-control selectpicker" data-placeholder="Choose one option" tabindex="2" data-hide-disabled="true">
                                                             <option value="0" class="w3-light-grey">Choose one option</option>
-                                                            <option value="Self">Self</option>
-                                                            <option value="Father">Father</option>
-                                                            <option value="Mother">Mother</option>
-                                                            <option value="Brother">Brother</option>
-                                                            <option value="Sister">Sister</option>
-                                                            <option value="Other">Other</option>
+                                                            <option value="Self" <?php if($userDetails[0]['user_profile_created_by']=='Self'){ echo 'selected';} ?>>Self</option>
+                                                            <option value="Father" <?php if($userDetails[0]['user_profile_created_by']=='Father'){ echo 'selected';} ?>>Father</option>
+                                                            <option value="Mother" <?php if($userDetails[0]['user_profile_created_by']=='Mother'){ echo 'selected';} ?>>Mother</option>
+                                                            <option value="Brother" <?php if($userDetails[0]['user_profile_created_by']=='Brother'){ echo 'selected';} ?>>Brother</option>
+                                                            <option value="Sister" <?php if($userDetails[0]['user_profile_created_by']=='Sister'){ echo 'selected';} ?>>Sister</option>
+                                                            <option value="Other" <?php if($userDetails[0]['user_profile_created_by']=='Other'){ echo 'selected';} ?>>Other</option>
                                                         </select>      
                                                         <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                                                         <div class="help-block with-errors"></div>
@@ -502,7 +507,7 @@
                                                 <div class="col-md-6 w3-margin-top">
                                                     <div class="form-group has-feedback">
                                                         <label for="dob" class="text-uppercase c-gray-light">Date of Birth</label>
-                                                        <input type="date" class="form-control no-resize" name="dob">
+                                                        <input type="date" class="form-control no-resize" value="<?php echo $userDetails[0]['user_dob']; ?>" name="dob" required>
                                                         <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                                                         <div class="help-block with-errors"></div>
                                                     </div>
@@ -512,11 +517,11 @@
                                                         <label for="marital_status" class="text-uppercase c-gray-light">Marital Status</label>
                                                         <select name="marital_status" id="marital_status" class="form-control form-control selectpicker" data-placeholder="Choose one status" tabindex="2" data-hide-disabled="true">
                                                             <option value="0" class="w3-light-grey">Choose one status</option>
-                                                            <option value="Never Married">Never Married</option>
-                                                            <option value="Divorced">Divorced</option>
-                                                            <option value="Widow" >Widow</option>
-                                                            <option value="Widower" >Widower</option>
-                                                            <option value=">Awaiting divorced / Legally separated">Awaiting divorced / Legally separated</option>
+                                                            <option value="Never Married" <?php if($userDetails[0]['user_profile_created_by']=='Never Married'){ echo 'selected';} ?>>Never Married</option>
+                                                            <option value="Divorced" <?php if($userDetails[0]['user_profile_created_by']=='Divorced'){ echo 'selected';} ?>>Divorced</option>
+                                                            <option value="Widow"  <?php if($userDetails[0]['user_profile_created_by']=='Widow'){ echo 'selected';} ?>>Widow</option>
+                                                            <option value="Widower"  <?php if($userDetails[0]['user_profile_created_by']=='Widower'){ echo 'selected';} ?>>Widower</option>
+                                                            <option value=">Awaiting divorced / Legally separated" <?php if($userDetails[0]['user_profile_created_by']=='Awaiting divorced / Legally separated'){ echo 'selected';} ?>>Awaiting divorced / Legally separated</option>
                                                         </select>      
                                                         <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                                                         <div class="help-block with-errors"></div>
@@ -530,10 +535,10 @@
                                                         <label for="no_of_children" class="text-uppercase c-gray-light">Number of Children</label>
                                                         <select name="no_of_children" onchange="(this.value,this)" class="form-control form-control selectpicker" data-placeholder="Choose one option" tabindex="2" data-hide-disabled="true">
                                                             <option value="0" class="w3-light-grey">Choose one option</option>
-                                                            <option value="0">0</option>
-                                                            <option value="1">1</option>
-                                                            <option value="2">2</option>
-                                                            <option value="More">More</option>
+                                                            <option value="NA" <?php if($userDetails[0]['user_profile_created_by']=='NA'){ echo 'selected';} ?>>NA</option>
+                                                            <option value="1" <?php if($userDetails[0]['user_profile_created_by']=='1'){ echo 'selected';} ?>>1</option>
+                                                            <option value="2" <?php if($userDetails[0]['user_profile_created_by']=='2'){ echo 'selected';} ?>>2</option>
+                                                            <option value="More" <?php if($userDetails[0]['user_profile_created_by']=='More'){ echo 'selected';} ?>>More</option>
                                                         </select>      
                                                         <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                                                         <div class="help-block with-errors"></div>
@@ -546,12 +551,12 @@
                                                         <label for="mother_tongue" class="text-uppercase c-gray-light">Mother Tongue</label>
                                                         <select name="mother_tongue" onchange="(this.value,this)" class="form-control form-control selectpicker" data-placeholder="Choose one language" tabindex="2" data-hide-disabled="true">
                                                             <option value="0" class="w3-light-grey">Choose one language</option>
-                                                            <option value="Marathi" >Marathi</option>
-                                                            <option value="Bengali" >Bengali</option>
-                                                            <option value="German" >German</option>
-                                                            <option value="English" >English</option>
-                                                            <option value="Hindi" >Hindi</option>
-                                                            <option value="Urdu" >Urdu</option>
+                                                            <option value="Marathi" <?php if($userDetails[0]['user_profile_created_by']=='Marathi'){ echo 'selected';} ?>>Marathi</option>
+                                                            <option value="Bengali" <?php if($userDetails[0]['user_profile_created_by']=='Bengali'){ echo 'selected';} ?>>Bengali</option>
+                                                            <option value="German" <?php if($userDetails[0]['user_profile_created_by']=='German'){ echo 'selected';} ?>>German</option>
+                                                            <option value="English" <?php if($userDetails[0]['user_profile_created_by']=='English'){ echo 'selected';} ?>>English</option>
+                                                            <option value="Hindi" <?php if($userDetails[0]['user_profile_created_by']=='Hindi'){ echo 'selected';} ?>>Hindi</option>
+                                                            <option value="Urdu" <?php if($userDetails[0]['user_profile_created_by']=='Urdu'){ echo 'selected';} ?>>Urdu</option>
                                                         </select>
                                                         <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                                                         <div class="help-block with-errors"></div>
@@ -562,14 +567,14 @@
                                                         <label for="blood_group" class="text-uppercase c-gray-light">Blood Group</label>
                                                         <select name="blood_group" onchange="(this.value,this)" class="form-control form-control selectpicker" data-placeholder="Choose one group" tabindex="2" data-hide-disabled="true">
                                                             <option value="0" class="w3-light-grey">Choose one group</option>
-                                                            <option value="O+">O+</option>
-                                                            <option value="O-">O-</option>
-                                                            <option value="A+">A+</option>
-                                                            <option value="A-">A-</option>
-                                                            <option value="B+">B+</option>
-                                                            <option value="B-">B-</option>
-                                                            <option value="AB+">AB+</option>
-                                                            <option value="AB-">AB-</option>
+                                                            <option value="O+" <?php if($userDetails[0]['user_profile_created_by']=='O+'){ echo 'selected';} ?>>O+</option>
+                                                            <option value="O-" <?php if($userDetails[0]['user_profile_created_by']=='O-'){ echo 'selected';} ?>>O-</option>
+                                                            <option value="A+" <?php if($userDetails[0]['user_profile_created_by']=='A+'){ echo 'selected';} ?>>A+</option>
+                                                            <option value="A-" <?php if($userDetails[0]['user_profile_created_by']=='A-'){ echo 'selected';} ?>>A-</option>
+                                                            <option value="B+" <?php if($userDetails[0]['user_profile_created_by']=='B+'){ echo 'selected';} ?>>B+</option>
+                                                            <option value="B-" <?php if($userDetails[0]['user_profile_created_by']=='B-'){ echo 'selected';} ?>>B-</option>
+                                                            <option value="AB+" <?php if($userDetails[0]['user_profile_created_by']=='AB+'){ echo 'selected';} ?>>AB+</option>
+                                                            <option value="AB-" <?php if($userDetails[0]['user_profile_created_by']=='AB-'){ echo 'selected';} ?>>AB-</option>
                                                         </select>      
                                                         <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                                                         <div class="help-block with-errors"></div>
@@ -582,10 +587,10 @@
                                                         <label for="body_type" class="text-uppercase c-gray-light">Body Type</label>
                                                         <select name="body_type" onchange="(this.value,this)" class="form-control form-control selectpicker" data-placeholder="Choose one Type" tabindex="2" data-hide-disabled="true">
                                                             <option value="0" class="w3-light-grey">Choose one Type</option>
-                                                            <option value="Average" >Average</option>
-                                                            <option value="Athletic" >Athletic</option>
-                                                            <option value="Slim" >Slim</option>
-                                                            <option value="Heavy" >Heavy</option>                                                        </select>
+                                                            <option value="Average" <?php if($userDetails[0]['user_profile_created_by']=='Average'){ echo 'selected';} ?>>Average</option>
+                                                            <option value="Athletic" <?php if($userDetails[0]['user_profile_created_by']=='Athletic'){ echo 'selected';} ?>>Athletic</option>
+                                                            <option value="Slim" <?php if($userDetails[0]['user_profile_created_by']=='Slim'){ echo 'selected';} ?>>Slim</option>
+                                                            <option value="Heavy" <?php if($userDetails[0]['user_profile_created_by']=='Heavy'){ echo 'selected';} ?>>Heavy</option>                                                        </select>
                                                             <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                                                             <div class="help-block with-errors"></div>
                                                         </div>
@@ -595,11 +600,11 @@
                                                             <label for="body_complexion" class="text-uppercase c-gray-light">Body Complexion</label>
                                                             <select name="body_complexion" onchange="(this.value,this)" class="form-control form-control selectpicker" data-placeholder="Choose one option" tabindex="2" data-hide-disabled="true">
                                                                 <option value="0" class="w3-light-grey">Choose one option</option>
-                                                                <option value="Fair">Fair</option>
-                                                                <option value="Very Fair">Very Fair</option>
-                                                                <option value="Wheatish">Wheatish</option>
-                                                                <option value="Wheatish Brown">Wheatish Brown</option>
-                                                                <option value="Dark">Dark</option>
+                                                                <option value="Fair" <?php if($userDetails[0]['user_profile_created_by']=='Fair'){ echo 'selected';} ?>>Fair</option>
+                                                                <option value="Very Fair" <?php if($userDetails[0]['user_profile_created_by']=='Very Fair'){ echo 'selected';} ?>>Very Fair</option>
+                                                                <option value="Wheatish" <?php if($userDetails[0]['user_profile_created_by']=='Wheatish'){ echo 'selected';} ?>>Wheatish</option>
+                                                                <option value="Wheatish Brown" <?php if($userDetails[0]['user_profile_created_by']=='Wheatish Brown'){ echo 'selected';} ?>>Wheatish Brown</option>
+                                                                <option value="Dark" <?php if($userDetails[0]['user_profile_created_by']=='Dark'){ echo 'selected';} ?>>Dark</option>
                                                             </select>      
                                                             <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                                                             <div class="help-block with-errors"></div>
@@ -610,7 +615,7 @@
                                                     <div class="col-md-6 w3-margin-top">
                                                         <div class="form-group has-feedback">
                                                             <label for="weight" class="text-uppercase c-gray-light">Weight (in KG)</label>
-                                                            <input type="number" step="0.01" min="0" value="80" class="form-control no-resize" name="weight">
+                                                            <input type="number" step="0.01" min="0" value="<?php echo $userDetails[0]['user_weight']; ?>" class="form-control no-resize" name="weight" required>
                                                             <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                                                             <div class="help-block with-errors"></div>
                                                         </div>
@@ -618,7 +623,7 @@
                                                     <div class="col-md-6 w3-margin-top">
                                                         <div class="form-group has-feedback">
                                                             <label for="height" class="text-uppercase c-gray-light">Height (in Feet)</label>
-                                                            <input type="number" step="0.01" min="0" value="6" class="form-control no-resize" name="height">
+                                                            <input type="number" step="0.01" min="0" value="<?php echo $userDetails[0]['user_height']; ?>" class="form-control no-resize" name="height" required>
                                                             <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                                                             <div class="help-block with-errors"></div>
                                                         </div>
@@ -1398,19 +1403,20 @@
     <!-- view expectations div ends -->
     <!-- edit expectations div -->
     <div id="edit_expectations" style="display: none;">
+        <form id="form_expectations" class="form-default" role="form">
         <div class="card-inner-title-wrapper pt-0">
             <h3 class="card-inner-title pull-left">Edit Expectations</h3>
             <div class="pull-right">
-                <button type="button" class="btn btn-success btn-sm btn-icon-only btn-shadow" onclick="save_section('expectations')"><i class="ion-checkmark"></i> Save</button>
+                <button type="submit" class="btn btn-success btn-sm btn-icon-only btn-shadow" onclick="save_section('expectations')"><i class="ion-checkmark"></i> Save</button>
                 <button type="button" class="btn btn-danger btn-sm btn-icon-only btn-shadow" onclick="load_section('expectations')"><i class="ion-close"></i> Cancel</button>
             </div>
         </div>
         <div class="clearfix"></div>
-        <form id="form_about_me" class="form-default" role="form">
+        
             <div class="row">
                 <div class="col-md-12 w3-margin-top">
                     <div class="form-group has-feedback">
-                        <textarea name="expectations" class="form-control no-resize" rows="5">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmodm tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodoconsequat. Duis aute irure dolor in reprehenderit in voluptate velit essecillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat nonproident, sunt in culpa qui officia deserunt mollit anim id est laborum.</textarea>
+                        <textarea name="expectations" class="form-control no-resize" rows="5" required>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmodm tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodoconsequat. Duis aute irure dolor in reprehenderit in voluptate velit essecillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat nonproident, sunt in culpa qui officia deserunt mollit anim id est laborum.</textarea>
                         <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                         <div class="help-block with-errors"></div>
                     </div>
