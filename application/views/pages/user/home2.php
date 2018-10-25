@@ -382,7 +382,7 @@ a.socialIcon:hover, .socialHoverClass {
     </div>
     
     <!-- Download-Area -->
-    <div class="parallax download-area overlay" style="background-image: url('<?php echo base_url(); ?>assets/client/uploads/home_page/parallax_image/parallax1.jpg'); height: 450px;">
+    <div class="parallax download-area overlay" style="background-image: url('<?php echo base_url(); ?>assets/client/uploads/home_page/slider_image/sinew.jpg'); height: 450px;">
     	<div class="container">
     		<div class="row">
     			<div class="col-xs-12 col-md-12 text-center" style="padding:80px">
@@ -392,7 +392,7 @@ a.socialIcon:hover, .socialHoverClass {
     				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam possimus eaque magnam eum praesentium unde.</p>
     				<div class="space-20"></div>
     				<a href="#" class="bttn-white sq"><i class="w3-large lnr lnr-rocket"></i>Register</a> 
-    				<a href="<?php echo base_url(); ?>contact_us" class="bttn-white sq" data-wow-delay="0.8s"><i class="w3-large lnr lnr-envelope"></i>Contact Us</a>
+    				<a href="<?php echo base_url(); ?>user/contact_us" class="bttn-white sq" data-wow-delay="0.8s"><i class="w3-large lnr lnr-envelope"></i>Contact Us</a>
     			</div>
     		</div>
     	</div>

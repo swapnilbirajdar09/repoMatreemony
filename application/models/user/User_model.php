@@ -17,16 +17,15 @@ class User_model extends CI_Model {
         }
     }
 
-    // logout function for user
-    public function logoutUser($user_id){
-        // update logout user
+    // update abput me section for user
+    public function update_about_me($about_me,$user_id){
+
         $result = array(
-            'user_logout_at' => date ("Y-m-d H:i:s"),
-            'user_status' => '0'
+            'user_about_me' => $about_me
         );
 
         $this->db->where('user_id', $user_id);
-        $this->db->update('user_tab', $result);
+        $this->db->update('user_profile_tab', $result);
         if($this->db->affected_rows()==1){
             return true;
         }
@@ -34,5 +33,23 @@ class User_model extends CI_Model {
             return false;
         }
     }
+
+    // update abput me section for user
+    public function update_expectations($expectations,$user_id){
+
+        $result = array(
+            'user_partner_expections' => $expectations
+        );
+
+        $this->db->where('user_id', $user_id);
+        $this->db->update('user_profile_tab', $result);
+        if($this->db->affected_rows()==1){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
 
 }
