@@ -125,9 +125,27 @@ a.socialIcon:hover, .socialHoverClass {
                 <span> <input type="radio" name="gender" class="w3-radio" style="margin-left: 15px" required> Female</span>
             </div>
         </div>
-        <div class="w3-col l12 w3-margin-bottom">
-         <label class="w3-large">Name : </label>
-         <input type="text" class="w3-input control w3-text-grey" placeholder="Enter your full name*" required name="full_name" id="mc-name">
+        <div class="w3-col l12 w3-margin-bottom hidden-xs hidden-md">
+            <div class="w3-col l6  ">
+         <label class="w3-large">First Name : </label>
+         <input type="text" class="w3-input control w3-text-grey" placeholder="Enter your first name" required name="first_name" id="mc-name">
+     </div>
+           <div class="w3-col l6" style="padding-left: 5px;">
+         <label class="w3-large">Last Name : </label>
+         <input type="text" class="w3-input control w3-text-grey" placeholder="Enter your last name*" required name="last_name" id="mc-name">
+     </div>
+     </div>
+     <div class="w3-col l12 w3-margin-bottom hidden-lg">
+            <div class="w3-col s12">
+         <label class="w3-large">First Name : </label>
+         <input type="text" class="w3-input control w3-text-grey" placeholder="Enter your first name" required name="first_name" id="mc-name">
+     </div>
+ </div>
+     <div class="w3-col l12 w3-margin-bottom hidden-lg">
+           <div class="w3-col s12">
+         <label class="w3-large">Last Name : </label>
+         <input type="text" class="w3-input control w3-text-grey" placeholder="Enter your last name*" required name="last_name" id="mc-name">
+     </div>
      </div>
      <div class="w3-col l12 w3-margin-bottom">
          <label class="w3-large">Email ID : </label>

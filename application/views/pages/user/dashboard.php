@@ -6,7 +6,7 @@
                     <div class="sidebar  ">
                         <div class="">
                              
-                            <div class="card " style="background:#f5f5f5;" >
+                            <div class="card " style="background:#fff;" >
                                 <div class="card-title b-xs-bottom" style="background:#eff2f4;">
                                     <h3 class="heading heading-sm text-uppercase">Account information
                                         </h3> 
@@ -84,7 +84,7 @@
                     <button type="button" class="btn btn-block btn-base-1 mt-2 z-depth-2-bottom" onclick="adv_search()">Advanced Search</button>
                 </div>            
                 <div class="col-lg-7">
-                    <h3 class="w3-center"> Recommended Profile </h3>
+                    <h3 class="w3-center" style="background:#eff2f4;"> Recommended Profile </h3>
                     <?php
                     //print_r($userprofile);die(); 
                         foreach ($userprofile as $value) {
@@ -100,7 +100,7 @@
                </div>
              <div class="block-title-wrapper">
             <h3 class="heading heading-5 strong-500 mt-4">
-           <a onclick="return goto_profile(9)" class="c-base-1"> <?php echo $value['user_fullname']; ?></a>
+           <a onclick="return goto_profile(9)" class="c-base-1"> <?php echo $value['user_firstname']; ?> <?php echo $value['user_lastname']; ?></a>
             </h3>
             <h4 class="heading heading-xs c-gray-light text-uppercase strong-400"> <?php echo $value['user_designation']; ?></h4>
             <table class="table-striped table-bordered mb-2" style="font-size: 12px;">

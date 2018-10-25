@@ -170,7 +170,7 @@ class All_users extends CI_Controller {
         $usersData = $result;
 // file creation 
         $file = fopen('php://output', 'w');
-        $header = array("Full Name", "Gender", "Registration Date", "City", "Marital Status");
+        $header = array("Profile ID","Full Name", "Gender", "Registration Date", "City", "Marital Status");
         fputcsv($file, $header);
         if ($result) {
             foreach ($usersData as $key => $line) {
