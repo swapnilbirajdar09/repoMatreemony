@@ -167,38 +167,38 @@ function save_section(section)
             $('#section_'+section).find('.btn').prop('disabled', true);
         },
         success: function (response) {
-        	// console.log(response);return false;
+        	console.log(response);return false;
         	var data=JSON.parse(response);
 
         	// Re_Enabling the Elements
-            $('#section_'+section).find('.form-control').prop('readonly', false);
-            $('#section_'+section).find('.btn').prop('disabled', false);
+        	$('#section_'+section).find('.form-control').prop('readonly', false);
+        	$('#section_'+section).find('.btn').prop('disabled', false);
 
         	// response message
         	switch(data.status){
         		case 'success':
         		$('#ajax_success_alert').show();
-            	$('.ajax_success_alert').html(data.message);
-            	setTimeout(function() {
-            		window.location.reload();
+        		$('.ajax_success_alert').html(data.message);
+        		setTimeout(function() {
+        			window.location.reload();
                         }, 1500); // <-- time in milliseconds 
         		break;
 
         		case 'error':
         		$('#ajax_danger_alert').show();
-            	$('.ajax_danger_alert').html(data.message);
-            	setTimeout(function() {
-            		$('.alert_message').fadeOut('fast');
+        		$('.ajax_danger_alert').html(data.message);
+        		setTimeout(function() {
+        			$('.alert_message').fadeOut('fast');
                         }, 10000); // <-- time in milliseconds
         		break;
 
         		case 'validation':
         		$('#ajax_validation_alert').show();
-            	$('.ajax_validation_alert').html(data.message);
-            	$("input[name='"+data.field+"']").focus();
-            	$("select[name='"+data.field+"']").focus();
-            	setTimeout(function() {
-            		$('.alert_message').fadeOut('fast');
+        		$('.ajax_validation_alert').html(data.message);
+        		$("input[name='"+data.field+"']").focus();
+        		$("select[name='"+data.field+"']").focus();
+        		setTimeout(function() {
+        			$('.alert_message').fadeOut('fast');
                         }, 8000); // <-- time in milliseconds
         		break;
         	}
@@ -216,3 +216,72 @@ function save_section(section)
         }
     });
 }
+
+// script to upload files
+$(function () {
+	$("#form_documents").submit(function () {
+		$.ajax({
+			type: "POST",
+			url: BASE_URL+"user/user_profile/update_documents",
+			data: new FormData(this),
+			contentType: false,
+			cache: false,
+			processData: false,
+			beforeSend: function () {
+            // For Safety Disabling Section Elements for Slow Internet Connections
+            $('#section_documents').find('.form-control').prop('readonly', true);
+            $('#section_documents').find('.btn').prop('disabled', true);
+        },
+        success: function (response) {
+        	// console.log(response);return false;
+        	var data=JSON.parse(response);
+
+        	// Re_Enabling the Elements
+        	$('#section_documents').find('.form-control').prop('readonly', false);
+        	$('#section_documents').find('.btn').prop('disabled', false);
+
+        	// response message
+        	switch(data.status){
+        		case 'success':
+        		$('#ajax_success_alert').show();
+        		$('.ajax_success_alert').html(data.message);
+        		setTimeout(function() {
+        			window.location.reload();
+                        }, 1500); // <-- time in milliseconds 
+        		break;
+
+        		case 'error':
+        		$('#ajax_danger_alert').show();
+        		$('.ajax_danger_alert').html(data.message);
+        		setTimeout(function() {
+        			$('.alert_message').fadeOut('fast');
+                        }, 10000); // <-- time in milliseconds
+        		break;
+
+        		case 'validation':
+        		$('#ajax_validation_alert').show();
+        		$('.ajax_validation_alert').html(data.message);
+        		$("input[name='"+data.field+"']").focus();
+        		$("select[name='"+data.field+"']").focus();
+        		setTimeout(function() {
+        			$('.alert_message').fadeOut('fast');
+                        }, 8000); // <-- time in milliseconds
+        		break;
+        	}
+        	
+        },
+        error: function (response) {
+            // Re_Enabling the Elements
+            $('#section_documents').find('.form-control').prop('readonly', false);
+            $('#section_documents').find('.btn').prop('disabled', false);
+            $('#ajax_danger_alert').show();
+            $('.ajax_danger_alert').html(' Something went wrong! Try refreshing page and Save again.');
+            setTimeout(function() {
+            	$('.alert_message').fadeOut('fast');
+                        }, 4000); // <-- time in milliseconds  
+        }
+    });
+    return false;  //stop the actual form post !important!
+
+});
+});

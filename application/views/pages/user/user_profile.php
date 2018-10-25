@@ -842,7 +842,7 @@
                         <div class="col-md-6 w3-margin-top">
                             <div class="form-group has-feedback">
                                 <label for="company_name" class="text-uppercase c-gray-light">Company Name</label>
-                                <input type="text" value="<?php echo $userDetails[0]['user_company_name']; ?>" class="form-control no-resize" name="company_name">
+                                <input type="text" value="<?php echo $userDetails[0]['user_company_name']; ?>" class="form-control no-resize" name="company_name" required>
                                 <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                                 <div class="help-block with-errors"></div>
                             </div>
@@ -850,7 +850,7 @@
                         <div class="col-md-6 w3-margin-top">
                             <div class="form-group has-feedback">
                                 <label for="designation" class="text-uppercase c-gray-light">Designation</label>
-                                <input type="text" value="<?php echo $userDetails[0]['user_designation']; ?>" class="form-control no-resize" name="designation">
+                                <input type="text" value="<?php echo $userDetails[0]['user_designation']; ?>" class="form-control no-resize" name="designation" required>
                                 <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                                 <div class="help-block with-errors"></div>
                             </div>
@@ -915,13 +915,13 @@
                                     <span>Father Name</span>
                                 </td>
                                 <td>
-                                    ABC
+                                    <?php echo $userDetails[0]['user_father_name']; ?> 
                                 </td>
                                 <td class="td-label">
                                     <span>Father Occupation</span>
                                 </td>
                                 <td>
-                                    Lead Developer                            
+                                    <?php echo $userDetails[0]['user_father_occupation']; ?>                            
                                 </td>
                             </tr>
                             <tr>
@@ -929,13 +929,13 @@
                                     <span>Mother Name</span>
                                 </td>
                                 <td>
-                                    XYZ                          
+                                    <?php echo $userDetails[0]['user_mother_name']; ?>                           
                                 </td>
                                 <td class="td-label">
                                     <span>Mother Occupation</span>
                                 </td>
                                 <td>
-                                    Home Maker                           
+                                    <?php echo $userDetails[0]['user_mother_occupation']; ?>                         
                                 </td>
                             </tr>
                             <tr>
@@ -943,12 +943,12 @@
                                     <span>Country</span>
                                 </td>
                                 <td>
-                                    India
+                                    <?php echo ucfirst($userDetails[0]['user_country']); ?> 
                                 </td>
                                 <td class="td-label">
                                     State
                                 </td>
-                                <td>Maharashtra
+                                <td><?php echo $userDetails[0]['user_state']; ?> 
                                 </td>
 
                             </tr>
@@ -957,14 +957,13 @@
                                     <span>Native Place</span>
                                 </td>
                                 <td>
-                                    Kolhapur
+                                    <?php echo $userDetails[0]['user_city']; ?> 
                                 </td>
                                 <td class="td-label">
                                     Residential Address
                                 </td>
                                 <td>
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                    tempor incididunt ut labore et dolore magna aliqua.
+                                    <?php echo $userDetails[0]['user_residential_address']; ?> 
                                 </td>
 
                             </tr>
@@ -973,13 +972,13 @@
                                    Contact number 1
                                </td>
                                <td>
-                                987654321
+                                <?php echo $userDetails[0]['user_contact_no1']; ?> 
                             </td>
                             <td class="td-label">
                                Contact number 2
                            </td>
                            <td>
-                            987654321
+                            <?php echo $userDetails[0]['user_contact_no2']; ?> 
                         </td>
                     </tr>
                 </tbody>
@@ -990,20 +989,21 @@
 <!-- view family info div ends -->
 <!-- edit family info div -->
 <div id="edit_family_info" style="display: none;">
+    <form id="form_family_info" class="form-default" role="form">
     <div class="card-inner-title-wrapper pt-0">
         <h3 class="card-inner-title pull-left">Edit Family Information</h3>
         <div class="pull-right">
-            <button type="button" class="btn btn-success btn-sm btn-icon-only btn-shadow" onclick="save_section('family_info')"><i class="ion-checkmark"></i> Save</button>
+            <button type="submit" class="btn btn-success btn-sm btn-icon-only btn-shadow" onclick="save_section('family_info')"><i class="ion-checkmark"></i> Save</button>
             <button type="button" class="btn btn-danger btn-sm btn-icon-only btn-shadow" onclick="load_section('family_info')"><i class="ion-close"></i> Cancel</button>
         </div>
     </div>
     <div class="clearfix"></div>
-    <form id="form_basic_info" class="form-default" role="form">
+    
         <div class="row">
             <div class="col-md-6 w3-margin-top">
                 <div class="form-group has-feedback">
                     <label for="father_name" class="text-uppercase c-gray-light">Father's Name</label>
-                    <input type="text" class="form-control no-resize" name="father_name" value="B.E. Computer science">
+                    <input type="text" class="form-control no-resize" name="father_name" value="<?php echo $userDetails[0]['user_father_name']; ?>" required>
                     <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                     <div class="help-block with-errors"></div>
                 </div>
@@ -1011,7 +1011,7 @@
             <div class="col-md-6 w3-margin-top">
                 <div class="form-group has-feedback">
                     <label for="father_occupation" class="text-uppercase c-gray-light">Father's Occupation</label>
-                    <input type="text" class="form-control no-resize" name="father_occupation">   
+                    <input type="text" class="form-control no-resize" value="<?php echo $userDetails[0]['user_father_occupation']; ?>" required name="father_occupation">   
                     <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                     <div class="help-block with-errors"></div>
                 </div>
@@ -1021,7 +1021,7 @@
             <div class="col-md-6 w3-margin-top">
                 <div class="form-group has-feedback">
                     <label for="mother_name" class="text-uppercase c-gray-light">Mother's Name</label>
-                    <input type="text" class="form-control no-resize" name="mother_name">
+                    <input type="text" class="form-control no-resize" value="<?php echo $userDetails[0]['user_mother_name']; ?>" name="mother_name" required>
                     <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                     <div class="help-block with-errors"></div>
                 </div>
@@ -1029,7 +1029,7 @@
             <div class="col-md-6 w3-margin-top">
                 <div class="form-group has-feedback">
                     <label for="mother_occupation" class="text-uppercase c-gray-light">Mother's Occupation</label>
-                    <input type="text" class="form-control no-resize" name="mother_occupation">
+                    <input type="text" class="form-control no-resize" value="<?php echo $userDetails[0]['user_mother_occupation']; ?>" name="mother_occupation" required>
                     <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                     <div class="help-block with-errors"></div>
                 </div>
@@ -1039,7 +1039,7 @@
             <div class="col-md-6 w3-margin-top">
                 <div class="form-group has-feedback">
                     <label for="residence_address" class="text-uppercase c-gray-light">Residential Address</label>
-                    <textarea name="residence_address" class="form-control no-resize" rows="5">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmodm tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodoconsequat. Duis aute irure dolor in reprehenderit in voluptate velit essecillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat nonproident, sunt in culpa qui officia deserunt mollit anim id est laborum.</textarea>  
+                    <textarea name="residence_address" class="form-control no-resize" rows="5" required><?php echo $userDetails[0]['user_residential_address']; ?></textarea>  
                     <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                     <div class="help-block with-errors"></div>
                 </div>
@@ -1047,15 +1047,16 @@
             <div class="col-md-6 w3-margin-top">
                 <div class="form-group has-feedback">
                     <label for="country" class="text-uppercase c-gray-light">Country</label>
-                    <select name="country" id="country" ng-model="country" ng-change="getCountryState()" class="form-control form-control selectpicker" data-placeholder="Choose country" tabindex="2" data-hide-disabled="true">
-                        <option value="">Choose country</option>
+                    <select name="country" id="country" class="form-control selectpicker" data-placeholder="Choose country" tabindex="2" data-hide-disabled="true">
+                        <option value="0">Choose country</option>
                         <?php
                         for ($i = 0; $i < count($country); $i++) {         ?>
-                            <option value="<?php echo $country[$i]['name'].'/'.$country[$i]['id']; ?>">
+                            <option value="<?php echo $country[$i]['name']; ?>" <?php if($userDetails[0]['user_country']==$country[$i]['name']){ echo 'selected';} ?>>
                                 <?php echo $country[$i]['name']; ?>
                             </option>
                         <?php } ?>
                     </select>
+
                     <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                     <div class="help-block with-errors"></div>
                 </div>
@@ -1066,8 +1067,14 @@
             <div class="col-md-6 w3-margin-top">
                 <div class="form-group has-feedback">
                     <label for="state" class="text-uppercase c-gray-light">State</label>
-                    <select ng-change="getStateCity()" ng-model="state" id="state" name="state" class="form-control form-control selectpicker" tabindex="2" data-hide-disabled="true">
-                        <option value="">Choose a Country first</option>
+                    <select id="state" name="state" class="form-control form-control selectpicker" tabindex="2" data-hide-disabled="true">
+                        <option value="0">Choose a State</option>
+                        <?php
+                        for ($i = 0; $i < count($states); $i++) {         ?>
+                            <option value="<?php echo $states[$i]['name']; ?>" <?php if($userDetails[0]['user_state']==$states[$i]['name']){ echo 'selected';} ?>>
+                                <?php echo $states[$i]['name']; ?>
+                            </option>
+                        <?php } ?>
                     </select>
                     <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                     <div class="help-block with-errors"></div>
@@ -1075,9 +1082,15 @@
             </div>
             <div class="col-md-6 w3-margin-top">
                 <div class="form-group has-feedback">
-                    <label for="native_place" class="text-uppercase c-gray-light">Native Place</label>
+                    <label for="native_place" class="text-uppercase c-gray-light">Native Place/ City</label>
                     <select id="native_place" name="native_place" class="form-control form-control selectpicker" tabindex="2" data-hide-disabled="true">
-                        <option value="">Choose a State first</option>
+                        <option value="">Choose a City</option>
+                        <?php
+                        for ($i = 0; $i < count($cities); $i++) {         ?>
+                            <option value="<?php echo $cities[$i]['name']; ?>" <?php if($userDetails[0]['user_city']==$cities[$i]['name']){ echo 'selected';} ?>>
+                                <?php echo $cities[$i]['name']; ?>
+                            </option>
+                        <?php } ?>
                     </select>
                     <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                     <div class="help-block with-errors"></div>
@@ -1088,7 +1101,7 @@
             <div class="col-md-6 w3-margin-top">
                 <div class="form-group has-feedback">
                     <label for="contact_no_1" class="text-uppercase c-gray-light">Contact No.1</label>
-                    <input type="number" class="form-control no-resize" name="contact_no_1">
+                    <input type="number" class="form-control no-resize" value="<?php if($userDetails[0]['user_contact_no1']!=0){ echo $userDetails[0]['user_contact_no1']; } ?>" name="contact_no_1" required>
                     <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                     <div class="help-block with-errors"></div>
                 </div>
@@ -1096,7 +1109,7 @@
             <div class="col-md-6 w3-margin-top">
                 <div class="form-group has-feedback">
                     <label for="contact_no_2" class="text-uppercase c-gray-light">Contact No.2</label>
-                    <input type="number" class="form-control no-resize" name="contact_no_2">
+                    <input type="number" class="form-control no-resize" value="<?php if($userDetails[0]['user_contact_no2']!=0){ echo $userDetails[0]['user_contact_no2']; } ?>" name="contact_no_2">
                     <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                     <div class="help-block with-errors"></div>
                 </div>
@@ -1454,22 +1467,22 @@
 <!-- EXPECTATIONS DIV ENDS -->
 <!-- documents div -->
 <div class="feature feature--boxed-border feature--bg-1 pt-3 pb-0 pl-3 pr-3 mb-3 border_top2x">
-    <div id="info_introduction">
+    <div id="section_documents">
         <div class="card-inner-title-wrapper pt-0">
             <h3 class="card-inner-title pull-left">
             Documents Uploaded  </h3>
         </div>
         <div class="clearfix"></div>
-        <form id="form_life_style" class="form-default" role="form">
+        <form id="form_documents" enctype="multipart/form-data">
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group has-feedback">
                         <label for="document_type" class="text-uppercase c-gray-light">Document Type</label>
                         <select name="document_type" onchange="(this.value,this)" class="form-control form-control-sm selectpicker" data-placeholder="Choose a document" tabindex="2" data-hide-disabled="true">
                             <option value="0" class="w3-light-grey">Choose one document</option>
-                            <option value="1">Adhaar Card</option>
-                            <option value="2">PAN Card</option>
-                            <option value="3">Electricity Bill</option>
+                            <option value="Adhaar Card">Adhaar Card</option>
+                            <option value="PAN Card">PAN Card</option>
+                            <option value="Electricity Bill">Electricity Bill</option>
                         </select>                        
                         <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                         <div class="help-block with-errors"></div>
@@ -1477,8 +1490,8 @@
                 </div>
                 <div class="col-md-6">
                     <div class="form-group has-feedback">
-                        <label for="diet" class="text-uppercase c-gray-light">Upload Document</label>
-                        <input type="file" class="form-control no-resize" name="diet" value="xyz" style="padding-top:4px;padding-bottom:4px">
+                        <label for="document_file" class="text-uppercase c-gray-light">Upload Document</label>
+                        <input type="file" class="form-control no-resize" name="document_file" style="padding-top:4px;padding-bottom:4px">
                         <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                         <div class="help-block with-errors"></div>
                     </div>
@@ -1487,7 +1500,7 @@
             </div>
             <div class="row">
                 <div class="col-md-12">
-                    <button type="button" class="btn btn-primary btn-md btn-icon-only btn-shadow" onclick="save_section('life_style')"><i class="fa fa-upload"></i> Upload Document</button>
+                    <button type="submit" class="btn btn-primary btn-md btn-icon-only btn-shadow"><i class="fa fa-upload"></i> Upload Document</button>
                 </div>
             </div>
         </form>

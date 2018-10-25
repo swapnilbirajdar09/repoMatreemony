@@ -36,11 +36,34 @@ class User_profile extends CI_Controller {
 
         $data['userDetails'] = $this->user_model->getUserDetails($user_id);
         $data['country'] = $this->Advancesearch_model->getAllCountries();
+        $data['states'] = User_profile::getAllStates();
+        $data['cities'] = User_profile::getAllCities();
         $data['occupations'] = $this->Advancesearch_model->getOccupationDetails();
         $data['educations'] = $this->Advancesearch_model->getEducationDetails();        
         $this->load->view('includes/user/userheader.php'); //------user header page
         $this->load->view('pages/user/User_profile.php',$data); //------user profile page
         $this->load->view('includes/user/userfooter.php'); //------user footer page
+    }
+    //----------------function to get all states
+    public function getAllStates() {
+        $sql = "SELECT * FROM states WHERE country_id='101'";
+        $result = $this->db->query($sql);
+        if ($result->num_rows() <= 0) {
+            return false;
+        } else {
+            return $result->result_array();
+        }
+    }
+
+    //----------------function to get all cities
+    public function getAllCities() {
+        $sql = "SELECT * FROM cities WHERE state_id<='41' ORDER BY name";
+        $result = $this->db->query($sql);
+        if ($result->num_rows() <= 0) {
+            return false;
+        } else {
+            return $result->result_array();
+        }
     }
 
     // update function for About me section
@@ -54,9 +77,9 @@ class User_profile extends CI_Controller {
         //session key format is $keyarr[0]=PARInaayKEY|$keyarr[1]=email_id|$keyarr[2]=user_id
 
         if(!empty($_POST['about_me'])){
-         $result = $this->user_model->update_about_me($_POST['about_me'],$keyarr[2]);
+           $result = $this->user_model->update_about_me($_POST['about_me'],$keyarr[2]);
 
-         if($result){
+           if($result){
             $response=array(
                 'status'    =>  'success',
                 'message'   =>  '<b>Success:</b> You Have Successfully Edited <b>About Me</b>!'
@@ -90,9 +113,9 @@ public function update_expectations(){
         //session key format is $keyarr[0]=PARInaayKEY|$keyarr[1]=email_id|$keyarr[2]=user_id
 
     if(!empty($_POST['expectations'])){
-     $result = $this->user_model->update_expectations($_POST['expectations'],$keyarr[2]);
+       $result = $this->user_model->update_expectations($_POST['expectations'],$keyarr[2]);
 
-     if($result){
+       if($result){
         $response=array(
             'status'    =>  'success',
             'message'   =>  '<b>Success:</b> You Have Successfully Edited <b>Expectations</b>!'
@@ -417,5 +440,226 @@ public function update_life_style(){
     echo json_encode($response);
 }
 
+    // update function for Family section
+// ------------------------------------------------------------ //
+public function update_family_info(){
+
+        // user user-id from session
+    $encodedkey = $this->session->userdata('PariKey_session');
+    $user_id='';
+    $key=base64_decode($encodedkey);
+    $keyarr=explode('|', $key);
+        //session key format is $keyarr[0]=PARInaayKEY|$keyarr[1]=email_id|$keyarr[2]=user_id
+    // print_r($_POST);die();
+    extract($_POST);
+        // validation
+    if(empty($father_name)){
+        $response=array(
+            'status'    =>  'validation',
+            'message'   =>  '<b>Warning:</b> Father Name field is required!',
+            'field'   =>  'father_name'
+        );
+        echo json_encode($response);
+        die();
+    }
+    if(empty($father_occupation)){
+        $response=array(
+            'status'    =>  'validation',
+            'message'   =>  '<b>Warning:</b> Father Occupation field is required!',
+            'field'   =>  'father_occupation'
+        );
+        echo json_encode($response);
+        die();
+    }
+    if(empty($mother_name)){
+        $response=array(
+            'status'    =>  'validation',
+            'message'   =>  '<b>Warning:</b> Mother Name field is required!',
+            'field'   =>  'mother_name'
+        );
+        echo json_encode($response);
+        die();
+    }
+    if(empty($mother_occupation)){
+        $response=array(
+            'status'    =>  'validation',
+            'message'   =>  '<b>Warning:</b> Mother Occupation field is required!',
+            'field'   =>  'mother_occupation'
+        );
+        echo json_encode($response);
+        die();
+    }
+    if(empty($residence_address)){
+        $response=array(
+            'status'    =>  'validation',
+            'message'   =>  '<b>Warning:</b> Residential Address field is required!',
+            'field'   =>  'residence_address'
+        );
+        echo json_encode($response);
+        die();
+    }
+    if($country=='0'){
+        $response=array(
+            'status'    =>  'validation',
+            'message'   =>  '<b>Warning:</b> Select Country option!',
+            'field'   =>  'country'
+        );
+        echo json_encode($response);
+        die();
+    }    
+    if($state=='0'){
+        $response=array(
+            'status'    =>  'validation',
+            'message'   =>  '<b>Warning:</b> Select State option!',
+            'field'   =>  'state'
+        );
+        echo json_encode($response);
+        die();
+    }
+    if($native_place=='0'){
+        $response=array(
+            'status'    =>  'validation',
+            'message'   =>  '<b>Warning:</b> Select City/ Native Place option!',
+            'field'   =>  'native_place'
+        );
+        echo json_encode($response);
+        die();
+    }
+    if(empty($contact_no_1)){
+        $response=array(
+            'status'    =>  'validation',
+            'message'   =>  '<b>Warning:</b> At least 1 Contact Number is required!',
+            'field'   =>  'contact_no_1'
+        );
+        echo json_encode($response);
+        die();
+    }
+
+    $result = $this->user_model->update_family_info($_POST,$keyarr[2]);
+
+    if($result){
+        $response=array(
+            'status'    =>  'success',
+            'message'   =>  '<b>Success:</b> You Have Successfully Edited <b>Family Information</b>!'
+        );
+    }
+    else{
+        $response=array(
+            'status'    =>  'error',
+            'message'   =>  '<b>Error:</b> Perhaps you didn\'t make any change. <b>Family Information</b> was not updated Successfully!'
+        );
+    } 
+    echo json_encode($response);
+}
+
+    // upload function for Documents
+// ------------------------------------------------------------ //
+public function update_documents(){
+
+    // user user-id from session
+    $encodedkey = $this->session->userdata('PariKey_session');
+    $user_id='';
+    $key=base64_decode($encodedkey);
+    $keyarr=explode('|', $key);
+    //session key format is $keyarr[0]=PARInaayKEY|$keyarr[1]=email_id|$keyarr[2]=user_id
+    // print_r($_POST);die();
+    extract($_FILES);
+    extract($_POST);
+    
+    // validation
+    if($document_type=='0'){
+        $response=array(
+            'status'    =>  'validation',
+            'message'   =>  '<b>Warning:</b> Select Document Type option!',
+            'field'   =>  'document_type'
+        );
+        echo json_encode($response);
+        die();
+    }  
+    if(empty(($_FILES['document_file']['name']))){
+        $response=array(
+            'status'    =>  'validation',
+            'message'   =>  '<b>Warning:</b> Document file is required!',
+            'field'   =>  'document_file'
+        );
+        echo json_encode($response);
+        die();
+    }
+
+    $data = $_POST;
+    $filepath = '';
+
+    $file_name = $_FILES['document_file']['name'];
+    if (!empty(($_FILES['document_file']['name']))) {
+        //file validating---------------------------//
+        if ($_FILES['document_file']['size'] > 10485760) {  //for prod images
+            $response=array(
+                'status'    =>  'validation',
+                'message'   =>  '<b>Warning:</b> Document size exceeds size limit of 10MB. Upload file having size less than 10MB!',
+                'field'   =>  'document_file'
+            );
+            echo json_encode($response);
+            die();
+        }
+
+        $extension = pathinfo($_FILES['document_file']['name'], PATHINFO_EXTENSION);
+        $_FILES['userFile']['name'] = $document_type.'_0'.$keyarr[2].'.'.$extension;
+        $_FILES['userFile']['type'] = $_FILES['document_file']['type'];
+        $_FILES['userFile']['tmp_name'] = $_FILES['document_file']['tmp_name'];
+        $_FILES['userFile']['error'] = $_FILES['document_file']['error'];
+        $_FILES['userFile']['size'] = $_FILES['document_file']['size'];
+
+        $uploadPath = 'assets/users/documents/';  //upload images in images/desktop/ folder
+
+        $config['upload_path'] = $uploadPath;
+        $config['overwrite'] = TRUE;
+        $config['allowed_types'] = '*'; //allowed types of files
+        $this->load->library('upload', $config);  //load upload file config.
+        $this->upload->initialize($config);
+        // print_r($config);die();
+        $image_path = '';
+
+        if ($this->upload->do_upload('userFile')) {
+            $fileData = $this->upload->data();
+            $filepath = 'assets/users/documents/'.$fileData['file_name'];
+        }
+        else{
+             $response=array(
+                'status'    =>  'validation',
+                'message'   =>  $this->upload->display_errors('<p><b>File upload Error: </b>', '</p>'),
+                'field'   =>  'document_file'
+            );
+            echo json_encode($response);
+            die();
+        }
+        // print_r($filepath);die();
+    }
+
+    $data['filepath'] = $filepath;
+    if($filepath==''){
+        $response=array(
+            'status'    =>  'validation',
+            'message'   =>  '<b>Warning:</b> Document file not uploaded Successfully!',
+            'field'   =>  'document_file'
+        );
+        echo json_encode($response);
+        die();
+    }
+    $result = $this->user_model->upload_document($data,$keyarr[2]);
+
+    if($result){
+        $response=array(
+            'status'    =>  'success',
+            'message'   =>  '<b>Success:</b> You Have Successfully uploaded <b>'.$document_type.'</b> Document!'
+        );
+    }
+    else{
+        $response=array(
+            'status'    =>  'error',
+            'message'   =>  '<b>Error:</b> <b>'.$document_type.'</b> Document was not uploaded Successfully!'
+        );
+    } 
+    echo json_encode($response);
+}
 
 }

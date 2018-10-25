@@ -126,5 +126,51 @@ class User_model extends CI_Model {
         }
     }
 
+    // update family section for user
+    public function update_family_info($data,$user_id){
+        extract($data);
+        $result = array(
+            'user_father_name' => $father_name,
+            'user_father_occupation' => $father_occupation,
+            'user_mother_name' => $mother_name,
+            'user_mother_occupation' => $mother_occupation,
+            'user_residential_address' => $residence_address,
+            'user_country' => $country,
+            'user_state' => $state,
+            'user_city' => $native_place,
+            'user_contact_no1' => $contact_no_1,
+            'user_contact_no2' => $contact_no_2
+        );
+
+        $this->db->where('user_id', $user_id);
+        $this->db->update('user_profile_tab', $result);
+        if($this->db->affected_rows()==1){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+    // insert uploaded document in table
+    public function upload_document($data,$user_id){
+        extract($data);
+        // print_r($data);die();
+        $result = array(
+            'document_type' => $document_type,
+            'document_path' => $filepath,
+            'user_id' => $user_id,
+            'document_status' => 'pending'
+        );
+
+        $this->db->insert('document_tab',$result);
+        if($this->db->affected_rows()>0){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
 
 }
