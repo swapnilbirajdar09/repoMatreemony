@@ -86,17 +86,19 @@ class Allusers_model extends CI_Model {
     //--- fun. to get member records on filter
     public function filtermember($sort_byID, $query_string, $sortbyGender) {
 
-        $sql = "SELECT * FROM user_profile_tab,user_tab where user_tab.user_id = user_profile_tab.user_id AND user_profile_tab.user_firstname LIKE '$query_string%' OR user_profile_tab.user_profile_key='$sort_byID' OR user_tab.user_gender = '$sortbyGender' ";
-        //echo $sql;die();
-        if ($sortbyGender == 0) {
-            $sql = "SELECT * FROM user_profile_tab,user_tab where user_tab.user_id = user_profile_tab.user_id AND user_profile_tab.user_firstname LIKE '$query_string%' OR user_profile_tab.user_profile_key ='$sort_byID'";
+        $sql = "SELECT * FROM user_profile_tab,user_tab where user_tab.user_id = user_profile_tab.user_id ";
+        
+
+        if ($query_string != '') {
+            $sql .= "AND user_tab.user_firstname LIKE '%$query_string%'";
         }
-        if ($query_string == '') {
-            $sql = "SELECT * FROM user_profile_tab,user_tab where user_tab.user_id = user_profile_tab.user_id  AND user_profile_tab.user_profile_key='$sort_byID' OR user_tab.user_gender = '$sortbyGender' ";
+        if ($sort_byID != '') {
+            $sql .= "AND user_profile_tab.user_profile_key='$sort_byID'";
         }
-//        echo $sql;
-//        die();
-        $result = $this->db->query($sql);
+         if ($sortbyGender != '' && $sortbyGender != '0') {
+            $sql .= "AND user_tab.user_gender='$sortbyGender'";
+        }
+      $result = $this->db->query($sql);
         if ($result->num_rows() <= 0) {
             $response = array(
                 'status' => 500,
