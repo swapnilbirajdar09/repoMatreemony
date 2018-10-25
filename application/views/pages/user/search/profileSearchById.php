@@ -73,14 +73,14 @@
                         </div>
                         <div class="block-title-wrapper">
                             <h3 class="heading heading-5 strong-500 mt-1">
-                                <a onclick="return goto_profile(p.user_id)" class="c-base-1">{{p.user_fullname}}</a>
+                                <a onclick="return goto_profile(p.user_id)" class="c-base-1">{{p.firstName + ' ' + p.lastName}}</a>
                             </h3>
                             <h4 class="heading heading-xs c-gray-light text-uppercase strong-400">{{p.user_designation}}</h4>
                             <table class="mb-2" style="font-size: 12px;">
                                 <tbody>
                                     <tr>
                                         <td height="30" style="padding-left: 3px;" class="font-dark"><b>Member ID</b></td>
-                                        <td height="30" style="padding-left: 3px;" class="font-dark" colspan="3"><a onclick="return goto_profile(1)" class="c-base-1"><b>#000{{p.user_profile_id}}</b></a></td>
+                                        <td height="30" style="padding-left: 3px;" class="font-dark" colspan="3"><a onclick="return goto_profile()" class="c-base-1"><b>#000{{p.user_profile_key}}</b></a></td>
                                     </tr>
                                     <tr>
                                         <td width="120" height="30" style="padding-left: 3px;" class="font-dark"><b>Age</b></td>
@@ -96,7 +96,7 @@
                                     </tr>
                                     <tr>
                                         <td width="120" height="30" style="padding-left: 3px;" class="font-dark"><b>Location</b></td>
-                                        <td colspan="3" height="30" style="padding-left: 3px;" class="font-dark">Nidwalden, Switzerland</td>
+                                        <td colspan="3" height="30" style="padding-left: 3px;" class="font-dark">{{p.user_location}}</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -110,12 +110,12 @@
                                         </li>
                                         <li class="listing-hover" ng-if="p.alreadySent != '0'">
                                             <a>
-                                                <i class="fa fa-user-plus w3-text-black"></i> Already Sent</a>
+                                                <i class="fa fa-user-plus w3-text-black"></i> Cancel Request</a>
                                         </li>
-                                        <li class="listing-hover">
-                                            <a onclick="return goto_profile(p.user_id)">
-                                                <i class="fa fa-id-card"></i>Full Profile</a>
-                                        </li>
+                                        <!--                                        <li class="listing-hover">
+                                                                                    <a onclick="return goto_profile(p.user_id)">
+                                                                                        <i class="fa fa-id-card"></i>Full Profile</a>
+                                                                                </li>-->
                                         <li class="listing-hover">
                                             <a id="interest_a_1" onclick="confirm_interest(p.user_id)" style="">
                                                 <span id="interest_1" class=""><i class="fa fa-heart"></i> Add To Favourite</span>
@@ -208,11 +208,25 @@ $session_user_id = $keyarr[2];
                 var data = response.data;
                 //alert(data);
                 $scope.profiles = [];
-                var i, user_photos, receivedReq, birthday, today, user_fullname, user_designation, user_mother_tongue, user_marital_status, age, newAge, totage;
+                var i, j, user_photos, firstname, receivedReq, alreadySent, user_location, birthday, today, user_fullname, user_designation, user_mother_tongue, user_marital_status, age, newAge, totage;
                 console.log(data);
                 $scope.finderloader = false;
                 if (data != 500) {
                     for (i = 0; i < data.length; i++) {
+                        alreadySent = 0;
+                        receivedReq = 0;
+                        //-----------check the received requests are null or not null
+                        if (data[i].user_received_requests != '') {
+                            receivedReq = JSON.parse(data[i].user_received_requests);
+                        }
+                        // Make sure user hasnt already added this item
+                        angular.forEach(receivedReq, function (item) {
+                            //alert(session_user_id);
+                            if (session_user_id == item) {
+                                alreadySent = 1;
+                            }
+                        });
+
                         birthday = new Date(data[i].user_dob);
                         today = new Date();
                         age = ((today - birthday) / (31557600000));
@@ -245,7 +259,22 @@ $session_user_id = $keyarr[2];
                         } else {
                             user_marital_status = 'N/A';
                         }
-                        $scope.profiles.push({'user_profile_id': data[i].user_profile_id,
+                        if (data[i].user_country != '') {
+                            user_location = data[i].user_country + ', ' + data[i].user_state + ', ' + data[i].user_city + '.'
+                        } else {
+                            user_location = 'N/A';
+                        }
+
+                        for (j = 0; j < data[i].user_firstname.length; j++) {
+                            if (j == 0) {
+                                firstname = data[i].user_firstname[0];
+                            } else {
+                                firstname += '*';
+                            }
+                        }
+
+                        $scope.profiles.push({'user_profile_key': data[i].user_profile_key,
+                            'user_profile_id': data[i].user_profile_id,
                             'user_id': data[i].user_id,
                             'user_fullname': user_fullname,
                             'user_gender': data[i].user_gender,
@@ -261,7 +290,11 @@ $session_user_id = $keyarr[2];
                             'user_state': data[i].user_state,
                             'user_city': data[i].user_city,
                             'age': newAge,
-                            'user_photos': user_photos
+                            'user_photos': user_photos,
+                            'alreadySent': alreadySent,
+                            'user_location': user_location,
+                            'firstName': firstname,
+                            'lastName': data[i].user_lastname
                         });
                     }
                 } else {
@@ -274,7 +307,7 @@ $session_user_id = $keyarr[2];
         $http.get(BASE_URL + "user/search/profilesearch_byid/getAllUserProfiles").then(function (response) {
             var data = response.data;
             //alert(data);
-            var i, user_photos, alreadySent, receivedReq, birthday, today, user_fullname, user_designation, user_mother_tongue, user_marital_status, age, newAge, totage;
+            var i, j, user_photos, firstname, user_location, alreadySent, receivedReq, birthday, today, user_fullname, user_designation, user_mother_tongue, user_marital_status, age, newAge, totage;
             console.log(data);
             if (data != 500) {
                 for (i = 0; i < data.length; i++) {
@@ -324,7 +357,24 @@ $session_user_id = $keyarr[2];
                     } else {
                         user_marital_status = 'N/A';
                     }
-                    $scope.profiles.push({'user_profile_id': data[i].user_profile_id,
+
+                    if (data[i].user_country != '') {
+                        user_location = data[i].user_country + ', ' + data[i].user_state + ', ' + data[i].user_city + '.'
+                    } else {
+                        user_location = 'N/A';
+                    }
+                    //console.log(data[i].user_firstname);
+                    for (j = 0; j < data[i].user_firstname.length; j++) {
+                        if (j == 0) {
+                            firstname = data[i].user_firstname[0];
+                        } else {
+                            firstname += '*';
+                        }
+                    }
+                    //alert(firstname);
+
+                    $scope.profiles.push({'user_profile_key': data[i].user_profile_key,
+                        'user_profile_id': data[i].user_profile_id,
                         'user_id': data[i].user_id,
                         'user_fullname': user_fullname,
                         'user_gender': data[i].user_gender,
@@ -341,7 +391,10 @@ $session_user_id = $keyarr[2];
                         'user_city': data[i].user_city,
                         'age': newAge,
                         'user_photos': user_photos,
-                        'alreadySent': alreadySent
+                        'alreadySent': alreadySent,
+                        'user_location': user_location,
+                        'firstName': firstname,
+                        'lastName': data[i].user_lastname
                     });
                 }
             } else {
@@ -350,6 +403,7 @@ $session_user_id = $keyarr[2];
             //console.log($scope.po);
             //$scope.poData = $scope.po;
         });
+        
         $scope.sendRequestToUser = function (user_id) {
             //alert(user_profile_id);
             $http({

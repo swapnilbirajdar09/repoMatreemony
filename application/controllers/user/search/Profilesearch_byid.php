@@ -14,13 +14,24 @@ class Profilesearch_byid extends CI_Controller {
 
     // main index function
     public function index() {
-        // start session		
-//        $admin_name = $this->session->userdata('admin_name'); //----session variable
-//        if ($admin_name == '') {
-//            redirect('admin/admin_login');
-//        }
-        //$data['adminInfo'] = $this->Adminprofile_model->getAdminDetails();
-        // print_r($data['adminInfo']);die();
+        $encodedkey = $this->session->userdata('PariKey_session');
+        $gender = $this->session->userdata('key_gender');
+        $user_id = '';
+        // check session active or not
+        if ($encodedkey == '') {
+            redirect('/');
+        } else {
+            $key = base64_decode($encodedkey);
+            $keyarr = explode('|', $key);
+            // print_r($keyarr);die();
+            //session key format is PARInaayKEY|email_id|user_id
+
+            if ($keyarr[0] != 'PARInaayKEY' && $keyarr[1] != '' && $keyarr[2] != '') {
+                redirect('/');
+            } else {
+                $user_id = $keyarr[2];
+            }
+        }
         $this->load->view('includes/user/userheader');
         $this->load->view('pages/user/search/profileSearchById'); //------loading the profile search by id view
         $this->load->view('includes/user/userfooter');
@@ -29,9 +40,10 @@ class Profilesearch_byid extends CI_Controller {
 //---------------fun for get all user profiles by user profile id
 
     public function searchByProfile_id() {
+        $gender = $this->session->userdata('key_gender');
         extract($_GET);
         //print_r($_GET);
-        $result = $this->Searchbyprofileid_model->searchByProfile_id($filter_member_id);
+        $result = $this->Searchbyprofileid_model->searchByProfile_id($filter_member_id,$gender);
         if (!$result) {
             echo '500';
         } else {
@@ -42,9 +54,10 @@ class Profilesearch_byid extends CI_Controller {
 //---------------fun for get all user profiles
 
     public function getAllUserProfiles() {
+        $gender = $this->session->userdata('key_gender');
         extract($_GET);
         //print_r($_GET);
-        $result = $this->Searchbyprofileid_model->getAllUserProfiles();
+        $result = $this->Searchbyprofileid_model->getAllUserProfiles($gender);
         if (!$result) {
             echo '500';
         } else {
