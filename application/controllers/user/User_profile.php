@@ -592,7 +592,7 @@ public function update_documents(){
         $uploadPath = 'assets/users/documents/';  //upload images in images/desktop/ folder
 
         $config['upload_path'] = $uploadPath;
-        $config['overwrite'] = TRUE;
+        $config['overwrite'] = FALSE;
         $config['allowed_types'] = '*'; //allowed types of files
         $this->load->library('upload', $config);  //load upload file config.
         $this->upload->initialize($config);
