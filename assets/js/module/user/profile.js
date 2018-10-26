@@ -167,7 +167,7 @@ function save_section(section)
             $('#section_'+section).find('.btn').prop('disabled', true);
         },
         success: function (response) {
-        	console.log(response);return false;
+        	// console.log(response);return false;
         	var data=JSON.parse(response);
 
         	// Re_Enabling the Elements
