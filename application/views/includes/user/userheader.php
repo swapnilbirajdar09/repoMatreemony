@@ -37,6 +37,7 @@
         <script src="<?php echo base_url(); ?>assets/js/const.js"></script>
         <script src="<?php echo base_url(); ?>assets/js/angular.js"></script>
         <script src="<?php echo base_url(); ?>assets/js/angular-sanitize.js"></script>
+        <script src="<?php echo base_url(); ?>assets/js/dirPaginate.js"></script>
         <!-- Core -->
         <script src="<?php echo base_url(); ?>assets/client/template/front/vendor/jquery/jquery.min.js"></script>    <!-- Favicon -->
         <script src="<?php echo base_url(); ?>assets/alert/jquery-confirm.js"></script>

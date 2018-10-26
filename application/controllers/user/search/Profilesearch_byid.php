@@ -43,7 +43,7 @@ class Profilesearch_byid extends CI_Controller {
         $gender = $this->session->userdata('key_gender');
         extract($_GET);
         //print_r($_GET);
-        $result = $this->Searchbyprofileid_model->searchByProfile_id($filter_member_id,$gender);
+        $result = $this->Searchbyprofileid_model->searchByProfile_id($filter_member_id, $gender);
         if (!$result) {
             echo '500';
         } else {
@@ -79,6 +79,8 @@ class Profilesearch_byid extends CI_Controller {
             echo 200;
         } elseif ($result == 700) {
             echo 700;
+        } elseif ($result == 900) {
+            echo 900;
         } else {
             echo 500;
         }

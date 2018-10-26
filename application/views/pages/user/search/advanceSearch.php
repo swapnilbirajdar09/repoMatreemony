@@ -230,7 +230,7 @@
                                                 <label for="" class="text-uppercase w3-medium">Working Field</label>
                                                 <select name="working_field" id="working_field" class="w3-input selectpicker s_religion" data-placeholder="Choose a religion" tabindex="2" data-hide-disabled="true" >
                                                     <option value="" class="w3-light-grey" selected>Select One*</option>
-                                                    <option value="Govt">Govt</option>
+                                                    <option value="Government">Government</option>
                                                     <option value="Own Business">Own Business</option>
                                                     <option value="Private Sector">Private Sector</option>
                                                     <option value="Public Sector">Public Sector</option>

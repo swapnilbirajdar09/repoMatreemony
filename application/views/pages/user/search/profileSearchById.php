@@ -1,3 +1,7 @@
+<style>
+
+</style>
+
 <section class="page-title page-title--style-1">
     <div class="container">
         <div class="row align-items-center">
@@ -10,23 +14,31 @@
 <section class="slice sct-color-1">
     <div class="container">
         <div class="row" ng-app="searchProfileByIdApp" ng-controller="searchProfileByIdAppController">
+            <!-- Alert for Validating Ajax Profile Edit Section -->
+            <div class="col-lg-3 col-md-4 alert_message" id="ajax_validation_alert" style="display: none; position: fixed; top: 15px; right: 0; z-index: 9999">
+                <div class="alert alert-warning  fade show alert-dismissible" role="alert">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    <span class="ajax_validation_alert"></span>
+                </div>
+            </div>
+            <!-- Alert for Validating Ajax Profile Edit Section -->
+            <!-- Alerts for Member actions -->
+            <div class="col-lg-3 col-md-4 alert_message" id="ajax_success_alert" style="display: none; position: fixed; top: 15px; right: 0; z-index: 9999">
+                <div class="alert alert-success  fade show alert-dismissible" role="alert">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    <!-- Success Alert Content -->
+                    <span class="ajax_success_alert"></span>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 alert_message" id="ajax_danger_alert" style="display: none; position: fixed; top: 15px; right: 0; z-index: 9999">
+                <div class="alert alert-danger  fade show alert-dismissible" role="alert">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    <!-- Success Alert Content -->
+                    <span class="ajax_danger_alert"></span>
+                </div>
+            </div>
+            <!-- Alerts for Member actions -->
 
-            <!--success div-->
-            <div class="col-lg-3 col-md-4" id="ajax_success_alert" style="display: none; position: fixed; top: 15px; right: 0; z-index: 9999">
-                <div class="alert alert-success ajax_success_alert alert-dismissible fade show" role="alert">
-                    <!-- Success Alert Content -->
-                    {{message}}
-                </div>
-            </div>
-            <!--success div-->
-            <!--error div-->
-            <div class="col-lg-3 col-md-4" id="ajax_danger_alert" style="display: none; position: fixed; top: 15px; right: 0; z-index: 9999">
-                <div class="alert alert-danger ajax_danger_alert alert-dismissible fade show" role="alert">
-                    <!-- Success Alert Content -->
-                    {{message}}
-                </div>
-            </div>
-            <!--error div-->
 
             <div class="col-lg-4">
                 <div class="sidebar">
@@ -65,7 +77,7 @@
                 <!-----------------------------this Div is for all users profiles---------------------------------->
                 <div class="block-wrapper" id="result">
                     <!-----------------------------this Div is for single user profile---------------------------------->
-                    <div class="block block--style-3 list z-depth-1-top" ng-if="profiles != 500" id="block_1" ng-repeat="p in profiles">
+                    <div class="block block--style-3 list z-depth-1-top" ng-if="profiles != 500" id="block_1" dir-paginate="p in profiles|itemsPerPage:5">
                         <div class="block-image">
                             <a onclick="goto_profile(p.user_id)">
                                 <div class="listing-image" style="background-image: url(http://activeitzone.com/demo/matrimonial/uploads/profile_image/profile_1.jpg)"></div>
@@ -109,7 +121,7 @@
                                                 <i class="fa fa-user-plus w3-text-green"></i>Send Request</a>
                                         </li>
                                         <li class="listing-hover" ng-if="p.alreadySent != '0'">
-                                            <a>
+                                            <a ng-click="cancelRequestOfUser(p.user_id);">
                                                 <i class="fa fa-user-plus w3-text-black"></i> Cancel Request</a>
                                         </li>
                                         <!--                                        <li class="listing-hover">
@@ -139,8 +151,9 @@
 
                 </div>
                 <!-----------------------------this Div is for all users profiles---------------------------------->
-                <div id="pagination" style="float: right;">
+                <div id="pagination" class="" style="float: right;">
                     <!-- Loads Ajax Pagination Links -->
+                    <dir-pagination-controls max-size="5" direction-links="true" boundary-links="true" style="padding: 5px;"></dir-pagination-controls>
                 </div>
             </div>
 
@@ -186,7 +199,7 @@
 <!--<script src="<?php echo base_url(); ?>assets/js/module/user/search/profileSearchById.js">-->
 <script>
 // Angular script to add required skills in ad product form
-    var app = angular.module("searchProfileByIdApp", ['ngSanitize']);
+    var app = angular.module("searchProfileByIdApp", ['ngSanitize', 'angularUtils.directives.dirPagination']);
     app.controller("searchProfileByIdAppController", function ($scope, $http, $window) {
 //------------------------------------------------------------------------------------------------------//
         $scope.profiles = [];
@@ -403,26 +416,46 @@ $session_user_id = $keyarr[2];
             //console.log($scope.po);
             //$scope.poData = $scope.po;
         });
-        
+
+
         $scope.sendRequestToUser = function (user_id) {
-            //alert(user_profile_id);
-            $http({
-                method: 'get',
-                url: BASE_URL + 'user/search/profilesearch_byid/sendRequestToUser?profile_user_id=' + user_id
-            }).then(function successCallback(response) {
-                //alert(response.data);
-                console.log(response.data);
-                $('#ajax_success_alert').css('display', 'block');
+            $.confirm({
+                title: '<h4 class="w3-text-green">Please confirm the action!</h4><span class="w3-medium">Do you really want to Send Request?</span>',
+                content: '',
+                type: 'red',
+                buttons: {
+                    confirm: function () {
+                        $http({
+                            method: 'get',
+                            url: BASE_URL + "user/search/profilesearch_byid/sendRequestToUser?profile_user_id=" + user_id
+                        }).then(function successCallback(response) {
+                            console.log(response.data);
+                            //alert(response.data);
+                            switch (response.data) {
+                                case '200':
+                                    $('#ajax_success_alert').show();
+                                    $('.ajax_success_alert').html('Request Sent Successfully.');
+                                    break;
 
-                if (response.data == '200') {
-                    $scope.message = 'Request Sent Successfully.';
-                }
-                if (response.data == '700') {
-                    $scope.message = 'No Requests Tockens Are Available.';
+                                case '500':
+                                    $('#ajax_danger_alert').show();
+                                    $('.ajax_danger_alert').html('Request Not Sent Successfully.');
+                                    break;
 
-                }
-                if (response.data == '500') {
-                    $scope.message = 'Request Not Sent Successfully.';
+                                case '700':
+                                    $('#ajax_validation_alert').show();
+                                    $('.ajax_validation_alert').html('No Request Tockens Are Available.');
+                                    break;
+
+                                case '900':
+                                    $('#ajax_validation_alert').show();
+                                    $('.ajax_validation_alert').html('Request Is Already Sent You By The Receiver.');
+                                    break;
+                            }
+                        });
+                    },
+                    cancel: function () {
+                    }
                 }
             });
         };
