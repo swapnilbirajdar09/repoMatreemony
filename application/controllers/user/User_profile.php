@@ -35,37 +35,17 @@ class User_profile extends CI_Controller {
         }
 
         $data['userDetails'] = $this->user_model->getUserDetails($user_id);
+        $data['userDocuments'] = $this->user_model->getUserDocuments($user_id);
         $data['country'] = $this->Advancesearch_model->getAllCountries();
-        $data['states'] = User_profile::getAllStates();
-        $data['cities'] = User_profile::getAllCities();
+        $data['states'] = $this->user_model->getAllStates();
+        $data['cities'] = $this->user_model->getAllCities();
         $data['occupations'] = $this->Advancesearch_model->getOccupationDetails();
         $data['educations'] = $this->Advancesearch_model->getEducationDetails();        
         $this->load->view('includes/user/userheader.php'); //------user header page
         $this->load->view('pages/user/User_profile.php',$data); //------user profile page
         $this->load->view('includes/user/userfooter.php'); //------user footer page
     }
-    //----------------function to get all states
-    public function getAllStates() {
-        $sql = "SELECT * FROM states WHERE country_id='101'";
-        $result = $this->db->query($sql);
-        if ($result->num_rows() <= 0) {
-            return false;
-        } else {
-            return $result->result_array();
-        }
-    }
-
-    //----------------function to get all cities
-    public function getAllCities() {
-        $sql = "SELECT * FROM cities WHERE state_id<='41' ORDER BY name";
-        $result = $this->db->query($sql);
-        if ($result->num_rows() <= 0) {
-            return false;
-        } else {
-            return $result->result_array();
-        }
-    }
-
+    
     // update function for About me section
 // --------------------------------------------------------------- //
     public function update_about_me(){

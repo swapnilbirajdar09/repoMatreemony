@@ -19,7 +19,7 @@
   margin: 0
 }
 </style>
-<?php print_r($userDetails); ?>
+<!-- <?php print_r($userDetails); ?> -->
 <section class="slice sct-color-2">
     <div class="profile" ng-app="profileSectionApp" ng-controller="profileSectionCtrl">
         <div class="container">
@@ -231,7 +231,7 @@
                                     </div>
                                     <hr>
                                     <div class="useful-links">
-                                     <a class="btn btn-styled btn-sm btn-white z-depth-2-bottom mb-3 change_pass l_nav" data-toggle="modal" data-target="#changePasswordModal">
+                                       <a class="btn btn-styled btn-sm btn-white z-depth-2-bottom mb-3 change_pass l_nav" data-toggle="modal" data-target="#changePasswordModal">
                                         <b style="font-size: 12px">Change Password</b>
                                     </a>
                                     <a class="btn btn-styled btn-sm btn-white z-depth-2-bottom mb-3 change_pass l_nav" href="<?php echo base_url(); ?>user/login/logoutUser">
@@ -443,9 +443,9 @@
                                                                     <span>Blood Group</span>
                                                                 </td>
                                                                 <td>
-                                                                 <?php echo $userDetails[0]['user_blood_grp']; ?>                          
-                                                             </td>
-                                                             <td class="td-label">
+                                                                   <?php echo $userDetails[0]['user_blood_grp']; ?>                          
+                                                               </td>
+                                                               <td class="td-label">
                                                                 <span>Mother Tongue</span>
                                                             </td>
                                                             <td><?php echo $userDetails[0]['user_mother_tongue']; ?>
@@ -704,17 +704,17 @@
                                                             <span>Working Field</span>
                                                         </td>
                                                         <td>
-                                                         <?php echo $userDetails[0]['user_working_field']; ?>
-                                                     </td>
-                                                 </tr>
-                                                 <tr>
+                                                           <?php echo $userDetails[0]['user_working_field']; ?>
+                                                       </td>
+                                                   </tr>
+                                                   <tr>
                                                     <td class="td-label">
                                                         <span>Company Name</span>
                                                     </td>
                                                     <td>
-                                                       <?php echo $userDetails[0]['user_company_name']; ?>
-                                                   </td>
-                                                   <td class="td-label">
+                                                     <?php echo $userDetails[0]['user_company_name']; ?>
+                                                 </td>
+                                                 <td class="td-label">
                                                     <span>Designation</span>
                                                 </td>
                                                 <td>
@@ -732,23 +732,23 @@
                                                 <span>Monthly Income</span>
                                             </td>
                                             <td>
-                                               <?php echo $userDetails[0]['user_monthly_income']; ?>
-                                           </td>
-                                           <td class="td-label">
+                                             <?php echo $userDetails[0]['user_monthly_income']; ?>
+                                         </td>
+                                         <td class="td-label">
                                             <span>Annual Income</span>
                                         </td>
                                         <td>
-                                         <?php echo $userDetails[0]['user_annual_income']; ?>                   
-                                     </td>
-                                 </tr>
-                             </tbody>
-                         </table>
-                     </div>
-                 </div>
-             </div>
-             <!-- view eductaion and professional div ends -->
-             <!-- edit education and professional div -->
-             <div id="edit_edu_professional" style="display: none;">
+                                           <?php echo $userDetails[0]['user_annual_income']; ?>                   
+                                       </td>
+                                   </tr>
+                               </tbody>
+                           </table>
+                       </div>
+                   </div>
+               </div>
+               <!-- view eductaion and professional div ends -->
+               <!-- edit education and professional div -->
+               <div id="edit_edu_professional" style="display: none;">
                 <form id="form_edu_professional" class="form-default" role="form">
                     <div class="card-inner-title-wrapper pt-0">
                         <h3 class="card-inner-title pull-left">Edit Educational and Professional</h3>
@@ -949,56 +949,56 @@
                                     State
                                 </td>
                                 <td><?php echo $userDetails[0]['user_state']; ?> 
-                                </td>
+                            </td>
 
-                            </tr>
-                            <tr>
-                                <td class="td-label">
-                                    <span>Native Place</span>
-                                </td>
-                                <td>
-                                    <?php echo $userDetails[0]['user_city']; ?> 
-                                </td>
-                                <td class="td-label">
-                                    Residential Address
-                                </td>
-                                <td>
-                                    <?php echo $userDetails[0]['user_residential_address']; ?> 
-                                </td>
-
-                            </tr>
-                            <tr>
-                                <td class="td-label">
-                                   Contact number 1
-                               </td>
-                               <td>
-                                <?php echo $userDetails[0]['user_contact_no1']; ?> 
+                        </tr>
+                        <tr>
+                            <td class="td-label">
+                                <span>Native Place</span>
+                            </td>
+                            <td>
+                                <?php echo $userDetails[0]['user_city']; ?> 
                             </td>
                             <td class="td-label">
-                               Contact number 2
-                           </td>
-                           <td>
-                            <?php echo $userDetails[0]['user_contact_no2']; ?> 
+                                Residential Address
+                            </td>
+                            <td>
+                                <?php echo $userDetails[0]['user_residential_address']; ?> 
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <td class="td-label">
+                             Contact number 1
+                         </td>
+                         <td>
+                            <?php echo $userDetails[0]['user_contact_no1']; ?> 
                         </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+                        <td class="td-label">
+                         Contact number 2
+                     </td>
+                     <td>
+                        <?php echo $userDetails[0]['user_contact_no2']; ?> 
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     </div>
+</div>
 </div>
 <!-- view family info div ends -->
 <!-- edit family info div -->
 <div id="edit_family_info" style="display: none;">
     <form id="form_family_info" class="form-default" role="form">
-    <div class="card-inner-title-wrapper pt-0">
-        <h3 class="card-inner-title pull-left">Edit Family Information</h3>
-        <div class="pull-right">
-            <button type="submit" class="btn btn-success btn-sm btn-icon-only btn-shadow" onclick="save_section('family_info')"><i class="ion-checkmark"></i> Save</button>
-            <button type="button" class="btn btn-danger btn-sm btn-icon-only btn-shadow" onclick="load_section('family_info')"><i class="ion-close"></i> Cancel</button>
+        <div class="card-inner-title-wrapper pt-0">
+            <h3 class="card-inner-title pull-left">Edit Family Information</h3>
+            <div class="pull-right">
+                <button type="submit" class="btn btn-success btn-sm btn-icon-only btn-shadow" onclick="save_section('family_info')"><i class="ion-checkmark"></i> Save</button>
+                <button type="button" class="btn btn-danger btn-sm btn-icon-only btn-shadow" onclick="load_section('family_info')"><i class="ion-close"></i> Cancel</button>
+            </div>
         </div>
-    </div>
-    <div class="clearfix"></div>
-    
+        <div class="clearfix"></div>
+
         <div class="row">
             <div class="col-md-6 w3-margin-top">
                 <div class="form-group has-feedback">
@@ -1177,18 +1177,18 @@
         <!-- edit lifestyle div -->
         <div id="edit_life_style" style="display: none;">
             <form id="form_life_style" class="form-default" role="form">
-            <div class="card-inner-title-wrapper pt-0">
-                <h3 class="card-inner-title pull-left">
-                    Edit Life Style   
-                </h3>
-                <div class="pull-right">
-                    <button type="button" class="btn btn-success btn-sm btn-icon-only btn-shadow" onclick="save_section('life_style')"><i class="ion-checkmark"></i> Save</button>
-                    <button type="button" class="btn btn-danger btn-sm btn-icon-only btn-shadow" onclick="load_section('life_style')"><i class="ion-close"></i> Cancel</button>
+                <div class="card-inner-title-wrapper pt-0">
+                    <h3 class="card-inner-title pull-left">
+                        Edit Life Style   
+                    </h3>
+                    <div class="pull-right">
+                        <button type="button" class="btn btn-success btn-sm btn-icon-only btn-shadow" onclick="save_section('life_style')"><i class="ion-checkmark"></i> Save</button>
+                        <button type="button" class="btn btn-danger btn-sm btn-icon-only btn-shadow" onclick="load_section('life_style')"><i class="ion-close"></i> Cancel</button>
+                    </div>
                 </div>
-            </div>
 
-            <div class="clearfix"></div>
-            
+                <div class="clearfix"></div>
+
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group has-feedback">
@@ -1279,14 +1279,14 @@
                                 <span>Relation with Me</span>
                             </td>
                             <td>
-                               Maternal Uncle/ Mama                          
-                           </td>
-                       </tr>
-                       <tr>
+                             Maternal Uncle/ Mama                          
+                         </td>
+                     </tr>
+                     <tr>
                         <td class="td-label">
-                           Contact number
-                       </td>
-                       <td>
+                         Contact number
+                     </td>
+                     <td>
                         987654321
                     </td>
                     <td class="td-label">
@@ -1312,14 +1312,14 @@
                         <span>Relation with Me</span>
                     </td>
                     <td>
-                       Paternal Uncle/ Kaka                          
-                   </td>
-               </tr>
-               <tr>
+                     Paternal Uncle/ Kaka                          
+                 </td>
+             </tr>
+             <tr>
                 <td class="td-label">
-                   Contact number
-               </td>
-               <td>
+                 Contact number
+             </td>
+             <td>
                 987654321
             </td>
             <td class="td-label">
@@ -1508,43 +1508,51 @@
         <div class="row w3-padding">
             <label class="text-uppercase c-gray"><b><i class="fa fa-file"></i> Uploaded Documents: </b></label>
             <div class="col-md-12">
-                <div class="col-md-12 w3-card">
-                    <div class="w3-col l12">
-                        <a class="btn w3-text-red w3-right w3-small" style="padding: 2px"><i class="fa fa-remove"></i> remove</a>
-                    </div>
-                    <p class="w3-large"> Adhaar Card <span class="badge w3-green">Approved</span>   </p>                     
-                    <p>
-                        <label class="text-uppercase c-gray-light">Document: </label>
-                        <a class="btn" target="_self" href="<?php echo base_url(); ?>assets/client/template/front/images/icons/addmore1.jpg" download="Document name demo" style="padding:0"><label class="w3-small w3-text-grey"><i class="fa fa-paperclip"></i> Document Name Demo</label></a>
-                    </p>
-                </div>
-                <div class="col-md-12 w3-card"> <div class="w3-col l12">
-                    <a class="btn w3-text-red w3-right w3-small" style="padding: 2px"><i class="fa fa-remove"></i> remove</a>
-                </div>
-                <p class="w3-large"> PAN Card Bill <span class="badge w3-grey w3-text-white">Pending</span>   </p>                     
-                <p>
-                    <label class="text-uppercase c-gray-light">Document: </label>
-                    <a class="btn" target="_self" href="<?php echo base_url(); ?>assets/client/template/front/images/icons/addmore1.jpg" download="Document name demo" style="padding:0"><label class="w3-small w3-text-grey"><i class="fa fa-paperclip"></i> Document Name Demo</label></a>
-                </p>
-
-            </div>
-            <div class="col-md-12 w3-card"> 
-                <div class="w3-col l12">
-                    <a class="btn w3-text-red w3-right w3-small" style="padding: 2px"><i class="fa fa-remove"></i> remove</a>
-                </div>
-                <p class="w3-large"> Electricity Bill <span class="badge w3-red">Rejected</span>   </p>                     
-                <p>
-                    <label class="text-uppercase c-gray-light">Document: </label>
-                    <a class="btn" target="_self" href="<?php echo base_url(); ?>assets/client/template/front/images/icons/addmore1.jpg" download="Document name demo" style="padding:0"><label class="w3-small w3-text-red"><i class="fa fa-paperclip"></i> Document Name Demo</label></a>
-                </p>
-                <p>
-                    <label class="text-uppercase c-gray-light">Reason: </label>
-                    <b class="w3-text-red">Image uploaded is not so clear.</b>
-                </p>
+                <?php 
+                if(!$userDocuments){ ?>
+                    <p class="w3-red w3-center"> <i class="fa fa-warning"></i> No Documents found ! </p>
+                    <?php
+                }
+                else{
+                    foreach ($userDocuments as $key) { 
+                        $status='';
+                        $status_color='';
+                        $arr=explode('/', $key['document_path']);
+                        switch ($key['document_status']) {
+                            case 'pending':
+                            $status='In Progress';
+                            $status_color='w3-grey';
+                            break;
+                            case 'approved':
+                            $status='Approved';
+                            $status_color='w3-green';
+                            break;
+                            case 'rejected':
+                            $status='Rejected';
+                            $status_color='w3-red';
+                            break;
+                        }
+                        ?>
+                        <div class="col-md-12 w3-card">
+                            <div class="w3-col l12">
+                                <a class="btn w3-text-red w3-right w3-small" onclick="delDocument('<?php echo $key['document_id']; ?>')" style="padding: 2px"><i class="fa fa-remove"></i> remove</a>
+                            </div>
+                            <p class="w3-large"> <?php echo $key['document_type'] ?> <span class="badge w3-text-white <?php echo $status_color; ?>"><?php echo $status; ?></span>   </p>                     
+                            <p>
+                                <label class="text-uppercase c-gray-light">Document: </label>
+                                <a class="btn" target="_self" href="<?php echo base_url(); ?><?php echo $key['document_path']; ?>" download="<?php echo $arr[3]; ?>" style="padding:0"><label class="w3-small w3-text-grey"><i class="fa fa-paperclip"></i> <?php echo $arr[3]; ?></label></a>
+                            </p>
+                        </div>
+                        <?php    
+                    }
+                    ?>
+                    <?php
+                }
+                ?>
+                
             </div>
         </div>
     </div>
-</div>
 </div> 
 <!-- documents div ends -->
 

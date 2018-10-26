@@ -6,9 +6,42 @@ class User_model extends CI_Model {
         parent::__construct();
     }
 
+    //----------------function to get all states
+    public function getAllStates() {
+        $sql = "SELECT * FROM states WHERE country_id='101'";
+        $result = $this->db->query($sql);
+        if ($result->num_rows() <= 0) {
+            return false;
+        } else {
+            return $result->result_array();
+        }
+    }
+
+    //----------------function to get all cities
+    public function getAllCities() {
+        $sql = "SELECT * FROM cities WHERE state_id<='41' ORDER BY name";
+        $result = $this->db->query($sql);
+        if ($result->num_rows() <= 0) {
+            return false;
+        } else {
+            return $result->result_array();
+        }
+    }
+
     // function to get user details
     public function getUserDetails($user_id) {
         $sql = "SELECT * FROM user_tab, user_profile_tab WHERE user_tab.user_id=user_profile_tab.user_id AND user_tab.user_id='$user_id' LIMIT 1 ";
+        $result = $this->db->query($sql);
+        if ($result->num_rows() <= 0) {
+            return false;
+        } else {
+            return $result->result_array();
+        }
+    }
+
+    // function to get user documents
+    public function getUserDocuments($user_id) {
+        $sql = "SELECT * FROM document_tab WHERE user_id='$user_id' ";
         $result = $this->db->query($sql);
         if ($result->num_rows() <= 0) {
             return false;
