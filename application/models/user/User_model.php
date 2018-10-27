@@ -205,5 +205,137 @@ class User_model extends CI_Model {
         }
     }
 
+    // check document alreqdy exist or not
+    public function checkDocumentExist($document_type,$user_id){
+        $sql = "SELECT * FROM document_tab WHERE user_id='$user_id' AND document_type='$document_type' ";
+        $result = $this->db->query($sql);
+        if ($result->num_rows() <= 0) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    // delete the selected user's document
+    public function delDocument($doc_id){
+        $sql = "DELETE FROM document_tab WHERE document_id='$doc_id'";
+        $result = $this->db->query($sql);
+        if($this->db->affected_rows()>0){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+    // insert/upload image in gallery in table
+    public function upload_image($data,$user_id){
+        extract($data);
+        // print_r($data);die();
+        $user_gallery_images='';
+        $final_gallery='';
+        $sql = "SELECT user_gallery_images FROM user_profile_tab WHERE user_id='$user_id' ";
+        $result = $this->db->query($sql);
+
+        foreach ($result->result_array() as $key) {
+            $user_gallery_images = $key['user_gallery_images'];
+        }
+
+        if($user_gallery_images!=''){
+            $arr=json_decode($user_gallery_images,TRUE);
+            array_push($arr, $filepath);
+            $final_gallery=json_encode($arr);
+        }
+        else{
+            $arr=array();
+            $arr[]=$filepath;
+            $final_gallery=json_encode($arr);
+            
+        }
+
+        $result_update = array(
+            'user_gallery_images' => $final_gallery
+        );
+
+        $this->db->where('user_id', $user_id);
+        $this->db->update('user_profile_tab', $result_update);
+        if($this->db->affected_rows()==1){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+    // delete the selected user's image from gallery
+    public function delImage($img_path,$user_id){
+        $user_gallery_images='';
+        $final_gallery='';
+        $sql = "SELECT user_gallery_images FROM user_profile_tab WHERE user_id='$user_id' ";
+        $result = $this->db->query($sql);
+
+        foreach ($result->result_array() as $key) {
+            $user_gallery_images = $key['user_gallery_images'];
+        }
+
+        if($user_gallery_images!=''){
+            $arr=json_decode($user_gallery_images,TRUE);
+            foreach ($arr as $key => $value) {
+                // check if image exist
+                if($img_path==$value){
+                    unset($arr[$key]);
+                }                
+            }
+            $final_gallery=json_encode($arr);
+        }
+        $result_update = array(
+            'user_gallery_images' => $final_gallery
+        );
+
+        $this->db->where('user_id', $user_id);
+        $this->db->update('user_profile_tab', $result_update);
+        if($this->db->affected_rows()==1){
+            return true;
+        }
+        else{
+            return false;
+        }
+        
+    }
+
+    // update profile picture
+    public function setProfilePicture($img_path,$user_id){
+        // print_r($data);die();
+        $result_update = array(
+            'user_profile_image' => $img_path
+        );
+
+        $this->db->where('user_id', $user_id);
+        $this->db->update('user_profile_tab', $result_update);
+        if($this->db->affected_rows()==1){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+    // update relatives information
+    public function update_relatives_info($relative_json,$user_id){
+        // print_r($data);die();
+        $result_update = array(
+            'user_relative_info' => $relative_json
+        );
+
+        $this->db->where('user_id', $user_id);
+        $this->db->update('user_profile_tab', $result_update);
+        if($this->db->affected_rows()==1){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
 
 }

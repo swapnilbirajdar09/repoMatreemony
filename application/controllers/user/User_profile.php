@@ -352,6 +352,95 @@ public function update_edu_professional(){
     echo json_encode($response);
 }
 
+    // update function for Relatives information
+// ------------------------------------------------------------ //
+public function update_relatives_info(){
+
+        // user user-id from session
+    $encodedkey = $this->session->userdata('PariKey_session');
+    $user_id='';
+    $key=base64_decode($encodedkey);
+    $keyarr=explode('|', $key);
+        //session key format is $keyarr[0]=PARInaayKEY|$keyarr[1]=email_id|$keyarr[2]=user_id
+    // print_r($_POST);die();
+    extract($_POST);
+        // validation
+    foreach ($relative_name as $key=>$value) {
+        $name_count=$key+1;
+        if($value==''){
+            $response=array(
+            'status'    =>  'validation',
+            'message'   =>  '<b>Warning:</b> Relative Name for Relative no.'.$name_count.' is required!',
+            'field'   =>  'relative_name_'.$name_count
+        );
+        echo json_encode($response);
+        die();
+        }
+    }
+    foreach ($relative_contact as $key=>$value) {
+        $name_count=$key+1;
+        if($value==''){
+            $response=array(
+            'status'    =>  'validation',
+            'message'   =>  '<b>Warning:</b> Relative Contact for Relative no.'.$name_count.' is required!',
+            'field'   =>  'relative_contact_'.$name_count
+        );
+        echo json_encode($response);
+        die();
+        }
+    }
+    foreach ($relative_relation as $key=>$value) {
+        $name_count=$key+1;
+        if($value==''){
+            $response=array(
+            'status'    =>  'validation',
+            'message'   =>  '<b>Warning:</b> Relative Relation for Relative no.'.$name_count.' is required!',
+            'field'   =>  'relative_relation_'.$name_count
+        );
+        echo json_encode($response);
+        die();
+        }
+    }
+    foreach ($relative_address as $key=>$value) {
+        $name_count=$key+1;
+        if($value==''){
+            $response=array(
+            'status'    =>  'validation',
+            'message'   =>  '<b>Warning:</b> Relative Address for Relative no.'.$name_count.' is required!',
+            'field'   =>  'relative_address_'.$name_count
+        );
+        echo json_encode($response);
+        die();
+        }
+    }
+    // die();
+    $relative_Array=array();
+    for ($i=0; $i <count($relative_name) ; $i++) { 
+        $arr=array(
+            'relative_name' =>  $relative_name[$i],
+            'relative_contact' =>  $relative_contact[$i],
+            'relative_relation' =>  $relative_relation[$i],
+            'relative_address' =>  $relative_address[$i],
+        );
+        $relative_Array[]=$arr;
+    }
+    $result = $this->user_model->update_relatives_info(json_encode($relative_Array),$keyarr[2]);
+
+    if($result){
+        $response=array(
+            'status'    =>  'success',
+            'message'   =>  '<b>Success:</b> You Have Successfully Edited <b>Relatives Information</b>!'
+        );
+    }
+    else{
+        $response=array(
+            'status'    =>  'error',
+            'message'   =>  '<b>Error:</b> Perhaps you didn\'t make any change. <b>Relatives Information</b> was not updated Successfully!'
+        );
+    } 
+    echo json_encode($response);
+}
+
     // update function for Lifestyle section
 // ------------------------------------------------------------ //
 public function update_life_style(){
@@ -566,6 +655,18 @@ public function update_documents(){
         die();
     }
 
+    // check documnet already uploaded or not
+    $checkDocumentExist=$this->user_model->checkDocumentExist($document_type,$keyarr[2]);
+    if($checkDocumentExist){
+        $response=array(
+            'status'    =>  'validation',
+            'message'   =>  '<b>Warning:</b> <b>'.$document_type.'</b> already uploaded !',
+            'field'   =>  'document_type'
+        );
+        echo json_encode($response);
+        die();
+    }
+
     $data = $_POST;
     $filepath = '';
 
@@ -592,7 +693,7 @@ public function update_documents(){
         $uploadPath = 'assets/users/documents/';  //upload images in images/desktop/ folder
 
         $config['upload_path'] = $uploadPath;
-        $config['overwrite'] = FALSE;
+        $config['overwrite'] = TRUE;
         $config['allowed_types'] = '*'; //allowed types of files
         $this->load->library('upload', $config);  //load upload file config.
         $this->upload->initialize($config);
@@ -639,6 +740,191 @@ public function update_documents(){
             'message'   =>  '<b>Error:</b> <b>'.$document_type.'</b> Document was not uploaded Successfully!'
         );
     } 
+    echo json_encode($response);
+}
+
+// -----------------function to upload images-------------- //
+public function upload_image(){
+
+    // user user-id from session
+    $encodedkey = $this->session->userdata('PariKey_session');
+    $user_id='';
+    $key=base64_decode($encodedkey);
+    $keyarr=explode('|', $key);
+    //session key format is $keyarr[0]=PARInaayKEY|$keyarr[1]=email_id|$keyarr[2]=user_id
+    // print_r($_POST);die();
+    extract($_FILES);
+    extract($_POST);
+    
+    $data = $_POST;
+    $filepath = '';
+
+    $file_name = $_FILES['selected_image']['name'];
+    if (!empty(($_FILES['selected_image']['name']))) {
+        //file validating---------------------------//
+        if ($_FILES['selected_image']['size'] > 10485760) {  //for prod images
+            $response=array(
+                'status'    =>  'validation',
+                'message'   =>  '<b>Warning:</b> Image size exceeds size limit of 10MB. Upload image file having size less than 10MB!',
+                'field'   =>  'selected_image'
+            );
+            echo json_encode($response);
+            die();
+        }
+
+        $extension = pathinfo($_FILES['selected_image']['name'], PATHINFO_EXTENSION);
+        $_FILES['userFile']['name'] = $img_title.'_0'.$keyarr[2].'_'.time().'.'.$extension;
+        $_FILES['userFile']['type'] = $_FILES['selected_image']['type'];
+        $_FILES['userFile']['tmp_name'] = $_FILES['selected_image']['tmp_name'];
+        $_FILES['userFile']['error'] = $_FILES['selected_image']['error'];
+        $_FILES['userFile']['size'] = $_FILES['selected_image']['size'];
+
+        $uploadPath = 'assets/users/gallery/';  //upload images in images/desktop/ folder
+
+        $config['upload_path'] = $uploadPath;
+        $config['overwrite'] = TRUE;
+        $config['allowed_types'] = 'gif|jpg|png'; //allowed types of files
+        $this->load->library('upload', $config);  //load upload file config.
+        $this->upload->initialize($config);
+        // print_r($config);die();
+        $image_path = '';
+
+        if ($this->upload->do_upload('userFile')) {
+            $fileData = $this->upload->data();
+            $filepath = 'assets/users/gallery/'.$fileData['file_name'];
+        }
+        else{
+             $response=array(
+                'status'    =>  'validation',
+                'message'   =>  $this->upload->display_errors('<p><b>Image upload Error: </b>', '</p>'),
+                'field'   =>  'selected_image'
+            );
+            echo json_encode($response);
+            die();
+        }
+         // print_r($filepath);die();
+    }
+
+    $data['filepath'] = $filepath;
+    if($filepath==''){
+        $response=array(
+            'status'    =>  'validation',
+            'message'   =>  '<b>Warning:</b> Image file not uploaded Successfully!',
+            'field'   =>  'document_file'
+        );
+        echo json_encode($response);
+        die();
+    }
+    $result = $this->user_model->upload_image($data,$keyarr[2]);
+
+    if($result){
+        $response=array(
+            'status'    =>  'success',
+            'message'   =>  '<b>Success:</b> You Have Successfully uploaded <b>'.$img_title.'</b> Image!'
+        );
+    }
+    else{
+        $response=array(
+            'status'    =>  'error',
+            'message'   =>  '<b>Error:</b> <b>'.$img_title.'</b> Image was not uploaded Successfully!'
+        );
+    } 
+    echo json_encode($response);
+}
+
+// fucntion to remove uploaded document
+public function delDocument(){
+    if(!empty($_POST['doc_id'])){
+           $result = $this->user_model->delDocument($_POST['doc_id']);
+
+           if($result){
+            $response=array(
+                'status'    =>  'success',
+                'message'   =>  '<b>Success:</b> You Have Successfully deleted Document!'
+            );
+        }
+        else{
+            $response=array(
+                'status'    =>  'error',
+                'message'   =>  '<b>Error:</b> Document was not deleted Successfully!'
+            );
+        } 
+    }
+    else{
+        $response=array(
+            'status'    =>  'validation',
+            'message'   =>  '<b>Warning:</b> Document not found!'
+        );
+    }
+
+    echo json_encode($response);
+}
+
+// fucntion to remove uploaded image
+public function delImage(){
+    // user user-id from session
+    $encodedkey = $this->session->userdata('PariKey_session');
+    $user_id='';
+    $key=base64_decode($encodedkey);
+    $keyarr=explode('|', $key);
+
+    if(!empty($_POST['img_path'])){
+           $result = $this->user_model->delImage($_POST['img_path'],$keyarr[2]);
+
+           if($result){
+            $response=array(
+                'status'    =>  'success',
+                'message'   =>  '<b>Success:</b> You Have Successfully deleted Image!'
+            );
+        }
+        else{
+            $response=array(
+                'status'    =>  'error',
+                'message'   =>  '<b>Error:</b> Image was not deleted Successfully!'
+            );
+        } 
+    }
+    else{
+        $response=array(
+            'status'    =>  'validation',
+            'message'   =>  '<b>Warning:</b> Image not found!'
+        );
+    }
+
+    echo json_encode($response);
+}
+
+// fucntion to set profile picture
+public function setProfilePicture(){
+    // user user-id from session
+    $encodedkey = $this->session->userdata('PariKey_session');
+    $user_id='';
+    $key=base64_decode($encodedkey);
+    $keyarr=explode('|', $key);
+
+    if(!empty($_POST['img_path'])){
+           $result = $this->user_model->setProfilePicture($_POST['img_path'],$keyarr[2]);
+
+           if($result){
+            $response=array(
+                'status'    =>  'success',
+                'message'   =>  '<b>Success:</b> You Have Successfully updated Profile Image!'
+            );
+        }
+        else{
+            $response=array(
+                'status'    =>  'error',
+                'message'   =>  '<b>Error:</b> Profile Image was not updated Successfully!'
+            );
+        } 
+    }
+    else{
+        $response=array(
+            'status'    =>  'validation',
+            'message'   =>  '<b>Warning:</b> Image not found!'
+        );
+    }
+
     echo json_encode($response);
 }
 

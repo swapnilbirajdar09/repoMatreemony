@@ -19,7 +19,12 @@
   margin: 0
 }
 </style>
-<!-- <?php print_r($userDetails); ?> -->
+<script type="text/javascript">
+    $('#uploadPhotoModal').on('hidden.bs.modal', function () {
+       location.reload();
+   })
+</script>
+<?php print_r($userDetails); ?>
 <section class="slice sct-color-2">
     <div class="profile" ng-app="profileSectionApp" ng-controller="profileSectionCtrl">
         <div class="container">
@@ -62,42 +67,79 @@
                             <!-- Profile picture -->
                             <div class="profile-picture profile-picture--style-2">
                                 <div style="border: 10px solid rgba(255, 255, 255, 0.1);width: 200px;border-radius: 50%;margin-top: 30px;">
-                                    <div class="profile_img" id="show_img" style="background-image: url(http://activeitzone.com/demo/matrimonial/uploads/profile_image/profile_1_thumb.jpg)"></div>
+                                    <?php if($userDetails[0]['user_profile_image']!=''){ ?>
+                                        <div class="profile_img" id="show_img" style="background-image: url(<?php echo base_url(); ?><?php echo $userDetails[0]['user_profile_image']; ?>)"></div>
+                                    <?php }else { ?>
+                                        <div class="profile_img" id="show_img" style="background-image: url(<?php echo base_url(); ?>assets/images/user.png)"></div>
+                                    <?php } ?>
                                 </div>
                             </div>
                             <!-- Profile details -->
                             <div class="profile-details">
-                                <h2 class="heading heading-3 strong-500 profile-name">Slade Bennett</h2>
-                                <h3 class="heading heading-6 strong-400 profile-occupation mt-3">Lead Developer</h3>
-                                <div class="profile-stats clearfix mt-2">
-                                    <div class="stats-entry" style="width: 100%">
-                                        <span class="stats-count">8</span>
-                                        <span class="stats-label text-uppercase">Followers</span>
+                                <h2 class="heading heading-3 strong-500 profile-name"><?php echo $userDetails[0]['user_firstname'].' '.$userDetails[0]['user_lastname']; ?></h2>
+                                <h3 class="heading heading-6 strong-400 profile-occupation mt-3"><?php if($userDetails[0]['user_designation']==''){echo '<User Designation>';}else{ echo $userDetails[0]['user_designation']; } ?></h3>
+                                    <div class="profile-stats clearfix mt-2">
+                                        <div class="stats-entry" style="width: 100%">
+                                            <span class="stats-count"><?php echo $userDetails[0]['user_email']; ?>
+                                            <span class="pull-right">
+                                                <button type="button" class="btn btn-base-1 btn-sm btn-icon-only btn-shadow mb-1 w3-green" onclick="edit_section('about_me')">
+                                                    <i class="ion-android-lock"></i> Verify
+                                                </button>
+                                            </span>
+                                        </span>
+                                        <span class="stats-label text-uppercase">Email ID</span>
                                     </div>
                                 </div>
-                                <!-- Profile connect -->
-                                <div class="profile-connect mt-5">
+                                <div class="profile-stats clearfix mt-2">
+                                    <div class="stats-entry" style="width: 100%">
+                                        <span class="stats-count"><?php echo $userDetails[0]['user_mobile_num']; ?>
+                                        <span class="pull-right">
+                                            <button type="button" class="btn btn-base-1 btn-sm btn-icon-only btn-shadow mb-1 w3-green" onclick="edit_section('about_me')">
+                                                <i class="ion-android-lock"></i> Verify
+                                            </button>
+                                        </span>
+                                    </span>
+                                    <span class="stats-label text-uppercase">Mobile Number</span>
+                                </div>
+                            </div>
+                            <div class="profile-stats clearfix mt-2">
+                                <div class="stats-entry" style="width: 100%">
+                                    <span class="stats-count"><?php echo $userDetails[0]['self_favourite_count']; ?></span>
+                                    <span class="stats-label text-uppercase">Followers</span>
+                                </div>
+                            </div>
+                            <!-- Profile connect -->
+                            <div class="profile-connect mt-5">
                                     <!-- <a href="#" class="btn btn-styled btn-block btn-circle btn-sm btn-base-5">Follow</a>
                                         <a href="#" class="btn btn-styled btn-block btn-circle btn-sm btn-base-2">Send message</a> -->
                                         <h4 class="heading strong-400">Official Information</h4>
                                     </div>
                                     <div class="profile-stats clearfix mt-0">
                                         <div class="stats-entry">
-                                            <span class="stats-count">Bronze</span>
+                                            <span class="stats-count"><?php echo $userDetails[0]['user_package']; ?></span>
                                             <span class="stats-label text-uppercase">Current Package</span>
                                         </div>
                                         <div class="stats-entry">
-                                            <span class="stats-count">22/10/2018</span>
+                                            <span class="stats-count"><?php echo date('d M Y',strtotime($userDetails[0]['user_reg_date'])); ?></span>
                                             <span class="stats-label text-uppercase">Registration date</span>
                                         </div>
                                     </div>
                                     <div class="profile-stats clearfix mt-2">
                                         <div class="stats-entry">
-                                            <span class="stats-count">107</span>
+                                            <span class="stats-count">
+                                                <?php 
+                                                $incoming_int=0;
+                                                if($userDetails[0]['user_received_requests']!='' && $userDetails[0]['user_received_requests']!='[]'){
+                                                    $recievedRequestArr=json_decode($userDetails[0]['user_received_requests'],TRUE);
+                                                    $incoming_int=count($recievedRequestArr);
+                                                }
+                                                echo $incoming_int;
+                                                ?>
+                                            </span>
                                             <span class="stats-label text-uppercase">Incoming Interests</span>
                                         </div>
                                         <div class="stats-entry">
-                                            <span class="stats-count">5</span>
+                                            <span class="stats-count"><?php echo $userDetails[0]['user_remaining_requests']; ?></span>
                                             <span class="stats-label text-uppercase">Remaining Interests</span>
                                         </div>
                                     </div>
@@ -111,81 +153,45 @@
                                     </div>
 
                                     <div class="w3-container w3-margin-top w3-center no-padding">
-                                        <div class="w3-col l6" style="padding:4px 4px 4px 4px">
-                                            <div class="block-image relative">
-                                                <div class="view view-second view--rounded light-gallery">
-                                                    <img src="http://activeitzone.com/demo/matrimonial/uploads/gallery_image/gallery_1_2.jpg" style="max-height: 150px;">
-                                                    <div class="mask mask-base-1--style-2">
-                                                        <div class="view-buttons text-center">
-                                                            <div class="view-buttons-inner text-center">
-                                                                <a target="_blank" href="http://activeitzone.com/demo/matrimonial/uploads/gallery_image/gallery_1_2.jpg" class="c-white mr-2 l-gallery" data-toggle="light-gallery">
-                                                                    <i class="fa fa-search"></i>
-                                                                </a>
-                                                                <a class="c-white ml-2" onclick="return confirm_delete(2)">
-                                                                    <i class="fa fa-trash"></i>
-                                                                </a>
+                                        <div id="galleryImages">
+                                            <?php 
+                                            if($userDetails[0]['user_gallery_images']!='' && $userDetails[0]['user_gallery_images']!='[]'){                                            
+                                                $img_Arr=json_decode($userDetails[0]['user_gallery_images'],TRUE);
+                                                foreach ($img_Arr as $key) { ?>
+                                                    <div class="w3-col l6 s6 m4" style="padding:4px 4px 4px 4px">
+                                                        <div class="block-image relative">
+                                                            <div class="view view-second view--rounded light-gallery">
+                                                                <img src="<?php echo base_url(); ?><?php echo $key; ?>" style="width: 100%;height: 150px;">
+                                                                <div class="mask mask-base-1--style-2">
+                                                                    <div class="view-buttons text-center">
+                                                                        <div class="view-buttons-inner text-center" style="padding: 5px">
+                                                                            <a target="_blank" href="<?php echo base_url(); ?><?php echo $key; ?>" class="c-white mr-2 l-gallery" data-toggle="light-gallery">
+                                                                                <i class="fa fa-search"></i>
+                                                                            </a>
+                                                                            <a class="c-white ml-2" onclick="delImage('<?php echo $key; ?>')">
+                                                                                <i class="fa fa-trash"></i>
+                                                                            </a><br>
+                                                                            <?php 
+                                                                            if($userDetails[0]['user_profile_image']!=$key){
+                                                                                ?>
+                                                                                <a class="c-white btn w3-small w3-round w3-text-white w3-grey" onclick="setProfilePicture('<?php echo $key; ?>')" style="padding:2px 3px;border:1px solid">
+                                                                                    set profile image
+                                                                                </a>
+                                                                            <?php } ?>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="w3-col l6" style="padding:4px 4px 4px 4px">
-                                            <div class="block-image relative">
-                                                <div class="view view-second view--rounded light-gallery">
-                                                    <img src="http://activeitzone.com/demo/matrimonial/uploads/profile_image/profile_3_thumb.jpg" style="max-height: 150px;">
-                                                    <div class="mask mask-base-1--style-2">
-                                                        <div class="view-buttons text-center">
-                                                            <div class="view-buttons-inner text-center">
-                                                                <a target="_blank" href="http://activeitzone.com/demo/matrimonial/uploads/gallery_image/gallery_1_2.jpg" class="c-white mr-2 l-gallery" data-toggle="light-gallery">
-                                                                    <i class="fa fa-search"></i>
-                                                                </a>
-                                                                <a class="c-white ml-2" onclick="return confirm_delete(2)">
-                                                                    <i class="fa fa-trash"></i>
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="w3-col l6" style="padding:4px 4px 4px 4px">
-                                            <div class="block-image relative">
-                                                <div class="view view-second view--rounded light-gallery">
-                                                    <img src="http://activeitzone.com/demo/matrimonial/uploads/profile_image/profile_7_thumb.jpg" style="max-height: 150px;">
-                                                    <div class="mask mask-base-1--style-2">
-                                                        <div class="view-buttons text-center">
-                                                            <div class="view-buttons-inner text-center">
-                                                                <a target="_blank" href="http://activeitzone.com/demo/matrimonial/uploads/gallery_image/gallery_1_2.jpg" class="c-white mr-2 l-gallery" data-toggle="light-gallery">
-                                                                    <i class="fa fa-search"></i>
-                                                                </a>
-                                                                <a class="c-white ml-2" onclick="return confirm_delete(2)">
-                                                                    <i class="fa fa-trash"></i>
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="w3-col l6" style="padding:4px 4px 4px 4px">
-                                            <div class="block-image relative">
-                                                <div class="view view-second view--rounded light-gallery">
-                                                    <img src="http://activeitzone.com/demo/matrimonial/uploads/profile_image/profile_5_thumb.jpg" style="max-height: 150px;">
-                                                    <div class="mask mask-base-1--style-2">
-                                                        <div class="view-buttons text-center">
-                                                            <div class="view-buttons-inner text-center">
-                                                                <a target="_blank" href="http://activeitzone.com/demo/matrimonial/uploads/gallery_image/gallery_1_2.jpg" class="c-white mr-2 l-gallery" data-toggle="light-gallery">
-                                                                    <i class="fa fa-search"></i>
-                                                                </a>
-                                                                <a class="c-white ml-2" onclick="return confirm_delete(2)">
-                                                                    <i class="fa fa-trash"></i>
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                                    <?php
+                                                }
+                                            }
+                                            else{ ?>
+                                                <p class="w3-light-grey w3-center"> No Image found ! </p>
+                                                <?php    
+                                            }
+                                            ?>
                                         </div>
                                         <div class="w3-col l12" style="padding:4px 4px 4px 4px">
                                             <div class="pull-right">
@@ -214,9 +220,9 @@
                                                                 <div class="form-group has-feedback col-10 ml-auto mr-auto select_div" id="img_main">
                                                                     <label class="text-uppercase w3-left c-gray-light">Upload Image</label>
                                                                     <div class="col-sm-12" style="margin:2px; padding:2px;">
-                                                                        <img class="img-responsive img-border blah z-depth-1-bottom" style="width: 100%;border: 1px solid #e6e6e6;" src="http://activeitzone.com/demo/matrimonial/uploads/happy_story_image/default_image.jpg">
+                                                                        <img class="img-responsive img-border blah z-depth-1-bottom" style="width: 100%;border: 1px solid #e6e6e6;" id="previewImage" src="<?php echo base_url(); ?>assets/client/img/default_image.jpg">
                                                                     </div>
-                                                                    <input type="file" id="selected_image" name="selected_image" class="form-control w3-margin-top" required>
+                                                                    <input type="file" id="selected_image" onchange="readURL(this)" name="selected_image" class="form-control w3-margin-top" required>
                                                                 </div>
                                                                 <div class="form-group has-feedback col-10 ml-auto mr-auto text-center">
                                                                     <button type="submit" id="btn_gallery_upload" class="btn btn-block btn-base-1 btn-shadow">Upload to Gallery</button>
@@ -231,7 +237,7 @@
                                     </div>
                                     <hr>
                                     <div class="useful-links">
-                                       <a class="btn btn-styled btn-sm btn-white z-depth-2-bottom mb-3 change_pass l_nav" data-toggle="modal" data-target="#changePasswordModal">
+                                     <a class="btn btn-styled btn-sm btn-white z-depth-2-bottom mb-3 change_pass l_nav" data-toggle="modal" data-target="#changePasswordModal">
                                         <b style="font-size: 12px">Change Password</b>
                                     </a>
                                     <a class="btn btn-styled btn-sm btn-white z-depth-2-bottom mb-3 change_pass l_nav" href="<?php echo base_url(); ?>user/login/logoutUser">
@@ -443,9 +449,9 @@
                                                                     <span>Blood Group</span>
                                                                 </td>
                                                                 <td>
-                                                                   <?php echo $userDetails[0]['user_blood_grp']; ?>                          
-                                                               </td>
-                                                               <td class="td-label">
+                                                                 <?php echo $userDetails[0]['user_blood_grp']; ?>                          
+                                                             </td>
+                                                             <td class="td-label">
                                                                 <span>Mother Tongue</span>
                                                             </td>
                                                             <td><?php echo $userDetails[0]['user_mother_tongue']; ?>
@@ -704,17 +710,17 @@
                                                             <span>Working Field</span>
                                                         </td>
                                                         <td>
-                                                           <?php echo $userDetails[0]['user_working_field']; ?>
-                                                       </td>
-                                                   </tr>
-                                                   <tr>
+                                                         <?php echo $userDetails[0]['user_working_field']; ?>
+                                                     </td>
+                                                 </tr>
+                                                 <tr>
                                                     <td class="td-label">
                                                         <span>Company Name</span>
                                                     </td>
                                                     <td>
-                                                     <?php echo $userDetails[0]['user_company_name']; ?>
-                                                 </td>
-                                                 <td class="td-label">
+                                                       <?php echo $userDetails[0]['user_company_name']; ?>
+                                                   </td>
+                                                   <td class="td-label">
                                                     <span>Designation</span>
                                                 </td>
                                                 <td>
@@ -732,23 +738,23 @@
                                                 <span>Monthly Income</span>
                                             </td>
                                             <td>
-                                             <?php echo $userDetails[0]['user_monthly_income']; ?>
-                                         </td>
-                                         <td class="td-label">
+                                               <?php echo $userDetails[0]['user_monthly_income']; ?>
+                                           </td>
+                                           <td class="td-label">
                                             <span>Annual Income</span>
                                         </td>
                                         <td>
-                                           <?php echo $userDetails[0]['user_annual_income']; ?>                   
-                                       </td>
-                                   </tr>
-                               </tbody>
-                           </table>
-                       </div>
-                   </div>
-               </div>
-               <!-- view eductaion and professional div ends -->
-               <!-- edit education and professional div -->
-               <div id="edit_edu_professional" style="display: none;">
+                                         <?php echo $userDetails[0]['user_annual_income']; ?>                   
+                                     </td>
+                                 </tr>
+                             </tbody>
+                         </table>
+                     </div>
+                 </div>
+             </div>
+             <!-- view eductaion and professional div ends -->
+             <!-- edit education and professional div -->
+             <div id="edit_edu_professional" style="display: none;">
                 <form id="form_edu_professional" class="form-default" role="form">
                     <div class="card-inner-title-wrapper pt-0">
                         <h3 class="card-inner-title pull-left">Edit Educational and Professional</h3>
@@ -969,15 +975,15 @@
                         </tr>
                         <tr>
                             <td class="td-label">
-                             Contact number 1
-                         </td>
-                         <td>
+                               Contact number 1
+                           </td>
+                           <td>
                             <?php echo $userDetails[0]['user_contact_no1']; ?> 
                         </td>
                         <td class="td-label">
-                         Contact number 2
-                     </td>
-                     <td>
+                           Contact number 2
+                       </td>
+                       <td>
                         <?php echo $userDetails[0]['user_contact_no2']; ?> 
                     </td>
                 </tr>
@@ -1265,141 +1271,241 @@
             <div class="table-full-width">
                 <table class="table table-profile table-responsive table-striped table-bordered table-slick">
                     <tbody>
-                        <tr>
-                            <td colspan="4" class="w3-text-white" style="background:#5E32E1">Relative No. 1 </td>
-                        </tr>
-                        <tr>
+                        <?php 
+                        if($userDetails[0]['user_relative_info']!='' && $userDetails[0]['user_relative_info']!='[]'){  
+                            $relativeArr=json_decode($userDetails[0]['user_relative_info'],TRUE); 
+                            for ($i=0; $i <count($relativeArr) ; $i++) { ?>
+                                <tr>
+                                    <td colspan="4" class="w3-text-white" style="background:#5E32E1">Relative No. <?php echo $i+1; ?> </td>
+                                </tr>
+                                <tr>
+                                    <td class="td-label">
+                                        <span>Relatives Name</span>
+                                    </td>
+                                    <td>
+                                        <?php echo $relativeArr[$i]['relative_name']; ?>
+                                    </td>
+                                    <td class="td-label">
+                                        <span>Relation with Me</span>
+                                    </td>
+                                    <td>
+                                       <?php echo $relativeArr[$i]['relative_relation']; ?>
+                                   </td>
+                               </tr>
+                               <tr>
+                                <td class="td-label">
+                                   Contact number
+                               </td>
+                               <td>
+                                <?php echo $relativeArr[$i]['relative_contact']; ?>
+                            </td>
                             <td class="td-label">
-                                <span>Relatives Name</span>
+                                Residential Address
                             </td>
                             <td>
-                                ABC
+                                <?php echo $relativeArr[$i]['relative_address']; ?>
                             </td>
-                            <td class="td-label">
-                                <span>Relation with Me</span>
-                            </td>
-                            <td>
-                             Maternal Uncle/ Mama                          
-                         </td>
-                     </tr>
-                     <tr>
-                        <td class="td-label">
-                         Contact number
-                     </td>
-                     <td>
-                        987654321
-                    </td>
-                    <td class="td-label">
-                        Residential Address
-                    </td>
-                    <td>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                        tempor incididunt ut labore et dolore magna aliqua.
-                    </td>
 
-                </tr>
-                <tr>
-                    <td colspan="4" class="w3-text-white" style="background:#5E32E1">Relative No. 2 </td>
-                </tr>
-                <tr>
-                    <td class="td-label">
-                        <span>Relatives Name</span>
-                    </td>
-                    <td>
-                        XYZ
-                    </td>
-                    <td class="td-label">
-                        <span>Relation with Me</span>
-                    </td>
-                    <td>
-                     Paternal Uncle/ Kaka                          
-                 </td>
-             </tr>
-             <tr>
-                <td class="td-label">
-                 Contact number
-             </td>
-             <td>
-                987654321
-            </td>
-            <td class="td-label">
-                Residential Address
-            </td>
-            <td>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                tempor incididunt ut labore et dolore magna aliqua.
-            </td>
-        </tr>
-    </tbody>
-</table>
-</div>
+                        </tr>
+                        <?php        
+                    }
+                }
+                else{
+                    echo '<tr><td colspan="4"><label class="w3-medium"> Click  <button class="btn btn-base-1 btn-sm btn-icon-only btn-shadow mb-1" onclick="edit_section(\'relatives_info\')"><i class="ion-edit"></i> Edit</button>  to add <b>Relative</b>. </label></td></tr>';
+                }
+                ?>
+
+            </tbody>
+        </table>
+    </div>
 </div>
 </div>
 <!-- view relatives div ends -->
 <!-- edit relatives div -->
 <div id="edit_relatives_info" style="display: none;">
-    <div class="card-inner-title-wrapper pt-0">
-        <h3 class="card-inner-title pull-left">
-            Edit Relatives Information
-        </h3>
-        <div class="pull-right">
-            <button type="button" class="btn btn-success btn-sm btn-icon-only btn-shadow" onclick="save_section('relatives_info')"><i class="ion-checkmark"></i> Save</button>
-            <button type="button" class="btn btn-danger btn-sm btn-icon-only btn-shadow" onclick="load_section('relatives_info')"><i class="ion-close"></i> Cancel</button>
+    <form id="form_relatives_info" class="form-default" role="form">
+        <div class="card-inner-title-wrapper pt-0">
+            <h3 class="card-inner-title pull-left">
+                Edit Relatives Information
+            </h3>
+            <div class="pull-right">
+                <button type="submit" class="btn btn-success btn-sm btn-icon-only btn-shadow" onclick="save_section('relatives_info')"><i class="ion-checkmark"></i> Save</button>
+                <button type="button" class="btn btn-danger btn-sm btn-icon-only btn-shadow" onclick="load_section('relatives_info')"><i class="ion-close"></i> Cancel</button>
+            </div>
+        </div>
+
+        <div class="clearfix"></div>
+        <?php 
+        if($userDetails[0]['user_relative_info']!='' && $userDetails[0]['user_relative_info']!='[]'){  
+            $relativeArr=json_decode($userDetails[0]['user_relative_info'],TRUE); 
+            echo '<input type="hidden" name="totalrelative" id="totalrelative" value="'.count($relativeArr).'">';
+        }
+        else{
+            echo '<input type="hidden" name="totalrelative" id="totalrelative" value="1">';
+        }
+        ?>
+        <?php 
+        if($userDetails[0]['user_relative_info']!='' && $userDetails[0]['user_relative_info']!='[]'){
+            $relativeArr=json_decode($userDetails[0]['user_relative_info'],TRUE);
+            ?>
+
+            <div class="row w3-margin-top">
+                <div class="col-md-12 w3-text-white">
+                    <p class=" w3-padding-small" style="background:#5E32E1">Relative No.1</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group has-feedback">
+                        <label for="relative_name" class="text-uppercase c-gray-light">Relative Full Name</label>
+                        <input type="text" id="relative_name_1" required class="form-control no-resize" value="<?php echo $relativeArr[0]['relative_name']; ?>" name="relative_name[]">  
+                        <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                        <div class="help-block with-errors"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group has-feedback">
+                        <label for="relative_contact" class="text-uppercase c-gray-light">Relative Contact Number</label>
+                        <input type="text" id="relative_contact_1" required class="form-control no-resize" value="<?php echo $relativeArr[0]['relative_contact']; ?>" name="relative_contact[]">  
+                        <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                        <div class="help-block with-errors"></div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group has-feedback">
+                        <label for="relative_relation" class="text-uppercase c-gray-light">Relation with you</label>
+                        <input type="text" id="relative_relation_1" required class="form-control no-resize" value="<?php echo $relativeArr[0]['relative_relation']; ?>" name="relative_relation[]">
+                        <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                        <div class="help-block with-errors"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group has-feedback">
+                        <label for="relative_address" class="text-uppercase c-gray-light">Relative Address</label>
+                        <textarea name="relative_address[]" id="relative_address_1" required class="form-control no-resize" rows="5"><?php echo $relativeArr[0]['relative_address']; ?></textarea> 
+                        <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                        <div class="help-block with-errors"></div>
+                    </div>
+                </div>
+            </div>
+            <?php 
+        }
+        else{
+            ?>
+            <div class="row w3-margin-top">
+                <div class="col-md-12 w3-text-white">
+                    <p class=" w3-padding-small" style="background:#5E32E1">Relative No.1</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group has-feedback">
+                        <label for="relative_name" class="text-uppercase c-gray-light">Relative Full Name</label>
+                        <input type="text" id="relative_name_1" required class="form-control no-resize" value="" name="relative_name[]">  
+                        <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                        <div class="help-block with-errors"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group has-feedback">
+                        <label for="relative_contact" class="text-uppercase c-gray-light">Relative Contact Number</label>
+                        <input type="text" id="relative_contact_1" required class="form-control no-resize" value="" name="relative_contact[]">  
+                        <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                        <div class="help-block with-errors"></div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group has-feedback">
+                        <label for="relative_relation" class="text-uppercase c-gray-light">Relation with you</label>
+                        <input type="text" id="relative_relation_1" required class="form-control no-resize" value="" name="relative_relation[]">
+                        <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                        <div class="help-block with-errors"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group has-feedback">
+                        <label for="relative_address" class="text-uppercase c-gray-light">Relative Address</label>
+                        <textarea name="relative_address[]" id="relative_address_1" required class="form-control no-resize" rows="5"></textarea> 
+                        <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                        <div class="help-block with-errors"></div>
+                    </div>
+                </div>
+            </div>
+        <?php } ?>
+        <div class="container no-padding" id="multiple_relativeDiv">
+            <?php 
+            if($userDetails[0]['user_relative_info']!='' && $userDetails[0]['user_relative_info']!='[]'){
+                $relativeArr=json_decode($userDetails[0]['user_relative_info'],TRUE);
+
+                for ($i=1; $i <count($relativeArr) ; $i++) { ?>
+                    <div id="relativeDiv_<?php echo $i+1; ?>">
+                        <div class="row w3-margin-top">
+                            <div class="col-md-12 w3-text-white">
+                                <div class=" w3-padding-small" style="background:#5E32E1">Relative No.<?php echo $i+1; ?>
+                                <a href="#" style="padding:1px" class="delete btn w3-text-white w3-right" title="remove relative"><i class="ion-close"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group has-feedback">
+                                <label for="relative_name" class="text-uppercase c-gray-light">Relative Full Name</label>
+                                <input type="text" id="relative_name_<?php echo $i+1; ?>" required class="form-control no-resize" value="<?php echo $relativeArr[$i]['relative_name']; ?>" name="relative_name[]">  
+                                <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                                <div class="help-block with-errors"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group has-feedback">
+                                <label for="relative_contact" class="text-uppercase c-gray-light">Relative Contact Number</label>
+                                <input type="text" id="relative_contact_<?php echo $i+1; ?>" required class="form-control no-resize" value="<?php echo $relativeArr[$i]['relative_contact']; ?>" name="relative_contact[]">  
+                                <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                                <div class="help-block with-errors"></div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group has-feedback">
+                                <label for="relative_relation" class="text-uppercase c-gray-light">Relation with you</label>
+                                <input type="text" id="relative_relation_<?php echo $i+1; ?>" required class="form-control no-resize" value="<?php echo $relativeArr[$i]['relative_relation']; ?>" name="relative_relation[]">
+                                <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                                <div class="help-block with-errors"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group has-feedback">
+                                <label for="relative_address" class="text-uppercase c-gray-light">Relative Address</label>
+                                <textarea name="relative_address[]" id="relative_address_<?php echo $i+1; ?>" required class="form-control no-resize" rows="5"><?php echo $relativeArr[$i]['relative_address']; ?></textarea> 
+                                <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                                <div class="help-block with-errors"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <?php        
+            }
+        }
+        ?>
+
+    </div>
+    <div class="row w3-margin-bottom">
+        <div class="col-md-12">
+            <button type="button" id="add_moreRelative" class="btn btn-sm w3-right btn-primary btn-icon-only btn-shadow"><i class="ion-plus"></i> Add more Relative (max.3)</button>
         </div>
     </div>
-
-    <div class="clearfix"></div>
-    <form id="form_life_style" class="form-default" role="form">
-        <div class="row w3-margin-top">
-            <div class="col-md-12 w3-text-white">
-                <p class=" w3-padding-small" style="background:#5E32E1">Relative No.1</p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-                <div class="form-group has-feedback">
-                    <label for="relative_name_1" class="text-uppercase c-gray-light">Relative Full Name</label>
-                    <input type="text" class="form-control no-resize" name="relative_name_1">  
-                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
-                    <div class="help-block with-errors"></div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-6">
-                <div class="form-group has-feedback">
-                    <label for="relative_contact_1" class="text-uppercase c-gray-light">Relative Contact Number</label>
-                    <input type="text" class="form-control no-resize" name="relative_contact_1">  
-                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
-                    <div class="help-block with-errors"></div>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="form-group has-feedback">
-                    <label for="relative_relation_1" class="text-uppercase c-gray-light">Relation with you</label>
-                    <input type="text" class="form-control no-resize" name="relative_relation_1">
-                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
-                    <div class="help-block with-errors"></div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-                <div class="form-group has-feedback">
-                    <label for="relative_address_1" class="text-uppercase c-gray-light">Relative Address</label>
-                    <textarea name="residence_address" class="form-control no-resize" rows="5">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmodm tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodoconsequat. Duis aute irure dolor in reprehenderit in voluptate velit essecillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat nonproident, sunt in culpa qui officia deserunt mollit anim id est laborum.</textarea> 
-                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
-                    <div class="help-block with-errors"></div>
-                </div>
-            </div>
-        </div>
-        <div class="container no-padding" id="multiple_relativeDiv"></div>
-        <div class="row w3-margin-bottom">
-            <div class="col-md-12">
-                <button type="button" id="add_moreRelative" class="btn btn-sm w3-right btn-primary btn-icon-only btn-shadow"><i class="ion-plus"></i> Add more Relative</button>
-            </div>
-        </div>
-    </form>
+</form>
 </div>
 <!-- edit relatives div ends -->
 </div>
@@ -1478,7 +1584,7 @@
                 <div class="col-md-6">
                     <div class="form-group has-feedback">
                         <label for="document_type" class="text-uppercase c-gray-light">Document Type</label>
-                        <select name="document_type" onchange="(this.value,this)" class="form-control form-control-sm selectpicker" data-placeholder="Choose a document" tabindex="2" data-hide-disabled="true">
+                        <select name="document_type" id="document_type" onchange="(this.value,this)" class="form-control form-control-sm selectpicker" data-placeholder="Choose a document" tabindex="2" data-hide-disabled="true">
                             <option value="0" class="w3-light-grey">Choose one document</option>
                             <option value="Adhaar Card">Adhaar Card</option>
                             <option value="PAN Card">PAN Card</option>
@@ -1510,7 +1616,7 @@
             <div class="col-md-12">
                 <?php 
                 if(!$userDocuments){ ?>
-                    <p class="w3-red w3-center"> <i class="fa fa-warning"></i> No Documents found ! </p>
+                    <p class="w3-light-grey w3-center"> <i class="fa fa-warning"></i> No Documents found ! </p>
                     <?php
                 }
                 else{
