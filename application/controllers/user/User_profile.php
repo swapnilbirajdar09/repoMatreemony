@@ -928,4 +928,82 @@ public function setProfilePicture(){
     echo json_encode($response);
 }
 
+    // update function for Change password section
+// ------------------------------------------------------------ //
+public function update_change_password(){
+
+        // user user-id from session
+    $encodedkey = $this->session->userdata('PariKey_session');
+    $user_id='';
+    $key=base64_decode($encodedkey);
+    $keyarr=explode('|', $key);
+    //session key format is $keyarr[0]=PARInaayKEY|$keyarr[1]=email_id|$keyarr[2]=user_id
+
+    extract($_POST);
+    
+    // validation
+    if(empty($old_password)){
+        $response=array(
+            'status'    =>  'validation',
+            'message'   =>  '<b>Warning:</b> Old Password field is required!',
+            'field'   =>  'old_password'
+        );
+        echo json_encode($response);
+        die();
+    }
+    if(empty($new_password)){
+        $response=array(
+            'status'    =>  'validation',
+            'message'   =>  '<b>Warning:</b> New Password field is required!',
+            'field'   =>  'new_password'
+        );
+        echo json_encode($response);
+        die();
+    }
+    if(empty($confirm_password)){
+        $response=array(
+            'status'    =>  'validation',
+            'message'   =>  '<b>Warning:</b> Confirm Password field is required!',
+            'field'   =>  'confirm_password'
+        );
+        echo json_encode($response);
+        die();
+    }
+    if($old_password!=$password_enc){
+        $response=array(
+            'status'    =>  'validation',
+            'message'   =>  '<b>Warning:</b> Old Password is incorrect!',
+            'field'   =>  'old_password'
+        );
+        echo json_encode($response);
+        die();
+    }
+    if($confirm_password!=$new_password){
+        $response=array(
+            'status'    =>  'validation',
+            'message'   =>  '<b>Warning:</b> Confirm Password and New Password not matching!',
+            'field'   =>  'confirm_password'
+        );
+        echo json_encode($response);
+        die();
+    }
+
+    
+    $result = $this->user_model->update_change_password($_POST,$keyarr[2]);
+
+    if($result){
+        $response=array(
+            'status'    =>  'success',
+            'message'   =>  '<b>Success:</b> You Have Successfully changed your Password!'
+        );
+    }
+    else{
+        $response=array(
+            'status'    =>  'error',
+            'message'   =>  '<b>Error:</b> Perhaps you didn\'t make any change. Password was not changed!'
+        );
+    } 
+    echo json_encode($response);
+}
+
 }

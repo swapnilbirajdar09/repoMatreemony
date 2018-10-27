@@ -562,3 +562,18 @@ function readURL(input) {
 	}
 }
 // ------------function preview image end------------------//
+
+//-------------------fucntion to check confirm password---------------
+    function checkPassword() {
+        if ($('#new_password').val() == $('#confirm_password').val()) {
+            $('#btn_change_password').prop("disabled", false);
+            $('#confirm_password').css('border-color', '');
+            $('#passwordErr').html('');
+
+        } else {
+            $('#passwordErr').html('<label>Password Not Matching</label>').css('color', 'red');
+            $('#confirm_password').css('border-color', 'red');
+            $('#btn_change_password').prop("disabled", true);
+        }
+    }
+//-----------function ends------------------------

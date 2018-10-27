@@ -24,7 +24,7 @@
        location.reload();
    })
 </script>
-<?php print_r($userDetails); ?>
+<!-- <?php print_r($userDetails); ?> -->
 <section class="slice sct-color-2">
     <div class="profile" ng-app="profileSectionApp" ng-controller="profileSectionCtrl">
         <div class="container">
@@ -254,28 +254,28 @@
                                                     <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true"><i class="ion-close"></i></span>
                                                     </button>
                                                 </div>
-                                                <div class="modal-body" style="padding: 2rem 0 2rem 0">
-                                                    <form class="col-12" id="form_change_password" role="form" enctype="multipart/form-data">
+                                                <div id="section_change_password" class="modal-body" style="padding: 2rem 0 2rem 0">
+                                                    <form class="col-12" id="form_change_password" role="form">
                                                         <div class="form-group has-feedback col-10 ml-auto mr-auto">
-                                                            <label for="img_title" class="text-uppercase w3-left c-gray-light">Old Password</label>
-                                                            <input type="text" class="form-control no-resize" name="img_title" required>
+                                                            <label for="old_password" class="text-uppercase w3-left c-gray-light">Old Password</label>
+                                                            <input type="password" class="form-control no-resize" name="old_password" required>
+                                                            <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                                                            <div class="help-block with-errors"></div>
+                                                        </div>
+                                                        <input type="hidden" name="password_enc" value="<?php echo $userDetails[0]['user_password']; ?>" readonly>
+                                                        <div class="form-group has-feedback col-10 ml-auto mr-auto">
+                                                            <label for="new_password" class="text-uppercase w3-left c-gray-light">New Password</label>
+                                                            <input type="password" class="form-control no-resize" onkeyup="checkPassword();" name="new_password" id="new_password" required>
                                                             <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                                                             <div class="help-block with-errors"></div>
                                                         </div>
                                                         <div class="form-group has-feedback col-10 ml-auto mr-auto">
-                                                            <label for="img_title" class="text-uppercase w3-left c-gray-light">New Password</label>
-                                                            <input type="text" class="form-control no-resize" name="img_title" required>
-                                                            <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
-                                                            <div class="help-block with-errors"></div>
-                                                        </div>
-                                                        <div class="form-group has-feedback col-10 ml-auto mr-auto">
-                                                            <label for="img_title" class="text-uppercase w3-left c-gray-light">Confirm Password</label>
-                                                            <input type="text" class="form-control no-resize" name="img_title" required>
-                                                            <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
-                                                            <div class="help-block with-errors"></div>
+                                                            <label for="confirm_password" class="text-uppercase w3-left c-gray-light">Confirm Password</label>
+                                                            <input type="password" onkeyup="checkPassword();" class="form-control no-resize" name="confirm_password" id="confirm_password" required>
+                                                            <span class="glyphicon form-control-feedback w3-text-red" id="passwordErr" aria-hidden="true"></span>
                                                         </div>
                                                         <div class="form-group has-feedback col-10 ml-auto mr-auto text-center">
-                                                            <button type="submit" id="btn_gallery_upload" class="btn btn-block btn-base-1 btn-shadow">Change Password</button>
+                                                            <button type="submit" onclick="save_section('change_password')" id="btn_change_password" class="btn btn-block btn-base-1 btn-shadow">Change Password</button>
                                                         </div>
                                                     </form>
                                                 </div>

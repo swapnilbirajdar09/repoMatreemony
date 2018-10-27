@@ -337,5 +337,23 @@ class User_model extends CI_Model {
         }
     }
 
+    // update change password
+    public function update_change_password($data,$user_id){
+        extract($data);
+        // print_r($data);die();
+        $result_update = array(
+            'user_password' => $new_password
+        );
+
+        $this->db->where('user_id', $user_id);
+        $this->db->update('user_tab', $result_update);
+        if($this->db->affected_rows()==1){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
 
 }
