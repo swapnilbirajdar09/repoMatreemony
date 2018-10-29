@@ -127,7 +127,7 @@
                                         <div class="col-sm-12">                                                                                        
                                             <div class="form-group has-feedback">
                                                 <label for="" class="text-uppercase w3-medium">Country</label>
-                                                <select name="country" id="country" ng-model="country" ng-change="getCountryState()" class="w3-input selectpicker s_country" data-placeholder="Choose a country" tabindex="2" data-hide-disabled="true">
+                                                <select name="country" id="country" ng-model="country" ng-change="getCountryState();" class="w3-input selectpicker s_country" data-placeholder="Choose a country" tabindex="2" data-hide-disabled="true">
                                                     <option value="">Choose one</option>
                                                     <?php for ($i = 0; $i < count($country); $i++) { ?>
                                                         <option value="<?php echo $country[$i]['name'] . '/' . $country[$i]['id']; ?>">
@@ -140,7 +140,7 @@
                                             </div>
                                             <div class="form-group has-feedback">
                                                 <label for="" class="text-uppercase w3-medium">State</label>
-                                                <select class="w3-input selectpicker s_state" ng-change="getStateCity()" ng-model="state" id="state" name="state">
+                                                <select class="w3-input selectpicker s_state" onchange="getStateCity();" id="state" name="state">
                                                     <option value="">Choose A Country First</option>
                                                 </select>
                                                 <div class="help-block with-errors">
@@ -1006,31 +1006,34 @@ $session_user_id = $keyarr[2];
             });
         };
 
-        $scope.getStateCity = function () {
-            var state = $("#state").val();
-            $.ajax({
-                type: "GET",
-                url: BASE_URL + "user/search/advance_search/getStateCity",
-                data: {
-                    state: state
-                },
-                cache: false,
-                success: function (data) {
-                    //alert(data);
-                    var cityData = '';
-                    console.log(JSON.parse(data));
-                    cityData = JSON.parse(data);
-                    var i;
 
-                    var city = $('#city');
-                    city.find('option:not(:first-child)').remove();
-
-                    for (i = 0; i < cityData.length; i++) {
-                        $('#city').append('<option value="' + cityData[i].name + '">' + cityData[i].name + '</option>');
-                    }
-                }
-            });
-        };
 
     });
+    function getStateCity() {
+        var state = $("#state").val();
+        alert(state);
+        $.ajax({
+            type: "GET",
+            url: BASE_URL + "user/search/advance_search/getStateCity",
+            data: {
+                state: state
+            },
+            cache: false,
+            success: function (data) {
+                alert(data);
+                var cityData = '';
+                console.log(JSON.parse(data));
+                cityData = JSON.parse(data);
+                var i;
+
+                var city = $('#city');
+                city.find('option:not(:first-child)').remove();
+
+                for (i = 0; i < cityData.length; i++) {
+                    $('#city').append('<option value="' + cityData[i].name + '">' + cityData[i].name + '</option>');
+                }
+            }
+        });
+    }
+
 </script>
