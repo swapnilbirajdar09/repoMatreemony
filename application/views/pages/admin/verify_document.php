@@ -26,7 +26,7 @@
               <div class="profile_img">
                 <div id="crop-avatar">
                   <!-- Current avatar -->
-                  <img class="img-responsive avatar-view" onerror="this.src='<?php echo base_url(); ?>assets/images/user.png'" src="<?php echo base_url(); ?>assets/images/user.png" alt="Avatar" title="Change the avatar">
+                  <img class="img img-thumbnail img-responsive avatar-view" onerror="this.src='<?php echo base_url(); ?>assets/images/user.png'" src="<?php echo base_url(); ?><?php echo $userDetails[0]['user_profile_image']; ?>" alt="Avatar" title="Change the avatar">
                 </div>
               </div>
               <h3><?php echo $userDetails[0]['user_firstname'].' '.$userDetails[0]['user_lastname']; ?></h3>

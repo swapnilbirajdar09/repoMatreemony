@@ -31,7 +31,7 @@
               ?>
               <tr>
                 <td class="text-center">
-                  <img src="<?php echo base_url(); ?>assets/images/user.png" onerror="this.src='<?php echo base_url(); ?>assets/images/user.png'" alt="<?php echo $key['user_firstname'];?> <?php echo $key['user_lastname'];?> profile image" class="img img-circle w3-center" style="width: 100px;height: 100px">
+                  <img src="<?php echo base_url(); ?><?php echo $key['user_profile_image']; ?>" onerror="this.src='<?php echo base_url(); ?>assets/images/user.png'" alt="<?php echo $key['user_firstname'];?> <?php echo $key['user_lastname'];?> profile image" class="img img-circle img-thumbnail w3-center" style="width: 100px;height: 100px">
                 </td>
                 <td class="w3-center" style="vertical-align: middle;">
                  <span class=""><b><?php echo $key['user_profile_key'];?></b></span>
