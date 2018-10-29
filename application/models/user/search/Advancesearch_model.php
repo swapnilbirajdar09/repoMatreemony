@@ -74,15 +74,15 @@ class Advancesearch_model extends CI_Model {
     }
 
 //-------------fun for filter the profiles by diifrent attribute or filters
-    public function getAllUserProfilesByAdvanceSearch($request) {
+    public function getAllUserProfilesByAdvanceSearch($request,$gender) {
         extract($request);
-        $sql = "SELECT * FROM user_profile_tab,user_tab WHERE user_tab.user_id = user_profile_tab.user_id ";
+        $sql = "SELECT * FROM user_profile_tab,user_tab WHERE user_tab.user_id = user_profile_tab.user_id AND user_tab.user_gender != '$gender'";
 
         if ($language != '') {
             $sql .= "AND user_profile_tab.user_mother_tongue = '$language'";
         }
         if ($religion != '') {
-            $sql .= "AND user_profile_tab.user_caste = '$religion'";
+            $sql .= "AND user_tab.user_caste = '$religion'";
         }
         if ($filter_aged_from != '') {
             $sql .= "AND DATEDIFF(CURRENT_DATE, user_profile_tab.user_dob) >= ('$filter_aged_from' * 365.25)";
@@ -144,6 +144,7 @@ class Advancesearch_model extends CI_Model {
         if ($to_salary != '') {
             $sql .= "AND user_profile_tab.user_annual_income <= '$to_salary'";
         }
+        $sql .= "ORDER BY user_tab.user_id DESC";
         $result = $this->db->query($sql);
         if ($result->num_rows() <= 0) {
             return false;

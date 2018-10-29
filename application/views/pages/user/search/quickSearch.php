@@ -643,21 +643,33 @@ $session_user_id = $keyarr[2];
                                 case '200':
                                     $('#ajax_success_alert').show();
                                     $('.ajax_success_alert').html('Request Sent Successfully.');
+                                    setTimeout(function () {
+                                        $('.alert_message').fadeOut('fast');
+                                    }, 5000);
                                     break;
 
                                 case '500':
                                     $('#ajax_danger_alert').show();
                                     $('.ajax_danger_alert').html('Request Not Sent Successfully.');
+                                    setTimeout(function () {
+                                        $('.alert_message').fadeOut('fast');
+                                    }, 5000);
                                     break;
 
                                 case '700':
                                     $('#ajax_validation_alert').show();
                                     $('.ajax_validation_alert').html('No Request Tockens Are Available.');
+                                    setTimeout(function () {
+                                        $('.alert_message').fadeOut('fast');
+                                    }, 5000);
                                     break;
 
                                 case '900':
                                     $('#ajax_validation_alert').show();
                                     $('.ajax_validation_alert').html('Request Is Already Sent You By The Receiver.');
+                                    setTimeout(function () {
+                                        $('.alert_message').fadeOut('fast');
+                                    }, 5000);
                                     break;
 
                             }
@@ -688,11 +700,17 @@ $session_user_id = $keyarr[2];
                                 case '200':
                                     $('#ajax_success_alert').show();
                                     $('.ajax_success_alert').html('Request Cancellation Successful.');
+                                    setTimeout(function () {
+                                        $('.alert_message').fadeOut('fast');
+                                    }, 5000);
                                     break;
 
                                 case '500':
                                     $('#ajax_danger_alert').show();
                                     $('.ajax_danger_alert').html('Request Cancellation Failed.');
+                                    setTimeout(function () {
+                                        $('.alert_message').fadeOut('fast');
+                                    }, 5000);
                                     break;
                             }
                             $scope.reload();
@@ -716,11 +734,17 @@ $session_user_id = $keyarr[2];
                     case '200':
                         $('#ajax_success_alert').show();
                         $('.ajax_success_alert').html('You Have Successfully Followed This User.');
+                        setTimeout(function () {
+                            $('.alert_message').fadeOut('fast');
+                        }, 3000);
                         break;
 
                     case '500':
                         $('#ajax_danger_alert').show();
                         $('.ajax_danger_alert').html('Following Request Failed.');
+                        setTimeout(function () {
+                            $('.alert_message').fadeOut('fast');
+                        }, 5000);
                         break;
                 }
                 $scope.reload();
@@ -738,11 +762,17 @@ $session_user_id = $keyarr[2];
                     case '200':
                         $('#ajax_success_alert').show();
                         $('.ajax_success_alert').html('UnFollow Request Successful.');
+                        setTimeout(function () {
+                            $('.alert_message').fadeOut('fast');
+                        }, 5000);
                         break;
 
                     case '500':
                         $('#ajax_danger_alert').show();
                         $('.ajax_danger_alert').html('UnFollow Request Failed.');
+                        setTimeout(function () {
+                            $('.alert_message').fadeOut('fast');
+                        }, 5000);
                         break;
                 }
                 $scope.reload();

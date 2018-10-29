@@ -13,13 +13,24 @@ class Regular_search extends CI_Controller {
 
     // main index function
     public function index() {
-        // start session		
-//        $admin_name = $this->session->userdata('admin_name'); //----session variable
-//        if ($admin_name == '') {
-//            redirect('admin/admin_login');
-//        }
-        //$data['adminInfo'] = $this->Adminprofile_model->getAdminDetails();
-        // print_r($data['adminInfo']);die();
+        $encodedkey = $this->session->userdata('PariKey_session');
+        $gender = $this->session->userdata('key_gender');
+        $user_id = '';
+        // check session active or not
+        if ($encodedkey == '') {
+            redirect('/');
+        } else {
+            $key = base64_decode($encodedkey);
+            $keyarr = explode('|', $key);
+            // print_r($keyarr);die();
+            //session key format is PARInaayKEY|email_id|user_id
+
+            if ($keyarr[0] != 'PARInaayKEY' && $keyarr[1] != '' && $keyarr[2] != '') {
+                redirect('/');
+            } else {
+                $user_id = $keyarr[2];
+            }
+        }
         $this->load->view('includes/user/userheader');
         $this->load->view('pages/user/search/regularSearch'); //------loading the profile page for Quick search 
         $this->load->view('includes/user/userfooter');
@@ -30,7 +41,8 @@ class Regular_search extends CI_Controller {
         $postdata = file_get_contents("php://input");
         $request = json_decode($postdata, TRUE);
         //extract($request);
-        $result = $this->Regularsearch_model->getAllUserProfilesByRegularSearch($request);
+        $gender = $this->session->userdata('key_gender');
+        $result = $this->Regularsearch_model->getAllUserProfilesByRegularSearch($request,$gender);
         //print_r($result);die();
         if (!$result) {
             echo '500';
@@ -38,5 +50,5 @@ class Regular_search extends CI_Controller {
             print_r(json_encode($result));
         }
     }
-    
+
 }

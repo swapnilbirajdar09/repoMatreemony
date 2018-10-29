@@ -76,77 +76,78 @@
 
                 <!-----------------------------this Div is for all users profiles---------------------------------->
                 <div class="block-wrapper" id="result">
-                    <!-----------------------------this Div is for single user profile---------------------------------->
-                    <div class="block block--style-3 list z-depth-1-top" ng-if="profiles != 500" id="block_1" dir-paginate="p in profiles|itemsPerPage:5">
-                        <div class="block-image">
-                            <a onclick="goto_profile(p.user_id)">
-                                <div class="listing-image" style="background-image: url(<?php echo base_url();?>{{p.user_profile_image}})"></div>
-                            </a>
-                        </div>
-                        <div class="block-title-wrapper">
-                            <h3 class="heading heading-5 strong-500 mt-1">
-                                <a onclick="return goto_profile(p.user_id)" class="c-base-1">{{p.firstName + ' ' + p.lastName}}</a>
-                            </h3>
-                            <h4 class="heading heading-xs c-gray-light text-uppercase strong-400">{{p.user_designation}}</h4>
-                            <table class="mb-2" style="font-size: 12px;">
-                                <tbody>
-                                    <tr>
-                                        <td height="30" style="padding-left: 3px;" class="font-dark"><b>Member ID</b></td>
-                                        <td height="30" style="padding-left: 3px;" class="font-dark" colspan="3"><a onclick="return goto_profile()" class="c-base-1"><b>#000{{p.user_profile_key}}</b></a></td>
-                                    </tr>
-                                    <tr>
-                                        <td width="120" height="30" style="padding-left: 3px;" class="font-dark"><b>Age</b></td>
-                                        <td width="120" height="30" style="padding-left: 3px;" class="font-dark">{{p.age}}</td>
-                                        <td width="120" height="30" style="padding-left: 3px;" class="font-dark"><b>Height</b></td>
-                                        <td width="120" height="30" style="padding-left: 3px;" class="font-dark">{{p.user_height}} Feet</td>
-                                    </tr>                                    
-                                    <tr>
-                                        <td width="120" height="30" style="padding-left: 3px;" class="font-dark"><b>Mother Tongue</b></td>
-                                        <td width="120" height="30" style="padding-left: 3px;" class="font-dark">{{p.user_mother_tongue}}</td>
-                                        <td width="120" height="30" style="padding-left: 3px;"><b>Marital Status</b></td>
-                                        <td width="120" height="30" style="padding-left: 3px;" class="font-dark">{{p.user_marital_status}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td width="120" height="30" style="padding-left: 3px;" class="font-dark"><b>Location</b></td>
-                                        <td colspan="3" height="30" style="padding-left: 3px;" class="font-dark">{{p.user_location}}</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <!--                            <div class="block-footer b-xs-top">-->
-                            <div class="row align-items-center">
-                                <div class="col-sm-12 text-center">
-                                    <ul class="inline-links inline-links--style-3">
-                                        <li class="listing-hover" ng-if="p.alreadySent == '0'">
-                                            <a ng-click="sendRequestToUser(p.user_id);" title="Send Request">
-                                                <span id="" class="w3-text-green"><i class="fa fa-user-plus "></i> Send Request</span></a>
-                                        </li>
-                                        <li class="listing-hover" ng-if="p.alreadySent != '0'">
-                                            <a ng-click="cancelRequestOfUser(p.user_id);" title="Cancel Request">
-                                                <span id="" class="w3-text-red"><i class="fa fa-user-plus w3-text-red"></i> Cancel Request</span></a>
-                                        </li>
-                                        <!--                                        <li class="listing-hover">
-                                                                                    <a onclick="return goto_profile(p.user_id)">
-                                                                                        <i class="fa fa-id-card"></i>Full Profile</a>
-                                                                                </li>-->
-                                        <li class="listing-hover" ng-if="p.alreadyfollowed == '0'">
-                                            <a id="interest_a_1" ng-click="followUserProfile(p.user_id);" title="Follow This Profile" style="">
-                                                <span id="interest_1" class="w3-text-blue"><i class="fa fa-heart"></i> Add To Favourite</span>
-                                            </a>
-                                        </li>
-                                        <li class="listing-hover" ng-if="p.alreadyfollowed != '0'">
-                                            <a id="interest_a_1" ng-click="unFollowUserProfile(p.user_id);" title="UnFollow This Profile" style="">
-                                                <span id="interest_1" class="w3-text-pink"><i class="fa fa-heart"></i> Favourite</span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
+                    <div ng-if="profiles != 500">
+                        <!-----------------------------this Div is for single user profile---------------------------------->
+                        <div class="block block--style-3 list z-depth-1-top" id="block_1" dir-paginate="p in profiles|itemsPerPage:5">
+                            <div class="block-image">
+                                <a onclick="goto_profile(p.user_id)">
+                                    <div class="listing-image" style="background-image: url(<?php echo base_url(); ?>{{p.user_profile_image}})"></div>
+                                </a>
                             </div>
-                            <!--                            </div>-->
+                            <div class="block-title-wrapper">
+                                <h3 class="heading heading-5 strong-500 mt-1">
+                                    <a onclick="return goto_profile(p.user_id)" class="c-base-1">{{p.firstName + ' ' + p.lastName}}</a>
+                                </h3>
+                                <h4 class="heading heading-xs c-gray-light text-uppercase strong-400">{{p.user_designation}}</h4>
+                                <table class="mb-2" style="font-size: 12px;">
+                                    <tbody>
+                                        <tr>
+                                            <td height="30" style="padding-left: 3px;" class="font-dark"><b>Member ID</b></td>
+                                            <td height="30" style="padding-left: 3px;" class="font-dark" colspan="3"><a onclick="return goto_profile()" class="c-base-1"><b>#000{{p.user_profile_key}}</b></a></td>
+                                        </tr>
+                                        <tr>
+                                            <td width="120" height="30" style="padding-left: 3px;" class="font-dark"><b>Age</b></td>
+                                            <td width="120" height="30" style="padding-left: 3px;" class="font-dark">{{p.age}}</td>
+                                            <td width="120" height="30" style="padding-left: 3px;" class="font-dark"><b>Height</b></td>
+                                            <td width="120" height="30" style="padding-left: 3px;" class="font-dark">{{p.user_height}} Feet</td>
+                                        </tr>                                    
+                                        <tr>
+                                            <td width="120" height="30" style="padding-left: 3px;" class="font-dark"><b>Mother Tongue</b></td>
+                                            <td width="120" height="30" style="padding-left: 3px;" class="font-dark">{{p.user_mother_tongue}}</td>
+                                            <td width="120" height="30" style="padding-left: 3px;"><b>Marital Status</b></td>
+                                            <td width="120" height="30" style="padding-left: 3px;" class="font-dark">{{p.user_marital_status}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td width="120" height="30" style="padding-left: 3px;" class="font-dark"><b>Location</b></td>
+                                            <td colspan="3" height="30" style="padding-left: 3px;" class="font-dark">{{p.user_location}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <!--                            <div class="block-footer b-xs-top">-->
+                                <div class="row align-items-center">
+                                    <div class="col-sm-12 text-center">
+                                        <ul class="inline-links inline-links--style-3">
+                                            <li class="listing-hover" ng-if="p.alreadySent == '0'">
+                                                <a ng-click="sendRequestToUser(p.user_id);" title="Send Request">
+                                                    <span id="" class="w3-text-green"><i class="fa fa-user-plus "></i> Send Request</span></a>
+                                            </li>
+                                            <li class="listing-hover" ng-if="p.alreadySent != '0'">
+                                                <a ng-click="cancelRequestOfUser(p.user_id);" title="Cancel Request">
+                                                    <span id="" class="w3-text-red"><i class="fa fa-user-plus w3-text-red"></i> Cancel Request</span></a>
+                                            </li>
+                                            <!--                                        <li class="listing-hover">
+                                                                                        <a onclick="return goto_profile(p.user_id)">
+                                                                                            <i class="fa fa-id-card"></i>Full Profile</a>
+                                                                                    </li>-->
+                                            <li class="listing-hover" ng-if="p.alreadyfollowed == '0'">
+                                                <a id="interest_a_1" ng-click="followUserProfile(p.user_id);" title="Follow This Profile" style="">
+                                                    <span id="interest_1" class="w3-text-blue"><i class="fa fa-heart"></i> Add To Favourite</span>
+                                                </a>
+                                            </li>
+                                            <li class="listing-hover" ng-if="p.alreadyfollowed != '0'">
+                                                <a id="interest_a_1" ng-click="unFollowUserProfile(p.user_id);" title="UnFollow This Profile" style="">
+                                                    <span id="interest_1" class="w3-text-pink"><i class="fa fa-heart"></i> Favourite</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <!--                            </div>-->
+                            </div>
+
                         </div>
 
                     </div>
-
-
                     <!-----------------------------this Div is for single user profile---------------------------------->
                     <div class=" w3-center w3-padding list z-depth-1-top" ng-if="profiles == 500" id="block_1">
                         <div class="w3-padding w3-margin-top">
@@ -600,21 +601,33 @@ $session_user_id = $keyarr[2];
                                 case '200':
                                     $('#ajax_success_alert').show();
                                     $('.ajax_success_alert').html('Request Sent Successfully.');
+                                    setTimeout(function () {
+                                        $('.alert_message').fadeOut('fast');
+                                    }, 5000);
                                     break;
 
                                 case '500':
                                     $('#ajax_danger_alert').show();
                                     $('.ajax_danger_alert').html('Request Not Sent Successfully.');
+                                    setTimeout(function () {
+                                        $('.alert_message').fadeOut('fast');
+                                    }, 5000);
                                     break;
 
                                 case '700':
                                     $('#ajax_validation_alert').show();
                                     $('.ajax_validation_alert').html('No Request Tockens Are Available.');
+                                    setTimeout(function () {
+                                        $('.alert_message').fadeOut('fast');
+                                    }, 5000);
                                     break;
 
                                 case '900':
                                     $('#ajax_validation_alert').show();
                                     $('.ajax_validation_alert').html('Request Is Already Sent You By The Receiver.');
+                                    setTimeout(function () {
+                                        $('.alert_message').fadeOut('fast');
+                                    }, 5000);
                                     break;
 
                             }
@@ -645,11 +658,17 @@ $session_user_id = $keyarr[2];
                                 case '200':
                                     $('#ajax_success_alert').show();
                                     $('.ajax_success_alert').html('Request Cancellation Successful.');
+                                    setTimeout(function () {
+                                        $('.alert_message').fadeOut('fast');
+                                    }, 5000);
                                     break;
 
                                 case '500':
                                     $('#ajax_danger_alert').show();
                                     $('.ajax_danger_alert').html('Request Cancellation Failed.');
+                                    setTimeout(function () {
+                                        $('.alert_message').fadeOut('fast');
+                                    }, 5000);
                                     break;
                             }
                             $scope.reload();
@@ -673,11 +692,17 @@ $session_user_id = $keyarr[2];
                     case '200':
                         $('#ajax_success_alert').show();
                         $('.ajax_success_alert').html('You Have Successfully Followed This User.');
+                        setTimeout(function () {
+                            $('.alert_message').fadeOut('fast');
+                        }, 5000);
                         break;
 
                     case '500':
                         $('#ajax_danger_alert').show();
                         $('.ajax_danger_alert').html('Following Request Failed.');
+                        setTimeout(function () {
+                            $('.alert_message').fadeOut('fast');
+                        }, 5000);
                         break;
                 }
                 $scope.reload();
@@ -695,11 +720,17 @@ $session_user_id = $keyarr[2];
                     case '200':
                         $('#ajax_success_alert').show();
                         $('.ajax_success_alert').html('UnFollow Request Successful.');
+                        setTimeout(function () {
+                            $('.alert_message').fadeOut('fast');
+                        }, 5000);
                         break;
 
                     case '500':
                         $('#ajax_danger_alert').show();
                         $('.ajax_danger_alert').html('UnFollow Request Failed.');
+                        setTimeout(function () {
+                            $('.alert_message').fadeOut('fast');
+                        }, 5000);
                         break;
                 }
                 $scope.reload();
