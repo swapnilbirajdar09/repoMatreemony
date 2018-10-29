@@ -122,4 +122,74 @@ class Allusers_model extends CI_Model {
         }
     }
 
+    // approve documents
+    public function approveDocument($doc_id){
+        $result = array(
+            'status' => '1',
+            'document_status' => 'approved',
+            'comments' => ''
+        );
+        $this->db->where('document_id', $doc_id);
+        $this->db->update('document_tab', $result);
+
+        if($this->db->affected_rows()==1){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+    // reject documents
+    public function rejectDocument($doc_id,$comments){
+        $result = array(
+            'status' => '0',
+            'document_status' => 'rejected',
+            'comments' => $comments
+        );
+        $this->db->where('document_id', $doc_id);
+        $this->db->update('document_tab', $result);
+
+        if($this->db->affected_rows()==1){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+    // activate member
+    public function activate($user_id){
+        $result = array(
+            'user_status' => '1',
+            'user_doc_verified' => '1'
+        );
+        $this->db->where('user_id', $user_id);
+        $this->db->update('user_tab', $result);
+
+        if($this->db->affected_rows()==1){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+    // deactivate member
+    public function deactivate($user_id){
+        $result = array(
+            'user_status' => '0',
+            'user_doc_verified' => '0'
+        );
+        $this->db->where('user_id', $user_id);
+        $this->db->update('user_tab', $result);
+
+        if($this->db->affected_rows()==1){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
 }
