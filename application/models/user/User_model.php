@@ -378,9 +378,12 @@ class User_model extends CI_Model {
     }
 
     // email verify code
-    public function verify_email_code($code,$user_id){
+    public function verify_email_code($code){
+        $decrptcode=base64_decode($code);
+        $arr=explode('|', $decrptcode);
+        // echo $arr[0];die();
         $user_email_verify_code='';
-        $sql = "SELECT user_email_verify_code FROM user_tab WHERE user_id='$user_id' ";
+        $sql = "SELECT user_email_verify_code FROM user_tab WHERE user_email='$arr[0]' ";
         $result = $this->db->query($sql);
 
         foreach ($result->result_array() as $key) {
@@ -393,7 +396,7 @@ class User_model extends CI_Model {
                     'user_email_verified' => '1'
                 );
 
-                $this->db->where('user_id', $user_id);
+                $this->db->where('user_email', $arr[0]);
                 $this->db->update('user_tab', $result_update);
                 if($this->db->affected_rows()==1){
                     $response=array(

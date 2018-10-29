@@ -1094,16 +1094,11 @@ public function verify_email(){
 
     // verify email by link
 public function verifyEmail($code=''){
-        // user user-id from session
-    $encodedkey = $this->session->userdata('PariKey_session');
-    $user_id='';
-    $key=base64_decode($encodedkey);
-    $keyarr=explode('|', $key);
     
     if($code!=''){
         // print_r($_GET);
         if($_GET['verify']=='true' && $_GET['src']=='getvalidated'){
-            $verifyCode=$this->user_model->verify_email_code($code,$keyarr[2]);
+            $verifyCode=$this->user_model->verify_email_code($code);
             $data['verifyEmail']=$verifyCode;
         }
         else{
