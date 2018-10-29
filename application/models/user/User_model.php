@@ -387,16 +387,6 @@ class User_model extends CI_Model {
             $user_email_verify_code = $key['user_email_verify_code'];
         }
 
-        // check already verified
-        if($user_email_verify_code=='1'){
-            $response=array(
-                'status'    =>  'validated',
-                'message'   =>  'Warning: Email verification already done !'
-            );
-            return $response;
-            die();
-        }
-
         if($user_email_verify_code!=''){
             if($user_email_verify_code==$code){
                 $result_update = array(
@@ -414,8 +404,8 @@ class User_model extends CI_Model {
                 }
                 else{
                     $response=array(
-                        'status'    =>  'error',
-                        'message'   =>  'Failure: Email verification failed !'
+                        'status'    =>  'validated',
+                        'message'   =>  'Warning: Email verification already done !'
                     );
                     return $response;
                 }

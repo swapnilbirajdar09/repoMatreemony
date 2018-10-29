@@ -1094,12 +1094,20 @@ public function verify_email(){
 
     // verify email by link
 public function verifyEmail($code=''){
+        // user user-id from session
+    $encodedkey = $this->session->userdata('PariKey_session');
+    $user_id='';
+    $key=base64_decode($encodedkey);
+    $keyarr=explode('|', $key);
+    
     if($code!=''){
-        if($_GET['verify']!='true' && $_GET['src']!='getvalidated'){
+        // print_r($_GET);
+        if($_GET['verify']=='true' && $_GET['src']=='getvalidated'){
             $verifyCode=$this->user_model->verify_email_code($code,$keyarr[2]);
             $data['verifyEmail']=$verifyCode;
         }
         else{
+            // echo 'hii';
             $data['verifyEmail']=array(
                 'status'    =>  'error',
                 'message'   =>  'Verification link invalid!'
@@ -1107,12 +1115,13 @@ public function verifyEmail($code=''){
         }
     }
     else{
+        // echo 'bii';
         $data['verifyEmail']=array(
             'status'    =>  'error',
             'message'   =>  'Verification link invalid!'
         );
     }
-
+// print_r($data);die();
     $this->load->view('includes/user/userheader_static.php'); //------user header page
     $this->load->view('pages/user/verify/email',$data);
     $this->load->view('includes/user/userfooter_landing.php');
