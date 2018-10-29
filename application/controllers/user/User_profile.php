@@ -369,48 +369,48 @@ public function update_relatives_info(){
         $name_count=$key+1;
         if($value==''){
             $response=array(
-            'status'    =>  'validation',
-            'message'   =>  '<b>Warning:</b> Relative Name for Relative no.'.$name_count.' is required!',
-            'field'   =>  'relative_name_'.$name_count
-        );
-        echo json_encode($response);
-        die();
+                'status'    =>  'validation',
+                'message'   =>  '<b>Warning:</b> Relative Name for Relative no.'.$name_count.' is required!',
+                'field'   =>  'relative_name_'.$name_count
+            );
+            echo json_encode($response);
+            die();
         }
     }
     foreach ($relative_contact as $key=>$value) {
         $name_count=$key+1;
         if($value==''){
             $response=array(
-            'status'    =>  'validation',
-            'message'   =>  '<b>Warning:</b> Relative Contact for Relative no.'.$name_count.' is required!',
-            'field'   =>  'relative_contact_'.$name_count
-        );
-        echo json_encode($response);
-        die();
+                'status'    =>  'validation',
+                'message'   =>  '<b>Warning:</b> Relative Contact for Relative no.'.$name_count.' is required!',
+                'field'   =>  'relative_contact_'.$name_count
+            );
+            echo json_encode($response);
+            die();
         }
     }
     foreach ($relative_relation as $key=>$value) {
         $name_count=$key+1;
         if($value==''){
             $response=array(
-            'status'    =>  'validation',
-            'message'   =>  '<b>Warning:</b> Relative Relation for Relative no.'.$name_count.' is required!',
-            'field'   =>  'relative_relation_'.$name_count
-        );
-        echo json_encode($response);
-        die();
+                'status'    =>  'validation',
+                'message'   =>  '<b>Warning:</b> Relative Relation for Relative no.'.$name_count.' is required!',
+                'field'   =>  'relative_relation_'.$name_count
+            );
+            echo json_encode($response);
+            die();
         }
     }
     foreach ($relative_address as $key=>$value) {
         $name_count=$key+1;
         if($value==''){
             $response=array(
-            'status'    =>  'validation',
-            'message'   =>  '<b>Warning:</b> Relative Address for Relative no.'.$name_count.' is required!',
-            'field'   =>  'relative_address_'.$name_count
-        );
-        echo json_encode($response);
-        die();
+                'status'    =>  'validation',
+                'message'   =>  '<b>Warning:</b> Relative Address for Relative no.'.$name_count.' is required!',
+                'field'   =>  'relative_address_'.$name_count
+            );
+            echo json_encode($response);
+            die();
         }
     }
     // die();
@@ -705,42 +705,42 @@ public function update_documents(){
             $filepath = 'assets/users/documents/'.$fileData['file_name'];
         }
         else{
-             $response=array(
-                'status'    =>  'validation',
-                'message'   =>  $this->upload->display_errors('<p><b>File upload Error: </b>', '</p>'),
-                'field'   =>  'document_file'
-            );
-            echo json_encode($response);
-            die();
-        }
-        // print_r($filepath);die();
-    }
-
-    $data['filepath'] = $filepath;
-    if($filepath==''){
-        $response=array(
+         $response=array(
             'status'    =>  'validation',
-            'message'   =>  '<b>Warning:</b> Document file not uploaded Successfully!',
+            'message'   =>  $this->upload->display_errors('<p><b>File upload Error: </b>', '</p>'),
             'field'   =>  'document_file'
         );
-        echo json_encode($response);
-        die();
-    }
-    $result = $this->user_model->upload_document($data,$keyarr[2]);
+         echo json_encode($response);
+         die();
+     }
+        // print_r($filepath);die();
+ }
 
-    if($result){
-        $response=array(
-            'status'    =>  'success',
-            'message'   =>  '<b>Success:</b> You Have Successfully uploaded <b>'.$document_type.'</b> Document!'
-        );
-    }
-    else{
-        $response=array(
-            'status'    =>  'error',
-            'message'   =>  '<b>Error:</b> <b>'.$document_type.'</b> Document was not uploaded Successfully!'
-        );
-    } 
+ $data['filepath'] = $filepath;
+ if($filepath==''){
+    $response=array(
+        'status'    =>  'validation',
+        'message'   =>  '<b>Warning:</b> Document file not uploaded Successfully!',
+        'field'   =>  'document_file'
+    );
     echo json_encode($response);
+    die();
+}
+$result = $this->user_model->upload_document($data,$keyarr[2]);
+
+if($result){
+    $response=array(
+        'status'    =>  'success',
+        'message'   =>  '<b>Success:</b> You Have Successfully uploaded <b>'.$document_type.'</b> Document!'
+    );
+}
+else{
+    $response=array(
+        'status'    =>  'error',
+        'message'   =>  '<b>Error:</b> <b>'.$document_type.'</b> Document was not uploaded Successfully!'
+    );
+} 
+echo json_encode($response);
 }
 
 // -----------------function to upload images-------------- //
@@ -794,70 +794,70 @@ public function upload_image(){
             $filepath = 'assets/users/gallery/'.$fileData['file_name'];
         }
         else{
-             $response=array(
-                'status'    =>  'validation',
-                'message'   =>  $this->upload->display_errors('<p><b>Image upload Error: </b>', '</p>'),
-                'field'   =>  'selected_image'
-            );
-            echo json_encode($response);
-            die();
-        }
-         // print_r($filepath);die();
-    }
-
-    $data['filepath'] = $filepath;
-    if($filepath==''){
-        $response=array(
+         $response=array(
             'status'    =>  'validation',
-            'message'   =>  '<b>Warning:</b> Image file not uploaded Successfully!',
-            'field'   =>  'document_file'
+            'message'   =>  $this->upload->display_errors('<p><b>Image upload Error: </b>', '</p>'),
+            'field'   =>  'selected_image'
         );
-        echo json_encode($response);
-        die();
-    }
-    $result = $this->user_model->upload_image($data,$keyarr[2]);
+         echo json_encode($response);
+         die();
+     }
+         // print_r($filepath);die();
+ }
 
-    if($result){
-        $response=array(
-            'status'    =>  'success',
-            'message'   =>  '<b>Success:</b> You Have Successfully uploaded <b>'.$img_title.'</b> Image!'
-        );
-    }
-    else{
-        $response=array(
-            'status'    =>  'error',
-            'message'   =>  '<b>Error:</b> <b>'.$img_title.'</b> Image was not uploaded Successfully!'
-        );
-    } 
+ $data['filepath'] = $filepath;
+ if($filepath==''){
+    $response=array(
+        'status'    =>  'validation',
+        'message'   =>  '<b>Warning:</b> Image file not uploaded Successfully!',
+        'field'   =>  'document_file'
+    );
     echo json_encode($response);
+    die();
+}
+$result = $this->user_model->upload_image($data,$keyarr[2]);
+
+if($result){
+    $response=array(
+        'status'    =>  'success',
+        'message'   =>  '<b>Success:</b> You Have Successfully uploaded <b>'.$img_title.'</b> Image!'
+    );
+}
+else{
+    $response=array(
+        'status'    =>  'error',
+        'message'   =>  '<b>Error:</b> <b>'.$img_title.'</b> Image was not uploaded Successfully!'
+    );
+} 
+echo json_encode($response);
 }
 
 // fucntion to remove uploaded document
 public function delDocument(){
     if(!empty($_POST['doc_id'])){
-           $result = $this->user_model->delDocument($_POST['doc_id']);
+       $result = $this->user_model->delDocument($_POST['doc_id']);
 
-           if($result){
-            $response=array(
-                'status'    =>  'success',
-                'message'   =>  '<b>Success:</b> You Have Successfully deleted Document!'
-            );
-        }
-        else{
-            $response=array(
-                'status'    =>  'error',
-                'message'   =>  '<b>Error:</b> Document was not deleted Successfully!'
-            );
-        } 
+       if($result){
+        $response=array(
+            'status'    =>  'success',
+            'message'   =>  '<b>Success:</b> You Have Successfully deleted Document!'
+        );
     }
     else{
         $response=array(
-            'status'    =>  'validation',
-            'message'   =>  '<b>Warning:</b> Document not found!'
+            'status'    =>  'error',
+            'message'   =>  '<b>Error:</b> Document was not deleted Successfully!'
         );
-    }
+    } 
+}
+else{
+    $response=array(
+        'status'    =>  'validation',
+        'message'   =>  '<b>Warning:</b> Document not found!'
+    );
+}
 
-    echo json_encode($response);
+echo json_encode($response);
 }
 
 // fucntion to remove uploaded image
@@ -869,29 +869,29 @@ public function delImage(){
     $keyarr=explode('|', $key);
 
     if(!empty($_POST['img_path'])){
-           $result = $this->user_model->delImage($_POST['img_path'],$keyarr[2]);
+       $result = $this->user_model->delImage($_POST['img_path'],$keyarr[2]);
 
-           if($result){
-            $response=array(
-                'status'    =>  'success',
-                'message'   =>  '<b>Success:</b> You Have Successfully deleted Image!'
-            );
-        }
-        else{
-            $response=array(
-                'status'    =>  'error',
-                'message'   =>  '<b>Error:</b> Image was not deleted Successfully!'
-            );
-        } 
+       if($result){
+        $response=array(
+            'status'    =>  'success',
+            'message'   =>  '<b>Success:</b> You Have Successfully deleted Image!'
+        );
     }
     else{
         $response=array(
-            'status'    =>  'validation',
-            'message'   =>  '<b>Warning:</b> Image not found!'
+            'status'    =>  'error',
+            'message'   =>  '<b>Error:</b> Image was not deleted Successfully!'
         );
-    }
+    } 
+}
+else{
+    $response=array(
+        'status'    =>  'validation',
+        'message'   =>  '<b>Warning:</b> Image not found!'
+    );
+}
 
-    echo json_encode($response);
+echo json_encode($response);
 }
 
 // fucntion to set profile picture
@@ -903,29 +903,29 @@ public function setProfilePicture(){
     $keyarr=explode('|', $key);
 
     if(!empty($_POST['img_path'])){
-           $result = $this->user_model->setProfilePicture($_POST['img_path'],$keyarr[2]);
+       $result = $this->user_model->setProfilePicture($_POST['img_path'],$keyarr[2]);
 
-           if($result){
-            $response=array(
-                'status'    =>  'success',
-                'message'   =>  '<b>Success:</b> You Have Successfully updated Profile Image!'
-            );
-        }
-        else{
-            $response=array(
-                'status'    =>  'error',
-                'message'   =>  '<b>Error:</b> Profile Image was not updated Successfully!'
-            );
-        } 
+       if($result){
+        $response=array(
+            'status'    =>  'success',
+            'message'   =>  '<b>Success:</b> You Have Successfully updated Profile Image!'
+        );
     }
     else{
         $response=array(
-            'status'    =>  'validation',
-            'message'   =>  '<b>Warning:</b> Image not found!'
+            'status'    =>  'error',
+            'message'   =>  '<b>Error:</b> Profile Image was not updated Successfully!'
         );
-    }
+    } 
+}
+else{
+    $response=array(
+        'status'    =>  'validation',
+        'message'   =>  '<b>Warning:</b> Image not found!'
+    );
+}
 
-    echo json_encode($response);
+echo json_encode($response);
 }
 
     // update function for Change password section
@@ -1004,6 +1004,118 @@ public function update_change_password(){
         );
     } 
     echo json_encode($response);
+}
+
+// function to send verification code to user on email
+// --------------------------------------------------------------- //
+public function verify_email(){
+        // user user-id from session
+    $encodedkey = $this->session->userdata('PariKey_session');
+    $user_id='';
+    $key=base64_decode($encodedkey);
+    $keyarr=explode('|', $key);
+
+    extract($_POST);
+    $response='';
+    // print_r($_POST);die();
+
+    // validations
+    if($entity!=$keyarr[1]){
+        $response=array(
+            'status'    =>  'error',
+            'message'   =>  '<b>Warning:</b> Verification email not matching with Registered email. Please logout your session and log in again!'
+        );
+        echo json_encode($response);
+        die();
+    }
+    $result = $this->user_model->generate_email_verify_code($entity,$keyarr[2]);
+    // print_r($result);die();
+
+    if(!$result){
+        $response=array(
+            'status'    =>  'error',
+            'message'   =>  '<b>Error:</b> Perhaps you didn\'t make any change. Password was not changed!'
+        );
+    }
+    else{
+        $verify_code=$result['verify_code'];
+
+        // send verificatin code to user email
+        $config = Array(
+            'protocol' => 'smtp',
+            'smtp_host' => 'mx1.hostinger.in',
+            'smtp_port' => '587',
+            'smtp_user' => 'support@jumlakuwait.com', // change it to yours
+            'smtp_pass' => 'Descartes@1990', // change it to yours
+            'mailtype' => 'html',
+            'charset' => 'utf-8',
+            'wordwrap' => TRUE
+        );
+        $config['smtp_crypto'] = 'tls';
+
+        $this->load->library('email', $config);
+        $this->email->set_newline("\r\n");
+        $this->email->from('support@jumlakuwait.com', "Admin Team");
+        $this->email->to($entity);
+        $this->email->subject("Email Verification: Buddhist Parinay");
+        $this->email->message('<html>
+            <head>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            </head>
+            <body>
+            <div class="container col-lg-8" style="box-shadow: 0 2px 4px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12)!important;margin:10px; font-family:Candara;">
+            <h2 style="text-align:center">Verify your Email</h3>
+            <h3 style="font-size:15px;">Hello '.$entity.',<br></h3>
+            <h3 style="font-size:15px;">Welcome to Buddhist Parinay. Please <a href="'.base_url().'user/user_profile/verifyEmail/'.$verify_code.'?verify=true&src=getvalidated">Click here</a> to verify your Email-Id OR Copy-Paste below link :<br>
+            <a href="'.base_url().'user/user_profile/verifyEmail/'.$verify_code.'?verify=true&src=getvalidated">'.base_url().'user/user_profile/verifyEmail/'.$verify_code.'?verify=true&src=getvalidated</a>
+            </h3><br>
+            <h3 style="font-size:15px;">Regards,</h3>
+            <h3 style="font-size:15px;">Buddhist Parinay Admin,</h3>
+            <div class="col-lg-12">
+            <div class="col-lg-4"></div>
+            <div class="col-lg-4">
+
+            </div>
+            </body></html>');
+
+        if ($this->email->send()) {
+            $response=array(
+                'status'    =>  'success',
+                'message'   =>  '<b>Success:</b> Verification code has been sent to your Registered Email ID.'
+            );
+        } 
+        else{
+            print_r($this->email->print_debugger());
+        }
+    }
+    echo json_encode($response);
+    die();
+}
+
+    // verify email by link
+public function verifyEmail($code=''){
+    if($code!=''){
+        if($_GET['verify']!='true' && $_GET['src']!='getvalidated'){
+            $verifyCode=$this->user_model->verify_email_code($code,$keyarr[2]);
+            $data['verifyEmail']=$verifyCode;
+        }
+        else{
+            $data['verifyEmail']=array(
+                'status'    =>  'error',
+                'message'   =>  'Verification link invalid!'
+            );
+        }
+    }
+    else{
+        $data['verifyEmail']=array(
+            'status'    =>  'error',
+            'message'   =>  'Verification link invalid!'
+        );
+    }
+
+    $this->load->view('includes/user/userheader_static.php'); //------user header page
+    $this->load->view('pages/user/verify/email',$data);
+    $this->load->view('includes/user/userfooter_landing.php');
 }
 
 }

@@ -53,3 +53,4 @@ $route['default_controller'] = 'homepage';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 $route['admin/dashboard/delPackage/(:any)'] = "admin/dashboard/delPackage/$1";
+$route['user/user_profile/verifyEmail/(:any)'] = "user/user_profile/verifyEmail/$1";
