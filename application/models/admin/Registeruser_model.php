@@ -36,7 +36,7 @@ class Registeruser_model extends CI_Model {
             'user_reg_date'=> date('Y-m-d'),
             'user_expiry_date' => $expiry_date,
             'user_caste' => $caste,
-            'user_package'=> $package,
+            'user_package'=> $package_select[0],
             'user_mobile_num' => $number,
             'user_remaining_requests' =>'5',
             'user_status' => '1'
