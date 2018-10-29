@@ -80,7 +80,7 @@
                     <div class="block block--style-3 list z-depth-1-top" ng-if="profiles != 500" id="block_1" dir-paginate="p in profiles|itemsPerPage:5">
                         <div class="block-image">
                             <a onclick="goto_profile(p.user_id)">
-                                <div class="listing-image" style="background-image: url(http://activeitzone.com/demo/matrimonial/uploads/profile_image/profile_1.jpg)"></div>
+                                <div class="listing-image" style="background-image: url(<?php echo base_url();?>{{p.user_profile_image}})"></div>
                             </a>
                         </div>
                         <div class="block-title-wrapper">
@@ -117,22 +117,27 @@
                                 <div class="col-sm-12 text-center">
                                     <ul class="inline-links inline-links--style-3">
                                         <li class="listing-hover" ng-if="p.alreadySent == '0'">
-                                            <a ng-click="sendRequestToUser(p.user_id);">
-                                                <i class="fa fa-user-plus w3-text-green"></i>Send Request</a>
+                                            <a ng-click="sendRequestToUser(p.user_id);" title="Send Request">
+                                                <span id="" class="w3-text-green"><i class="fa fa-user-plus "></i> Send Request</span></a>
                                         </li>
                                         <li class="listing-hover" ng-if="p.alreadySent != '0'">
-                                            <a ng-click="cancelRequestOfUser(p.user_id);">
-                                                <i class="fa fa-user-plus w3-text-black"></i> Cancel Request</a>
+                                            <a ng-click="cancelRequestOfUser(p.user_id);" title="Cancel Request">
+                                                <span id="" class="w3-text-red"><i class="fa fa-user-plus w3-text-red"></i> Cancel Request</span></a>
                                         </li>
                                         <!--                                        <li class="listing-hover">
                                                                                     <a onclick="return goto_profile(p.user_id)">
                                                                                         <i class="fa fa-id-card"></i>Full Profile</a>
                                                                                 </li>-->
-                                        <li class="listing-hover">
-                                            <a id="interest_a_1" onclick="confirm_interest(p.user_id)" style="">
-                                                <span id="interest_1" class=""><i class="fa fa-heart"></i> Add To Favourite</span>
+                                        <li class="listing-hover" ng-if="p.alreadyfollowed == '0'">
+                                            <a id="interest_a_1" ng-click="followUserProfile(p.user_id);" title="Follow This Profile" style="">
+                                                <span id="interest_1" class="w3-text-blue"><i class="fa fa-heart"></i> Add To Favourite</span>
                                             </a>
-                                        </li>               
+                                        </li>
+                                        <li class="listing-hover" ng-if="p.alreadyfollowed != '0'">
+                                            <a id="interest_a_1" ng-click="unFollowUserProfile(p.user_id);" title="UnFollow This Profile" style="">
+                                                <span id="interest_1" class="w3-text-pink"><i class="fa fa-heart"></i> Favourite</span>
+                                            </a>
+                                        </li>
                                     </ul>
                                 </div>
                             </div>
@@ -200,16 +205,19 @@
 <script>
 // Angular script to add required skills in ad product form
     var app = angular.module("searchProfileByIdApp", ['ngSanitize', 'angularUtils.directives.dirPagination']);
-    app.controller("searchProfileByIdAppController", function ($scope, $http, $window) {
+    app.controller("searchProfileByIdAppController", function ($scope, $http, $window, $interval) {
 //------------------------------------------------------------------------------------------------------//
-        $scope.profiles = [];
+
 <?php
 $encodedkey = $this->session->userdata('PariKey_session');
 $key = base64_decode($encodedkey);
 $keyarr = explode('|', $key);
 $session_user_id = $keyarr[2];
 ?>
-        var session_user_id = <?php echo $session_user_id; ?>
+        $scope.profiles = [];
+        var myFollowers;
+        var session_user_id = <?php echo $session_user_id; ?>;
+
 // ------------get User Profile Details controller--------------
         $scope.searchByProfile_id = function () {
             $scope.finderloader = true;
@@ -217,17 +225,18 @@ $session_user_id = $keyarr[2];
                 method: 'get',
                 url: BASE_URL + 'user/search/profilesearch_byid/searchByProfile_id?filter_member_id=' + $scope.filter_member_id
             }).then(function successCallback(response) {
-                // Assign response to skills object
                 var data = response.data;
-                //alert(data);
                 $scope.profiles = [];
-                var i, j, user_photos, firstname, receivedReq, alreadySent, user_location, birthday, today, user_fullname, user_designation, user_mother_tongue, user_marital_status, age, newAge, totage;
+                var i, j, user_profile_image, user_photos, alreadyfollowed, followers, firstname, user_location, alreadySent, receivedReq, birthday, today, user_fullname, user_designation, user_mother_tongue, user_marital_status, age, newAge, totage;
                 console.log(data);
                 $scope.finderloader = false;
                 if (data != 500) {
                     for (i = 0; i < data.length; i++) {
                         alreadySent = 0;
                         receivedReq = 0;
+                        alreadyfollowed = 0;
+                        followers = 0;
+
                         //-----------check the received requests are null or not null
                         if (data[i].user_received_requests != '') {
                             receivedReq = JSON.parse(data[i].user_received_requests);
@@ -240,6 +249,19 @@ $session_user_id = $keyarr[2];
                             }
                         });
 
+                        if (data[i].who_make_me_favourite != '') {
+                            followers = JSON.parse(data[i].who_make_me_favourite);
+                        }
+                        // Make sure user has not already added this item
+                        //alert(followers);
+                        angular.forEach(followers, function (key) {
+                            if (session_user_id == key) {
+                                //alert('found');
+                                alreadyfollowed = 1;
+                            }
+                        });
+
+                        //alert(alreadyfollowed);
                         birthday = new Date(data[i].user_dob);
                         today = new Date();
                         age = ((today - birthday) / (31557600000));
@@ -272,12 +294,13 @@ $session_user_id = $keyarr[2];
                         } else {
                             user_marital_status = 'N/A';
                         }
+
                         if (data[i].user_country != '') {
                             user_location = data[i].user_country + ', ' + data[i].user_state + ', ' + data[i].user_city + '.'
                         } else {
                             user_location = 'N/A';
                         }
-
+                        //console.log(data[i].user_firstname);
                         for (j = 0; j < data[i].user_firstname.length; j++) {
                             if (j == 0) {
                                 firstname = data[i].user_firstname[0];
@@ -285,6 +308,7 @@ $session_user_id = $keyarr[2];
                                 firstname += '*';
                             }
                         }
+                        //alert(firstname);
 
                         $scope.profiles.push({'user_profile_key': data[i].user_profile_key,
                             'user_profile_id': data[i].user_profile_id,
@@ -307,25 +331,31 @@ $session_user_id = $keyarr[2];
                             'alreadySent': alreadySent,
                             'user_location': user_location,
                             'firstName': firstname,
-                            'lastName': data[i].user_lastname
+                            'lastName': data[i].user_lastname,
+                            'alreadyfollowed': alreadyfollowed
                         });
+                        //console.log($scope.profiles);
                     }
                 } else {
                     $scope.profiles = 500;
                 }
+
             });
         };
-        // ------------get User Details controller--------------
 
+        // ------------get User Details controller--------------
+//        $scope.reload = function () {
         $http.get(BASE_URL + "user/search/profilesearch_byid/getAllUserProfiles").then(function (response) {
             var data = response.data;
             //alert(data);
-            var i, j, user_photos, firstname, user_location, alreadySent, receivedReq, birthday, today, user_fullname, user_designation, user_mother_tongue, user_marital_status, age, newAge, totage;
+            var i, j, user_photos, alreadyfollowed, followers, firstname, user_location, alreadySent, receivedReq, birthday, today, user_fullname, user_designation, user_mother_tongue, user_marital_status, age, newAge, totage;
             console.log(data);
             if (data != 500) {
                 for (i = 0; i < data.length; i++) {
                     alreadySent = 0;
                     receivedReq = 0;
+                    alreadyfollowed = 0;
+                    followers = 0;
                     //-----------check the received requests are null or not null
                     if (data[i].user_received_requests != '') {
                         receivedReq = JSON.parse(data[i].user_received_requests);
@@ -337,7 +367,19 @@ $session_user_id = $keyarr[2];
                             alreadySent = 1;
                         }
                     });
-                    //console.log(data[i].user_dob);
+
+                    if (data[i].who_make_me_favourite != '') {
+                        followers = JSON.parse(data[i].who_make_me_favourite);
+                    }
+                    // Make sure user has not already added this item
+                    //alert(followers);
+                    angular.forEach(followers, function (key) {
+                        if (session_user_id == key) {
+                            //alert('found');
+                            alreadyfollowed = 1;
+                        }
+                    });
+
                     birthday = new Date(data[i].user_dob);
                     today = new Date();
                     age = ((today - birthday) / (31557600000));
@@ -407,17 +449,140 @@ $session_user_id = $keyarr[2];
                         'alreadySent': alreadySent,
                         'user_location': user_location,
                         'firstName': firstname,
-                        'lastName': data[i].user_lastname
+                        'lastName': data[i].user_lastname,
+                        'alreadyfollowed': alreadyfollowed
                     });
                 }
             } else {
                 $scope.profiles = 500;
             }
-            //console.log($scope.po);
-            //$scope.poData = $scope.po;
         });
 
 
+        $scope.reload = function () {
+            //alert($scope.myFollowers);
+            //$scope.getUserFollows();
+            $http.get(BASE_URL + "user/search/profilesearch_byid/getAllUserProfiles").then(function (response) {
+                var data = response.data;
+                //alert(data);
+                $scope.profiles = [];
+                var i, j, user_photos, alreadyfollowed, followers, firstname, user_location, alreadySent, receivedReq, birthday, today, user_fullname, user_designation, user_mother_tongue, user_marital_status, age, newAge, totage;
+                console.log(data);
+                if (data != 500) {
+                    for (i = 0; i < data.length; i++) {
+                        alreadySent = 0;
+                        receivedReq = 0;
+                        alreadyfollowed = 0;
+                        followers = 0;
+
+                        //-----------check the received requests are null or not null
+                        if (data[i].user_received_requests != '') {
+                            receivedReq = JSON.parse(data[i].user_received_requests);
+                        }
+                        // Make sure user hasnt already added this item
+                        angular.forEach(receivedReq, function (item) {
+                            //alert(session_user_id);
+                            if (session_user_id == item) {
+                                alreadySent = 1;
+                            }
+                        });
+
+                        if (data[i].who_make_me_favourite != '') {
+                            followers = JSON.parse(data[i].who_make_me_favourite);
+                        }
+                        // Make sure user has not already added this item
+                        //alert(followers);
+                        angular.forEach(followers, function (key) {
+                            if (session_user_id == key) {
+                                //alert('found');
+                                alreadyfollowed = 1;
+                            }
+                        });
+
+                        //alert(alreadyfollowed);
+                        birthday = new Date(data[i].user_dob);
+                        today = new Date();
+                        age = ((today - birthday) / (31557600000));
+                        totage = Math.floor(age);
+                        if (isNaN(totage)) {
+                            newAge = 'N/A';
+                        } else {
+                            newAge = totage;
+                        }
+                        if (data[i].user_photos != '') {
+                            user_photos = JSON.parse(data[i].user_photos);
+                        }
+                        if (data[i].user_fullname != '') {
+                            user_fullname = data[i].user_fullname;
+                        } else {
+                            user_fullname = 'N/A';
+                        }
+                        if (data[i].user_designation != '') {
+                            user_designation = data[i].user_designation;
+                        } else {
+                            user_designation = 'N/A';
+                        }
+                        if (data[i].user_mother_tongue != '') {
+                            user_mother_tongue = data[i].user_mother_tongue;
+                        } else {
+                            user_mother_tongue = 'N/A';
+                        }
+                        if (data[i].user_marital_status != '') {
+                            user_marital_status = data[i].user_marital_status;
+                        } else {
+                            user_marital_status = 'N/A';
+                        }
+
+                        if (data[i].user_country != '') {
+                            user_location = data[i].user_country + ', ' + data[i].user_state + ', ' + data[i].user_city + '.'
+                        } else {
+                            user_location = 'N/A';
+                        }
+                        //console.log(data[i].user_firstname);
+                        for (j = 0; j < data[i].user_firstname.length; j++) {
+                            if (j == 0) {
+                                firstname = data[i].user_firstname[0];
+                            } else {
+                                firstname += '*';
+                            }
+                        }
+                        //alert(firstname);
+
+                        $scope.profiles.push({'user_profile_key': data[i].user_profile_key,
+                            'user_profile_id': data[i].user_profile_id,
+                            'user_id': data[i].user_id,
+                            'user_fullname': user_fullname,
+                            'user_gender': data[i].user_gender,
+                            'user_caste': data[i].user_caste,
+                            'user_email': data[i].user_email,
+                            'user_profile_image': data[i].user_profile_image,
+                            'user_height': data[i].user_height,
+                            'user_weight': data[i].user_weight,
+                            'user_mother_tongue': user_mother_tongue,
+                            'user_designation': user_designation,
+                            'user_marital_status': user_marital_status,
+                            'user_country': data[i].user_country,
+                            'user_state': data[i].user_state,
+                            'user_city': data[i].user_city,
+                            'age': newAge,
+                            'user_photos': user_photos,
+                            'alreadySent': alreadySent,
+                            'user_location': user_location,
+                            'firstName': firstname,
+                            'lastName': data[i].user_lastname,
+                            'alreadyfollowed': alreadyfollowed
+                        });
+                        //console.log($scope.profiles);
+                    }
+                } else {
+                    $scope.profiles = 500;
+                }
+
+            });
+        };
+
+
+//------------fun for Send the request of user-----------------------------//
         $scope.sendRequestToUser = function (user_id) {
             $.confirm({
                 title: '<h4 class="w3-text-green">Please confirm the action!</h4><span class="w3-medium">Do you really want to Send Request?</span>',
@@ -451,12 +616,93 @@ $session_user_id = $keyarr[2];
                                     $('#ajax_validation_alert').show();
                                     $('.ajax_validation_alert').html('Request Is Already Sent You By The Receiver.');
                                     break;
+
                             }
+                            $scope.reload();
                         });
                     },
                     cancel: function () {
                     }
                 }
+            });
+        };
+
+//------------fun for cancel the request of user-------------------------//
+        $scope.cancelRequestOfUser = function (user_id) {
+            $.confirm({
+                title: '<h4 class="w3-text-red">Please confirm the action!</h4><span class="w3-medium">Do you really want to Cancel Request?</span>',
+                content: '',
+                type: 'red',
+                buttons: {
+                    confirm: function () {
+                        $http({
+                            method: 'get',
+                            url: BASE_URL + "user/search/profilesearch_byid/cancelRequestOfUser?profile_user_id=" + user_id
+                        }).then(function successCallback(response) {
+                            console.log(response.data);
+                            //alert(response.data);
+                            switch (response.data) {
+                                case '200':
+                                    $('#ajax_success_alert').show();
+                                    $('.ajax_success_alert').html('Request Cancellation Successful.');
+                                    break;
+
+                                case '500':
+                                    $('#ajax_danger_alert').show();
+                                    $('.ajax_danger_alert').html('Request Cancellation Failed.');
+                                    break;
+                            }
+                            $scope.reload();
+                        });
+                    },
+                    cancel: function () {
+                    }
+                }
+            });
+        };
+
+
+        $scope.followUserProfile = function (user_id) {
+            $http({
+                method: 'get',
+                url: BASE_URL + "user/search/profilesearch_byid/followUserProfile?profile_user_id=" + user_id
+            }).then(function successCallback(response) {
+                console.log(response.data);
+                //alert(response.data);
+                switch (response.data) {
+                    case '200':
+                        $('#ajax_success_alert').show();
+                        $('.ajax_success_alert').html('You Have Successfully Followed This User.');
+                        break;
+
+                    case '500':
+                        $('#ajax_danger_alert').show();
+                        $('.ajax_danger_alert').html('Following Request Failed.');
+                        break;
+                }
+                $scope.reload();
+            });
+        };
+
+        $scope.unFollowUserProfile = function (user_id) {
+            $http({
+                method: 'get',
+                url: BASE_URL + "user/search/profilesearch_byid/unFollowUserProfile?profile_user_id=" + user_id
+            }).then(function successCallback(response) {
+                console.log(response.data);
+                //alert(response.data);
+                switch (response.data) {
+                    case '200':
+                        $('#ajax_success_alert').show();
+                        $('.ajax_success_alert').html('UnFollow Request Successful.');
+                        break;
+
+                    case '500':
+                        $('#ajax_danger_alert').show();
+                        $('.ajax_danger_alert').html('UnFollow Request Failed.');
+                        break;
+                }
+                $scope.reload();
             });
         };
 

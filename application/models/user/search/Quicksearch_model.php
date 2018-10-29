@@ -8,16 +8,16 @@ class Quicksearch_model extends CI_Model {
 
 //---------------fun for get all user profiles by diffrent parameters like age , language, religion, gender
 
-    public function getAllUserProfilesByQuickSearch($request) {
+    public function getAllUserProfilesByQuickSearch($request,$gender) {
         extract($request);
        
-        $sql = "SELECT * FROM user_profile_tab,user_tab WHERE user_tab.user_id = user_profile_tab.user_id ";
+        $sql = "SELECT * FROM user_profile_tab,user_tab WHERE user_tab.user_id = user_profile_tab.user_id AND user_tab.user_gender !='$gender' ";
 
         if ($language != '') {
             $sql .= "AND user_profile_tab.user_mother_tongue = '$language'";
         }
         if ($religion != '') {
-            $sql .= "AND user_profile_tab.user_caste = '$religion'";
+            $sql .= "AND user_tab.user_caste = '$religion'";
         }
         if ($filter_aged_from != '') {
             $sql .= "AND DATEDIFF(CURRENT_DATE, user_profile_tab.user_dob) >= ('$filter_aged_from' * 365.25)";

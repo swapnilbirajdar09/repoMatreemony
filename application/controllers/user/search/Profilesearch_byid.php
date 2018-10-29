@@ -32,6 +32,8 @@ class Profilesearch_byid extends CI_Controller {
                 $user_id = $keyarr[2];
             }
         }
+
+        //$data['followers'] = $this->Searchbyprofileid_model->getUserFollows($user_id, $gender);
         $this->load->view('includes/user/userheader');
         $this->load->view('pages/user/search/profileSearchById'); //------loading the profile search by id view
         $this->load->view('includes/user/userfooter');
@@ -69,11 +71,12 @@ class Profilesearch_byid extends CI_Controller {
     public function sendRequestToUser() {
         extract($_GET);
         //print_r($_GET);die();
+        $gender = $this->session->userdata('key_gender');
         $encodedkey = $this->session->userdata('PariKey_session');
         $key = base64_decode($encodedkey);
         $keyarr = explode('|', $key);
         $user_id = $keyarr[2];
-        $result = $this->Searchbyprofileid_model->sendRequestToUser($profile_user_id, $user_id);
+        $result = $this->Searchbyprofileid_model->sendRequestToUser($profile_user_id, $user_id, $gender);
         //print_r($result);die();
         if ($result == 200) {
             echo 200;
@@ -83,6 +86,77 @@ class Profilesearch_byid extends CI_Controller {
             echo 900;
         } else {
             echo 500;
+        }
+    }
+
+//-----------fun for cancel the user request
+    public function cancelRequestOfUser() {
+        extract($_GET);
+        $gender = $this->session->userdata('key_gender');
+        $encodedkey = $this->session->userdata('PariKey_session');
+        $key = base64_decode($encodedkey);
+        $keyarr = explode('|', $key);
+        $sessionUser_id = $keyarr[2];
+        $result = $this->Searchbyprofileid_model->cancelRequestOfUser($profile_user_id, $sessionUser_id, $gender);
+//        print_r($result);
+//        die();
+
+        if ($result == 200) {
+            echo 200;
+        } else {
+            echo 500;
+        }
+    }
+
+//------------------fun for follow the user or add to favourites
+    public function followUserProfile() {
+        extract($_GET);
+        $gender = $this->session->userdata('key_gender');
+        $encodedkey = $this->session->userdata('PariKey_session');
+        $key = base64_decode($encodedkey);
+        $keyarr = explode('|', $key);
+        $sessionUser_id = $keyarr[2];
+        $result = $this->Searchbyprofileid_model->followUserProfile($profile_user_id, $sessionUser_id, $gender);
+//        print_r($result);
+//        die();
+        if ($result == 200) {
+            echo 200;
+        } else {
+            echo 500;
+        }
+    }
+
+//--------------fun for unfollow the user or remove from favourites
+    public function unFollowUserProfile() {
+        extract($_GET);
+        $gender = $this->session->userdata('key_gender');
+        $encodedkey = $this->session->userdata('PariKey_session');
+        $key = base64_decode($encodedkey);
+        $keyarr = explode('|', $key);
+        $sessionUser_id = $keyarr[2];
+        $result = $this->Searchbyprofileid_model->unFollowUserProfile($profile_user_id, $sessionUser_id, $gender);
+//        print_r($result);
+//        die();
+        if ($result == 200) {
+            echo 200;
+        } else {
+            echo 500;
+        }
+    }
+
+    public function getUserFollows() {
+        $gender = $this->session->userdata('key_gender');
+        $encodedkey = $this->session->userdata('PariKey_session');
+        $key = base64_decode($encodedkey);
+        $keyarr = explode('|', $key);
+        $sessionUser_id = $keyarr[2];
+        extract($_GET);
+        //print_r($_GET);
+        $result = $this->Searchbyprofileid_model->getUserFollows($sessionUser_id, $gender);
+        if (!$result) {
+            echo '';
+        } else {
+            print_r(json_encode($result));
         }
     }
 

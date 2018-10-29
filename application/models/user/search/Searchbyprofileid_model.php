@@ -36,11 +36,13 @@ class Searchbyprofileid_model extends CI_Model {
     }
 
 //--------------fun for send request to user
-    public function sendRequestToUser($profile_user_id, $user_id) {
+    public function sendRequestToUser($profile_user_id, $user_id, $gender) {
         //sql query to get all user profile details
-        $query = "SELECT * FROM user_profile_tab as up_tab join user_tab as u_tab WHERE up_tab.user_id = u_tab.user_id AND up_tab.user_id='$user_id'";
-        //echo $query;die();
+        $query = "SELECT * FROM user_profile_tab as up_tab,user_tab as ut_tab "
+                . "WHERE up_tab.user_id = ut_tab.user_id "
+                . "AND ut_tab.user_id='$user_id'";
         $result = $this->db->query($query);
+
         $receiveRequests = array();
         $sentRequests = array();
         $sentReqs = '';
@@ -51,7 +53,6 @@ class Searchbyprofileid_model extends CI_Model {
             $receiveRequests = json_decode($row['user_received_requests'], TRUE);
             $userRequestCount = $row['user_remaining_requests'];
         }
-        //echo $userRequestCount;
 //-----checking the receivers id is in senders received requests coloumn
 
         if ($receiveRequests == '') {
@@ -64,10 +65,10 @@ class Searchbyprofileid_model extends CI_Model {
             return 900;
         } else {
             //------------minus the request count when request is sent
-            //echo $userRequestCount;
 
             if ($userRequestCount != 0 && $userRequestCount <= 5) {
                 //if no record found for user
+
                 $userRequestCount = $userRequestCount - 1;
 
                 $sqlup = "UPDATE user_tab SET user_remaining_requests = '$userRequestCount' WHERE user_id = '$user_id'";
@@ -140,40 +141,254 @@ class Searchbyprofileid_model extends CI_Model {
     //-----------------for update receivers received request coloumn by saving the senders userid
     // -----------------------DELETE USER REQUEST ----------------------//
     //-------------------------------------------------------------//
-    public function del_bookmark($user_id, $project_id) {
+    public function cancelRequestOfUser($profile_user_id, $sessionUser_id, $gender) {
 
-        $query = "SELECT * FROM jm_userprofile_tab WHERE jm_user_id='$user_id'";
+        $query = "SELECT * FROM user_profile_tab as up_tab join user_tab as u_tab "
+                . "WHERE up_tab.user_id = u_tab.user_id "
+                . "AND up_tab.user_id='$sessionUser_id'";
+        //echo $query;die();
         $result = $this->db->query($query);
 
-        if ($result->num_rows() <= 0) {
-            $response = array(
-                'status' => 500,
-                'status_message' => 'Project not Found.');
-        } else {
-            $extra = array();
-            foreach ($result->result_array() as $row) {
-                $bookmarked = json_decode($row['jm_userBookmark'], TRUE);
+        $reqArray = array();
+        $receiveRequests = array();
+        $sentRequests = array();
+        $sentReqs = '';
+        $userRequestCount = 0;
+        $userRequestCountNew = '';
+        foreach ($result->result_array() as $row) {
+            $sentRequests = json_decode($row['user_sent_requests'], TRUE);
+            $receiveRequests = json_decode($row['user_received_requests'], TRUE);
+            $userRequestCount = $row['user_remaining_requests'];
+        }
+        //echo $userRequestCount;
 
-                foreach ($bookmarked as $key) {
-                    //print_r($key);
-                    if ($key != $project_id) {
-                        $extra[] = $key;
-                    }
-                }
-            }
-            $update_where = array('jm_user_id =' => $user_id);
-            $data = array('jm_userBookmark' => json_encode($extra));
-            $this->db->where($update_where);
-
-            if ($this->db->update('jm_userprofile_tab', $data)) {
-                $response = array(
-                    'status' => 200,
-                    'status_message' => 'Bookmark Removed.');
+        foreach ($sentRequests as $key) {
+            if ($profile_user_id != $key) {
+                $reqArray[] = $key;
             }
         }
-        return $response;
+
+        //if no record found for user
+        $userRequestCount = $userRequestCount + 1;
+
+        $sqlup = "UPDATE user_tab SET user_remaining_requests = '$userRequestCount' WHERE user_id = '$sessionUser_id'";
+
+        $this->db->query($sqlup);
+
+        $sentReqs = json_encode($reqArray);
+//        print_r($sentReqs);
+//        die();
+        $sql = "UPDATE user_profile_tab SET user_sent_requests = '$sentReqs' WHERE user_id = '$sessionUser_id'";
+
+        $this->db->query($sql);
+        if ($this->db->affected_rows() > 0) {  //----checking the sent requests coloumn updated then call the fun below
+            //-----------------for update receivers received request coloumn by saving the senders userid
+            $response = Searchbyprofileid_model::updateUserReceivedRequestsForCancellation($profile_user_id, $sessionUser_id);
+            if ($response) {
+                return 200;
+            } else {
+                return 500;
+            }
+        } else {
+            return 500;
+        }
     }
 
     // -----------------------DELETE USER REQUEST----------------------//
     //-------------------------------------------------------------//
+
+    public function updateUserReceivedRequestsForCancellation($profile_user_id, $sessionUser_id) {
+        //sql query to get all user profile details
+        $query = "SELECT * FROM user_profile_tab WHERE user_id='$profile_user_id'";
+        //echo $query;die();
+        $result = $this->db->query($query);
+
+        $receivedRequests = array();
+        $receiveReqs = array();
+        $recReq = '';
+        foreach ($result->result_array() as $row) {
+            $receivedRequests = json_decode($row['user_received_requests'], TRUE);
+        }
+
+        foreach ($receivedRequests as $key) {
+            if ($sessionUser_id != $key) {
+                $receiveReqs[] = $key;
+            }
+        }
+
+        $recReq = json_encode($receiveReqs);
+        $sql = "UPDATE user_profile_tab SET user_received_requests = '$recReq' WHERE user_id = '$profile_user_id'";
+
+        $this->db->query($sql);
+        if ($this->db->affected_rows() > 0) {
+            return TRUE;
+        } else {
+            return FALSE;
+        }
+    }
+
+//------------------fun for folloing the user profile or add to favourites
+    public function followUserProfile($profile_user_id, $sessionUser_id, $gender) {
+        $query = "SELECT * FROM user_profile_tab as up_tab,user_tab as ut_tab "
+                . "WHERE up_tab.user_id = ut_tab.user_id "
+                . "AND ut_tab.user_id='$sessionUser_id'";
+
+        $result = $this->db->query($query);
+
+        $userFavourites = array();
+        foreach ($result->result_array() as $row) {
+            $userFavourites = json_decode($row['user_favourite'], TRUE);
+        }
+
+        if ($userFavourites == '') {
+            $userFavourites[] = $profile_user_id;
+        } else {
+            //---------condition --------//  
+            $userFavourites[] = $profile_user_id;
+        }
+        //-------------update the profiles user id in senders sent request coloumn
+        $favourites = json_encode($userFavourites);
+        $sql = "UPDATE user_profile_tab SET user_favourite = '$favourites' WHERE user_id = '$sessionUser_id'";
+
+        $this->db->query($sql);
+        if ($this->db->affected_rows() > 0) {  //----checking the sent follow requests coloumn updated then call the fun below
+            //-----------------for update receivers received follow request count coloumn 
+            $response = Searchbyprofileid_model::updateFollowersCount($profile_user_id, $sessionUser_id, $gender);
+            if ($response) {
+                return 200;
+            } else {
+                return 500;
+            }
+        } else {
+            return 500;
+        }
+    }
+
+//----------------fun for update followers count by 1 of followers side
+    public function updateFollowersCount($profile_user_id, $sessionUser_id, $gender) {
+        $query = "SELECT * FROM user_profile_tab as up_tab,user_tab as ut_tab "
+                . "WHERE up_tab.user_id = ut_tab.user_id "
+                . "AND ut_tab.user_id='$profile_user_id'";
+        $result = $this->db->query($query);
+        $who_make_me_favourite = array();
+        $userFabouriteCount = 0;
+        $madeMeFavourite = '';
+        foreach ($result->result_array() as $row) {
+            $userFabouriteCount = $row['self_favourite_count'];
+            $who_make_me_favourite = json_decode($row['who_make_me_favourite'], TRUE);
+        }
+        //------------plus the follower count when request is sent
+        //if no record found for user
+        if ($who_make_me_favourite == '') {
+            $who_make_me_favourite[] = $sessionUser_id;
+        } else {
+            //---------condition --------//  
+            $count = count($who_make_me_favourite);
+            $who_make_me_favourite[] = $sessionUser_id;
+        }
+
+        $madeMeFavourite = json_encode($who_make_me_favourite);
+        $sql = "UPDATE user_profile_tab SET who_make_me_favourite = '$madeMeFavourite' WHERE user_id = '$profile_user_id'";
+
+        $this->db->query($sql);
+
+        $userFabouriteCount = $userFabouriteCount + 1;
+
+        $sqlup = "UPDATE user_profile_tab SET self_favourite_count = '$userFabouriteCount' WHERE user_id = '$profile_user_id'";
+
+        $this->db->query($sqlup);
+        if ($this->db->affected_rows() > 0) {
+            return TRUE;
+        } else {
+            return FALSE;
+        }
+    }
+
+//------------------------get my favourites profiles coloumn--------------//
+    public function getUserFollows($user_id, $gender) {
+        $query = "SELECT up_tab.user_favourite FROM user_profile_tab as up_tab,user_tab as ut_tab "
+                . "WHERE up_tab.user_id = ut_tab.user_id "
+                . "AND ut_tab.user_id='$user_id'";
+
+        $result = $this->db->query($query);
+        if ($result->num_rows() <= 0) {
+            return false;
+        } else {
+            return $result->result_array();
+        }
+    }
+
+//------------fun for unfollow user profile------------------------------//
+    public function unFollowUserProfile($profile_user_id, $sessionUser_id, $gender) {
+        $query = "SELECT * FROM user_profile_tab as up_tab,user_tab as ut_tab "
+                . "WHERE up_tab.user_id = ut_tab.user_id "
+                . "AND ut_tab.user_id='$sessionUser_id'";
+
+        $result = $this->db->query($query);
+        $favrits = array();
+        $userFavourites = array();
+        foreach ($result->result_array() as $row) {
+            $userFavourites = json_decode($row['user_favourite'], TRUE);
+        }
+
+        foreach ($userFavourites as $key) {
+            if ($profile_user_id != $key) {
+                $favrits[] = $key;
+            }
+        }
+
+        $favourites = json_encode($favrits);
+        $sql = "UPDATE user_profile_tab SET user_favourite = '$favourites' WHERE user_id = '$sessionUser_id'";
+        $this->db->query($sql);
+        if ($this->db->affected_rows() > 0) {
+            $response = Searchbyprofileid_model::updateUnFollowersCount($profile_user_id, $sessionUser_id, $gender);
+            if ($response) {
+                return 200;
+            } else {
+                return 500;
+            }
+        } else {
+            return 500;
+        }
+    }
+
+//-----------------fun for update the unfollowers count---------------------------------//
+    public function updateUnFollowersCount($profile_user_id, $sessionUser_id, $gender) {
+        $query = "SELECT * FROM user_profile_tab as up_tab,user_tab as ut_tab "
+                . "WHERE up_tab.user_id = ut_tab.user_id "
+                . "AND ut_tab.user_id='$profile_user_id'";
+        $result = $this->db->query($query);
+        $who_make_me_favourite = array();
+        $userFabouriteCount = 0;
+        $recReq = '';
+        $who_make_favourite = array();
+        foreach ($result->result_array() as $row) {
+            $userFabouriteCount = $row['self_favourite_count'];
+            $who_make_me_favourite = json_decode($row['who_make_me_favourite'],TRUE);
+        }
+        //------------plus the follower count when request is sent
+
+        foreach ($who_make_me_favourite as $key) {
+            if ($sessionUser_id != $key) {
+                $who_make_favourite[] = $key;
+            }
+        }
+
+        $recReq = json_encode($who_make_favourite);
+        $sql = "UPDATE user_profile_tab SET who_make_me_favourite = '$recReq' WHERE user_id = '$profile_user_id'";
+
+        $this->db->query($sql);
+
+        $userFabouriteCount = $userFabouriteCount - 1;
+
+        $sqlup = "UPDATE user_profile_tab SET self_favourite_count = '$userFabouriteCount' WHERE user_id = '$profile_user_id'";
+
+        $this->db->query($sqlup);
+        if ($this->db->affected_rows() > 0) {
+            return TRUE;
+        } else {
+            return FALSE;
+        }
+    }
+
 }
