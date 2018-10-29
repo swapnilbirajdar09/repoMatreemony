@@ -7,24 +7,22 @@ class Register_user extends CI_Controller {
     // Login controller
     public function __construct() {
         parent::__construct();
-         $this->load->model('admin/registeruser_model');       
+         $this->load->model('admin/Registeruser_model');       
+          $this->load->model('admin/dashboard_model');
     }
 
     // main index function
     public function index() {
-        
-        // $data['all_countries']=$this->home_model->getCountries();
-        // $data['all_contact']=$this->home_model->getContactDetails();
-         $this->load->view('includes/header');
-        $this->load->view('pages/admin/register_user');
+         $data['package']=$this->dashboard_model->getAllPackages();
+        $this->load->view('includes/header');
+        $this->load->view('pages/admin/register_user',$data);
         $this->load->view('includes/footer');
     }
 
-
-      public function register_user() {
+    public function register_user() {
           extract($_POST);
           $data=$_POST;
-          //print_r($data);die();
+          print_r($data);die();
            $result = $this->Registeruser_model->register_user($data);
         // print_r($result);die();
         if ($result) {

@@ -12,11 +12,11 @@ class Dashboard_model extends CI_Model {
         $result1 = $this->db->query($sql1);
         $totcount=$result1->num_rows();
 
-        $sql2 = "SELECT * FROM user_profile_tab WHERE user_gender='1'";
+        $sql2 = "SELECT * FROM user_tab WHERE user_gender='Male'";
         $result2 = $this->db->query($sql2);
         $malecount=$result2->num_rows();
 
-        $sql3 = "SELECT * FROM user_profile_tab WHERE user_gender='2'";
+        $sql3 = "SELECT * FROM user_tab WHERE user_gender='Female'";
         $result3 = $this->db->query($sql3);
         $femalecount=$result3->num_rows();
 
