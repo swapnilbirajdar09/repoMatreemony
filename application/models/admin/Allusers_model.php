@@ -95,10 +95,10 @@ class Allusers_model extends CI_Model {
         if ($sort_byID != '') {
             $sql .= "AND user_profile_tab.user_profile_key='$sort_byID'";
         }
-         if ($sortbyGender != '' && $sortbyGender != '0') {
+        if ($sortbyGender != '' && $sortbyGender != '0') {
             $sql .= "AND user_tab.user_gender='$sortbyGender'";
         }
-      $result = $this->db->query($sql);
+        $result = $this->db->query($sql);
         if ($result->num_rows() <= 0) {
             $response = array(
                 'status' => 500,
