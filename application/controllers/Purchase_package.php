@@ -12,10 +12,15 @@ class Purchase_package extends CI_Controller {
 
     // main index function
     public function index() {
+        if(isset($_POST) && !empty($_POST) && isset($_POST['email_id'])){
          $data['package'] = $this->dashboard_model->getAllPackages();
          $this->load->view('includes/user/userheader_static.php'); 
          $this->load->view('pages/user/purchase_package.php',$data); //------user purchase package  page
          $this->load->view('includes/user/userfooter_landing.php');
+         }
+        else{
+            redirect('/');
+        }
     }
 
     

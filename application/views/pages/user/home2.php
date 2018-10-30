@@ -115,43 +115,31 @@ a.socialIcon:hover, .socialHoverClass {
       
       <div class="subscribe-form" id="registerDiv" style="padding:20px">
        <h3 class="blue-color"><b>Register Now</b></h3>
-       <form>
+       <form method="POST" action="<?php echo base_url(); ?>purchase_package">
           <div class="w3-col l12">
              <label class="w3-large">Gender : </label>
-             <span class="hidden-xs"> <input type="radio" name="gender" class="w3-radio" style="margin-left: 15px" required> Male</span>
-             <span class="hidden-xs"> <input type="radio" name="gender" class="w3-radio" style="margin-left: 15px" required> Female</span>
+             <span class="hidden-xs"> <input type="radio" name="gender" value="Male" class="w3-radio" style="margin-left: 15px" required> Male</span>
+             <span class="hidden-xs"> <input type="radio" name="gender" value="Female" class="w3-radio" style="margin-left: 15px" required> Female</span>
              <div class="w3-col l12 hidden-sm hidden-lg hidden-md">
                 <span> <input type="radio" name="gender" class="w3-radio" required> Male</span>
                 <span> <input type="radio" name="gender" class="w3-radio" style="margin-left: 15px" required> Female</span>
             </div>
         </div>
-        <div class="w3-col l12 w3-margin-bottom hidden-xs hidden-md">
-            <div class="w3-col l6  ">
+        <div class="w3-col l12 w3-margin-bottom hidden-md">
+            <div class="w3-col l6  " style="padding-right: 5px;">
          <label class="w3-large">First Name : </label>
          <input type="text" class="w3-input control w3-text-grey" placeholder="Your first name" required name="first_name" id="mc-name">
      </div>
-           <div class="w3-col l6" style="padding-left: 5px;">
+           <div class="w3-col l6" style="padding-right: 5px;">
          <label class="w3-large">Last Name : </label>
          <input type="text" class="w3-input control w3-text-grey" placeholder="Your last name*" required name="last_name" id="mc-name">
      </div>
      </div>
-     <div class="w3-col l12 w3-margin-bottom hidden-lg">
-            <div class="w3-col s12">
-         <label class="w3-large">First Name : </label>
-         <input type="text" class="w3-input control w3-text-grey" placeholder="Enter your first name" required name="first_name" id="mc-name">
-     </div>
- </div>
-     <div class="w3-col l12 w3-margin-bottom hidden-lg">
-           <div class="w3-col s12">
-         <label class="w3-large">Last Name : </label>
-         <input type="text" class="w3-input control w3-text-grey" placeholder="Enter your last name*" required name="last_name" id="mc-name">
-     </div>
-     </div>
-     <div class="w3-col l12 w3-margin-bottom">
+     <div class="w3-col l12 w3-margin-bottom" style="padding-right: 5px;">
          <label class="w3-large">Email ID : </label>
          <input type="email" name="email_id" class="w3-input control w3-text-grey" placeholder="Enter your email*" required id="mc-email">
      </div>
-     <div class="w3-col l12 w3-margin-bottom">
+     <div class="w3-col l12 w3-margin-bottom" style="padding-right: 5px;">
          <label class="w3-large">Caste : </label>
          <select class="w3-input control w3-text-grey" name="caste" id="mc-caste">
             <option value="0" class="w3-light-grey" selected>Select your Caste*</option>
@@ -169,7 +157,7 @@ a.socialIcon:hover, .socialHoverClass {
     <div class="w3-col l12 w3-margin-bottom">
      <div class="w3-col l12"><label class="w3-large">Mobile Number : </label></div>
      <div class="w3-col l4 s5">
-        <select class="w3-input control w3-text-grey" name="country_code" id="country_code">
+        <select class="w3-input control w3-text-grey" name="country_code" id="country_code" style="padding-right: 5px;">
            <option value="0" class="w3-light-grey">Select Country code*</option>
            <?php 															
            foreach($all_countries as $key) {
@@ -177,7 +165,7 @@ a.socialIcon:hover, .socialHoverClass {
               if($key['sortname']=='IN'){
                  $selected='selected';
              }
-             echo '<option value="'.$key['phonecode'].'" '.$selected.'>'.$key['sortname'].' (+'.$key['phonecode'].')</option>';
+             echo '<option value="+'.$key['phonecode'].'" '.$selected.'>'.$key['sortname'].' (+'.$key['phonecode'].')</option>';
          }
          ?>
      </select>
