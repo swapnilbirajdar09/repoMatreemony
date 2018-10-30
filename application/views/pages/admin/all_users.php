@@ -19,6 +19,7 @@
                <th class="w3-center"><span>Package</span></th>
                <th class="w3-center"><span>Registration Date</span></th>
                <th class="w3-center"><span>City</span></th>
+               <th class="w3-center"><span>Verification</span></th>
                <th class="w3-center"><span>Marital Status</span></th>
                <th class="w3-center"><span>Action</span></th>
              </tr>
@@ -44,6 +45,11 @@
               </td>
               <td class="w3-center" style="vertical-align: middle;"><?php echo date('d M Y',strtotime($key['user_reg_date'])); ?></td>
               <td class="w3-center" style="vertical-align: middle;"><?php echo $key['user_city']; ?></td>
+              <td class="" style="vertical-align: middle;">
+                <div><i class="fa fa-at"></i> Email <?php if($key['user_email_verified']=='1'){ ?><i class="fa fa-check w3-text-green"></i> <?php }else{ ?><i class="fa fa-times w3-text-red"></i> <?php } ?></div>
+                <div><i class="fa fa-phone"></i> Mobile No. <?php if($key['user_mobile_verified']=='1'){ ?><i class="fa fa-check w3-text-green"></i> <?php }else{ ?><i class="fa fa-times w3-text-red"></i> <?php } ?></div>
+                <div><i class="fa fa-file"></i> Documents <?php if($key['user_doc_verified']=='1'){ ?><i class="fa fa-check w3-text-green"></i> <?php }else{ ?><i class="fa fa-times w3-text-red"></i> <?php } ?></div>
+              </td>
               <td class="w3-center" style="vertical-align: middle;"><span class="badge w3-text-white"><?php echo $key['user_marital_status']; ?></span></td>
               <td class="w3-center" style="vertical-align: middle;">
                 <div class="btn-group">
