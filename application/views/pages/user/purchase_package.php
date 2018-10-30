@@ -14,13 +14,14 @@
             <?php 
             foreach ($package as $key) { 
                ?>
-               <form action="<?php echo base_url(); ?>user/payment/confirmation">
-                <input type="hidden" class="form-control" name="userFullname" value="Swapnil Shivaji Birajdar">
-                <input type="hidden" class="form-control" name="packageType" value="P/M">
-                <input type="hidden" class="form-control" name="userEmail" value="swapnilbirajdar09@gmail.com">
-                <input type="hidden" class="form-control" name="packageAmmount" value="300">
-                <input type="hidden" class="form-control" name="userMobile" value="8793590809">
-                <input type="hidden" class="form-control" name="userAddress" value="Nal Stop, Pune">
+               <form action="<?php echo base_url(); ?>user/payment/confirmation" method="POST">
+                <input type="hidden" class="form-control" name="user_gender" value="<?php if(isset($_POST) && !empty($_POST)){echo $_POST['gender']; }?>">
+                <input type="hidden" class="form-control" name="user_firstname" value="<?php if(isset($_POST) && !empty($_POST)){echo $_POST['first_name']; }?>">
+                <input type="hidden" class="form-control" name="user_lastname" value="<?php if(isset($_POST) && !empty($_POST)){echo $_POST['last_name']; }?>">
+                <input type="hidden" class="form-control" name="user_email" value="<?php if(isset($_POST) && !empty($_POST)){echo $_POST['email_id']; }?>">
+                <input type="hidden" class="form-control" name="user_caste" value="<?php if(isset($_POST) && !empty($_POST)){echo $_POST['caste']; }?>">
+                <input type="hidden" class="form-control" name="user_mobile" value="<?php if(isset($_POST) && !empty($_POST)){echo $_POST['country_code'].''.$_POST['mob_number']; }?>">
+                <input type="hidden" class="form-control" name="payment_package" value="<?php echo base64_encode($key['package_title'].'|'.$key['package_id']); ?>">
                <div class="col-xs-12 col-sm-4">
                 <div class="price-box">
                     <div class="price-header">

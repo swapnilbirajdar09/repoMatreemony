@@ -12,6 +12,7 @@ class Status extends CI_Controller {
 
     public function index() {
         $status = $this->input->post('status');
+        print_r($_POST);die();
         if (empty($status)) {
             redirect('user/payment/Welcome');
         }
