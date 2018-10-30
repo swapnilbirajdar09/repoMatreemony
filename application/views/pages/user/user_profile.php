@@ -167,8 +167,8 @@
                                     <div class="w3-container w3-margin-top w3-center no-padding">
                                         <div id="galleryImages">
                                             <?php 
-                                            if($userDetails[0]['user_gallery_images']!='' && $userDetails[0]['user_gallery_images']!='[]'){                                            
-                                                $img_Arr=json_decode($userDetails[0]['user_gallery_images'],TRUE);
+                                            if($userDetails[0]['user_photos']!='' && $userDetails[0]['user_photos']!='[]'){                                            
+                                                $img_Arr=json_decode($userDetails[0]['user_photos'],TRUE);
                                                 foreach ($img_Arr as $key) { ?>
                                                     <div class="w3-col l6 s6 m4" style="padding:4px 4px 4px 4px">
                                                         <div class="block-image relative">

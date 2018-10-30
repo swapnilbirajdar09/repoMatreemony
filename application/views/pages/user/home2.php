@@ -128,11 +128,11 @@ a.socialIcon:hover, .socialHoverClass {
         <div class="w3-col l12 w3-margin-bottom hidden-xs hidden-md">
             <div class="w3-col l6  ">
          <label class="w3-large">First Name : </label>
-         <input type="text" class="w3-input control w3-text-grey" placeholder="Enter your first name" required name="first_name" id="mc-name">
+         <input type="text" class="w3-input control w3-text-grey" placeholder="Your first name" required name="first_name" id="mc-name">
      </div>
            <div class="w3-col l6" style="padding-left: 5px;">
          <label class="w3-large">Last Name : </label>
-         <input type="text" class="w3-input control w3-text-grey" placeholder="Enter your last name*" required name="last_name" id="mc-name">
+         <input type="text" class="w3-input control w3-text-grey" placeholder="Your last name*" required name="last_name" id="mc-name">
      </div>
      </div>
      <div class="w3-col l12 w3-margin-bottom hidden-lg">

@@ -57,6 +57,7 @@ class Dashboard_model extends CI_Model {
         $result = array(
             'package_title' => $pkg_name,
             'package_price' => $pkg_price,
+            'package_validity' => $pkg_validity,
             'package_period' => $pkg_period,
             'package_benefits' => $benefitAddedField,
             'package_status' => '1'
@@ -87,6 +88,7 @@ class Dashboard_model extends CI_Model {
             'package_title' => $pkg_name,
             'package_price' => $pkg_price,
             'package_period' => $pkg_period,
+            'package_validity' => $pkg_validity,
             'package_benefits' => $benefitAddedField
         );
 

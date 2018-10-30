@@ -37,6 +37,7 @@ $scope.getAllPackages = function () {
                 'package_price': response.data[i].package_price,
                 'package_status': response.data[i].package_status,
                 'package_period': response.data[i].package_period,
+                'package_validity': response.data[i].package_validity,
                 'package_id': response.data[i].package_id,
                 'package_benefits': package_benefits});
         }

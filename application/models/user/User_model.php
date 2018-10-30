@@ -232,17 +232,17 @@ class User_model extends CI_Model {
     public function upload_image($data,$user_id){
         extract($data);
         // print_r($data);die();
-        $user_gallery_images='';
+        $user_photos='';
         $final_gallery='';
-        $sql = "SELECT user_gallery_images FROM user_profile_tab WHERE user_id='$user_id' ";
+        $sql = "SELECT user_photos FROM user_profile_tab WHERE user_id='$user_id' ";
         $result = $this->db->query($sql);
 
         foreach ($result->result_array() as $key) {
-            $user_gallery_images = $key['user_gallery_images'];
+            $user_photos = $key['user_photos'];
         }
 
-        if($user_gallery_images!=''){
-            $arr=json_decode($user_gallery_images,TRUE);
+        if($user_photos!=''){
+            $arr=json_decode($user_photos,TRUE);
             array_push($arr, $filepath);
             $final_gallery=json_encode($arr);
         }
@@ -254,7 +254,7 @@ class User_model extends CI_Model {
         }
 
         $result_update = array(
-            'user_gallery_images' => $final_gallery
+            'user_photos' => $final_gallery
         );
 
         $this->db->where('user_id', $user_id);
@@ -269,17 +269,17 @@ class User_model extends CI_Model {
 
     // delete the selected user's image from gallery
     public function delImage($img_path,$user_id){
-        $user_gallery_images='';
+        $user_photos='';
         $final_gallery='';
-        $sql = "SELECT user_gallery_images FROM user_profile_tab WHERE user_id='$user_id' ";
+        $sql = "SELECT user_photos FROM user_profile_tab WHERE user_id='$user_id' ";
         $result = $this->db->query($sql);
 
         foreach ($result->result_array() as $key) {
-            $user_gallery_images = $key['user_gallery_images'];
+            $user_photos = $key['user_photos'];
         }
 
-        if($user_gallery_images!=''){
-            $arr=json_decode($user_gallery_images,TRUE);
+        if($user_photos!=''){
+            $arr=json_decode($user_photos,TRUE);
             foreach ($arr as $key => $value) {
                 // check if image exist
                 if($img_path==$value){
@@ -289,7 +289,7 @@ class User_model extends CI_Model {
             $final_gallery=json_encode($arr);
         }
         $result_update = array(
-            'user_gallery_images' => $final_gallery
+            'user_photos' => $final_gallery
         );
 
         $this->db->where('user_id', $user_id);

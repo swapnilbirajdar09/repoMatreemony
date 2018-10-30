@@ -26,12 +26,13 @@
                     <label>Set Price (<i class="fa fa-inr"></i>):</label>
                     <p class="w3-small w3-text-grey"><b>Note: set Price = 0, if package is "FREE".</b></p>
                     <input type="number" name="pkg_price" value="<?php echo $pkg_details[0]['package_price']; ?>" class="form-control" min="0" placeholder="Eg.(0/-, 1000/-, 1500/-, 5000/-, etc.)"><br>
+                    <label>Package Validity (<i class="fa fa-list-ol"></i>):</label>
+                      <input type="number" name="pkg_validity" class="form-control" value="<?php echo $pkg_details[0]['package_validity']; ?>" min="1" placeholder="Eg.(1, 3, 6, 12, etc.)"><br>
                     <label>Package Period:</label>
                     <select class="form-control" id="pkg_period" name="pkg_period">
                       <option value="0" class="w3-light-grey" selected>Select package period</option>
                       <option value="Monthly" <?php if($pkg_details[0]['package_period']=='Monthly'){echo 'selected';} ?>>Monthly</option>
                       <option value="Yearly" <?php if($pkg_details[0]['package_period']=='Yearly'){echo 'selected';} ?>>Yearly</option>
-                      <option value="Lifetime" <?php if($pkg_details[0]['package_period']=='Lifetime'){echo 'selected';} ?>>Lifetime</option>
                     </select>
                     <p class="w3-text-red" id="perioderror"></p><br>
                     <label>Package Benefits:</label>                            

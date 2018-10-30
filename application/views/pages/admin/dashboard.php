@@ -60,13 +60,14 @@
                       <input type="text" name="pkg_name" class="form-control" placeholder="Eg.(Default, Basic, Premium, Gold, etc.)"><br>
                       <label>Set Price (<i class="fa fa-inr"></i>):</label>
                       <p class="w3-small w3-text-grey"><b>Note: set value = 0, if package is free.</b></p>
-                      <input type="number" name="pkg_price" class="form-control" min="0" placeholder="Eg.(0/-, 1000/-, 1500/-, 5000/-, etc.)"><br>
+                      <input type="number" name="pkg_price" class="form-control" min="0" value="0" placeholder="Eg.(0/-, 1000/-, 1500/-, 5000/-, etc.)"><br>
+                      <label>Package Validity (<i class="fa fa-list-ol"></i>):</label>
+                      <input type="number" name="pkg_validity" class="form-control" min="1" placeholder="Eg.(1, 3, 6, 12, etc.)"><br>
                       <label>Package Period:</label>
                       <select class="form-control" id="pkg_period" name="pkg_period">
                         <option value="0" class="w3-light-grey" selected>select package period</option>
                         <option value="Monthly">Monthly</option>
                         <option value="Yearly">Yearly</option>
-                        <option value="Lifetime">Lifetime</option>
                       </select>
                       <p class="w3-text-red" id="perioderror"></p><br>
                       <label>Package Benefits:</label>                            
@@ -108,7 +109,7 @@
                     <div class="title">
                       <h2>{{pkg.package_title}}</h2>
                       <h1><i class="fa fa-inr"></i> {{pkg.package_price}}</h1>
-                      <span>{{pkg.package_period}}</span>
+                      <span>{{pkg.package_validity}} {{pkg.package_period}}</span>
                     </div>
                     <div class="x_content">
                       <div class="">
