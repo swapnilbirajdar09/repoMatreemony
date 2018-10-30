@@ -108,7 +108,62 @@ class Profilesearch_byid extends CI_Controller {
         }
     }
 
-//------------------fun for follow the user or add to favourites
+//-----------fun for cancel the user request from received request
+    public function cancelRequestOfUserForReceived() {
+        extract($_GET);
+        $gender = $this->session->userdata('key_gender');
+        $encodedkey = $this->session->userdata('PariKey_session');
+        $key = base64_decode($encodedkey);
+        $keyarr = explode('|', $key);
+        $sessionUser_id = $keyarr[2];
+        $result = $this->Searchbyprofileid_model->cancelRequestOfUserForReceived($profile_user_id, $sessionUser_id, $gender);
+//        print_r($result);
+//        die();
+        if ($result == 200) {
+            echo 200;
+        } else {
+            echo 500;
+        }
+    }
+
+//------------------fun for cancel the user request from received request confirmed and approved-----------//
+    public function cancelRequestOfUserForReceivedApprovedRequest() {
+        extract($_GET);
+        $gender = $this->session->userdata('key_gender');
+        $encodedkey = $this->session->userdata('PariKey_session');
+        $key = base64_decode($encodedkey);
+        $keyarr = explode('|', $key);
+        $sessionUser_id = $keyarr[2];
+        $result = $this->Searchbyprofileid_model->cancelRequestOfUserForReceivedApprovedRequest($profile_user_id, $sessionUser_id, $gender);
+//        print_r($result);
+//        die();
+        if ($result == 200) {
+            echo 200;
+        } else {
+            echo 500;
+        }
+    }
+
+    //--------------fun for accept the user request---------------------//
+    public function acceptUserConfirmRequest() {
+        extract($_GET);
+        $gender = $this->session->userdata('key_gender');
+        $encodedkey = $this->session->userdata('PariKey_session');
+        $key = base64_decode($encodedkey);
+        $keyarr = explode('|', $key);
+        $sessionUser_id = $keyarr[2];
+        $result = $this->Searchbyprofileid_model->acceptUserConfirmRequest($profile_user_id, $sessionUser_id, $gender);
+//        print_r($result);
+//        die();
+        if ($result == 200) {
+            echo 200;
+        } else {
+            echo 500;
+        }
+    }
+
+    //-------------------------------------------------------------------//
+//------------------fun for follow the user or add to favourites--------------//
     public function followUserProfile() {
         extract($_GET);
         $gender = $this->session->userdata('key_gender');

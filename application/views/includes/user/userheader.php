@@ -247,6 +247,10 @@
                                                 </ul>
                                             </li>
                                             <li class="custom-nav">
+                                                <a class="nav-link " href="<?php echo base_url(); ?>user/requests/my_requests" aria-haspopup="true" aria-expanded="false">
+                                                    Followers</a>
+                                            </li>
+                                            <li class="custom-nav">
                                                 <a class="nav-link " href="<?php echo base_url(); ?>user/pricing_plan" aria-haspopup="true" aria-expanded="false">
                                                     Membership Plans</a>
                                             </li>

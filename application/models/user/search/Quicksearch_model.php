@@ -25,6 +25,7 @@ class Quicksearch_model extends CI_Model {
         if ($filter_aged_to != '') {
             $sql .= "AND DATEDIFF(CURRENT_DATE, user_profile_tab.user_dob) <= ('$filter_aged_to' * 365.25)";
         }
+        $sql .= "ORDER BY user_tab.user_id DESC";
 
         $result = $this->db->query($sql);
         if ($result->num_rows() <= 0) {
