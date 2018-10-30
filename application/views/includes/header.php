@@ -15,6 +15,7 @@
     <link href="<?php echo base_url(); ?>assets/build/css/w3.css" rel="stylesheet">
     <link href="<?php echo base_url(); ?>assets/build/css/style.css" rel="stylesheet">
     <link href="<?php echo base_url(); ?>assets/alert/jquery-confirm.css" rel="stylesheet">
+    <link href="<?php echo base_url(); ?>assets/build/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
 
     <!-- angular-->
     <script src="<?php echo base_url(); ?>assets/js/angular.js"></script>
@@ -44,8 +45,7 @@
                                 <li><a href="<?php echo base_url(); ?>admin/dashboard"><i class="fa fa-dashboard"></i> Dashboard </a></li>
                                 <li><a href="<?php echo base_url(); ?>admin/all_users"><i class="fa fa-users"></i> All Members </a></li>
                                 <li><a href="<?php echo base_url(); ?>admin/admin_profile"><i class="fa fa-user-circle"></i> Admin Profile </a></li>
-                                 <li><a href="<?php echo base_url(); ?>admin/Register_user"><i class="fa fa-user"></i> Register User </a></li>
-                                  <li><a href="<?php echo base_url(); ?>admin/Verify_document"><i class="fa fa-file"></i> Document Verification </a></li>
+                                <li><a href="<?php echo base_url(); ?>admin/Register_user"><i class="fa fa-user"></i> Register User </a></li>
                             </ul>
                         </div>
                         <div class="menu_section">

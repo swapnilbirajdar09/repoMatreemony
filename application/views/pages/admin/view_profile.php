@@ -1660,14 +1660,6 @@
                                 <label class="text-uppercase c-gray-light">Document: </label>
                                 <a class="btn" target="_self" href="<?php echo base_url(); ?><?php echo $key['document_path']; ?>" download="<?php echo $arr[3]; ?>" style="padding:0"><label class="w3-small w3-text-grey"><i class="fa fa-paperclip"></i> <?php echo $arr[3]; ?></label></a>
                             </p>
-
-                            <?php 
-                            if($key['comments']!=''){
-                                echo '<p>
-                                <label class="w3-text-red w3-medium"><b>Reason: '.$key['comments'].'</b></label>
-                            </p>';
-                            }
-                            ?>
                         </div>
                         <?php    
                     }
