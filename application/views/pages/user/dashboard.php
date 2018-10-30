@@ -353,7 +353,7 @@
             }
             setTimeout(function () {
             window.location.reload();
-            }, 5000);
+            }, 1500);
             });
             },
                     cancel: function () {
@@ -393,7 +393,7 @@
             }
             setTimeout(function () {
             window.location.reload();
-            }, 5000);
+            }, 1500);
             });
             },
                     cancel: function () {
@@ -427,7 +427,7 @@
 
     setTimeout(function() {
     window.location.reload();
-    }, 5000);
+    }, 1500);
     });
     };
     //----------------------------------fun for follow the user profile------------------------------//
@@ -456,7 +456,7 @@
     }
     setTimeout(function() {
     window.location.reload();
-    }, 5000);
+    }, 1500);
     });
     };
     });

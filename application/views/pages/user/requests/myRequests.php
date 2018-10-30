@@ -270,13 +270,14 @@
                                                     </div>
                                                     <?php
                                                     if ($sentApproveRequests[$i][0]['user_firstname'] != '' && $sentApproveRequests[$i][0]['user_lastname'] != '') {
-                                                        for ($j = 0; $j < strlen($sentApproveRequests[$i][0]['user_firstname']); $j++) {
-                                                            if ($j == 0) {
-                                                                $firstname = $sentApproveRequests[$i][0]['user_firstname'][0];
-                                                            } else {
-                                                                $firstname .= '*';
-                                                            }
-                                                        }
+//                                                        for ($j = 0; $j < strlen($sentApproveRequests[$i][0]['user_firstname']); $j++) {
+//                                                            if ($j == 0) {
+//                                                                $firstname = $sentApproveRequests[$i][0]['user_firstname'][0];
+//                                                            } else {
+//                                                                $firstname .= '*';
+//                                                            }
+//                                                        }
+                                                        $firstname = $sentApproveRequests[$i][0]['user_firstname'];
                                                         $lastname = $sentApproveRequests[$i][0]['user_lastname'];
                                                     } else {
                                                         $firstname = 'N/A';
@@ -637,13 +638,14 @@
                                                     </div>
                                                     <?php
                                                     if ($recApproveRequests[$i][0]['user_firstname'] != '' && $recApproveRequests[$i][0]['user_lastname'] != '') {
-                                                        for ($j = 0; $j < strlen($recApproveRequests[$i][0]['user_firstname']); $j++) {
-                                                            if ($j == 0) {
-                                                                $firstname = $recApproveRequests[$i][0]['user_firstname'][0];
-                                                            } else {
-                                                                $firstname .= '*';
-                                                            }
-                                                        }
+//                                                        for ($j = 0; $j < strlen($recApproveRequests[$i][0]['user_firstname']); $j++) {
+//                                                            if ($j == 0) {
+//                                                                $firstname = $recApproveRequests[$i][0]['user_firstname'][0];
+//                                                            } else {
+//                                                                $firstname .= '*';
+//                                                            }
+//                                                        }
+                                                        $firstname = $recApproveRequests[$i][0]['user_firstname'];
                                                         $lastname = $recApproveRequests[$i][0]['user_lastname'];
                                                     } else {
                                                         $firstname = 'N/A';
@@ -1079,7 +1081,7 @@
             }
             setTimeout(function() {
             window.location.reload();
-            }, 5000);
+            }, 1500);
             });
             },
                     cancel: function () {
@@ -1119,7 +1121,7 @@
             }
             setTimeout(function() {
             window.location.reload();
-            }, 5000);
+            }, 1500);
             });
             },
                     cancel: function () {
@@ -1173,7 +1175,7 @@
             }
             setTimeout(function() {
             window.location.reload();
-            }, 5000);
+            }, 1500);
             });
             },
                     cancel: function () {
@@ -1213,7 +1215,7 @@
             }
             setTimeout(function() {
             window.location.reload();
-            }, 5000);
+            }, 1500);
             });
             },
                     cancel: function () {
@@ -1253,7 +1255,7 @@
             }
             setTimeout(function() {
             window.location.reload();
-            }, 5000);
+            }, 1500);
             });
             },
                     cancel: function () {
@@ -1287,7 +1289,7 @@
     }
     setTimeout(function() {
     window.location.reload();
-    }, 5000);
+    }, 1500);
     });
     };
     //-------------------------------------------------------------------------------------//
@@ -1317,7 +1319,7 @@
     }
     setTimeout(function() {
     window.location.reload();
-    }, 5000);
+    }, 1500);
     });
     };
     });
