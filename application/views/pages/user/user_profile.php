@@ -1,3 +1,5 @@
+ <title>My Profile- Buddhist Parinay</title>
+
  <style type="text/css">
  /* gallery images overlay opacity overlay */
  .saved-image{
@@ -21,8 +23,8 @@
 </style>
 <script type="text/javascript">
     $('#uploadPhotoModal').on('hidden.bs.modal', function () {
-     location.reload();
- })
+       location.reload();
+   })
 </script>
 <!-- <?php print_r($userDetails); ?> -->
 <section class="slice sct-color-2">
@@ -60,68 +62,107 @@
                         <span class="ajax_danger_alert"></span>
                     </div>
                 </div>
-                <!-- Alerts for Member actions -->
-                <div class="col-lg-4">
-                    <div class="sidebar sidebar-inverse sidebar--style-1 bg-base-1 z-depth-2-top">
-                        <div class="sidebar-object mb-0">
-                            <!-- Profile picture -->
-                            <div class="profile-picture profile-picture--style-2">
-                                <div style="border: 10px solid rgba(255, 255, 255, 0.1);width: 200px;border-radius: 50%;margin-top: 30px;">
-                                    <?php if($userDetails[0]['user_profile_image']!=''){ ?>
-                                        <div class="profile_img" id="show_img" style="background-image: url(<?php echo base_url(); ?><?php echo $userDetails[0]['user_profile_image']; ?>)"></div>
-                                    <?php }else { ?>
-                                        <div class="profile_img" id="show_img" style="background-image: url(<?php echo base_url(); ?>assets/images/user.png)"></div>
-                                    <?php } ?>
-                                </div>
+
+                <!-- warning alerts -->
+                <?php 
+                $mandate_values=[$userDetails[0]['user_about_me'],$userDetails[0]['user_fullname'],$userDetails[0]['user_dob'],$userDetails[0]['user_educational_field'],$userDetails[0]['user_father_name'],$userDetails[0]['user_diet'],$userDetails[0]['user_partner_expections'],$userDetails[0]['user_photos'],$userDetails[0]['user_profile_image']];
+                $show_alert=0;
+                for ($j=0; $j < count($mandate_values); $j++) { 
+                    if($mandate_values[$j]!='' && $mandate_values[$j]!='0' && $mandate_values[$j]!='[]'){
+                        $show_alert=1;
+                    }
+                }
+                if($show_alert==0){
+                    ?>
+                    <div class="col-md-12">
+                       <div class="col-md-12 alert alert-warning alert-dismissible" role="alert">
+                        <a href="#" class="close w3-medium" data-dismiss="alert" aria-label="close"> <i class="fa fa-times-circle"></i> </a>
+                        <p style="margin-bottom:0"><i class="fa fa-warning"></i> Please complete your Profile & then you can find your correct match ! </p>
+                    </div>
+                </div>
+            <?php } ?>
+            <?php 
+            $doc_verified_count=0;
+            for ($i=0; $i < count($userDocuments) ; $i++) { 
+                if($userDocuments[$i]['status']==1){
+                    $doc_verified_count++;
+                }
+            }
+            if($userDetails[0]['user_doc_verified']==0){
+                ?>
+                <div class="col-md-12">
+                   <div class="col-md-12 alert alert-warning alert-dismissible" role="alert">
+                    <a href="#" class="close w3-medium" data-dismiss="alert" aria-label="close"> <i class="fa fa-times-circle"></i> </a>
+                    <p style="margin-bottom:0"><i class="fa fa-warning"></i> To Activate your account, you have to get verified for at least 3 uploaded documents successfully. </p>
+                    <p style="margin-bottom:0"> <b>Uploaded Documents:</b> <?php echo count($userDocuments); ?> </p>
+                    <p style="margin-bottom:0"> <b>Approved Documents:</b> <?php echo $doc_verified_count; ?> </p>
+                </div>
+            </div>
+        <?php } ?>
+
+
+        <!-- Alerts for Member actions -->
+        <div class="col-lg-4">
+            <div class="sidebar sidebar-inverse sidebar--style-1 bg-base-1 z-depth-2-top">
+                <div class="sidebar-object mb-0">
+                    <!-- Profile picture -->
+                    <div class="profile-picture profile-picture--style-2">
+                        <div style="border: 10px solid rgba(255, 255, 255, 0.1);width: 200px;border-radius: 50%;margin-top: 30px;">
+                            <?php if($userDetails[0]['user_profile_image']!=''){ ?>
+                                <div class="profile_img" id="show_img" style="background-image: url(<?php echo base_url(); ?><?php echo $userDetails[0]['user_profile_image']; ?>)"></div>
+                            <?php }else { ?>
+                                <div class="profile_img" id="show_img" style="background-image: url(<?php echo base_url(); ?>assets/images/user.png)"></div>
+                            <?php } ?>
+                        </div>
+                    </div>
+                    <!-- Profile details -->
+                    <div class="profile-details">
+                        <h2 class="heading heading-3 strong-500 profile-name"><?php echo $userDetails[0]['user_firstname'].' '.$userDetails[0]['user_lastname']; ?></h2>
+                        <h3 class="heading heading-6 strong-400 profile-occupation mt-3"><?php if($userDetails[0]['user_designation']==''){echo '<User Designation>';}else{ echo $userDetails[0]['user_designation']; } ?></h3>
+                            <div class="stats-entry" style="width: 100%">
+                                <span class="stats-count"><?php echo $userDetails[0]['self_favourite_count']; ?></span>
+                                <span class="stats-label w3-small text-uppercase">Followers</span>
                             </div>
-                            <!-- Profile details -->
-                            <div class="profile-details">
-                                <h2 class="heading heading-3 strong-500 profile-name"><?php echo $userDetails[0]['user_firstname'].' '.$userDetails[0]['user_lastname']; ?></h2>
-                                <h3 class="heading heading-6 strong-400 profile-occupation mt-3"><?php if($userDetails[0]['user_designation']==''){echo '<User Designation>';}else{ echo $userDetails[0]['user_designation']; } ?></h3>
-                                    <div class="stats-entry" style="width: 100%">
-                                        <span class="stats-count"><?php echo $userDetails[0]['self_favourite_count']; ?></span>
-                                        <span class="stats-label w3-small text-uppercase">Followers</span>
-                                    </div>
-                                    <div class="profile-stats clearfix mt-2">
-                                        <div class="stats-entry" style="width: 100%">
-                                            <span class="stats-count"><?php echo $userDetails[0]['user_email']; ?>
-                                            <span class="pull-right">
-                                                <?php 
-                                                if($userDetails[0]['user_email_verified']=='1'){    ?>
-                                                    <span id="verify_email_span" class="btn-base-1 btn-sm btn-icon-only btn-shadow mb-1 w3-green">
-                                                        <i class="ion-checkmark"></i> Verified
-                                                    </span>
-                                                    <?php
-                                                }
-                                                else{
-                                                    ?>
-                                                    <button type="button" id="btn_verify_email" class="btn btn-base-1 btn-sm btn-icon-only btn-shadow mb-1 w3-green" onclick="verify('email','<?php echo $userDetails[0]['user_email']; ?>')">
-                                                        <i class="ion-android-lock"></i> Verify
-                                                    </button>
-                                                    <?php
-                                                }
-                                                ?>
-                                                
-                                                
+                            <div class="profile-stats clearfix mt-2">
+                                <div class="stats-entry" style="width: 100%">
+                                    <span class="stats-count"><?php echo $userDetails[0]['user_email']; ?>
+                                    <span class="pull-right">
+                                        <?php 
+                                        if($userDetails[0]['user_email_verified']=='1'){    ?>
+                                            <span id="verify_email_span" class="btn-base-1 btn-sm btn-icon-only btn-shadow mb-1 w3-green">
+                                                <i class="ion-checkmark"></i> Verified
                                             </span>
-                                        </span>
-                                        <span class="stats-label text-uppercase">Email ID</span>
-                                    </div>
-                                </div>
-                                <div class="profile-stats clearfix mt-2">
-                                    <div class="stats-entry" style="width: 100%">
-                                        <span class="stats-count"><?php echo $userDetails[0]['user_mobile_num']; ?>
-                                        <span class="pull-right">
-                                            <button type="button" id="btn_verify_mobile" class="btn btn-base-1 btn-sm btn-icon-only btn-shadow mb-1 w3-green" onclick="verify('mobile','<?php echo $userDetails[0]['user_mobile_num']; ?>')">
+                                            <?php
+                                        }
+                                        else{
+                                            ?>
+                                            <button type="button" id="btn_verify_email" class="btn btn-base-1 btn-sm btn-icon-only btn-shadow mb-1 w3-green" onclick="verify('email','<?php echo $userDetails[0]['user_email']; ?>')">
                                                 <i class="ion-android-lock"></i> Verify
                                             </button>
-                                        </span>
+                                            <?php
+                                        }
+                                        ?>
+
+
                                     </span>
-                                    <span class="stats-label text-uppercase">Mobile Number</span>
-                                </div>
+                                </span>
+                                <span class="stats-label text-uppercase">Email ID</span>
                             </div>
-                            <!-- Profile connect -->
-                            <div class="profile-connect mt-5">
+                        </div>
+                        <div class="profile-stats clearfix mt-2">
+                            <div class="stats-entry" style="width: 100%">
+                                <span class="stats-count"><?php echo $userDetails[0]['user_mobile_num']; ?>
+                                <span class="pull-right">
+                                    <button type="button" id="btn_verify_mobile" class="btn btn-base-1 btn-sm btn-icon-only btn-shadow mb-1 w3-green" onclick="verify('mobile','<?php echo $userDetails[0]['user_mobile_num']; ?>')">
+                                        <i class="ion-android-lock"></i> Verify
+                                    </button>
+                                </span>
+                            </span>
+                            <span class="stats-label text-uppercase">Mobile Number</span>
+                        </div>
+                    </div>
+                    <!-- Profile connect -->
+                    <div class="profile-connect mt-5">
                                     <!-- <a href="#" class="btn btn-styled btn-block btn-circle btn-sm btn-base-5">Follow</a>
                                         <a href="#" class="btn btn-styled btn-block btn-circle btn-sm btn-base-2">Send message</a> -->
                                         <h4 class="heading strong-400">Official Information</h4>
@@ -248,8 +289,8 @@
                                         </div>
                                     </div>
                                     <hr>
-                                    <div class="useful-links">
-                                       <a class="btn btn-styled btn-sm btn-white z-depth-2-bottom mb-3 change_pass l_nav" data-toggle="modal" data-target="#changePasswordModal">
+                                    <div class="useful-links" id="changePasswordDiv">
+                                     <a class="btn btn-styled btn-sm btn-white z-depth-2-bottom mb-3 change_pass l_nav" data-toggle="modal" data-target="#changePasswordModal">
                                         <b style="font-size: 12px">Change Password</b>
                                     </a>
                                     <a class="btn btn-styled btn-sm btn-white z-depth-2-bottom mb-3 change_pass l_nav" href="<?php echo base_url(); ?>user/login/logoutUser">
@@ -305,7 +346,7 @@
                         <div class="card z-depth-2-top" id="profile_load">
                             <div class="card-title">
                                 <h3 class="heading heading-6 strong-500 pull-left">
-                                    <b>Profile ID - </b><b class="c-base-1">479CDDC01</b>
+                                    <b>Profile ID - </b><b class="c-base-1"><?php echo $userDetails[0]['user_profile_key']; ?></b>
                                 </h3>
                             </div>
                             <div class="card-body pt-2" style="padding: 1rem 0.5rem;">
@@ -461,9 +502,9 @@
                                                                     <span>Blood Group</span>
                                                                 </td>
                                                                 <td>
-                                                                   <?php echo $userDetails[0]['user_blood_grp']; ?>                          
-                                                               </td>
-                                                               <td class="td-label">
+                                                                 <?php echo $userDetails[0]['user_blood_grp']; ?>                          
+                                                             </td>
+                                                             <td class="td-label">
                                                                 <span>Mother Tongue</span>
                                                             </td>
                                                             <td><?php echo $userDetails[0]['user_mother_tongue']; ?>
@@ -722,17 +763,17 @@
                                                             <span>Working Field</span>
                                                         </td>
                                                         <td>
-                                                           <?php echo $userDetails[0]['user_working_field']; ?>
-                                                       </td>
-                                                   </tr>
-                                                   <tr>
+                                                         <?php echo $userDetails[0]['user_working_field']; ?>
+                                                     </td>
+                                                 </tr>
+                                                 <tr>
                                                     <td class="td-label">
                                                         <span>Company Name</span>
                                                     </td>
                                                     <td>
-                                                     <?php echo $userDetails[0]['user_company_name']; ?>
-                                                 </td>
-                                                 <td class="td-label">
+                                                       <?php echo $userDetails[0]['user_company_name']; ?>
+                                                   </td>
+                                                   <td class="td-label">
                                                     <span>Designation</span>
                                                 </td>
                                                 <td>
@@ -750,23 +791,23 @@
                                                 <span>Monthly Income</span>
                                             </td>
                                             <td>
-                                             <?php echo $userDetails[0]['user_monthly_income']; ?>
-                                         </td>
-                                         <td class="td-label">
+                                               <?php echo $userDetails[0]['user_monthly_income']; ?>
+                                           </td>
+                                           <td class="td-label">
                                             <span>Annual Income</span>
                                         </td>
                                         <td>
-                                           <?php echo $userDetails[0]['user_annual_income']; ?>                   
-                                       </td>
-                                   </tr>
-                               </tbody>
-                           </table>
-                       </div>
-                   </div>
-               </div>
-               <!-- view eductaion and professional div ends -->
-               <!-- edit education and professional div -->
-               <div id="edit_edu_professional" style="display: none;">
+                                         <?php echo $userDetails[0]['user_annual_income']; ?>                   
+                                     </td>
+                                 </tr>
+                             </tbody>
+                         </table>
+                     </div>
+                 </div>
+             </div>
+             <!-- view eductaion and professional div ends -->
+             <!-- edit education and professional div -->
+             <div id="edit_edu_professional" style="display: none;">
                 <form id="form_edu_professional" class="form-default" role="form">
                     <div class="card-inner-title-wrapper pt-0">
                         <h3 class="card-inner-title pull-left">Edit Educational and Professional</h3>
@@ -987,15 +1028,15 @@
                         </tr>
                         <tr>
                             <td class="td-label">
-                             Contact number 1
-                         </td>
-                         <td>
+                               Contact number 1
+                           </td>
+                           <td>
                             <?php echo $userDetails[0]['user_contact_no1']; ?> 
                         </td>
                         <td class="td-label">
-                         Contact number 2
-                     </td>
-                     <td>
+                           Contact number 2
+                       </td>
+                       <td>
                         <?php echo $userDetails[0]['user_contact_no2']; ?> 
                     </td>
                 </tr>
@@ -1065,7 +1106,7 @@
             <div class="col-md-6 w3-margin-top">
                 <div class="form-group has-feedback">
                     <label for="country" class="text-uppercase c-gray-light">Country</label>
-                    <select name="country" id="country" class="form-control selectpicker" data-placeholder="Choose country" tabindex="2" data-hide-disabled="true">
+                    <select name="country" id="country" class="form-control selectpicker" data-placeholder="Choose country" tabindex="2" data-hide-disabled="true" disabled>
                         <option value="0">Choose country</option>
                         <?php
                         for ($i = 0; $i < count($country); $i++) {         ?>
@@ -1301,14 +1342,14 @@
                                         <span>Relation with Me</span>
                                     </td>
                                     <td>
-                                     <?php echo $relativeArr[$i]['relative_relation']; ?>
-                                 </td>
-                             </tr>
-                             <tr>
+                                       <?php echo $relativeArr[$i]['relative_relation']; ?>
+                                   </td>
+                               </tr>
+                               <tr>
                                 <td class="td-label">
-                                 Contact number
-                             </td>
-                             <td>
+                                   Contact number
+                               </td>
+                               <td>
                                 <?php echo $relativeArr[$i]['relative_contact']; ?>
                             </td>
                             <td class="td-label">
@@ -1665,7 +1706,7 @@
                             if($key['comments']!=''){
                                 echo '<p>
                                 <label class="w3-text-red w3-medium"><b>Reason: '.$key['comments'].'</b></label>
-                            </p>';
+                                </p>';
                             }
                             ?>
                         </div>

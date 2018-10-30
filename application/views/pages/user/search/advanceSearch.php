@@ -1,3 +1,5 @@
+<title>Advanced Search - Buddhist Parinay</title>
+
 <section class="page-title page-title--style-1">
     <div class="container">
         <div class="row align-items-center">

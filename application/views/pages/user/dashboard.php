@@ -10,7 +10,7 @@
                             <div class="card-title b-xs-bottom" style="background:#eff2f4;">
                                 <h3 class="heading heading-sm text-uppercase">Account information
                                 </h3> 
-                                <b><a href="<?php echo base_url(); ?>edit_profile" class="w3-right w3-hover-text-blue" style="color: #337ab7;">Edit Profile</a></b>
+                                <b><a href="<?php echo base_url(); ?>user/user_profile#profile_load" class="w3-right btn btn-base-1 btn-sm btn-icon-only btn-shadow mb-1"><i class="fa fa-edit w3-medium"></i> Edit Profile</a></b>
 
                             </div>
 
@@ -19,26 +19,17 @@
                                 <div class="row">
                                     <div class="col-sm-12">
                                         <div class="form-group has-feedback">
-                                            <label for="" class="text-uppercase">Membership Registration Date : </label>
-                                            <?php echo $userDetails[0]['user_reg_date']; ?>
+                                            <label for="" class="text-uppercase"><b>Membership Registration Date :</b> </label>
+                                            <?php echo date('d-M-Y',strtotime($userDetails[0]['user_reg_date'])); ?>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-12">
                                         <div class="form-group has-feedback">
-                                            <label for="" class="text-uppercase">Membership Expiry Date :</label>
+                                            <label for="" class="text-uppercase"><b>Membership Expiry Date :</b></label>
 
-                                            <?php echo $userDetails[0]['user_expiry_date']; ?>
-                                        </div>
-                                    </div>
-
-                                </div>
-                                <div class="row">
-                                    <div class="col-sm-12">
-                                        <div class="form-group has-feedback">
-                                            <label for="" class="text-uppercase">Membership Package :</label>
-                                            <?php echo $userDetails[0]['user_package']; ?>
+                                            <?php echo date('d-M-Y',strtotime($userDetails[0]['user_expiry_date'])); ?>
                                         </div>
                                     </div>
 
@@ -46,7 +37,16 @@
                                 <div class="row">
                                     <div class="col-sm-12">
                                         <div class="form-group has-feedback">
-                                            <label for="" class="text-uppercase">Incoming Request :</label>
+                                            <label for="" class="text-uppercase"><b>Membership Package :</b></label>
+                                            <?php echo strtoupper($userDetails[0]['user_package']); ?>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="form-group has-feedback">
+                                            <label for="" class="text-uppercase"><b>Incoming Request :</b></label>
                                             <?php
                                             echo count(json_decode($userDetails[0]['user_received_requests']));
                                             ?>
@@ -56,21 +56,14 @@
                                 <div class="row">
                                     <div class="col-sm-12">
                                         <div class="form-group has-feedback">
-                                            <label for="" class="text-uppercase">Remaining Request :</label>
+                                            <label for="" class="text-uppercase"><b>Remaining Request :</b></label>
                                             <?php echo $userDetails[0]['user_remaining_requests']; ?>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-12">
-                                        <b><a href="<?php echo base_url(); ?>edit_profile" class="w3-hover-text-blue" style="color: #337ab7;">Change Password</a></b>
-
-                                    </div>
-                                </div>
-                                <div class="row">
-
-                                    <div class="col-sm-12">
-                                        <b><a href="<?php echo base_url(); ?>edit_profile" class="w3-hover-text-blue" style="color: #337ab7;">Verify Document</a></b>
+                                        <b><a href="<?php echo base_url(); ?>user/user_profile#changePasswordDiv" class="btn btn-base-1 btn-sm btn-icon-only btn-shadow mb-1"><i class="fa fa-key w3-medium"></i> Change Password</a></b>
                                     </div>
                                 </div>
                             </div>

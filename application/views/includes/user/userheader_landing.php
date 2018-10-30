@@ -55,7 +55,7 @@
 	<span><i class="lnr lnr-sun"></i></span>
 </div>
 <!-- MainMenu-Area -->
-<nav class="mainmenu-area" data-spy="affix" data-offset-top="200">
+<nav class="mainmenu-area" data-spy="affix" data-offset-top="200" style="padding-bottom: 0;vertical-align: middle;">
 	<div class="container-fluid">
 		<div class="navbar-header">
 			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#primary_menu">

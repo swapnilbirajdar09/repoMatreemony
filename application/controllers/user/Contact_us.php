@@ -17,9 +17,9 @@ class Contact_us extends CI_Controller {
     	 // print_r($_GET);die();
         $data['info'] = Contact_us::admincontact_details();
        // print_r($data);die();
-        $this->load->view('includes/user/userheader.php'); //------user header page
+        $this->load->view('includes/user/userheader_static.php'); //------user header page
         $this->load->view('pages/user/contact_us.php',$data); //------landing page
-        $this->load->view('includes/user/userfooter.php'); //------user footer page
+        $this->load->view('includes/user/userfooter_landing.php'); //------user footer page
     }
 
       public function admincontact_details() {

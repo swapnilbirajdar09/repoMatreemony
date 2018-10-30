@@ -2,13 +2,13 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Regular_search extends CI_Controller {
+class My_stats extends CI_Controller {
 
     // Login controller
     public function __construct() {
         parent::__construct();
         // load common model
-        $this->load->model('user/search/Regularsearch_model');
+        $this->load->model('user/requests/Userrequests_model');
         $this->load->model('user/user_model');
     }
 
@@ -55,24 +55,15 @@ class Regular_search extends CI_Controller {
     if($data['userDetails'][0]['user_doc_verified']==0){
         redirect('user/user_profile');
     } 
-    $this->load->view('includes/user/userheader',$data);
-    $this->load->view('pages/user/search/regularSearch'); //------loading the profile page for Quick search 
-    $this->load->view('includes/user/userfooter');
-}
 
-    //------fun for filter the users--------------------------//
-public function getAllUserProfilesByRegularSearch() {
-    $postdata = file_get_contents("php://input");
-    $request = json_decode($postdata, TRUE);
-        //extract($request);
-    $gender = $this->session->userdata('key_gender');
-    $result = $this->Regularsearch_model->getAllUserProfilesByRegularSearch($request,$gender);
-        //print_r($result);die();
-    if (!$result) {
-        echo '500';
-    } else {
-        print_r(json_encode($result));
-    }
+    $data['sentRequests'] = $this->Userrequests_model->getMySentRequests($user_id, $gender);
+    $data['receivRequests'] = $this->Userrequests_model->getMyReceivedRequests($user_id, $gender);
+    $data['recApproveRequests'] = $this->Userrequests_model->getMyReceivedApprovedRequests($user_id, $gender);
+    $data['sentApproveRequests'] = $this->Userrequests_model->getMySentApprovedRequests($user_id, $gender);
+    $data['myFollowers'] = $this->Userrequests_model->getMyFollowers($user_id, $gender);
+    $this->load->view('includes/user/userheader',$data);
+    $this->load->view('pages/user/requests/myRequests',$data); //------loading the profile page for Quick search 
+    $this->load->view('includes/user/userfooter');
 }
 
 }

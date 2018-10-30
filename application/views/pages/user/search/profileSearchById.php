@@ -1,6 +1,4 @@
-<style>
-
-</style>
+<title>Search By Profile ID - Buddhist Parinay</title>
 
 <section class="page-title page-title--style-1">
     <div class="container">

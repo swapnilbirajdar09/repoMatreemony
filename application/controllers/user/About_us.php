@@ -14,8 +14,8 @@ class About_us extends CI_Controller {
     public function index() {
         
      
-        $this->load->view('includes/user/userheader.php'); //------user header page
+        $this->load->view('includes/user/userheader_static.php'); //------user header page
         $this->load->view('pages/user/about_us.php'); //------user profile page
-        $this->load->view('includes/user/userfooter.php'); //------user footer page
+        $this->load->view('includes/user/userfooter_landing.php'); //------user footer page
     }
 }

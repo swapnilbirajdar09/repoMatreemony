@@ -55,7 +55,7 @@
 	<span><i class="lnr lnr-sun"></i></span>
 </div>
 <!-- MainMenu-Area -->
-<nav class="mainmenu-area affix" style="opacity: 1">
+<nav class="mainmenu-area affix" style="padding-bottom: 0;vertical-align: middle;opacity: 1">
 	<div class="container-fluid">
 		<div class="navbar-header">
 			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#primary_menu">
@@ -65,13 +65,17 @@
 			</button>
 			<a class="navbar-brand" href="<?php echo base_url(); ?>"><h3 class="w3-text-white"><b><i>Buddhist Parinay</i></b></h3></a>
 		</div>
+		<?php 
+		$url=$this->uri->segment(2);
+		?>
 		<div class="collapse navbar-collapse" id="primary_menu">
 			<ul class="nav navbar-nav mainmenu">
 				<li class="active">
-					<li><a href="#home_page">Home</a></li>
-					<li><a href="#about_page">About Parinaay</a></li>
-					<li><a href="#pillars_page">Our Pillars</a></li>
-					<li><a href="#testimonial_page">Testimonials</a></li>
+					<li class="<?php if($url==''){ echo 'active'; } ?>"><a href="<?php echo base_url(); ?>#home_page">Home</a></li>
+					<li class="<?php if($url=='about_us'){ echo 'active'; } ?>"><a href="<?php echo base_url(); ?>user/about_us">About Parinaay</a></li>
+					<li class="<?php if($url=='pillars'){ echo 'active'; } ?>"><a href="<?php echo base_url(); ?>#pillars_page">Our Pillars</a></li>
+					<li><a href="<?php echo base_url(); ?>#testimonial_page">Testimonials</a></li>
+					<li class="<?php if($url=='contact_us'){ echo 'active'; } ?>"><a href="<?php echo base_url(); ?>user/contact_us">Contact Us</a></li>
 					<!-- <li><a href="<?php echo base_url(); ?>login">Log In</a></li> -->
                 </ul><!-- 
                 <div class="right-button hidden-xs">
