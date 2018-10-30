@@ -1380,7 +1380,7 @@
                 <div class="col-md-6">
                     <div class="form-group has-feedback">
                         <label for="relative_contact" class="text-uppercase c-gray-light">Relative Contact Number</label>
-                        <input type="text" id="relative_contact_1" required class="form-control no-resize" value="<?php echo $relativeArr[0]['relative_contact']; ?>" name="relative_contact[]">  
+                        <input type="number" id="relative_contact_1" required class="form-control no-resize" value="<?php echo $relativeArr[0]['relative_contact']; ?>" name="relative_contact[]">  
                         <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                         <div class="help-block with-errors"></div>
                     </div>
@@ -1427,7 +1427,7 @@
                 <div class="col-md-6">
                     <div class="form-group has-feedback">
                         <label for="relative_contact" class="text-uppercase c-gray-light">Relative Contact Number</label>
-                        <input type="text" id="relative_contact_1" required class="form-control no-resize" value="" name="relative_contact[]">  
+                        <input type="number" id="relative_contact_1" required class="form-control no-resize" value="" name="relative_contact[]">  
                         <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                         <div class="help-block with-errors"></div>
                     </div>
@@ -1480,7 +1480,7 @@
                         <div class="col-md-6">
                             <div class="form-group has-feedback">
                                 <label for="relative_contact" class="text-uppercase c-gray-light">Relative Contact Number</label>
-                                <input type="text" id="relative_contact_<?php echo $i+1; ?>" required class="form-control no-resize" value="<?php echo $relativeArr[$i]['relative_contact']; ?>" name="relative_contact[]">  
+                                <input type="number" id="relative_contact_<?php echo $i+1; ?>" required class="form-control no-resize" value="<?php echo $relativeArr[$i]['relative_contact']; ?>" name="relative_contact[]">  
                                 <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                                 <div class="help-block with-errors"></div>
                             </div>

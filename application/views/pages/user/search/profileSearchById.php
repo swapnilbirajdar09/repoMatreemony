@@ -691,7 +691,7 @@ $session_user_id = $keyarr[2];
                 switch (response.data) {
                     case '200':
                         $('#ajax_success_alert').show();
-                        $('.ajax_success_alert').html('You Have Successfully Followed This User.');
+                        $('.ajax_success_alert').html('User Successfully Added to Your Favourite list.');
                         setTimeout(function () {
                             $('.alert_message').fadeOut('fast');
                         }, 5000);
@@ -719,7 +719,7 @@ $session_user_id = $keyarr[2];
                 switch (response.data) {
                     case '200':
                         $('#ajax_success_alert').show();
-                        $('.ajax_success_alert').html('UnFollow Request Successful.');
+                        $('.ajax_success_alert').html('User Successfully Removed From Favourite list.');
                         setTimeout(function () {
                             $('.alert_message').fadeOut('fast');
                         }, 5000);
