@@ -117,12 +117,18 @@
                     //print_r($userprofile);
                     if ($userprofile != '500') {
                         foreach ($userprofile as $key) {
+                            if($key['user_profile_image'] == ''){
+                                $profileimage = 'assets/images/user.png';
+                            }else{
+                                $profileimage = $key['user_profile_image'];
+                            }
                             ?>
                             <!-----------------------------this Div is for single user profile---------------------------------->
+                           
                             <div class="block block--style-3 list z-depth-1-top w3-margin-bottom" id="block_1">
                                 <div class="block-image">
                                     <a onclick="goto_profile(p.user_id)">
-                                        <div class="listing-image" style="background-image: url(<?php echo base_url(); ?><?php echo $key['user_profile_image']; ?>)"></div>
+                                        <div class="listing-image" style="background-image: url(<?php echo base_url(); ?><?php echo $profileimage; ?>)"></div>
                                     </a>
                                 </div>
                                 <?php

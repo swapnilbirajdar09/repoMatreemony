@@ -73,12 +73,17 @@
                                         //print_r($sentRequests);
                                         if ($sentRequests != '500') {
                                             for ($i = 0; $i < count($sentRequests); $i++) {
+                                                if ($sentRequests[$i][0]['user_profile_image'] == '') {
+                                                    $profileimage = 'assets/images/user.png';
+                                                } else {
+                                                    $profileimage = $sentRequests[$i][0]['user_profile_image'];
+                                                }
                                                 ?>
                                                 <!-----------------------------this Div is for single user profile---------------------------------->
                                                 <div class="block block--style-3 list z-depth-1-top w3-margin-bottom" id="block_1">
                                                     <div class="block-image">
                                                         <a onclick="goto_profile(p.user_id)">
-                                                            <div class="listing-image" style="background-image: url(<?php echo base_url(); ?><?php echo $sentRequests[$i][0]['user_profile_image']; ?>)"></div>
+                                                            <div class="listing-image" style="background-image: url(<?php echo base_url(); ?><?php echo $profileimage; ?>)"></div>
                                                         </a>
                                                     </div>
                                                     <?php
@@ -261,12 +266,17 @@
                                         //print_r($sentApproveRequests);
                                         if ($sentApproveRequests != '500') {
                                             for ($i = 0; $i < count($sentApproveRequests); $i++) {
+                                                 if ($sentApproveRequests[$i][0]['user_profile_image'] == '') {
+                                                    $profileimage = 'assets/images/user.png';
+                                                } else {
+                                                    $profileimage = $sentApproveRequests[$i][0]['user_profile_image'];
+                                                }
                                                 ?>
                                                 <!-----------------------------this Div is for single user profile---------------------------------->
                                                 <div class="block block--style-3 list z-depth-1-top w3-margin-bottom" id="block_1">
                                                     <div class="block-image">
                                                         <a onclick="goto_profile(p.user_id)">
-                                                            <div class="listing-image" style="background-image: url(<?php echo base_url(); ?><?php echo $sentApproveRequests[$i][0]['user_profile_image']; ?>)"></div>
+                                                            <div class="listing-image" style="background-image: url(<?php echo base_url(); ?><?php echo $profileimage; ?>)"></div>
                                                         </a>
                                                     </div>
                                                     <?php
@@ -436,12 +446,17 @@
                                         //print_r($sentRequests);
                                         if ($receivRequests != '500') {
                                             for ($i = 0; $i < count($receivRequests); $i++) {
+                                                if ($receivRequests[$i][0]['user_profile_image'] == '') {
+                                                    $profileimage = 'assets/images/user.png';
+                                                } else {
+                                                    $profileimage = $receivRequests[$i][0]['user_profile_image'];
+                                                }
                                                 ?>
                                                 <!-----------------------------this Div is for single user profile---------------------------------->
                                                 <div class="block block--style-3 list z-depth-1-top w3-margin-bottom" id="block_1">
                                                     <div class="block-image">
                                                         <a onclick="goto_profile(p.user_id)">
-                                                            <div class="listing-image" style="background-image: url(<?php echo base_url(); ?><?php echo $receivRequests[$i][0]['user_profile_image']; ?>)"></div>
+                                                            <div class="listing-image" style="background-image: url(<?php echo base_url(); ?><?php echo $profileimage; ?>)"></div>
                                                         </a>
                                                     </div>
                                                     <?php
@@ -629,12 +644,18 @@
                                         //print_r($recApproveRequests);
                                         if ($recApproveRequests != '500') {
                                             for ($i = 0; $i < count($recApproveRequests); $i++) {
+                                                
+                                                if ($recApproveRequests[$i][0]['user_profile_image'] == '') {
+                                                    $profileimage = 'assets/images/user.png';
+                                                } else {
+                                                    $profileimage = $recApproveRequests[$i][0]['user_profile_image'];
+                                                }
                                                 ?>
                                                 <!-----------------------------this Div is for single user profile---------------------------------->
                                                 <div class="block block--style-3 list z-depth-1-top w3-margin-bottom" id="block_1">
                                                     <div class="block-image">
                                                         <a onclick="goto_profile(p.user_id)">
-                                                            <div class="listing-image" style="background-image: url(<?php echo base_url(); ?><?php echo $recApproveRequests[$i][0]['user_profile_image']; ?>)"></div>
+                                                            <div class="listing-image" style="background-image: url(<?php echo base_url(); ?><?php echo $profileimage; ?>)"></div>
                                                         </a>
                                                     </div>
                                                     <?php
@@ -819,12 +840,18 @@
                                         //print_r($myFollowers);
                                         if ($myFollowers != '500') {
                                             for ($i = 0; $i < count($myFollowers); $i++) {
+                                                if ($myFollowers[$i][0]['user_profile_image'] == '') {
+                                                    $profileimage = 'assets/images/user.png';
+                                                } else {
+                                                    $profileimage = $myFollowers[$i][0]['user_profile_image'];
+                                                }
+                                                
                                                 ?>
                                                 <!-----------------------------this Div is for single user profile---------------------------------->
                                                 <div class="block block--style-3 list z-depth-1-top w3-margin-bottom" id="block_1">
                                                     <div class="block-image">
                                                         <a onclick="goto_profile(p.user_id)">
-                                                            <div class="listing-image" style="background-image: url(<?php echo base_url(); ?><?php echo $myFollowers[$i][0]['user_profile_image']; ?>)"></div>
+                                                            <div class="listing-image" style="background-image: url(<?php echo base_url(); ?><?php echo $profileimage; ?>)"></div>
                                                         </a>
                                                     </div>
                                                     <?php
