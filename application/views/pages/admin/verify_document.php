@@ -155,7 +155,7 @@
       type: 'green',
       buttons: {
         confirm: function () {
-          var dataS = 'doc_id=' + doc_id;
+          var dataS = {doc_id: doc_id,user_id:'<?php echo $userDetails[0]['user_id'] ?>'};
           $.ajax({
             type: "POST",
             url: BASE_URL + "admin/verify_document/approveDocument",
@@ -211,7 +211,7 @@
               $.alert('Provide a Valid Reason / Comment');
               return false;
             }
-            var dataS = {doc_id: doc_id,comments: comments};
+            var dataS = {doc_id: doc_id,comments: comments,user_id:'<?php echo $userDetails[0]['user_id'] ?>'};
             $.ajax({
               type: "POST",
               url: BASE_URL + "admin/verify_document/rejectDocument",

@@ -71,6 +71,9 @@
                     if($mandate_values[$j]!='' && $mandate_values[$j]!='0' && $mandate_values[$j]!='[]'){
                         $show_alert=1;
                     }
+                    else{
+                        $show_alert=0;
+                    }
                 }
                 if($show_alert==0){
                     ?>
@@ -83,6 +86,10 @@
             <?php } ?>
             <?php 
             $doc_verified_count=0;
+            $uploaded_doc=0;
+            if($userDocuments){
+                $uploaded_doc=count($userDocuments);
+            }
             for ($i=0; $i < count($userDocuments) ; $i++) { 
                 if($userDocuments[$i]['status']==1){
                     $doc_verified_count++;
@@ -94,7 +101,7 @@
                    <div class="col-md-12 alert alert-warning alert-dismissible" role="alert">
                     <a href="#" class="close w3-medium" data-dismiss="alert" aria-label="close"> <i class="fa fa-times-circle"></i> </a>
                     <p style="margin-bottom:0"><i class="fa fa-warning"></i> To Activate your account, you have to get verified for at least 3 uploaded documents successfully. </p>
-                    <p style="margin-bottom:0"> <b>Uploaded Documents:</b> <?php echo count($userDocuments); ?> </p>
+                    <p style="margin-bottom:0"> <b>Uploaded Documents:</b> <?php echo $uploaded_doc; ?> </p>
                     <p style="margin-bottom:0"> <b>Approved Documents:</b> <?php echo $doc_verified_count; ?> </p>
                 </div>
             </div>
@@ -189,11 +196,11 @@
                                                 echo $incoming_int;
                                                 ?>
                                             </span>
-                                            <span class="stats-label text-uppercase">Incoming Interests</span>
+                                            <span class="stats-label text-uppercase">Recieved Requests</span>
                                         </div>
                                         <div class="stats-entry">
                                             <span class="stats-count"><?php echo $userDetails[0]['user_remaining_requests']; ?></span>
-                                            <span class="stats-label text-uppercase">Remaining Interests</span>
+                                            <span class="stats-label text-uppercase">Remaining Tokens</span>
                                         </div>
                                     </div>
 
@@ -452,7 +459,7 @@
                                                                     <span>Date Of Birth</span>
                                                                 </td>
                                                                 <td>
-                                                                    <?php echo date('d M Y',strtotime($userDetails[0]['user_dob'])); ?>
+                                                                    <?php if($userDetails[0]['user_dob']!='' && $userDetails[0]['user_dob']!='0000-00-00'){ echo date('d M Y',strtotime($userDetails[0]['user_dob'])); }?>
                                                                 </td>
                                                             </tr>
                                                             <tr>
@@ -474,13 +481,13 @@
                                                                     <span>Height(In Feet)</span>
                                                                 </td>
                                                                 <td>
-                                                                    <?php echo $userDetails[0]['user_height']; ?>
+                                                                    <?php if($userDetails[0]['user_height']!='' && $userDetails[0]['user_height']!='0.00'){ echo $userDetails[0]['user_height']; } ?>
                                                                 </td>
                                                                 <td class="td-label">
                                                                     <span>Weight(In Kg)</span>
                                                                 </td>
                                                                 <td>
-                                                                    <?php echo $userDetails[0]['user_weight']; ?>
+                                                                    <?php if($userDetails[0]['user_weight']!='' && $userDetails[0]['user_weight']!='0.00'){ echo $userDetails[0]['user_weight']; } ?>
                                                                 </td>
                                                             </tr>
                                                             <tr>
@@ -1031,13 +1038,13 @@
                                Contact number 1
                            </td>
                            <td>
-                            <?php echo $userDetails[0]['user_contact_no1']; ?> 
+                            <?php if($userDetails[0]['user_contact_no1']!='' && $userDetails[0]['user_contact_no1']!='0'){echo $userDetails[0]['user_contact_no1']; }?> 
                         </td>
                         <td class="td-label">
                            Contact number 2
                        </td>
                        <td>
-                        <?php echo $userDetails[0]['user_contact_no2']; ?> 
+                        <?php if($userDetails[0]['user_contact_no2']!='' && $userDetails[0]['user_contact_no2']!='0'){echo $userDetails[0]['user_contact_no2']; }?> 
                     </td>
                 </tr>
             </tbody>
@@ -1110,7 +1117,7 @@
                         <option value="0">Choose country</option>
                         <?php
                         for ($i = 0; $i < count($country); $i++) {         ?>
-                            <option value="<?php echo $country[$i]['name']; ?>" <?php if($userDetails[0]['user_country']==$country[$i]['name']){ echo 'selected';} ?>>
+                            <option value="<?php echo $country[$i]['name']; ?>" <?php if($country[$i]['name']=='India'){ echo 'selected';} ?>>
                                 <?php echo $country[$i]['name']; ?>
                             </option>
                         <?php } ?>
@@ -1583,14 +1590,7 @@
                 <table class="table table-profile table-responsive table-slick">
                     <tbody>
                         <tr>
-                            <td class="">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                                proident, sunt in culpa qui officia deserunt mollit anim id est laborum.                            
-                            </td>
+                            <td class=""><?php echo $userDetails[0]['user_partner_expections']; ?></td>
                         </tr>
                     </tbody>
                 </table>
@@ -1613,7 +1613,7 @@
             <div class="row">
                 <div class="col-md-12 w3-margin-top">
                     <div class="form-group has-feedback">
-                        <textarea name="expectations" class="form-control no-resize" rows="5" required>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmodm tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodoconsequat. Duis aute irure dolor in reprehenderit in voluptate velit essecillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat nonproident, sunt in culpa qui officia deserunt mollit anim id est laborum.</textarea>
+                        <textarea name="expectations" class="form-control no-resize" rows="5" required><?php echo $userDetails[0]['user_partner_expections']; ?></textarea>
                         <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                         <div class="help-block with-errors"></div>
                     </div>

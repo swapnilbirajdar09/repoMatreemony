@@ -123,7 +123,7 @@ class Allusers_model extends CI_Model {
     }
 
     // approve documents
-    public function approveDocument($doc_id){
+    public function approveDocument($doc_id,$user_id){
         $result = array(
             'status' => '1',
             'document_status' => 'approved',
@@ -133,6 +133,14 @@ class Allusers_model extends CI_Model {
         $this->db->update('document_tab', $result);
 
         if($this->db->affected_rows()==1){
+            $docCount=Allusers_model::getDocumentsCount($user_id);
+            if($docCount>=3){
+                $update_verify=array(
+                    'user_doc_verified' =>  '1' 
+                );
+            $this->db->where('user_id',$user_id);
+            $this->db->update('user_tab', $update_verify);
+            }
             return true;
         }
         else{
@@ -141,7 +149,7 @@ class Allusers_model extends CI_Model {
     }
 
     // reject documents
-    public function rejectDocument($doc_id,$comments){
+    public function rejectDocument($doc_id,$comments,$user_id){
         $result = array(
             'status' => '0',
             'document_status' => 'rejected',
@@ -151,6 +159,14 @@ class Allusers_model extends CI_Model {
         $this->db->update('document_tab', $result);
 
         if($this->db->affected_rows()==1){
+            $docCount=Allusers_model::getDocumentsCount($user_id);
+            if($docCount<3){
+                $update_verify=array(
+                    'user_doc_verified' =>  '0' 
+                );
+            $this->db->where('user_id',$user_id);
+            $this->db->update('user_tab', $update_verify);
+            }
             return true;
         }
         else{
@@ -158,11 +174,24 @@ class Allusers_model extends CI_Model {
         }
     }
 
+    // check documents uploaded count
+    public function getDocumentsCount($user_id) {
+        $query = "SELECT COUNT(user_id) as docs FROM document_tab WHERE user_id ='$user_id'";
+        $result = $this->db->query($query);
+        $count = '0';
+        // if no db errors
+        if ($result->num_rows() > 0) {
+            foreach ($result->result_array() as $key) {
+                $count = $key['docs'];
+            }
+        }
+        return $count;
+    }
+
     // activate member
     public function activate($user_id){
         $result = array(
-            'user_status' => '1',
-            'user_doc_verified' => '1'
+            'user_status' => '1'
         );
         $this->db->where('user_id', $user_id);
         $this->db->update('user_tab', $result);
@@ -178,8 +207,7 @@ class Allusers_model extends CI_Model {
     // deactivate member
     public function deactivate($user_id){
         $result = array(
-            'user_status' => '0',
-            'user_doc_verified' => '0'
+            'user_status' => '0'
         );
         $this->db->where('user_id', $user_id);
         $this->db->update('user_tab', $result);

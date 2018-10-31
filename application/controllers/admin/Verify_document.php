@@ -23,7 +23,7 @@ class Verify_document extends CI_Controller {
     // approve document function
     public function approveDocument(){
         extract($_POST);
-        $result=$this->allusers_model->approveDocument($doc_id);
+        $result=$this->allusers_model->approveDocument($doc_id,$user_id);
 
         if($result){
             echo '<p class="w3-text-white w3-green w3-padding-small message"><strong>Success!</strong> Document Approved successfully.</p>';
@@ -36,7 +36,7 @@ class Verify_document extends CI_Controller {
     // reject document function
     public function rejectDocument(){
         extract($_POST);
-        $result=$this->allusers_model->rejectDocument($doc_id,$comments);
+        $result=$this->allusers_model->rejectDocument($doc_id,$comments,$user_id);
 
         if($result){
             echo '<p class="w3-text-white w3-green w3-padding-small message"><strong>Success!</strong> Document Rejected successfully.</p>';
