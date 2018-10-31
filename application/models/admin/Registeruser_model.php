@@ -26,7 +26,13 @@ class Registeruser_model extends CI_Model {
                 # code...
             break;
         }
-//echo $expiry_date;die();
+
+        $email_exist =Registeruser_model::checkEmailExist($eMail);
+        if($email_exist == '0')
+        {
+
+        
+
         $result = array(
             'user_gender' => $gender,
             'user_firstname' => $fname,
@@ -41,9 +47,7 @@ class Registeruser_model extends CI_Model {
             'user_remaining_requests' =>'5',
             'user_status' => '1'
         );
-        // $query = "INSERT INTO user_tab(user_gender,user_firstname,user_lastname,user_email,user_password,user_caste,user_mobile_num,user_status)"
-        //         . "VALUES ('$gender','$fname','$lname','$eMail','$password','$caste','$number','1')";
-         //echo $query;die();
+       
         $this->db->insert('user_tab',$result);
         
         $insert_id = $this->db->insert_id();
@@ -54,12 +58,31 @@ class Registeruser_model extends CI_Model {
             'user_profile_key' => 'BPARI#'.date('Ymd').'0'.$insert_id.$profile_key
         );
         $this->db->insert('user_profile_tab',$profile_tab);
-            //print_r($profile_tab);die();
-        if($this->db->affected_rows()>0){
-            return true;
+       if($this->db->affected_rows()>0){
+            return 200;
         }
         else{
-            return false;
+            return 500;
+        }
+    }
+    else
+    {
+        return 700;
+    }
+    }
+
+     // check email id exist or not
+   public function checkEmailExist($email_id){
+    $query = null;
+        // ------------ check email exist 
+        $query = $this->db->get_where('user_tab', array(//making selection
+            'user_email' => $email_id
+        ));
+
+        if ($query->num_rows() <= 0) {
+            return 0;
+        } else {
+            return 1;
         }
     }
 }

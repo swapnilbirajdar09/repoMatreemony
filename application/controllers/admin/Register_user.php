@@ -29,7 +29,7 @@ class Register_user extends CI_Controller {
           //print_r($data);die();
       $result = $this->Registeruser_model->register_user($data);
          //print_r($result);die();
-      if ($result) {
+      if ($result == '200') {
         echo '<div class="alert alert-success alert-dismissible fade in alert-fixed w3-round">
         <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
         <strong>Success!</strong> user Details Saved SuccessFully.
@@ -43,12 +43,25 @@ class Register_user extends CI_Controller {
                 }, 1000);
                 
                 </script>';
-            } else {
+            } elseif($result == '700'){
                 echo '<div class="alert alert-danger alert-dismissible fade in alert-fixed w3-round">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                <strong>Warning!</strong>Email Id Already Exists.
+                </div>
+                <script>
+                window.setTimeout(function() {
+                    $(".alert").fadeTo(500, 0).slideUp(500, function(){
+                        $(this).remove(); 
+                        });
+                        }, 5000);
+                        </script>';
+                    }
+                    else{
+                        echo '<div class="alert alert-danger alert-dismissible fade in alert-fixed w3-round">
                 <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
                 <strong>Warning!</strong>user Details Not Saved SuccessFully.
                 </div>
-                <script>
+                 <script>
                 window.setTimeout(function() {
                     $(".alert").fadeTo(500, 0).slideUp(500, function(){
                         $(this).remove(); 
