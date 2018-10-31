@@ -7,12 +7,12 @@ class Status extends CI_Controller {
     public function __construct() {
         parent::__construct();
         $this->load->helper('url');
-        $this->load->model('user/payment/Payment_model');
+        $this->load->model('user/payment/payment_model');
     }
 
     public function index() {
         $status = $this->input->post('status');
-        print_r($_POST);die();
+        // print_r($_POST);die();
         if (empty($status)) {
             redirect('user/payment/Welcome');
         }
@@ -39,20 +39,28 @@ class Status extends CI_Controller {
         $data['txnid'] = $txnid;
         $data['posted_hash'] = $posted_hash;
         $data['status'] = $status;
-        //--------------adding the method for save transaction details
+        $data['register_data'] = $productinfo;
+
+        //--------------save transaction details
+
         //$result = $this->Payment_model->savePaymentInformation($data);
         //$data['response'] = $result;
         //&& $result['status']==200
         //--------------adding the method for save transaction details ends here------------//
 
         if ($status == 'success') { //-----checking the status
-            $this->load->view('includes/user/userheader'); //--------loading the view
+
+            // register user and save transaction
+            $result=$this->payment_model->savePaymentInformation($data);
+            $data['db_info']=json_encode($result);
+
+            $this->load->view('includes/user/userheader_static'); //--------loading the view
             $this->load->view('pages/user/payment/success', $data);
-            $this->load->view('includes/user/userfooter'); //--------loading the view
+            $this->load->view('includes/user/userfooter_landing'); //--------loading the view
         } else {
-            $this->load->view('includes/user/userheader'); //--------loading the view
+            $this->load->view('includes/user/userheader_static'); //--------loading the view
             $this->load->view('pages/user/payment/failure', $data);
-            $this->load->view('includes/user/userfooter'); //--------loading the view
+            $this->load->view('includes/user/userfooter_landing'); //--------loading the view
         }
     }
 

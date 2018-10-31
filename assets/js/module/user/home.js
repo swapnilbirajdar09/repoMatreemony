@@ -21,7 +21,7 @@ loginApp.controller('loginController', function ($scope, $http, $timeout, $windo
         // console.log(data.data);
         if (data.data == 'true') {
           $scope.loginMessage = '<p class="w3-text-white w3-green"><i class="fa fa-check"></i> Login successfull. </p>';
-          $window.location.href = BASE_URL + 'user/user_profile';
+          $window.location.href = BASE_URL + 'user/dashboard';
         } else {
           $scope.loginMessage = '<p class="w3-text-white w3-red"><i class="fa fa-warning"></i> Email or Password is incorrect ! </p>';
         }
