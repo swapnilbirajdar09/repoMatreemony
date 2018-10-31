@@ -199,6 +199,8 @@ a.socialIcon:hover, .socialHoverClass {
  <div class="w3-col l12 text-center w3-margin-bottom">
    <div class="space-20"></div>
    <button class="bttn-default btn btn-block" ng-bind-html="loginBtnText" ng-enabled="loginDisable" type="submit" style="border-radius: 5px; background: linear-gradient(45deg, rgba(72, 44, 191, 1) 0%, rgba(106, 198, 240, 1) 100%);"><i class="fa fa-lock"></i> Log In</button>
+    <div class="space-20"></div>
+    <a href="<?php echo base_url(); ?>forget_password" class="btn blue-color"><span class="w3-text-white"> Forget Password ?</span></a>
  </div>
 </form>
 </div>
