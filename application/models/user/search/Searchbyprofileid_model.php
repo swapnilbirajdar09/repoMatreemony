@@ -47,11 +47,24 @@ class Searchbyprofileid_model extends CI_Model {
         $sentRequests = array();
         $sentReqs = '';
         $userRequestCount = 0;
-        $userRequestCountNew = '';
+        $user_email = '';
+        $user_firstname = '';
+        $user_lastname = '';
+        $user_gender = '';
+        $user_height = '';
+        $user_caste = '';
+        $user_educational_field = '';
         foreach ($result->result_array() as $row) {
             $sentRequests = json_decode($row['user_sent_requests'], TRUE);
             $receiveRequests = json_decode($row['user_received_requests'], TRUE);
             $userRequestCount = $row['user_remaining_requests'];
+            $user_email = $row['user_email'];
+            $user_firstname = $row['user_firstname'];
+            $user_lastname = $row['user_lastname'];
+            $user_gender = $row['user_gender'];
+            $user_height = $row['user_height'];
+            $user_caste = $row['user_caste'];
+            $user_educational_field = $row['user_educational_field'];
         }
 //-----checking the receivers id is in senders received requests coloumn
 
@@ -89,7 +102,7 @@ class Searchbyprofileid_model extends CI_Model {
                 $this->db->query($sql);
                 if ($this->db->affected_rows() > 0) {  //----checking the sent requests coloumn updated then call the fun below
                     //-----------------for update receivers received request coloumn by saving the senders userid
-                    $response = Searchbyprofileid_model::updateUserReceivedRequests($profile_user_id, $user_id);
+                    $response = Searchbyprofileid_model::updateUserReceivedRequests($profile_user_id, $user_id, $user_email, $user_firstname, $user_lastname, $user_gender, $user_height, $user_caste, $user_educational_field);
                     if ($response) {
                         return 200;
                     } else {
@@ -106,16 +119,24 @@ class Searchbyprofileid_model extends CI_Model {
 
     //-----------------for update receivers received request coloumn by saving the senders userid
 
-    public function updateUserReceivedRequests($profile_user_id, $user_id) {
+    public function updateUserReceivedRequests($profile_user_id, $user_id, $user_email, $user_firstname, $user_lastname, $user_gender, $user_height, $user_caste, $user_educational_field) {
         //sql query to get all user profile details
-        $query = "SELECT * FROM user_profile_tab WHERE user_id='$profile_user_id'";
+        $query = "SELECT * FROM user_profile_tab as up_tab,user_tab as ut_tab "
+                . "WHERE up_tab.user_id = ut_tab.user_id "
+                . "AND ut_tab.user_id='$profile_user_id'";
         //echo $query;die();
         $result = $this->db->query($query);
 
         $receivedRequests = array();
         $receiveReqs = '';
+        $user_profile_email = '';
+        $profile_user_firstname = '';
+        $profile_user_lastname = '';
         foreach ($result->result_array() as $row) {
             $receivedRequests = json_decode($row['user_received_requests'], TRUE);
+            $user_profile_email = $row['user_email'];
+            $profile_user_firstname = $row['user_firstname'];
+            $profile_user_lastname = $row['user_lastname'];
         }
 
         //if no record found for user
@@ -131,11 +152,67 @@ class Searchbyprofileid_model extends CI_Model {
         $sql = "UPDATE user_profile_tab SET user_received_requests = '$receiveReqs' WHERE user_id = '$profile_user_id'";
 
         $this->db->query($sql);
-        if ($this->db->affected_rows() > 0) {
+        //-------------------------------------Sent email Code Starts Here-------------------------------------------------------// 
+        $fullname = $profile_user_firstname . ' ' . $profile_user_lastname;
+
+        if ($user_gender == 'Female') {
+            $She = 'She';
+            $Her = 'Her';
+        } else {
+            $He = 'He';
+            $his = 'His';
+        }
+
+        if ($user_caste == '') {
+            $user_caste = "N/A";
+        } else {
+            $user_caste = $user_caste;
+        }
+
+        $config = Array(
+            'protocol' => 'smtp',
+            'smtp_host' => 'mx1.hostinger.in',
+            'smtp_port' => '587',
+            'smtp_user' => 'support@jumlakuwait.com', // change it to yours
+            'smtp_pass' => 'Descartes@1990', // change it to yours
+            'mailtype' => 'html',
+            'charset' => 'utf-8',
+            'wordwrap' => TRUE
+        );
+        $config['smtp_crypto'] = 'tls';
+
+        $this->load->library('email', $config);
+        $this->email->set_newline("\r\n");
+        $this->email->from('support@jumlakuwait.com', "Admin Team");
+        $this->email->to($user_profile_email, $fullname);
+        $this->email->subject("Interest Request From Buddhist Parinay");
+        $this->email->message('<html>
+        <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        </head>
+        <body>
+        <div class="container col-lg-8" style="box-shadow: 0 2px 4px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12)!important;margin:10px; font-family:Candara;">
+        <h2 style="color:blue; font-size:30px">You Have Interest Request From Buddhist Parinay.</h2>
+        <h3 style="font-size:15px;">Hello ' . $fullname . ',<br></h3>
+        <h3 style="font-size:15px;">You Have a Interest Request From:-</h3><br>
+        <h3 style="color:Blue;"><span style = "color: black;">Full Name: </span><b>' . $user_firstname . ' ' . $user_lastname . '</b></h3>
+        <h3 style="color:Blue;"><span style = "color: black;">Education: </span><b>' . $user_educational_field . '</b></h3>
+        <h3 style="color:Blue;"><span style = "color: black;">Height: </span><b>' . $user_height . 'Ft.</b></h3>
+        <h3 style="color:Blue;"><span style = "color: black;">Caste: </span><b>' . $user_caste . '</b></h3>
+        <div class="col-lg-12">
+        <div class="col-lg-4"></div>
+        <div class="col-lg-4"></div>
+        </div>
+        </div>
+        </body></html>');
+
+        if ($this->email->send()) {
             return TRUE;
         } else {
+            //print_r($this->email->print_debugger());die();
             return FALSE;
         }
+//-------------------------------------Sent email Code Ends Here-------------------------------------------------------// 
     }
 
     //-----------------for update receivers received request coloumn by saving the senders userid

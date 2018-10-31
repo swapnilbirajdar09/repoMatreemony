@@ -52,10 +52,10 @@ class Profilesearch_byid extends CI_Controller {
     } 
 
     // check doucents submitted
-    $data['userDocuments'] = $this->user_model->getUserDocuments($user_id);
-    if($data['userDetails'][0]['user_doc_verified']==0){
-        redirect('user/user_profile');
-    } 
+//    $data['userDocuments'] = $this->user_model->getUserDocuments($user_id);
+//    if($data['userDetails'][0]['user_doc_verified']==0){
+//        redirect('user/user_profile');
+//    } 
 
     $this->load->view('includes/user/userheader',$data);
     $this->load->view('pages/user/search/profileSearchById'); //------loading the profile search by id view

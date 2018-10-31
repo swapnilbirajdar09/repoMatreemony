@@ -106,7 +106,7 @@
                                                             <tbody>
                                                                 <tr>
                                                                     <td height="30" style="padding-left: 3px;" class="font-dark"><b>Member ID</b></td>
-                                                                    <td height="30" style="padding-left: 3px;" class="font-dark" colspan="3"><a onclick="return goto_profile()" class="c-base-1"><b>#000<?php echo $sentRequests[$i][0]['user_profile_key']; ?></b></a></td>
+                                                                    <td height="30" style="padding-left: 3px;" class="font-dark" colspan="3"><a onclick="return goto_profile()" class="c-base-1"><b><?php echo $sentRequests[$i][0]['user_profile_key']; ?></b></a></td>
                                                                 </tr>
                                                                 <tr>
                                                                     <td width="120" height="30" style="padding-left: 3px;" class="font-dark"><b>Age</b></td>
@@ -295,7 +295,7 @@
                                                             <tbody>
                                                                 <tr>
                                                                     <td height="30" style="padding-left: 3px;" class="font-dark"><b>Member ID</b></td>
-                                                                    <td height="30" style="padding-left: 3px;" class="font-dark" colspan="3"><a onclick="return goto_profile()" class="c-base-1"><b>#000<?php echo $sentApproveRequests[$i][0]['user_profile_key']; ?></b></a></td>
+                                                                    <td height="30" style="padding-left: 3px;" class="font-dark" colspan="3"><a onclick="return goto_profile()" class="c-base-1"><b><?php echo $sentApproveRequests[$i][0]['user_profile_key']; ?></b></a></td>
                                                                 </tr>
                                                                 <tr>
                                                                     <td width="120" height="30" style="padding-left: 3px;" class="font-dark"><b>Age</b></td>
@@ -469,7 +469,7 @@
                                                             <tbody>
                                                                 <tr>
                                                                     <td height="30" style="padding-left: 3px;" class="font-dark"><b>Member ID</b></td>
-                                                                    <td height="30" style="padding-left: 3px;" class="font-dark" colspan="3"><a onclick="return goto_profile()" class="c-base-1"><b>#000<?php echo $receivRequests[$i][0]['user_profile_key']; ?></b></a></td>
+                                                                    <td height="30" style="padding-left: 3px;" class="font-dark" colspan="3"><a onclick="return goto_profile()" class="c-base-1"><b><?php echo $receivRequests[$i][0]['user_profile_key']; ?></b></a></td>
                                                                 </tr>
                                                                 <tr>
                                                                     <td width="120" height="30" style="padding-left: 3px;" class="font-dark"><b>Age</b></td>
@@ -663,7 +663,7 @@
                                                             <tbody>
                                                                 <tr>
                                                                     <td height="30" style="padding-left: 3px;" class="font-dark"><b>Member ID</b></td>
-                                                                    <td height="30" style="padding-left: 3px;" class="font-dark" colspan="3"><a onclick="return goto_profile()" class="c-base-1"><b>#000<?php echo $recApproveRequests[$i][0]['user_profile_key']; ?></b></a></td>
+                                                                    <td height="30" style="padding-left: 3px;" class="font-dark" colspan="3"><a onclick="return goto_profile()" class="c-base-1"><b><?php echo $recApproveRequests[$i][0]['user_profile_key']; ?></b></a></td>
                                                                 </tr>
                                                                 <tr>
                                                                     <td width="120" height="30" style="padding-left: 3px;" class="font-dark"><b>Age</b></td>
@@ -852,7 +852,7 @@
                                                             <tbody>
                                                                 <tr>
                                                                     <td height="30" style="padding-left: 3px;" class="font-dark"><b>Member ID</b></td>
-                                                                    <td height="30" style="padding-left: 3px;" class="font-dark" colspan="3"><a onclick="return goto_profile()" class="c-base-1"><b>#000<?php echo $myFollowers[$i][0]['user_profile_key']; ?></b></a></td>
+                                                                    <td height="30" style="padding-left: 3px;" class="font-dark" colspan="3"><a onclick="return goto_profile()" class="c-base-1"><b><?php echo $myFollowers[$i][0]['user_profile_key']; ?></b></a></td>
                                                                 </tr>
                                                                 <tr>
                                                                     <td width="120" height="30" style="padding-left: 3px;" class="font-dark"><b>Age</b></td>

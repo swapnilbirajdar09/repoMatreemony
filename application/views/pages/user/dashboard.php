@@ -151,7 +151,7 @@
                                         <tbody>
                                             <tr>
                                                 <td height="30" style="padding-left: 3px;" class="font-dark"><b>Member ID</b></td>
-                                                <td height="30" style="padding-left: 3px;" class="font-dark" colspan="3"><a onclick="return goto_profile()" class="c-base-1"><b>#000<?php echo $key['user_profile_key']; ?></b></a></td>
+                                                <td height="30" style="padding-left: 3px;" class="font-dark" colspan="3"><a onclick="return goto_profile()" class="c-base-1"><b><?php echo $key['user_profile_key']; ?></b></a></td>
                                             </tr>
                                             <tr>
                                                 <td width="120" height="30" style="padding-left: 3px;" class="font-dark"><b>Age</b></td>
