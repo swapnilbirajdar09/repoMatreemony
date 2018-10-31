@@ -46,7 +46,7 @@ class Register_user extends CI_Controller {
             } elseif($result == '700'){
                 echo '<div class="alert alert-danger alert-dismissible fade in alert-fixed w3-round">
                 <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                <strong>Warning!</strong>Email Id Already Exists.
+                <strong>Warning!</strong> Email Id Already Exists.
                 </div>
                 <script>
                 window.setTimeout(function() {
@@ -59,7 +59,7 @@ class Register_user extends CI_Controller {
                     else{
                         echo '<div class="alert alert-danger alert-dismissible fade in alert-fixed w3-round">
                 <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                <strong>Warning!</strong>user Details Not Saved SuccessFully.
+                <strong>Warning!</strong> user Details Not Saved SuccessFully.
                 </div>
                  <script>
                 window.setTimeout(function() {
