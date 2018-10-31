@@ -548,7 +548,7 @@
                                             <div class="col-md-6 w3-margin-top">
                                                 <div class="form-group has-feedback">
                                                     <label for="full_name" class="text-uppercase c-gray-light">Full Name</label>
-                                                    <input type="text" class="form-control no-resize" name="full_name" value="<?php echo $userDetails[0]['user_fullname']; ?>" required>
+                                                    <input type="text" class="form-control no-resize" name="full_name" value="<?php echo $userDetails[0]['user_fullname']; ?>" placeholder="Enter Your Name Here" required>
                                                     <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                                                     <div class="help-block with-errors"></div>
                                                 </div>
@@ -574,7 +574,7 @@
                                             <div class="col-md-6 w3-margin-top">
                                                 <div class="form-group has-feedback">
                                                     <label for="dob" class="text-uppercase c-gray-light">Date of Birth</label>
-                                                    <input type="date" class="form-control no-resize" value="<?php echo $userDetails[0]['user_dob']; ?>" name="dob" required>
+                                                    <input type="date" class="form-control no-resize" value="<?php echo $userDetails[0]['user_dob']; ?>" name="dob" placeholder="Enter Your Date Of Birth" required>
                                                     <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                                                     <div class="help-block with-errors"></div>
                                                 </div>
@@ -682,7 +682,7 @@
                                                 <div class="col-md-6 w3-margin-top">
                                                     <div class="form-group has-feedback">
                                                         <label for="weight" class="text-uppercase c-gray-light">Weight (in KG)</label>
-                                                        <input type="number" step="0.01" min="0" value="<?php echo $userDetails[0]['user_weight']; ?>" class="form-control no-resize" name="weight" required>
+                                                        <input type="number" step="0.01" min="0" value="<?php echo $userDetails[0]['user_weight']; ?>" class="form-control no-resize" name="weight" placeholder="Enter Your Weight Here" required>
                                                         <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                                                         <div class="help-block with-errors"></div>
                                                     </div>
@@ -690,7 +690,7 @@
                                                 <div class="col-md-6 w3-margin-top">
                                                     <div class="form-group has-feedback">
                                                         <label for="height" class="text-uppercase c-gray-light">Height (in Feet)</label>
-                                                        <input type="number" step="0.01" min="0" value="<?php echo $userDetails[0]['user_height']; ?>" class="form-control no-resize" name="height" required>
+                                                        <input type="number" step="0.01" min="0" value="<?php echo $userDetails[0]['user_height']; ?>" class="form-control no-resize" name="height"  placeholder="Enter Your Height Here" required>
                                                         <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                                                         <div class="help-block with-errors"></div>
                                                     </div>
@@ -700,7 +700,7 @@
                                                 <div class="col-md-12 w3-margin-top">
                                                     <div class="form-group has-feedback">
                                                         <label for="hobbies" class="text-uppercase c-gray-light">Hobbies</label>
-                                                        <input type="text" value="<?php echo $userDetails[0]['user_hobbies']; ?>" class="form-control no-resize" name="hobbies" required>
+                                                        <input type="text" value="<?php echo $userDetails[0]['user_hobbies']; ?>" class="form-control no-resize" name="hobbies"  placeholder="Enter Your Hobbies Here" required>
                                                         <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                                                         <div class="help-block with-errors"></div>
                                                     </div>
@@ -846,7 +846,7 @@
                         <div class="col-md-6 w3-margin-top">
                             <div class="form-group has-feedback">
                                 <label for="clg_name" class="text-uppercase c-gray-light">School/ College Name</label>
-                                <input type="text" class="form-control no-resize" value="<?php echo $userDetails[0]['user_school/clg_name']; ?>" name="clg_name">   
+                                <input type="text" class="form-control no-resize" value="<?php echo $userDetails[0]['user_school/clg_name']; ?>" name="clg_name"  placeholder="Enter Your School/College Name Here">   
                                 <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                                 <div class="help-block with-errors"></div>
                             </div>
@@ -856,7 +856,7 @@
                         <div class="col-md-6 w3-margin-top">
                             <div class="form-group has-feedback">
                                 <label for="university" class="text-uppercase c-gray-light">University/ Board Name</label>
-                                <input type="text" value="<?php echo $userDetails[0]['user_university_name']; ?>" class="form-control no-resize" name="university">
+                                <input type="text" value="<?php echo $userDetails[0]['user_university_name']; ?>" class="form-control no-resize" name="university" placeholder="Enter Your University/Board Name Here">
                                 <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                                 <div class="help-block with-errors"></div>
                             </div>
@@ -864,7 +864,7 @@
                         <div class="col-md-6 w3-margin-top">
                             <div class="form-group has-feedback">
                                 <label for="additional_education" class="text-uppercase c-gray-light">Additional Education</label>
-                                <input type="text" value="<?php echo $userDetails[0]['user_additional_edu']; ?>" class="form-control no-resize" name="additional_education">
+                                <input type="text" value="<?php echo $userDetails[0]['user_additional_edu']; ?>" class="form-control no-resize" name="additional_education" placeholder="Enter Your Additional Education Here">
                                 <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                                 <div class="help-block with-errors"></div>
                             </div>
@@ -908,7 +908,7 @@
                         <div class="col-md-6 w3-margin-top">
                             <div class="form-group has-feedback">
                                 <label for="company_name" class="text-uppercase c-gray-light">Company Name</label>
-                                <input type="text" value="<?php echo $userDetails[0]['user_company_name']; ?>" class="form-control no-resize" name="company_name" required>
+                                <input type="text" value="<?php echo $userDetails[0]['user_company_name']; ?>" class="form-control no-resize" name="company_name" placeholder="Enter Your Company Name Here" required>
                                 <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                                 <div class="help-block with-errors"></div>
                             </div>
@@ -916,7 +916,7 @@
                         <div class="col-md-6 w3-margin-top">
                             <div class="form-group has-feedback">
                                 <label for="designation" class="text-uppercase c-gray-light">Designation</label>
-                                <input type="text" value="<?php echo $userDetails[0]['user_designation']; ?>" class="form-control no-resize" name="designation" required>
+                                <input type="text" value="<?php echo $userDetails[0]['user_designation']; ?>" class="form-control no-resize" name="designation" placeholder="Enter Your Designation Here" required>
                                 <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                                 <div class="help-block with-errors"></div>
                             </div>
@@ -937,7 +937,7 @@
                         <div class="col-md-6 w3-margin-top">
                             <div class="form-group has-feedback">
                                 <label for="monthly_income" class="text-uppercase c-gray-light">Monthly Income</label>
-                                <input type="text" value="<?php echo $userDetails[0]['user_monthly_income']; ?>" class="form-control no-resize" name="monthly_income">
+                                <input type="text" value="<?php echo $userDetails[0]['user_monthly_income']; ?>" class="form-control no-resize" name="monthly_income" placeholder="Enter Your Monthly Income Here">
                                 <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                                 <div class="help-block with-errors"></div>
                             </div>
@@ -945,7 +945,7 @@
                         <div class="col-md-6 w3-margin-top">
                             <div class="form-group has-feedback">
                                 <label for="annual_income" class="text-uppercase c-gray-light">Annual Income</label>
-                                <input type="text" value="<?php echo $userDetails[0]['user_annual_income']; ?>" class="form-control no-resize" name="annual_income">
+                                <input type="text" value="<?php echo $userDetails[0]['user_annual_income']; ?>" class="form-control no-resize" name="annual_income" placeholder="Enter Your Annual Income Here">
                                 <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                                 <div class="help-block with-errors"></div>
                             </div>
@@ -1069,7 +1069,7 @@
             <div class="col-md-6 w3-margin-top">
                 <div class="form-group has-feedback">
                     <label for="father_name" class="text-uppercase c-gray-light">Father's Name</label>
-                    <input type="text" class="form-control no-resize" name="father_name" value="<?php echo $userDetails[0]['user_father_name']; ?>" required>
+                    <input type="text" class="form-control no-resize" name="father_name" value="<?php echo $userDetails[0]['user_father_name']; ?>" placeholder="Enter Your Father Name Here" required>
                     <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                     <div class="help-block with-errors"></div>
                 </div>
@@ -1077,7 +1077,7 @@
             <div class="col-md-6 w3-margin-top">
                 <div class="form-group has-feedback">
                     <label for="father_occupation" class="text-uppercase c-gray-light">Father's Occupation</label>
-                    <input type="text" class="form-control no-resize" value="<?php echo $userDetails[0]['user_father_occupation']; ?>" required name="father_occupation">   
+                    <input type="text" class="form-control no-resize" value="<?php echo $userDetails[0]['user_father_occupation']; ?>" required name="father_occupation" placeholder="Enter Your Father Occupation Here">   
                     <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                     <div class="help-block with-errors"></div>
                 </div>
@@ -1087,7 +1087,7 @@
             <div class="col-md-6 w3-margin-top">
                 <div class="form-group has-feedback">
                     <label for="mother_name" class="text-uppercase c-gray-light">Mother's Name</label>
-                    <input type="text" class="form-control no-resize" value="<?php echo $userDetails[0]['user_mother_name']; ?>" name="mother_name" required>
+                    <input type="text" class="form-control no-resize" value="<?php echo $userDetails[0]['user_mother_name']; ?>" name="mother_name" placeholder="Enter Your Mother Name Here" required>
                     <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                     <div class="help-block with-errors"></div>
                 </div>
@@ -1095,7 +1095,7 @@
             <div class="col-md-6 w3-margin-top">
                 <div class="form-group has-feedback">
                     <label for="mother_occupation" class="text-uppercase c-gray-light">Mother's Occupation</label>
-                    <input type="text" class="form-control no-resize" value="<?php echo $userDetails[0]['user_mother_occupation']; ?>" name="mother_occupation" required>
+                    <input type="text" class="form-control no-resize" value="<?php echo $userDetails[0]['user_mother_occupation']; ?>" name="mother_occupation" placeholder="Enter Your Mother Occupation Here" required>
                     <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                     <div class="help-block with-errors"></div>
                 </div>
@@ -1167,7 +1167,7 @@
             <div class="col-md-6 w3-margin-top">
                 <div class="form-group has-feedback">
                     <label for="contact_no_1" class="text-uppercase c-gray-light">Contact No.1</label>
-                    <input type="number" class="form-control no-resize" value="<?php if($userDetails[0]['user_contact_no1']!=0){ echo $userDetails[0]['user_contact_no1']; } ?>" name="contact_no_1" required>
+                    <input type="number" class="form-control no-resize" value="<?php if($userDetails[0]['user_contact_no1']!=0){ echo $userDetails[0]['user_contact_no1']; } ?>" name="contact_no_1" placeholder="Enter Your Number Here" required>
                     <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                     <div class="help-block with-errors"></div>
                 </div>
@@ -1175,7 +1175,7 @@
             <div class="col-md-6 w3-margin-top">
                 <div class="form-group has-feedback">
                     <label for="contact_no_2" class="text-uppercase c-gray-light">Contact No.2</label>
-                    <input type="number" class="form-control no-resize" value="<?php if($userDetails[0]['user_contact_no2']!=0){ echo $userDetails[0]['user_contact_no2']; } ?>" name="contact_no_2">
+                    <input type="number" class="form-control no-resize" value="<?php if($userDetails[0]['user_contact_no2']!=0){ echo $userDetails[0]['user_contact_no2']; } ?>" name="contact_no_2" placeholder="Enter Your Number Here">
                     <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                     <div class="help-block with-errors"></div>
                 </div>
@@ -1418,7 +1418,7 @@
                 <div class="col-md-12">
                     <div class="form-group has-feedback">
                         <label for="relative_name" class="text-uppercase c-gray-light">Relative Full Name</label>
-                        <input type="text" id="relative_name_1" required class="form-control no-resize" value="<?php echo $relativeArr[0]['relative_name']; ?>" name="relative_name[]">  
+                        <input type="text" id="relative_name_1" required class="form-control no-resize" value="<?php echo $relativeArr[0]['relative_name']; ?>" name="relative_name[]" placeholder="Enter Your Relative Name Here">  
                         <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                         <div class="help-block with-errors"></div>
                     </div>
@@ -1428,7 +1428,7 @@
                 <div class="col-md-6">
                     <div class="form-group has-feedback">
                         <label for="relative_contact" class="text-uppercase c-gray-light">Relative Contact Number</label>
-                        <input type="number" id="relative_contact_1" required class="form-control no-resize" value="<?php echo $relativeArr[0]['relative_contact']; ?>" name="relative_contact[]">  
+                        <input type="number" id="relative_contact_1" required class="form-control no-resize" value="<?php echo $relativeArr[0]['relative_contact']; ?>" name="relative_contact[]" placeholder="Enter Your Relative Contact Number Here">  
                         <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                         <div class="help-block with-errors"></div>
                     </div>
@@ -1436,7 +1436,7 @@
                 <div class="col-md-6">
                     <div class="form-group has-feedback">
                         <label for="relative_relation" class="text-uppercase c-gray-light">Relation with you</label>
-                        <input type="text" id="relative_relation_1" required class="form-control no-resize" value="<?php echo $relativeArr[0]['relative_relation']; ?>" name="relative_relation[]">
+                        <input type="text" id="relative_relation_1" required class="form-control no-resize" value="<?php echo $relativeArr[0]['relative_relation']; ?>" name="relative_relation[]" placeholder="Enter Your Relation With this Relative Here">
                         <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                         <div class="help-block with-errors"></div>
                     </div>
@@ -1465,7 +1465,7 @@
                 <div class="col-md-12">
                     <div class="form-group has-feedback">
                         <label for="relative_name" class="text-uppercase c-gray-light">Relative Full Name</label>
-                        <input type="text" id="relative_name_1" required class="form-control no-resize" value="" name="relative_name[]">  
+                        <input type="text" id="relative_name_1" required class="form-control no-resize" value="" name="relative_name[]" placeholder="Enter Your Relative Name Here">  
                         <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                         <div class="help-block with-errors"></div>
                     </div>
@@ -1475,7 +1475,7 @@
                 <div class="col-md-6">
                     <div class="form-group has-feedback">
                         <label for="relative_contact" class="text-uppercase c-gray-light">Relative Contact Number</label>
-                        <input type="number" id="relative_contact_1" required class="form-control no-resize" value="" name="relative_contact[]">  
+                        <input type="number" id="relative_contact_1" required class="form-control no-resize" value="" name="relative_contact[]" placeholder="Enter Your Relative Number Here">  
                         <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                         <div class="help-block with-errors"></div>
                     </div>
@@ -1483,7 +1483,7 @@
                 <div class="col-md-6">
                     <div class="form-group has-feedback">
                         <label for="relative_relation" class="text-uppercase c-gray-light">Relation with you</label>
-                        <input type="text" id="relative_relation_1" required class="form-control no-resize" value="" name="relative_relation[]">
+                        <input type="text" id="relative_relation_1" required class="form-control no-resize" value="" name="relative_relation[]" placeholder="Enter Your Relation With Relative Here">
                         <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                         <div class="help-block with-errors"></div>
                     </div>
@@ -1518,7 +1518,7 @@
                         <div class="col-md-12">
                             <div class="form-group has-feedback">
                                 <label for="relative_name" class="text-uppercase c-gray-light">Relative Full Name</label>
-                                <input type="text" id="relative_name_<?php echo $i+1; ?>" required class="form-control no-resize" value="<?php echo $relativeArr[$i]['relative_name']; ?>" name="relative_name[]">  
+                                <input type="text" id="relative_name_<?php echo $i+1; ?>" required class="form-control no-resize" value="<?php echo $relativeArr[$i]['relative_name']; ?>" name="relative_name[]" placeholder="Enter Your Relative Name Here">  
                                 <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                                 <div class="help-block with-errors"></div>
                             </div>
@@ -1528,7 +1528,7 @@
                         <div class="col-md-6">
                             <div class="form-group has-feedback">
                                 <label for="relative_contact" class="text-uppercase c-gray-light">Relative Contact Number</label>
-                                <input type="number" id="relative_contact_<?php echo $i+1; ?>" required class="form-control no-resize" value="<?php echo $relativeArr[$i]['relative_contact']; ?>" name="relative_contact[]">  
+                                <input type="number" id="relative_contact_<?php echo $i+1; ?>" required class="form-control no-resize" value="<?php echo $relativeArr[$i]['relative_contact']; ?>" name="relative_contact[]" placeholder="Enter Your Relative Number Here">  
                                 <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                                 <div class="help-block with-errors"></div>
                             </div>
@@ -1536,7 +1536,7 @@
                         <div class="col-md-6">
                             <div class="form-group has-feedback">
                                 <label for="relative_relation" class="text-uppercase c-gray-light">Relation with you</label>
-                                <input type="text" id="relative_relation_<?php echo $i+1; ?>" required class="form-control no-resize" value="<?php echo $relativeArr[$i]['relative_relation']; ?>" name="relative_relation[]">
+                                <input type="text" id="relative_relation_<?php echo $i+1; ?>" required class="form-control no-resize" value="<?php echo $relativeArr[$i]['relative_relation']; ?>" name="relative_relation[]" placeholder="Enter Your Relation With This Relative Here">
                                 <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                                 <div class="help-block with-errors"></div>
                             </div>
