@@ -429,7 +429,7 @@ $session_user_id = $keyarr[2];
         $http.get(BASE_URL + "user/search/profilesearch_byid/getAllUserProfiles").then(function (response) {
             var data = response.data;
             //alert(data);
-            var i, j, user_photos, alreadyfollowed, followers, firstname, user_location, alreadySent, receivedReq, birthday, today, user_fullname, user_designation, user_mother_tongue, user_marital_status, age, newAge, totage;
+            var i, j, user_photos, profile_image, alreadyfollowed, followers, firstname, user_location, alreadySent, receivedReq, birthday, today, user_fullname, user_designation, user_mother_tongue, user_marital_status, age, newAge, totage;
             console.log(data);
             if (data != 500) {
                 for (i = 0; i < data.length; i++) {
@@ -508,6 +508,11 @@ $session_user_id = $keyarr[2];
                         }
                     }
                     //alert(firstname);
+                    if (data[i].user_profile_image != '') {
+                        profile_image = data[i].user_profile_image;
+                    } else {
+                        profile_image = 'assets/images/user.png';
+                    }
 
                     $scope.profiles.push({'user_profile_key': data[i].user_profile_key,
                         'user_profile_id': data[i].user_profile_id,
@@ -516,7 +521,7 @@ $session_user_id = $keyarr[2];
                         'user_gender': data[i].user_gender,
                         'user_caste': data[i].user_caste,
                         'user_email': data[i].user_email,
-                        'user_profile_image': data[i].user_profile_image,
+                        'user_profile_image': profile_image,
                         'user_height': data[i].user_height,
                         'user_weight': data[i].user_weight,
                         'user_mother_tongue': user_mother_tongue,
@@ -588,7 +593,7 @@ $session_user_id = $keyarr[2];
                 // Assign response to skills object
                 var data = response.data;
                 $scope.profiles = [];
-                var i, j, user_profile_image, user_photos, alreadyfollowed, followers, firstname, user_location, alreadySent, receivedReq, birthday, today, user_fullname, user_designation, user_mother_tongue, user_marital_status, age, newAge, totage;
+                var i, j, user_profile_image, profile_image, user_photos, alreadyfollowed, followers, firstname, user_location, alreadySent, receivedReq, birthday, today, user_fullname, user_designation, user_mother_tongue, user_marital_status, age, newAge, totage;
                 console.log(data);
                 $scope.finderloader = false;
                 if (data != 500) {
@@ -671,6 +676,12 @@ $session_user_id = $keyarr[2];
                         }
                         //alert(firstname);
 
+                        if (data[i].user_profile_image != '') {
+                            profile_image = data[i].user_profile_image;
+                        } else {
+                            profile_image = 'assets/images/user.png';
+                        }
+
                         $scope.profiles.push({'user_profile_key': data[i].user_profile_key,
                             'user_profile_id': data[i].user_profile_id,
                             'user_id': data[i].user_id,
@@ -678,7 +689,7 @@ $session_user_id = $keyarr[2];
                             'user_gender': data[i].user_gender,
                             'user_caste': data[i].user_caste,
                             'user_email': data[i].user_email,
-                            'user_profile_image': data[i].user_profile_image,
+                            'user_profile_image': profile_image,
                             'user_height': data[i].user_height,
                             'user_weight': data[i].user_weight,
                             'user_mother_tongue': user_mother_tongue,
@@ -711,7 +722,7 @@ $session_user_id = $keyarr[2];
                 var data = response.data;
                 //alert(data);
                 $scope.profiles = [];
-                var i, j, user_photos, alreadyfollowed, followers, firstname, user_location, alreadySent, receivedReq, birthday, today, user_fullname, user_designation, user_mother_tongue, user_marital_status, age, newAge, totage;
+                var i, j, user_photos, profile_image, alreadyfollowed, followers, firstname, user_location, alreadySent, receivedReq, birthday, today, user_fullname, user_designation, user_mother_tongue, user_marital_status, age, newAge, totage;
                 console.log(data);
                 if (data != 500) {
                     for (i = 0; i < data.length; i++) {
@@ -792,6 +803,11 @@ $session_user_id = $keyarr[2];
                             }
                         }
                         //alert(firstname);
+                        if (data[i].user_profile_image != '') {
+                            profile_image = data[i].user_profile_image;
+                        } else {
+                            profile_image = 'assets/images/user.png';
+                        }
 
                         $scope.profiles.push({'user_profile_key': data[i].user_profile_key,
                             'user_profile_id': data[i].user_profile_id,
@@ -800,7 +816,7 @@ $session_user_id = $keyarr[2];
                             'user_gender': data[i].user_gender,
                             'user_caste': data[i].user_caste,
                             'user_email': data[i].user_email,
-                            'user_profile_image': data[i].user_profile_image,
+                            'user_profile_image': profile_image,
                             'user_height': data[i].user_height,
                             'user_weight': data[i].user_weight,
                             'user_mother_tongue': user_mother_tongue,
