@@ -20,7 +20,7 @@
                 <input type="hidden" class="form-control" name="user_lastname" value="<?php if(isset($_POST) && !empty($_POST)){echo $_POST['last_name']; }?>">
                 <input type="hidden" class="form-control" name="user_email" value="<?php if(isset($_POST) && !empty($_POST)){echo $_POST['email_id']; }?>">
                 <input type="hidden" class="form-control" name="user_caste" value="<?php if(isset($_POST) && !empty($_POST)){echo $_POST['caste']; }?>">
-                <input type="hidden" class="form-control" name="user_mobile" value="<?php if(isset($_POST) && !empty($_POST)){echo $_POST['country_code'].''.$_POST['mob_number']; }?>">
+                <input type="hidden" class="form-control" name="user_mobile" value="<?php if(isset($_POST) && !empty($_POST)){echo $_POST['country_code'].'-'.$_POST['mob_number']; }?>">
                 <input type="hidden" class="form-control" name="payment_package" value="<?php echo base64_encode($key['package_title'].'|'.$key['package_id']); ?>">
                <div class="col-xs-12 col-sm-4">
                 <div class="price-box">

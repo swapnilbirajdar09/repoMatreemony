@@ -414,23 +414,36 @@ class User_model extends CI_Model {
                 }
             }
             else{
-             $response=array(
+               $response=array(
                 'status'    =>  'error',
                 'message'   =>  'Failure: Verification code did not match. Email Verification failed !'
             );
-             return $response;
-         }
-     }
-     else{
-         $response=array(
+               return $response;
+           }
+       }
+       else{
+           $response=array(
             'status'    =>  'error',
             'message'   =>  'Failure: Email Verification failed. Try resending verification code !'
         );
-         return $response;
-     }
+           return $response;
+       }
+   }
 
 
- }
+ // check email id exist or not
+   public function checkEmailExist($email_id){
+    $query = null;
+        // ------------ check email exist 
+        $query = $this->db->get_where('user_tab', array(//making selection
+            'user_email' => $email_id
+        ));
 
+        if ($query->num_rows() <= 0) {
+            return 0;
+        } else {
+            return 1;
+        }
+    }
 
 }

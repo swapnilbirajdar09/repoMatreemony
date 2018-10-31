@@ -17,24 +17,26 @@
                     <div class="col-md-12">
                         <div class="card-body">
                             <form action="<?php echo $action; ?>/_payment" method="post" id="payuForm" name="payuForm">
-                                <input type="text" name="key" value="<?php echo $mkey; ?>" />
-                                <input type="text" name="hash" value="<?php echo $hash; ?>"/>
-                                <input type="text" name="txnid" value="<?php echo $tid; ?>" />
+                                <input type="hidden" name="key" value="<?php echo $mkey; ?>" />
+                                <input type="hidden" name="hash" value="<?php echo $hash; ?>"/>
+                                <input type="hidden" name="txnid" value="<?php echo $tid; ?>" />
+                                <input type="hidden" name="productinfo" value="<?php echo $reg_data; ?>" />
                                 <div class="form-group">
                                     <label class="control-label">Package Selected</label>
-                                    <input class="form-control" name="productinfo" value="<?php echo strtoupper($package_title); ?>"  readonly/>
+                                    <input class="form-control" name="package_title" value="<?php echo strtoupper($package_title); ?>"  readonly/>
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label">Total Payable Amount</label>
                                     <input class="form-control" name="amount" value="<?php echo $package_amount; ?>"  readonly/>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label">Your Name</label>
+                                    <label class="control-label">Your First Name</label>
                                     <input class="form-control" name="firstname" value="<?php echo $user_firstname; ?>" readonly/>
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label">Your Email</label>
                                     <input class="form-control" name="email" id="email" value="<?php echo $user_email; ?>" readonly/>
+                                    <?php if($email_exist=='1'){ ?><label class="w3-text-red">ERROR: Email ID already exist! Try Login.</label><?php } ?>
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label">Mobile Number</label>
@@ -42,19 +44,14 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <input name="package_period" value="<?php echo $package_period; ?>" type="text" />
-                                    <input name="package_validity" value="<?php echo $package_validity; ?>" type="text" />
-                                    <input name="user_lastname" value="<?php echo $user_lastname; ?>" type="text" />
-                                    <input name="user_gender" value="<?php echo $user_gender; ?>" type="text" />
-                                    <input name="user_caste" value="<?php echo $user_caste; ?>" type="text" />
-                                    <input name="surl" value="<?php echo $sucess; ?>" size="64" type="text" />
-                                    <input name="furl" value="<?php echo $failure; ?>" size="64" type="text" />  
+                                    <input name="surl" value="<?php echo $sucess; ?>" size="64" type="hidden" />
+                                    <input name="furl" value="<?php echo $failure; ?>" size="64" type="hidden" />  
                                     <!--for test environment comment  service provider   -->
-                                    <input type="text" name="service_provider" value="payu_paisa" size="64" />
-                                    <input name="curl" value="<?php echo $cancel; ?> " type="text" />
+                                    <input type="hidden" name="service_provider" value="payu_paisa" size="64" />
+                                    <input name="curl" value="<?php echo $cancel; ?> " type="hidden" />
                                 </div>
                                 <div class="form-group w3-center">
-                                    <button type="submit" class="w3-button w3-green btn btn-lg btn-success" value="Pay Now"> Pay Now </button>
+                                    <?php if($email_exist=='0'){ ?><button type="submit" class="w3-button w3-green btn btn-lg btn-success" value="Pay Now"> Pay Now </button><?php } ?>
                                     <button type="button" class="w3-button w3-red btn btn-lg btn-warning" onclick="cancelTransaction();" value="Cancel"> Cancel </button>
                                 </div>
                             </form> 
