@@ -9,6 +9,7 @@ class Contact_us extends CI_Controller {
         parent::__construct();
 
         $this->load->model('user/Contact_model');
+        $this->load->model('admin/adminprofile_model');
     }
 
     // main index function
@@ -29,6 +30,7 @@ class Contact_us extends CI_Controller {
 
     public function sendContactEmail() {
         extract($_POST);
+        $admin_email = $this->adminprofile_model->getAdminEmail();
         $config = Array(
             'protocol' => 'smtp',
             'smtp_host' => 'mx1.hostinger.in',
@@ -44,7 +46,7 @@ class Contact_us extends CI_Controller {
         $this->load->library('email', $config);
         $this->email->set_newline("\r\n");
         $this->email->from('support@jumlakuwait.com', "Admin Team");
-        $this->email->to('support@jumlakuwait.com');
+        $this->email->to($admin_email['admin_email']);
         $this->email->subject("Parinay-Contact Form");
         $this->email->message("<html>"
                 . "<head>"

@@ -100,9 +100,6 @@
                     $.alert(data);
                 }
             });
-
-
-
             return false;  //stop the actual form post !important!
 
         });

@@ -231,7 +231,7 @@ function verify(entity,value)
             $('#btn_verify_'+entity).prop('disabled', true);
         },
         success: function (response) {
-        	console.log(response);return false;
+        	// console.log(response);return false;
         	var data=JSON.parse(response);
 
         	// Re_Enabling the Elements

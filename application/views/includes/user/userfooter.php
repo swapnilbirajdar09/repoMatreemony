@@ -14,15 +14,15 @@
             Main Menu</h4>
             <ul class="footer-links">
               <li>
-                <a href="<?php echo base_url(); ?>assets/client/home" title="Home">
+                <a href="<?php echo base_url(); ?>user/dashboard" title="Home">
                 Home</a>
               </li>
               <li>
-                <a href="plans.html" title="Premium Plans">
-                Membership Plans</a>
+                <a href="<?php echo base_url(); ?>user/pricing_plan" target="_blank" title="Pricing Plans">
+                Pricing Plans</a>
               </li>
               <li>
-                <a href="stories.html" title="Happy Stories">
+                <a href="<?php echo base_url(); ?>user/contact_us" target="_blank" title="Contact us">
                 Contact Us</a>
               </li>
             </ul>
@@ -34,19 +34,19 @@
             Active Search</h4>
             <ul class="footer-links">
               <li>
-                <a href="listing.html" title="All Members">
+                <a href="<?php echo base_url(); ?>user/search/quick_search" title="Quick search">
                 Quick Search</a>
               </li>
               <li>
-                <a href="listing/premium_members.html" title="Premium Members">
+                <a href="<?php echo base_url(); ?>user/search/regular_search" title="Regular Search">
                 Regular Search</a>
               </li>
               <li>
-                <a href="listing/free_members.html" title="Free Members">
+                <a href="<?php echo base_url(); ?>user/search/advance_search" title="Advanced Search">
                 Advanced Search</a>
               </li>
               <li>
-                <a href="listing/free_members.html" title="Free Members">
+                <a href="<?php echo base_url(); ?>user/search/profilesearch_byid" title="Search By ID">
                 Search by ID</a>
               </li>
             </ul>
@@ -58,17 +58,17 @@
             Useful Links</h4>
             <ul class="footer-links">
               <li>
-                <a href="faq.html" title="FAQ">
-                FAQ </a>
+                <a href="<?php echo base_url(); ?>user/requests/my_requests" title="Request page">
+                My Requests </a>
               </li>
-              <li>
+              <!-- <li>
                 <a href="terms_and_conditions" title="Terms & Conditions">
                 Terms & Conditions</a>
               </li>
               <li>
                 <a href="privacy_policy.html" title="Prvacy Policy">
                 Privacy Policy</a>
-              </li>
+              </li> -->
             </ul>
           </div>
         </div>

@@ -6,67 +6,6 @@ class Payment_model extends CI_Model {
         parent::__construct();
     }
 
-    // function to register user
-    public function register_user($data){
-        $dataArr=explode('|',$data);
-
-        $user_firstname=$key[0];
-        $user_lastname=$key[1];
-        $user_email=$key[2];
-        $user_gender=$key[3];
-        $user_mobile=$key[4];
-        $user_caste=$key[5];
-        $package_amount=$key[6];
-        $package_period=$key[7];
-        $package_validity=$key[8];
-        $package_title=$key[9];
-
-        $reg_date = date('Y-m-d');
-        $expiry_date = '';
-        switch ($package_period) {
-            case 'Monthly':
-            $expiry_date = date('Y-m-d', strtotime('+'.$package_validity.' months'));
-            break;
-            case 'Yearly':
-            $expiry_date = date('Y-m-d', strtotime('+'.$package_validity.' years'));
-            break;
-        }
-
-        $result = array(
-            'user_gender' => $user_gender,
-            'user_firstname' => $user_firstname,
-            'user_lastname' => $user_lastname,
-            'user_email' => $user_email,
-            'user_password' => $password,
-            'user_reg_date'=> $reg_date,
-            'user_expiry_date' => $expiry_date,
-            'user_caste' => $user_caste,
-            'user_package'=> $package_title,
-            'user_mobile_num' => $user_mobile,
-            'user_remaining_requests' =>'5',
-            'user_status' => '2'
-        );
-        // $query = "INSERT INTO user_tab(user_gender,user_firstname,user_lastname,user_email,user_password,user_caste,user_mobile_num,user_status)"
-        //         . "VALUES ('$gender','$fname','$lname','$eMail','$password','$caste','$number','1')";
-         //echo $query;die();
-        $this->db->insert('user_tab',$result);
-        
-        $insert_id = $this->db->insert_id();
-        $profile_key=substr(base64_encode($insert_id),0,4) ;
-        
-        $profile_tab = array(
-            'user_id' => $insert_id,
-            'user_profile_key' => 'BPARI#'.date('Ymd').'0'.$insert_id.$profile_key
-        );
-        $this->db->insert('user_profile_tab',$profile_tab);
-            //print_r($profile_tab);die();
-        if($this->db->affected_rows()>0){
-            return true;
-        }
-        else{
-            return false;
-        }
-    }
 
     //---------------------function for save membership package payment Information--------------//
     function savePaymentInformation($data) {
@@ -141,9 +80,10 @@ class Payment_model extends CI_Model {
                 $this->db->insert('user_profile_tab',$insert_profiletab);
             //print_r($profile_tab);die();
                 if($this->db->affected_rows()>0){
+                    $sendMail=Payment_model::sendPasswordMail($user_email,$passwd);
                     $response=array(
                         'db_status' =>  'success',
-                        'db_message'    => 'We have received a payment of Rs. '.$amount.'. Your account was successfully created. Log In & Get search your perfect match !',
+                        'db_message'    => 'We have received a payment of Rs. '.$amount.'. Your account was successfully created. We have send a password on your Email. Log In & Search your perfect match !',
                         'db_error_level'    =>  'none'
                     );
                     return $response;
@@ -188,6 +128,46 @@ class Payment_model extends CI_Model {
             return 0;
         } else {
             return 1;
+        }
+    }
+
+    // send password by mail
+    public function sendPasswordMail($email,$password){
+        $config = Array(
+            'protocol' => 'smtp',
+            'smtp_host' => 'mx1.hostinger.in',
+            'smtp_port' => '587',
+            'smtp_user' => 'support@jumlakuwait.com', // change it to yours
+            'smtp_pass' => 'Descartes@1990', // change it to yours
+            'mailtype' => 'html',
+            'charset' => 'utf-8',
+            'wordwrap' => TRUE
+        );
+        $config['smtp_crypto'] = 'tls';
+
+        $this->load->library('email', $config);
+        $this->email->set_newline("\r\n");
+        $this->email->from('support@jumlakuwait.com', "Admin Team");
+        $this->email->to($email);
+        $this->email->subject("Account Registration - Buddhist Parinay");
+        $this->email->message('<html><head>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="stylesheet" href="http://jobmandi.in/css/bootstrap/bootstrap.min.css">
+            <script src="http://jobmandi.in/css/bootstrap/jquery.min.js"></script>
+            <script src="http://jobmandi.in/css/bootstrap/bootstrap.min.js"></script>
+            </head><body>
+            <p><label><h3><b>Account Registration Success</label></b></h3></p>
+            <p>Welcome to Buddhist Parinay, we are very glad to inform you that your registration for <b>Buddhist Parinay</b> was successfull. Following are your credentials to login in our system:</p>
+            <p><label>Email Id:- '.$email.' </label></p>
+            <p><label>Password:- '.$password.'</label></p><br>
+            <p>Search your dream partner here and get a perfect match. Happy Matching!</p><br>
+            <p>Kind Regards,</p>
+            <p><b>Admin - Buddhist Parinay</b></p>
+            </body>
+            </html>');
+        if (!$this->email->send()) {
+            return true;
+        } else {           
         }
     }
 

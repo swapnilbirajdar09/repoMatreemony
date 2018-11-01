@@ -507,13 +507,13 @@ public function update_life_style(){
     if($result){
         $response=array(
             'status'    =>  'success',
-            'message'   =>  '<b>Success:</b> You Have Successfully Edited <b>Educational & Professional</b>!'
+            'message'   =>  '<b>Success:</b> You Have Successfully Edited <b>Lifestyle Information</b>!'
         );
     }
     else{
         $response=array(
             'status'    =>  'error',
-            'message'   =>  '<b>Error:</b> Perhaps you didn\'t make any change. <b>Educational & Professional</b> was not updated Successfully!'
+            'message'   =>  '<b>Error:</b> Perhaps you didn\'t make any change. <b>Lifestyle Information</b> was not updated Successfully!'
         );
     } 
     echo json_encode($response);

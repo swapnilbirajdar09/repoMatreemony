@@ -301,521 +301,530 @@
                                         <button type="button" class="btn btn-primary btn-icon-only btn-shadow"><i class="fa fa-download"></i> Download Profile</button>
                                     </div>
                                 </div> -->
-                                <div class="col-lg-4">
-                                    <div class="sidebar sidebar-inverse sidebar--style-1 bg-base-1 z-depth-2-top">
-                                        <div class="sidebar-object mb-0">
-                                            <!-- Profile picture -->
-                                            <div class="profile-picture profile-picture--style-2">
-                                                <div style="border: 10px solid rgba(255, 255, 255, 0.1);width: 200px;border-radius: 50%;margin-top: 30px;">
-                                                    <?php if($userDetails[0]['user_profile_image']!=''){ ?>
-                                                        <div class="profile_img" id="show_img" style="background-image: url(<?php echo base_url(); ?><?php echo $userDetails[0]['user_profile_image']; ?>)"></div>
-                                                    <?php }else { ?>
-                                                        <div class="profile_img" id="show_img" style="background-image: url(<?php echo base_url(); ?>assets/images/user.png)"></div>
-                                                    <?php } ?>
-                                                </div>
-                                            </div>
-                                            <!-- Profile details -->
-                                            <div class="profile-details">
-                                                <h2 class="heading heading-3 strong-500 profile-name"><?php echo $userDetails[0]['user_firstname'].' '.$userDetails[0]['user_lastname']; ?></h2>
-                                                <h3 class="heading heading-6 strong-400 profile-occupation mt-3"><?php if($userDetails[0]['user_designation']==''){echo '<User Designation>';}else{ echo $userDetails[0]['user_designation']; } ?></h3>
-
-                                                    <div class="col-md-12 w3-margin-top w3-margin-bottom">
-                                                        <a href="#" class="btn btn-styled btn-block btn-circle btn-sm btn-base-5">Add to Favourite</a>
-                                                        <a href="#" class="btn btn-styled btn-block btn-circle btn-sm btn-base-2">Send Request</a>
-                                                    </div>
-
-                                                    <div class="profile-stats clearfix mt-2">
-                                                        <div class="stats-entry" style="width: 100%">
-                                                            <span class="stats-count"><?php echo $userDetails[0]['user_email']; ?>
-
-                                                        </span>
-                                                        <span class="stats-label text-uppercase">Email ID</span>
-                                                        <span class="">
-                                                            <?php 
-                                                            if($userDetails[0]['user_email_verified']=='1'){    ?>
-                                                                <span id="verify_email_span" class="btn-base-1 btn-sm btn-icon-only btn-shadow mb-1 w3-green">
-                                                                    <i class="ion-checkmark"></i> Verified
-                                                                </span>
-                                                                <?php
-                                                            }
-                                                            else{
-                                                                ?>
-                                                                <span id="verify_email_span" class="btn-base-1 w3-text-white btn-sm btn-icon-only btn-shadow mb-1 w3-grey">
-                                                                    <i class="fa fa-times-circle"></i> Not Verified
-                                                                </span>
-                                                                <?php
-                                                            }
-                                                            ?>
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                                <div class="profile-stats clearfix mt-2">
-                                                    <div class="stats-entry" style="width: 100%">
-                                                        <span class="stats-count"><?php echo $userDetails[0]['user_mobile_num']; ?>
-                                                    </span>
-                                                    <span class="stats-label text-uppercase">Mobile Number</span>
-                                                    <span class="">
-                                                        <?php 
-                                                        if($userDetails[0]['user_mobile_verified']=='1'){    ?>
-                                                            <span id="verify_mobile_span" class="btn-base-1 btn-sm btn-icon-only btn-shadow mb-1 w3-green">
-                                                                <i class="ion-checkmark"></i> Verified
-                                                            </span>
-                                                            <?php
-                                                        }
-                                                        else{
-                                                            ?>
-                                                            <span id="verify_mobile_span" class="btn-base-1 w3-text-white btn-sm btn-icon-only btn-shadow mb-1 w3-grey">
-                                                                <i class="fa fa-times-circle"></i> Not Verified
-                                                            </span>
-                                                            <?php
-                                                        }
-                                                        ?>
-                                                    </span>
-                                                </div>
-                                            </div>
-                                            <?php 
-                                            $doc_verified_count=0;
-                                            $uploaded_doc=0;
-                                            if($userDocuments){
-                                                $uploaded_doc=count($userDocuments);
-                                            }
-                                            for ($i=0; $i < count($userDocuments) ; $i++) { 
-                                                if($userDocuments[$i]['status']==1){
-                                                    $doc_verified_count++;
-                                                }
-                                            }
-                                            ?>
-                                            <div class="profile-stats clearfix mt-2">
-                                                <div class="stats-entry" style="width: 100%">
-                                                    <span class="stats-count"><?php echo $uploaded_doc; ?></span>
-                                                    <span class="stats-label text-uppercase">Documents uploaded</span>
-                                                    <span class="">
-                                                        <?php 
-                                                        if($userDetails[0]['user_doc_verified']=='1'){    ?>
-                                                            <span id="verify_doc_span" class="btn-base-1 btn-sm btn-icon-only btn-shadow mb-1 w3-green">
-                                                                <i class="ion-checkmark"></i> Verified
-                                                            </span>
-                                                            <?php
-                                                        }
-                                                        else{
-                                                            ?>
-                                                            <span id="verify_doc_span" class="btn-base-1 w3-text-white btn-sm btn-icon-only btn-shadow mb-1 w3-grey">
-                                                                <i class="fa fa-times-circle"></i> Not Verified
-                                                            </span>
-                                                            <?php
-                                                        }
-                                                        ?>
-                                                    </span>
-                                                </div>
-                                            </div>
-                                            <div class="profile-stats clearfix mt-2">
-                                                <div class="stats-entry">
-                                                    <span class="stats-count"><?php echo $userDetails[0]['self_favourite_count']; ?></span>
-                                                    <span class="stats-label text-uppercase">Favorited By</span>
-                                                </div>
-                                                <div class="stats-entry">
-                                                    <span class="stats-count">
-                                                        <?php 
-                                                        $incoming_int=0;
-                                                        if($userDetails[0]['user_received_requests']!='' && $userDetails[0]['user_received_requests']!='[]'){
-                                                            $recievedRequestArr=json_decode($userDetails[0]['user_received_requests'],TRUE);
-                                                            $incoming_int=count($recievedRequestArr);
-                                                        }
-                                                        echo $incoming_int;
-                                                        ?>
-                                                    </span>
-                                                    <span class="stats-label text-uppercase">Recieved Request</span>
-                                                </div>
+                                <?php 
+                                if(isset($userDetails['status']) && isset($userDetails['status'])=='error'){ ?>
+                                    <div class="col-md-12">
+                                       <div class="col-md-12 alert alert-warning" role="alert">
+                                        <p style="margin-bottom:0"><i class="fa fa-warning"></i> You dont have permission to access the information. Let the Member approve your request OR you might have not approved the Member's request </p>
+                                    </div>
+                                </div>
+                            <?php }
+                            else{
+                            ?>
+                            <div class="col-lg-4">
+                                <div class="sidebar sidebar-inverse sidebar--style-1 bg-base-1 z-depth-2-top">
+                                    <div class="sidebar-object mb-0">
+                                        <!-- Profile picture -->
+                                        <div class="profile-picture profile-picture--style-2">
+                                            <div style="border: 10px solid rgba(255, 255, 255, 0.1);width: 200px;border-radius: 50%;margin-top: 30px;">
+                                                <?php if($userDetails[0]['user_profile_image']!=''){ ?>
+                                                    <div class="profile_img" id="show_img" style="background-image: url(<?php echo base_url(); ?><?php echo $userDetails[0]['user_profile_image']; ?>)"></div>
+                                                <?php }else { ?>
+                                                    <div class="profile_img" id="show_img" style="background-image: url(<?php echo base_url(); ?>assets/images/user.png)"></div>
+                                                <?php } ?>
                                             </div>
                                         </div>
-                                        <!-- Profile stats -->
-                                        <div class="profile-useful-links clearfix">
-                                            <div class="profile-connect mt-5">
-                                                <hr>
-                                                <h4 class="heading strong-400">Gallery</h4>
-                                            </div>
+                                        <!-- Profile details -->
+                                        <div class="profile-details">
+                                            <h2 class="heading heading-3 strong-500 profile-name"><?php echo $userDetails[0]['user_firstname'].' '.$userDetails[0]['user_lastname']; ?></h2>
+                                            <h3 class="heading heading-6 strong-400 profile-occupation mt-3"><?php if($userDetails[0]['user_designation']==''){echo '<User Designation>';}else{ echo $userDetails[0]['user_designation']; } ?></h3>
 
-                                            <div class="w3-container w3-margin-top w3-center no-padding">
-                                                <div id="galleryImages">
+                                                <div class="col-md-12 w3-margin-top w3-margin-bottom">
+                                                    <a href="#" class="btn btn-styled btn-block btn-circle btn-sm btn-base-5">Add to Favourite</a>
+                                                </div>
+
+                                                <div class="profile-stats clearfix mt-2">
+                                                    <div class="stats-entry" style="width: 100%">
+                                                        <span class="stats-count"><?php echo $userDetails[0]['user_email']; ?>
+
+                                                    </span>
+                                                    <span class="stats-label text-uppercase">Email ID</span>
+                                                    <span class="">
+                                                        <?php 
+                                                        if($userDetails[0]['user_email_verified']=='1'){    ?>
+                                                            <span id="verify_email_span" class="btn-base-1 btn-sm btn-icon-only btn-shadow mb-1 w3-green">
+                                                                <i class="ion-checkmark"></i> Verified
+                                                            </span>
+                                                            <?php
+                                                        }
+                                                        else{
+                                                            ?>
+                                                            <span id="verify_email_span" class="btn-base-1 w3-text-white btn-sm btn-icon-only btn-shadow mb-1 w3-grey">
+                                                                <i class="fa fa-times-circle"></i> Not Verified
+                                                            </span>
+                                                            <?php
+                                                        }
+                                                        ?>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="profile-stats clearfix mt-2">
+                                                <div class="stats-entry" style="width: 100%">
+                                                    <span class="stats-count"><?php echo $userDetails[0]['user_mobile_num']; ?>
+                                                </span>
+                                                <span class="stats-label text-uppercase">Mobile Number</span>
+                                                <span class="">
                                                     <?php 
-                                                    if($userDetails[0]['user_photos']!='' && $userDetails[0]['user_photos']!='[]'){
-                                                        $img_Arr=json_decode($userDetails[0]['user_photos'],TRUE);
-                                                        foreach ($img_Arr as $key) { ?>
-                                                            <div class="w3-col l6 s6 m4" style="padding:4px 4px 4px 4px">
-                                                                <div class="block-image relative">
-                                                                    <div class="view view-second view--rounded light-gallery">
-                                                                        <img src="<?php echo base_url(); ?><?php echo $key; ?>" style="width: 100%;height: 150px;">
-                                                                        <div class="mask mask-base-1--style-2">
-                                                                            <div class="view-buttons text-center">
-                                                                                <div class="view-buttons-inner text-center" style="padding: 5px">
-                                                                                    <a target="_blank" href="<?php echo base_url(); ?><?php echo $key; ?>" class="c-white mr-2 l-gallery" data-toggle="light-gallery">
-                                                                                        <i class="fa fa-search"></i>
-                                                                                    </a>
-                                                                                </div>
+                                                    if($userDetails[0]['user_mobile_verified']=='1'){    ?>
+                                                        <span id="verify_mobile_span" class="btn-base-1 btn-sm btn-icon-only btn-shadow mb-1 w3-green">
+                                                            <i class="ion-checkmark"></i> Verified
+                                                        </span>
+                                                        <?php
+                                                    }
+                                                    else{
+                                                        ?>
+                                                        <span id="verify_mobile_span" class="btn-base-1 w3-text-white btn-sm btn-icon-only btn-shadow mb-1 w3-grey">
+                                                            <i class="fa fa-times-circle"></i> Not Verified
+                                                        </span>
+                                                        <?php
+                                                    }
+                                                    ?>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <?php 
+                                        $doc_verified_count=0;
+                                        $uploaded_doc=0;
+                                        if($userDocuments){
+                                            $uploaded_doc=count($userDocuments);
+                                        }
+                                        for ($i=0; $i < count($userDocuments) ; $i++) { 
+                                            if($userDocuments[$i]['status']==1){
+                                                $doc_verified_count++;
+                                            }
+                                        }
+                                        ?>
+                                        <div class="profile-stats clearfix mt-2">
+                                            <div class="stats-entry" style="width: 100%">
+                                                <span class="stats-count"><?php echo $uploaded_doc; ?></span>
+                                                <span class="stats-label text-uppercase">Documents uploaded</span>
+                                                <span class="">
+                                                    <?php 
+                                                    if($userDetails[0]['user_doc_verified']=='1'){    ?>
+                                                        <span id="verify_doc_span" class="btn-base-1 btn-sm btn-icon-only btn-shadow mb-1 w3-green">
+                                                            <i class="ion-checkmark"></i> Verified
+                                                        </span>
+                                                        <?php
+                                                    }
+                                                    else{
+                                                        ?>
+                                                        <span id="verify_doc_span" class="btn-base-1 w3-text-white btn-sm btn-icon-only btn-shadow mb-1 w3-grey">
+                                                            <i class="fa fa-times-circle"></i> Not Verified
+                                                        </span>
+                                                        <?php
+                                                    }
+                                                    ?>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="profile-stats clearfix mt-2">
+                                            <div class="stats-entry">
+                                                <span class="stats-count"><?php echo $userDetails[0]['self_favourite_count']; ?></span>
+                                                <span class="stats-label text-uppercase">Favorited By</span>
+                                            </div>
+                                            <div class="stats-entry">
+                                                <span class="stats-count">
+                                                    <?php 
+                                                    $incoming_int=0;
+                                                    if($userDetails[0]['user_received_requests_approved']!='' && $userDetails[0]['user_received_requests_approved']!='[]'){
+                                                        $recievedRequestArr=json_decode($userDetails[0]['user_received_requests_approved'],TRUE);
+                                                        $incoming_int=count($recievedRequestArr);
+                                                    }
+                                                    echo $incoming_int;
+                                                    ?>
+                                                </span>
+                                                <span class="stats-label text-uppercase">Request Approved</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Profile stats -->
+                                    <div class="profile-useful-links clearfix">
+                                        <div class="profile-connect mt-5">
+                                            <hr>
+                                            <h4 class="heading strong-400">Gallery</h4>
+                                        </div>
+
+                                        <div class="w3-container w3-margin-top w3-center no-padding">
+                                            <div id="galleryImages">
+                                                <?php 
+                                                if($userDetails[0]['user_photos']!='' && $userDetails[0]['user_photos']!='[]'){
+                                                    $img_Arr=json_decode($userDetails[0]['user_photos'],TRUE);
+                                                    foreach ($img_Arr as $key) { ?>
+                                                        <div class="w3-col l6 s6 m4" style="padding:4px 4px 4px 4px">
+                                                            <div class="block-image relative">
+                                                                <div class="view view-second view--rounded light-gallery">
+                                                                    <img src="<?php echo base_url(); ?><?php echo $key; ?>" style="width: 100%;height: 150px;">
+                                                                    <div class="mask mask-base-1--style-2">
+                                                                        <div class="view-buttons text-center">
+                                                                            <div class="view-buttons-inner text-center" style="padding: 5px">
+                                                                                <a target="_blank" href="<?php echo base_url(); ?><?php echo $key; ?>" class="c-white mr-2 l-gallery" data-toggle="light-gallery">
+                                                                                    <i class="fa fa-search"></i>
+                                                                                </a>
                                                                             </div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <?php
-                                                        }
+                                                        </div>
+                                                        <?php
                                                     }
-                                                    else{ ?>
-                                                        <p class="w3-light-grey w3-center"> No Image found ! </p>
-                                                        <?php    
-                                                    }
-                                                    ?>
-                                                </div>
-
+                                                }
+                                                else{ ?>
+                                                    <p class="w3-light-grey w3-center"> No Image found ! </p>
+                                                    <?php    
+                                                }
+                                                ?>
                                             </div>
+
                                         </div>
                                     </div>
-                                </div>            
-                            </div>
-                            <div class="col-lg-8">
-                                <div class="widget">
-                                    <div class="card z-depth-2-top" id="profile_load">
-                                        <div class="card-title">
-                                            <h3 class="heading heading-6 strong-500 pull-left">
-                                                <b>Profile ID - </b><b class="c-base-1"><?php echo $userDetails[0]['user_profile_key']; ?></b>
+                                </div>
+                            </div>            
+                        </div>
+                        <div class="col-lg-8">
+                            <div class="widget">
+                                <div class="card z-depth-2-top" id="profile_load">
+                                    <div class="card-title">
+                                        <h3 class="heading heading-6 strong-500 pull-left">
+                                            <b>Profile ID - </b><b class="c-base-1"><?php echo $userDetails[0]['user_profile_key']; ?></b>
+                                        </h3>
+                                    </div>
+                                    <div class="card-body pt-2" style="padding: 1rem 0.5rem;">
+                                        <!-- ABOUT ME -->
+                                        <div id="section_about_me">
+                                            <div class="feature feature--boxed-border feature--bg-1 pt-3 pb-0 pl-3 pr-3 mb-3 border_top2x">
+                                                <!-- view about me -->
+                                                <div id="view_about_me">
+                                                    <div class="card-inner-title-wrapper pt-0">
+                                                        <h3 class="card-inner-title pull-left">
+                                                        About Me  </h3>
+                                                    </div>
+                                                    <div class="table-full-width">
+                                                        <div class="table-full-width">
+                                                            <table class="table table-profile table-responsive table-slick">
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td class="">
+                                                                            <?php 
+                                                                            if($userDetails[0]['user_about_me']!=''){
+                                                                                echo $userDetails[0]['user_about_me'];
+                                                                            }
+                                                                            else{
+                                                                                echo '<label class="w3-medium"> Not Available. </label>';
+                                                                            }
+                                                                            ?>
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- view about me ends -->
+                                            </div>                           
+                                        </div>
+                                        <!-- ABOUT ME ENDS -->
+
+                                        <!-- BASIC INFO -->
+                                        <div id="section_basic_info">
+                                            <div class="feature feature--boxed-border feature--bg-1 pt-3 pb-0 pl-3 pr-3 mb-3 border_top2x">
+                                                <!-- view basic info div -->
+                                                <div id="view_basic_info">
+                                                    <div class="card-inner-title-wrapper pt-0">
+                                                        <h3 class="card-inner-title pull-left">
+                                                            Basic Information  
+                                                        </h3>
+                                                    </div>
+                                                    <div class="table-full-width">
+                                                        <div class="table-full-width">
+                                                            <table class="table table-profile table-responsive table-striped table-bordered table-slick">
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td class="td-label">
+                                                                            <span>Full Name</span>
+                                                                        </td>
+                                                                        <td colspan="3">
+                                                                            <?php echo $userDetails[0]['user_fullname']; ?>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td class="td-label">
+                                                                            <span>Profile created by</span>
+                                                                        </td>
+                                                                        <td>
+                                                                            <?php echo $userDetails[0]['user_profile_created_by']; ?>
+                                                                        </td>
+                                                                        <td class="td-label">
+                                                                            <span>Date Of Birth</span>
+                                                                        </td>
+                                                                        <td>
+                                                                            <?php echo date('d M Y',strtotime($userDetails[0]['user_dob'])); ?>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td class="td-label">
+                                                                            <span>Marital Status</span>
+                                                                        </td>
+                                                                        <td>
+                                                                            <?php echo $userDetails[0]['user_marital_status']; ?>
+                                                                        </td>                                                                
+                                                                        <td class="td-label">
+                                                                            <span>Number of Children</span>
+                                                                        </td>
+                                                                        <td>
+                                                                            <?php if($userDetails[0]['user_no_of_children']=='0'){ echo 'N/A';}else { echo $userDetails[0]['user_no_of_children']; } ?>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td class="td-label">
+                                                                            <span>Height(In Feet)</span>
+                                                                        </td>
+                                                                        <td>
+                                                                            <?php echo $userDetails[0]['user_height']; ?>
+                                                                        </td>
+                                                                        <td class="td-label">
+                                                                            <span>Weight(In Kg)</span>
+                                                                        </td>
+                                                                        <td>
+                                                                            <?php echo $userDetails[0]['user_weight']; ?>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td class="td-label">
+                                                                            <span>Body Type</span>
+                                                                        </td>
+                                                                        <td>
+                                                                            <?php echo $userDetails[0]['user_body_type']; ?>
+                                                                        </td>
+                                                                        <td class="td-label">
+                                                                            <span>Body Complexian</span>
+                                                                        </td>
+                                                                        <td>
+                                                                            <?php echo $userDetails[0]['user_body_complexion']; ?>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td class="td-label">
+                                                                            <span>Blood Group</span>
+                                                                        </td>
+                                                                        <td>
+                                                                           <?php echo $userDetails[0]['user_blood_grp']; ?>                          
+                                                                       </td>
+                                                                       <td class="td-label">
+                                                                        <span>Mother Tongue</span>
+                                                                    </td>
+                                                                    <td><?php echo $userDetails[0]['user_mother_tongue']; ?>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="td-label">
+                                                                    <span>Hobbies</span>
+                                                                </td>
+                                                                <td colspan="3">
+                                                                    <?php echo $userDetails[0]['user_hobbies']; ?>
+                                                                </td>
+                                                            </tr>
+
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- view basic info div ends -->
+                                    </div>                        
+                                </div>
+                                <!-- BASIC INFO ENDS -->
+                                <!-- EDUCATIONAL and PROFESSIONAL -->
+                                <div id="section_edu_professional">
+                                  <div class="feature feature--boxed-border feature--bg-1 pt-3 pb-0 pl-3 pr-3 mb-3 border_top2x">
+                                    <!-- view education and professional div -->
+                                    <div id="view_edu_professional">
+                                        <div class="card-inner-title-wrapper pt-0">
+                                            <h3 class="card-inner-title pull-left">
+                                                Educational and Professional Information
                                             </h3>
                                         </div>
-                                        <div class="card-body pt-2" style="padding: 1rem 0.5rem;">
-                                            <!-- ABOUT ME -->
-                                            <div id="section_about_me">
-                                                <div class="feature feature--boxed-border feature--bg-1 pt-3 pb-0 pl-3 pr-3 mb-3 border_top2x">
-                                                    <!-- view about me -->
-                                                    <div id="view_about_me">
-                                                        <div class="card-inner-title-wrapper pt-0">
-                                                            <h3 class="card-inner-title pull-left">
-                                                            About Me  </h3>
-                                                        </div>
-                                                        <div class="table-full-width">
-                                                            <div class="table-full-width">
-                                                                <table class="table table-profile table-responsive table-slick">
-                                                                    <tbody>
-                                                                        <tr>
-                                                                            <td class="">
-                                                                                <?php 
-                                                                                if($userDetails[0]['user_about_me']!=''){
-                                                                                    echo $userDetails[0]['user_about_me'];
-                                                                                }
-                                                                                else{
-                                                                                    echo '<label class="w3-medium"> Not Available. </label>';
-                                                                                }
-                                                                                ?>
-                                                                            </td>
-                                                                        </tr>
-                                                                    </tbody>
-                                                                </table>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <!-- view about me ends -->
-                                                </div>                           
-                                            </div>
-                                            <!-- ABOUT ME ENDS -->
-
-                                            <!-- BASIC INFO -->
-                                            <div id="section_basic_info">
-                                                <div class="feature feature--boxed-border feature--bg-1 pt-3 pb-0 pl-3 pr-3 mb-3 border_top2x">
-                                                    <!-- view basic info div -->
-                                                    <div id="view_basic_info">
-                                                        <div class="card-inner-title-wrapper pt-0">
-                                                            <h3 class="card-inner-title pull-left">
-                                                                Basic Information  
-                                                            </h3>
-                                                        </div>
-                                                        <div class="table-full-width">
-                                                            <div class="table-full-width">
-                                                                <table class="table table-profile table-responsive table-striped table-bordered table-slick">
-                                                                    <tbody>
-                                                                        <tr>
-                                                                            <td class="td-label">
-                                                                                <span>Full Name</span>
-                                                                            </td>
-                                                                            <td colspan="3">
-                                                                                <?php echo $userDetails[0]['user_fullname']; ?>
-                                                                            </td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td class="td-label">
-                                                                                <span>Profile created by</span>
-                                                                            </td>
-                                                                            <td>
-                                                                                <?php echo $userDetails[0]['user_profile_created_by']; ?>
-                                                                            </td>
-                                                                            <td class="td-label">
-                                                                                <span>Date Of Birth</span>
-                                                                            </td>
-                                                                            <td>
-                                                                                <?php echo date('d M Y',strtotime($userDetails[0]['user_dob'])); ?>
-                                                                            </td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td class="td-label">
-                                                                                <span>Marital Status</span>
-                                                                            </td>
-                                                                            <td>
-                                                                                <?php echo $userDetails[0]['user_marital_status']; ?>
-                                                                            </td>                                                                
-                                                                            <td class="td-label">
-                                                                                <span>Number of Children</span>
-                                                                            </td>
-                                                                            <td>
-                                                                                <?php if($userDetails[0]['user_no_of_children']=='0'){ echo 'N/A';}else { echo $userDetails[0]['user_no_of_children']; } ?>
-                                                                            </td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td class="td-label">
-                                                                                <span>Height(In Feet)</span>
-                                                                            </td>
-                                                                            <td>
-                                                                                <?php echo $userDetails[0]['user_height']; ?>
-                                                                            </td>
-                                                                            <td class="td-label">
-                                                                                <span>Weight(In Kg)</span>
-                                                                            </td>
-                                                                            <td>
-                                                                                <?php echo $userDetails[0]['user_weight']; ?>
-                                                                            </td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td class="td-label">
-                                                                                <span>Body Type</span>
-                                                                            </td>
-                                                                            <td>
-                                                                                <?php echo $userDetails[0]['user_body_type']; ?>
-                                                                            </td>
-                                                                            <td class="td-label">
-                                                                                <span>Body Complexian</span>
-                                                                            </td>
-                                                                            <td>
-                                                                                <?php echo $userDetails[0]['user_body_complexion']; ?>
-                                                                            </td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td class="td-label">
-                                                                                <span>Blood Group</span>
-                                                                            </td>
-                                                                            <td>
-                                                                             <?php echo $userDetails[0]['user_blood_grp']; ?>                          
-                                                                         </td>
-                                                                         <td class="td-label">
-                                                                            <span>Mother Tongue</span>
-                                                                        </td>
-                                                                        <td><?php echo $userDetails[0]['user_mother_tongue']; ?>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td class="td-label">
-                                                                        <span>Hobbies</span>
-                                                                    </td>
-                                                                    <td colspan="3">
-                                                                        <?php echo $userDetails[0]['user_hobbies']; ?>
-                                                                    </td>
-                                                                </tr>
-
-                                                            </tbody>
-                                                        </table>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- view basic info div ends -->
-                                        </div>                        
-                                    </div>
-                                    <!-- BASIC INFO ENDS -->
-                                    <!-- EDUCATIONAL and PROFESSIONAL -->
-                                    <div id="section_edu_professional">
-                                      <div class="feature feature--boxed-border feature--bg-1 pt-3 pb-0 pl-3 pr-3 mb-3 border_top2x">
-                                        <!-- view education and professional div -->
-                                        <div id="view_edu_professional">
-                                            <div class="card-inner-title-wrapper pt-0">
-                                                <h3 class="card-inner-title pull-left">
-                                                    Educational and Professional Information
-                                                </h3>
-                                            </div>
+                                        <div class="table-full-width">
                                             <div class="table-full-width">
-                                                <div class="table-full-width">
-                                                    <table class="table table-profile table-responsive table-striped table-bordered table-slick">
-                                                        <tbody>
-                                                            <tr>
-                                                                <td class="td-label">
-                                                                    <span>Educational Field</span>
-                                                                </td>
-                                                                <td>
-                                                                    <?php echo $userDetails[0]['user_educational_field']; ?>
-                                                                </td>
-                                                                <td class="td-label">
-                                                                    <span>School/College Name</span>
-                                                                </td>
-                                                                <td>
-                                                                    <?php echo $userDetails[0]['user_school/clg_name']; ?>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td class="td-label">
-                                                                    <span>University Name</span>
-                                                                </td>
-                                                                <td>
-                                                                    <?php echo $userDetails[0]['user_university_name']; ?>
-                                                                </td>
-                                                                <td class="td-label">
-                                                                    <span>Additional Education</span>
-                                                                </td>
-                                                                <td>
-                                                                    <?php echo $userDetails[0]['user_additional_edu']; ?>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td class="td-label">
-                                                                    <span>Occupation Type</span>
-                                                                </td>
-                                                                <td>
-                                                                    <?php echo $userDetails[0]['user_occupation_type']; ?>
-                                                                </td>
-                                                                <td class="td-label">
-                                                                    <span>Working Field</span>
-                                                                </td>
-                                                                <td>
-                                                                 <?php echo $userDetails[0]['user_working_field']; ?>
-                                                             </td>
-                                                         </tr>
-                                                         <tr>
+                                                <table class="table table-profile table-responsive table-striped table-bordered table-slick">
+                                                    <tbody>
+                                                        <tr>
                                                             <td class="td-label">
-                                                                <span>Company Name</span>
+                                                                <span>Educational Field</span>
                                                             </td>
                                                             <td>
-                                                               <?php echo $userDetails[0]['user_company_name']; ?>
+                                                                <?php echo $userDetails[0]['user_educational_field']; ?>
+                                                            </td>
+                                                            <td class="td-label">
+                                                                <span>School/College Name</span>
+                                                            </td>
+                                                            <td>
+                                                                <?php echo $userDetails[0]['user_school/clg_name']; ?>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="td-label">
+                                                                <span>University Name</span>
+                                                            </td>
+                                                            <td>
+                                                                <?php echo $userDetails[0]['user_university_name']; ?>
+                                                            </td>
+                                                            <td class="td-label">
+                                                                <span>Additional Education</span>
+                                                            </td>
+                                                            <td>
+                                                                <?php echo $userDetails[0]['user_additional_edu']; ?>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="td-label">
+                                                                <span>Occupation Type</span>
+                                                            </td>
+                                                            <td>
+                                                                <?php echo $userDetails[0]['user_occupation_type']; ?>
+                                                            </td>
+                                                            <td class="td-label">
+                                                                <span>Working Field</span>
+                                                            </td>
+                                                            <td>
+                                                               <?php echo $userDetails[0]['user_working_field']; ?>
                                                            </td>
-                                                           <td class="td-label">
-                                                            <span>Designation</span>
+                                                       </tr>
+                                                       <tr>
+                                                        <td class="td-label">
+                                                            <span>Company Name</span>
                                                         </td>
                                                         <td>
-                                                          <?php echo $userDetails[0]['user_designation']; ?>                    
-                                                      </td>
-                                                  </tr>
-                                                  <tr>
-                                                    <td class="td-label">
-                                                        <span>Workplace Address</span>
-                                                    </td>
-                                                    <td colspan="3"><?php echo $userDetails[0]['user_workplace_address']; ?></td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="td-label">
-                                                        <span>Monthly Income</span>
+                                                         <?php echo $userDetails[0]['user_company_name']; ?>
+                                                     </td>
+                                                     <td class="td-label">
+                                                        <span>Designation</span>
                                                     </td>
                                                     <td>
-                                                       <?php echo $userDetails[0]['user_monthly_income']; ?>
-                                                   </td>
-                                                   <td class="td-label">
-                                                    <span>Annual Income</span>
+                                                      <?php echo $userDetails[0]['user_designation']; ?>                    
+                                                  </td>
+                                              </tr>
+                                              <tr>
+                                                <td class="td-label">
+                                                    <span>Workplace Address</span>
+                                                </td>
+                                                <td colspan="3"><?php echo $userDetails[0]['user_workplace_address']; ?></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="td-label">
+                                                    <span>Monthly Income</span>
                                                 </td>
                                                 <td>
-                                                 <?php echo $userDetails[0]['user_annual_income']; ?>                   
+                                                 <?php echo $userDetails[0]['user_monthly_income']; ?>
                                              </td>
-                                         </tr>
-                                     </tbody>
-                                 </table>
-                             </div>
-                         </div>
-                     </div>
-                     <!-- view eductaion and professional div ends -->
+                                             <td class="td-label">
+                                                <span>Annual Income</span>
+                                            </td>
+                                            <td>
+                                               <?php echo $userDetails[0]['user_annual_income']; ?>                   
+                                           </td>
+                                       </tr>
+                                   </tbody>
+                               </table>
+                           </div>
+                       </div>
+                   </div>
+                   <!-- view eductaion and professional div ends -->
 
-                 </div>
-             </div>
-             <!-- EDU and PROFESSIONAL DIV ENDS -->
-             <!-- FAMILY INFO DIV -->
-             <div id="section_family_info">
-                <div class="feature feature--boxed-border feature--bg-1 pt-3 pb-0 pl-3 pr-3 mb-3 border_top2x">
-                    <!-- view family info div -->
-                    <div id="view_family_info">
-                        <div class="card-inner-title-wrapper pt-0">
-                            <h3 class="card-inner-title pull-left">
-                              Family Information          
-                          </h3>
-                      </div>
-                      <div class="table-full-width">
-                        <div class="table-full-width">
-                            <table class="table table-profile table-responsive table-striped table-bordered table-slick">
-                                <tbody>
-                                    <tr>
-                                        <td class="td-label">
-                                            <span>Father Name</span>
-                                        </td>
-                                        <td>
-                                            <?php echo $userDetails[0]['user_father_name']; ?> 
-                                        </td>
-                                        <td class="td-label">
-                                            <span>Father Occupation</span>
-                                        </td>
-                                        <td>
-                                            <?php echo $userDetails[0]['user_father_occupation']; ?>                            
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="td-label">
-                                            <span>Mother Name</span>
-                                        </td>
-                                        <td>
-                                            <?php echo $userDetails[0]['user_mother_name']; ?>                           
-                                        </td>
-                                        <td class="td-label">
-                                            <span>Mother Occupation</span>
-                                        </td>
-                                        <td>
-                                            <?php echo $userDetails[0]['user_mother_occupation']; ?>                         
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="td-label">
-                                            <span>Country</span>
-                                        </td>
-                                        <td>
-                                            <?php echo ucfirst($userDetails[0]['user_country']); ?> 
-                                        </td>
-                                        <td class="td-label">
-                                            State
-                                        </td>
-                                        <td><?php echo $userDetails[0]['user_state']; ?> 
+               </div>
+           </div>
+           <!-- EDU and PROFESSIONAL DIV ENDS -->
+           <!-- FAMILY INFO DIV -->
+           <div id="section_family_info">
+            <div class="feature feature--boxed-border feature--bg-1 pt-3 pb-0 pl-3 pr-3 mb-3 border_top2x">
+                <!-- view family info div -->
+                <div id="view_family_info">
+                    <div class="card-inner-title-wrapper pt-0">
+                        <h3 class="card-inner-title pull-left">
+                          Family Information          
+                      </h3>
+                  </div>
+                  <div class="table-full-width">
+                    <div class="table-full-width">
+                        <table class="table table-profile table-responsive table-striped table-bordered table-slick">
+                            <tbody>
+                                <tr>
+                                    <td class="td-label">
+                                        <span>Father Name</span>
                                     </td>
-
+                                    <td>
+                                        <?php echo $userDetails[0]['user_father_name']; ?> 
+                                    </td>
+                                    <td class="td-label">
+                                        <span>Father Occupation</span>
+                                    </td>
+                                    <td>
+                                        <?php echo $userDetails[0]['user_father_occupation']; ?>                            
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td class="td-label">
-                                        <span>Native Place</span>
+                                        <span>Mother Name</span>
                                     </td>
                                     <td>
-                                        <?php echo $userDetails[0]['user_city']; ?> 
+                                        <?php echo $userDetails[0]['user_mother_name']; ?>                           
                                     </td>
                                     <td class="td-label">
-                                        Residential Address
+                                        <span>Mother Occupation</span>
                                     </td>
                                     <td>
-                                        <?php echo $userDetails[0]['user_residential_address']; ?> 
+                                        <?php echo $userDetails[0]['user_mother_occupation']; ?>                         
                                     </td>
-
                                 </tr>
                                 <tr>
                                     <td class="td-label">
-                                       Contact number 1
-                                   </td>
-                                   <td>
-                                    <?php echo $userDetails[0]['user_contact_no1']; ?> 
+                                        <span>Country</span>
+                                    </td>
+                                    <td>
+                                        <?php echo ucfirst($userDetails[0]['user_country']); ?> 
+                                    </td>
+                                    <td class="td-label">
+                                        State
+                                    </td>
+                                    <td><?php echo $userDetails[0]['user_state']; ?> 
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td class="td-label">
+                                    <span>Native Place</span>
+                                </td>
+                                <td>
+                                    <?php echo $userDetails[0]['user_city']; ?> 
                                 </td>
                                 <td class="td-label">
-                                   Contact number 2
-                               </td>
-                               <td>
-                                <?php echo $userDetails[0]['user_contact_no2']; ?> 
+                                    Residential Address
+                                </td>
+                                <td>
+                                    <?php echo $userDetails[0]['user_residential_address']; ?> 
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td class="td-label">
+                                 Contact number 1
+                             </td>
+                             <td>
+                                <?php echo $userDetails[0]['user_contact_no1']; ?> 
                             </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+                            <td class="td-label">
+                             Contact number 2
+                         </td>
+                         <td>
+                            <?php echo $userDetails[0]['user_contact_no2']; ?> 
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
-    <!-- view family info div ends -->
+</div>
+<!-- view family info div ends -->
 </div>
 </div>
 <!-- FAMILY INFO DIV -->
@@ -903,14 +912,14 @@
                                         <span>Relation with Me</span>
                                     </td>
                                     <td>
-                                       <?php echo $relativeArr[$i]['relative_relation']; ?>
-                                   </td>
-                               </tr>
-                               <tr>
+                                     <?php echo $relativeArr[$i]['relative_relation']; ?>
+                                 </td>
+                             </tr>
+                             <tr>
                                 <td class="td-label">
-                                   Contact number
-                               </td>
-                               <td>
+                                 Contact number
+                             </td>
+                             <td>
                                 <?php echo $relativeArr[$i]['relative_contact']; ?>
                             </td>
                             <td class="td-label">
@@ -968,6 +977,7 @@
 </div>
 </div>
 </div>
+<?php } ?>
 </div>
 </div>
 </div>

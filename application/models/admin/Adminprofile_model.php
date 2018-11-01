@@ -31,4 +31,15 @@ class Adminprofile_model extends CI_Model {
         }
     }
 
+    // get admin mailid
+    public function getAdminEmail() {
+        $sql = "SELECT admin_email FROM admin_tab";
+        $result = $this->db->query($sql);
+        if ($result->num_rows() <= 0) {
+            return false;
+        } else {
+            return $result->result_array();
+        }
+    }
+
 }

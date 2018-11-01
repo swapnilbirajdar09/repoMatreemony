@@ -2,7 +2,7 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class My_stats extends CI_Controller {
+class My_requests extends CI_Controller {
 
     // Login controller
     public function __construct() {

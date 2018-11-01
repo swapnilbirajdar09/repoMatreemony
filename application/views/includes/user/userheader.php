@@ -249,8 +249,8 @@
                                                         </ul>
                                                     </li>
                                                     <li class="custom-nav">
-                                                        <a class="nav-link <?php if($url=='requests'){ echo 'nav_active'; } ?>" href="<?php echo base_url(); ?>user/requests/my_stats" aria-haspopup="true" aria-expanded="false" style="margin-right: 5px">
-                                                        My Stats</a>
+                                                        <a class="nav-link <?php if($url=='requests'){ echo 'nav_active'; } ?>" href="<?php echo base_url(); ?>user/requests/my_requests" aria-haspopup="true" aria-expanded="false" style="margin-right: 5px">
+                                                        My Requests</a>
                                                     </li>
                                                 </ul>
                                             </div>
