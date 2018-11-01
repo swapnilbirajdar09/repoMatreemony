@@ -176,7 +176,7 @@ class Allusers_model extends CI_Model {
 
     // check documents uploaded count
     public function getDocumentsCount($user_id) {
-        $query = "SELECT COUNT(user_id) as docs FROM document_tab WHERE user_id ='$user_id'";
+        $query = "SELECT COUNT(user_id) as docs FROM document_tab WHERE user_id ='$user_id' AND status=1";
         $result = $this->db->query($query);
         $count = '0';
         // if no db errors

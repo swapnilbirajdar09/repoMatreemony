@@ -45,7 +45,17 @@ class User_profile extends CI_Controller {
         $this->load->view('pages/user/User_profile.php',$data); //------user profile page
         $this->load->view('includes/user/userfooter.php'); //------user footer page
     }
-    
+    public function demo(){
+        require(APPPATH.'/third_party/phpToPDF.php');
+              //Set Your Options -- see documentation for all options
+    $pdf_options = array(
+          "source_type" => 'url',
+          "source" => base_url().'user/full_profile/MTI=',
+          "action" => 'save');
+
+    //Code to generate PDF file from options above
+    phptopdf($pdf_options);
+    }
     // update function for About me section
 // --------------------------------------------------------------- //
     public function update_about_me(){
