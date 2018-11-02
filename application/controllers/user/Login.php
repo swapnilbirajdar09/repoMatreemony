@@ -31,6 +31,12 @@ class Login extends CI_Controller {
             // failure scope
             echo 'false';
         } else {
+
+            if($result=='deactivated'){
+                echo 'deactivated';
+                die();
+            }
+
             // success scope
             $resultArr=explode('|', $result);
             //----create session array--------//

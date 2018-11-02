@@ -15,9 +15,15 @@ class Userlogin_model extends CI_Model {
         } else {
             $user_id='';
             $user_gender='';
+            $status='';
             foreach ($result->result_array() as $key) {
                 $user_id = $key['user_id'];
                 $user_gender = $key['user_gender'];
+                $status = $key['user_status'];
+            }
+            if($status=='0'){
+                return 'deactivated';
+                    die();
             }
 
             // update login time

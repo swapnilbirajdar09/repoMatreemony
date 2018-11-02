@@ -52,7 +52,10 @@
                                         <div class="col-sm-12">
                                             <div class="form-group has-feedback">
                                                 <label for="" class="text-uppercase w3-medium w3-text-black">Profile Id</label>
-                                                <input type="text" class="w3-input" name="filter_member_id" ng-model="filter_member_id" id="filter_member_id" value="" placeholder="Enter Profile Id">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon">BPARI#</span>
+                                                    <input type="text" class="w3-input" name="filter_member_id" ng-model="filter_member_id" id="filter_member_id" value="" placeholder="Enter Profile Id">
+                                                </div>
                                                 <div class="help-block with-errors">
                                                 </div>
                                             </div>
@@ -112,99 +115,99 @@
                                     </tbody>
                                 </table>
                                 <!--                            <div class="block-footer b-xs-top">-->
-                                <div class="row align-items-center">
-                                    <div class="col-sm-12 text-center">
-                                        <ul class="inline-links inline-links--style-3">
-                                            <li class="listing-hover" ng-if="p.alreadySent == '0'">
-                                                <a ng-click="sendRequestToUser(p.user_id);" title="Send Request">
-                                                    <span id="" class="w3-text-green"><i class="fa fa-user-plus "></i> Send Request</span></a>
-                                            </li>
-                                            <li class="listing-hover" ng-if="p.alreadySent != '0'">
-                                                <a ng-click="cancelRequestOfUser(p.user_id);" title="Cancel Request">
-                                                    <span id="" class="w3-text-red"><i class="fa fa-user-plus w3-text-red"></i> Cancel Request</span></a>
-                                            </li>
+                                    <div class="row align-items-center">
+                                        <div class="col-sm-12 text-center">
+                                            <ul class="inline-links inline-links--style-3">
+                                                <li class="listing-hover" ng-if="p.alreadySent == '0'">
+                                                    <a ng-click="sendRequestToUser(p.user_id);" title="Send Request">
+                                                        <span id="" class="w3-text-green"><i class="fa fa-user-plus "></i> Send Request</span></a>
+                                                    </li>
+                                                    <li class="listing-hover" ng-if="p.alreadySent != '0'">
+                                                        <a ng-click="cancelRequestOfUser(p.user_id);" title="Cancel Request">
+                                                            <span id="" class="w3-text-red"><i class="fa fa-user-plus w3-text-red"></i> Cancel Request</span></a>
+                                                        </li>
                                             <!--                                        <li class="listing-hover">
                                                                                         <a onclick="return goto_profile(p.user_id)">
                                                                                             <i class="fa fa-id-card"></i>Full Profile</a>
-                                                                                    </li>-->
-                                            <li class="listing-hover" ng-if="p.alreadyfollowed == '0'">
-                                                <a id="interest_a_1" ng-click="followUserProfile(p.user_id);" title="Follow This Profile" style="">
-                                                    <span id="interest_1" class="w3-text-blue"><i class="fa fa-heart"></i> Add To Favourite</span>
-                                                </a>
-                                            </li>
-                                            <li class="listing-hover" ng-if="p.alreadyfollowed != '0'">
-                                                <a id="interest_a_1" ng-click="unFollowUserProfile(p.user_id);" title="UnFollow This Profile" style="">
-                                                    <span id="interest_1" class="w3-text-pink"><i class="fa fa-heart"></i> Favourite</span>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <!--                            </div>-->
-                            </div>
+                                                                                        </li>-->
+                                                                                        <li class="listing-hover" ng-if="p.alreadyfollowed == '0'">
+                                                                                            <a id="interest_a_1" ng-click="followUserProfile(p.user_id);" title="Follow This Profile" style="">
+                                                                                                <span id="interest_1" class="w3-text-blue"><i class="fa fa-heart"></i> Add To Favourite</span>
+                                                                                            </a>
+                                                                                        </li>
+                                                                                        <li class="listing-hover" ng-if="p.alreadyfollowed != '0'">
+                                                                                            <a id="interest_a_1" ng-click="unFollowUserProfile(p.user_id);" title="UnFollow This Profile" style="">
+                                                                                                <span id="interest_1" class="w3-text-pink"><i class="fa fa-heart"></i> Favourite</span>
+                                                                                            </a>
+                                                                                        </li>
+                                                                                    </ul>
+                                                                                </div>
+                                                                            </div>
+                                                                            <!--                            </div>-->
+                                                                        </div>
 
-                        </div>
+                                                                    </div>
 
-                    </div>
-                    <!-----------------------------this Div is for single user profile---------------------------------->
-                    <div class=" w3-center w3-padding list z-depth-1-top" ng-if="profiles == 500" id="block_1">
-                        <div class="w3-padding w3-margin-top">
-                            <p class="w3-center w3-medium w3-text-black"> No Match Found..! </p>
-                        </div>
-                    </div>
+                                                                </div>
+                                                                <!-----------------------------this Div is for single user profile---------------------------------->
+                                                                <div class=" w3-center w3-padding list z-depth-1-top" ng-if="profiles == 500" id="block_1">
+                                                                    <div class="w3-padding w3-margin-top">
+                                                                        <p class="w3-center w3-medium w3-text-black"> No Match Found..! </p>
+                                                                    </div>
+                                                                </div>
 
-                </div>
-                <!-----------------------------this Div is for all users profiles---------------------------------->
-                <div id="pagination" class="" style="float: right;">
-                    <!-- Loads Ajax Pagination Links -->
-                    <dir-pagination-controls max-size="5" direction-links="true" boundary-links="true" style="padding: 5px;"></dir-pagination-controls>
-                </div>
-            </div>
+                                                            </div>
+                                                            <!-----------------------------this Div is for all users profiles---------------------------------->
+                                                            <div id="pagination" class="" style="float: right;">
+                                                                <!-- Loads Ajax Pagination Links -->
+                                                                <dir-pagination-controls max-size="5" direction-links="true" boundary-links="true" style="padding: 5px;"></dir-pagination-controls>
+                                                            </div>
+                                                        </div>
 
-        </div>
-    </div>
-</section>
-<style>
-    /* xs */
-    .size-sm {
-        display: none;
-    }
-    .size-sm-btn {
-        display: block;
-    }
-    /* sm */
-    @media (min-width: 768px) {
-        .size-sm {
-            display: none;
-        }
-        .size-sm-btn {
-            display: block;
-        }
-    }
-    /* md */
-    @media (min-width: 992px) {
-        .size-sm {
-            display: block;
-        }
-        .size-sm-btn {
-            display: none;
-        }
-    }
-    /* lg */
-    @media (min-width: 1200px) {
-        .size-sm {
-            display: block;
-        }
-        .size-sm-btn {
-            display: none;
-        }
-    }
-</style>
-<!--<script src="<?php echo base_url(); ?>assets/js/module/user/search/profileSearchById.js">-->
-<script>
+                                                    </div>
+                                                </div>
+                                            </section>
+                                            <style>
+                                            /* xs */
+                                            .size-sm {
+                                                display: none;
+                                            }
+                                            .size-sm-btn {
+                                                display: block;
+                                            }
+                                            /* sm */
+                                            @media (min-width: 768px) {
+                                                .size-sm {
+                                                    display: none;
+                                                }
+                                                .size-sm-btn {
+                                                    display: block;
+                                                }
+                                            }
+                                            /* md */
+                                            @media (min-width: 992px) {
+                                                .size-sm {
+                                                    display: block;
+                                                }
+                                                .size-sm-btn {
+                                                    display: none;
+                                                }
+                                            }
+                                            /* lg */
+                                            @media (min-width: 1200px) {
+                                                .size-sm {
+                                                    display: block;
+                                                }
+                                                .size-sm-btn {
+                                                    display: none;
+                                                }
+                                            }
+                                        </style>
+                                        <!--<script src="<?php echo base_url(); ?>assets/js/module/user/search/profileSearchById.js">-->
+                                            <script>
 // Angular script to add required skills in ad product form
-    var app = angular.module("searchProfileByIdApp", ['ngSanitize', 'angularUtils.directives.dirPagination']);
-    app.controller("searchProfileByIdAppController", function ($scope, $http, $window, $interval) {
+var app = angular.module("searchProfileByIdApp", ['ngSanitize', 'angularUtils.directives.dirPagination']);
+app.controller("searchProfileByIdAppController", function ($scope, $http, $window, $interval) {
 //------------------------------------------------------------------------------------------------------//
 
 <?php
@@ -213,28 +216,28 @@ $key = base64_decode($encodedkey);
 $keyarr = explode('|', $key);
 $session_user_id = $keyarr[2];
 ?>
-        $scope.profiles = [];
-        var myFollowers;
-        var session_user_id = <?php echo $session_user_id; ?>;
+$scope.profiles = [];
+var myFollowers;
+var session_user_id = <?php echo $session_user_id; ?>;
 
 // ------------get User Profile Details controller--------------
-        $scope.searchByProfile_id = function () {
-            $scope.finderloader = true;
-            $http({
-                method: 'get',
-                url: BASE_URL + 'user/search/profilesearch_byid/searchByProfile_id?filter_member_id=' + $scope.filter_member_id
-            }).then(function successCallback(response) {
-                var data = response.data;
-                $scope.profiles = [];
-                var i, j, user_profile_image, user_photos, alreadyfollowed, followers, firstname, user_location, alreadySent, receivedReq, birthday, today, user_fullname, user_designation, user_mother_tongue, user_marital_status, age, newAge, totage;
-                console.log(data);
-                $scope.finderloader = false;
-                if (data != 500) {
-                    for (i = 0; i < data.length; i++) {
-                        alreadySent = 0;
-                        receivedReq = 0;
-                        alreadyfollowed = 0;
-                        followers = 0;
+$scope.searchByProfile_id = function () {
+    $scope.finderloader = true;
+    $http({
+        method: 'get',
+        url: BASE_URL + 'user/search/profilesearch_byid/searchByProfile_id?filter_member_id=' + $scope.filter_member_id
+    }).then(function successCallback(response) {
+        var data = response.data;
+        $scope.profiles = [];
+        var i, j, user_profile_image, user_photos, alreadyfollowed, followers, firstname, user_location, alreadySent, receivedReq, birthday, today, user_fullname, user_designation, user_mother_tongue, user_marital_status, age, newAge, totage;
+        console.log(data);
+        $scope.finderloader = false;
+        if (data != 500) {
+            for (i = 0; i < data.length; i++) {
+                alreadySent = 0;
+                receivedReq = 0;
+                alreadyfollowed = 0;
+                followers = 0;
 
                         //-----------check the received requests are null or not null
                         if (data[i].user_received_requests != '') {
@@ -340,12 +343,12 @@ $session_user_id = $keyarr[2];
                 }
 
             });
-        };
+};
 
         // ------------get User Details controller--------------
 //        $scope.reload = function () {
-        $http.get(BASE_URL + "user/search/profilesearch_byid/getAllUserProfiles").then(function (response) {
-            var data = response.data;
+    $http.get(BASE_URL + "user/search/profilesearch_byid/getAllUserProfiles").then(function (response) {
+        var data = response.data;
             //alert(data);
             var i, j, user_photos, alreadyfollowed, followers, firstname, user_location, alreadySent, receivedReq, birthday, today, user_fullname, user_designation, user_mother_tongue, user_marital_status, age, newAge, totage;
             console.log(data);
@@ -458,7 +461,7 @@ $session_user_id = $keyarr[2];
         });
 
 
-        $scope.reload = function () {
+$scope.reload = function () {
             //alert($scope.myFollowers);
             //$scope.getUserFollows();
             $http.get(BASE_URL + "user/search/profilesearch_byid/getAllUserProfiles").then(function (response) {
@@ -578,162 +581,162 @@ $session_user_id = $keyarr[2];
                 }
 
             });
-        };
+};
 
 
 //------------fun for Send the request of user-----------------------------//
-        $scope.sendRequestToUser = function (user_id) {
-            $.confirm({
-                title: '<h4 class="w3-text-green">Please confirm the action!</h4><span class="w3-medium">Do you really want to Send Request?</span>',
-                content: '',
-                type: 'red',
-                buttons: {
-                    confirm: function () {
-                        $http({
-                            method: 'get',
-                            url: BASE_URL + "user/search/profilesearch_byid/sendRequestToUser?profile_user_id=" + user_id
-                        }).then(function successCallback(response) {
-                            console.log(response.data);
+$scope.sendRequestToUser = function (user_id) {
+    $.confirm({
+        title: '<h4 class="w3-text-green">Please confirm the action!</h4><span class="w3-medium">Do you really want to Send Request?</span>',
+        content: '',
+        type: 'red',
+        buttons: {
+            confirm: function () {
+                $http({
+                    method: 'get',
+                    url: BASE_URL + "user/search/profilesearch_byid/sendRequestToUser?profile_user_id=" + user_id
+                }).then(function successCallback(response) {
+                    console.log(response.data);
                             //alert(response.data);
                             switch (response.data) {
                                 case '200':
-                                    $('#ajax_success_alert').show();
-                                    $('.ajax_success_alert').html('Request Sent Successfully.');
-                                    setTimeout(function () {
-                                        $('.alert_message').fadeOut('fast');
-                                    }, 5000);
-                                    break;
+                                $('#ajax_success_alert').show();
+                                $('.ajax_success_alert').html('Request Sent Successfully.');
+                                setTimeout(function () {
+                                    $('.alert_message').fadeOut('fast');
+                                }, 5000);
+                                break;
 
                                 case '500':
-                                    $('#ajax_danger_alert').show();
-                                    $('.ajax_danger_alert').html('Request Not Sent Successfully.');
-                                    setTimeout(function () {
-                                        $('.alert_message').fadeOut('fast');
-                                    }, 5000);
-                                    break;
+                                $('#ajax_danger_alert').show();
+                                $('.ajax_danger_alert').html('Request Not Sent Successfully.');
+                                setTimeout(function () {
+                                    $('.alert_message').fadeOut('fast');
+                                }, 5000);
+                                break;
 
                                 case '700':
-                                    $('#ajax_validation_alert').show();
-                                    $('.ajax_validation_alert').html('No Request Tockens Are Available.');
-                                    setTimeout(function () {
-                                        $('.alert_message').fadeOut('fast');
-                                    }, 5000);
-                                    break;
+                                $('#ajax_validation_alert').show();
+                                $('.ajax_validation_alert').html('No Request Tockens Are Available.');
+                                setTimeout(function () {
+                                    $('.alert_message').fadeOut('fast');
+                                }, 5000);
+                                break;
 
                                 case '900':
-                                    $('#ajax_validation_alert').show();
-                                    $('.ajax_validation_alert').html('Request Is Already Sent You By The Receiver.');
-                                    setTimeout(function () {
-                                        $('.alert_message').fadeOut('fast');
-                                    }, 5000);
-                                    break;
+                                $('#ajax_validation_alert').show();
+                                $('.ajax_validation_alert').html('Request Is Already Sent You By The Receiver.');
+                                setTimeout(function () {
+                                    $('.alert_message').fadeOut('fast');
+                                }, 5000);
+                                break;
 
                             }
                             $scope.reload();
                         });
-                    },
-                    cancel: function () {
-                    }
-                }
-            });
-        };
+            },
+            cancel: function () {
+            }
+        }
+    });
+};
 
 //------------fun for cancel the request of user-------------------------//
-        $scope.cancelRequestOfUser = function (user_id) {
-            $.confirm({
-                title: '<h4 class="w3-text-red">Please confirm the action!</h4><span class="w3-medium">Do you really want to Cancel Request?</span>',
-                content: '',
-                type: 'red',
-                buttons: {
-                    confirm: function () {
-                        $http({
-                            method: 'get',
-                            url: BASE_URL + "user/search/profilesearch_byid/cancelRequestOfUser?profile_user_id=" + user_id
-                        }).then(function successCallback(response) {
-                            console.log(response.data);
+$scope.cancelRequestOfUser = function (user_id) {
+    $.confirm({
+        title: '<h4 class="w3-text-red">Please confirm the action!</h4><span class="w3-medium">Do you really want to Cancel Request?</span>',
+        content: '',
+        type: 'red',
+        buttons: {
+            confirm: function () {
+                $http({
+                    method: 'get',
+                    url: BASE_URL + "user/search/profilesearch_byid/cancelRequestOfUser?profile_user_id=" + user_id
+                }).then(function successCallback(response) {
+                    console.log(response.data);
                             //alert(response.data);
                             switch (response.data) {
                                 case '200':
-                                    $('#ajax_success_alert').show();
-                                    $('.ajax_success_alert').html('Request Cancellation Successful.');
-                                    setTimeout(function () {
-                                        $('.alert_message').fadeOut('fast');
-                                    }, 5000);
-                                    break;
+                                $('#ajax_success_alert').show();
+                                $('.ajax_success_alert').html('Request Cancellation Successful.');
+                                setTimeout(function () {
+                                    $('.alert_message').fadeOut('fast');
+                                }, 5000);
+                                break;
 
                                 case '500':
-                                    $('#ajax_danger_alert').show();
-                                    $('.ajax_danger_alert').html('Request Cancellation Failed.');
-                                    setTimeout(function () {
-                                        $('.alert_message').fadeOut('fast');
-                                    }, 5000);
-                                    break;
+                                $('#ajax_danger_alert').show();
+                                $('.ajax_danger_alert').html('Request Cancellation Failed.');
+                                setTimeout(function () {
+                                    $('.alert_message').fadeOut('fast');
+                                }, 5000);
+                                break;
                             }
                             $scope.reload();
                         });
-                    },
-                    cancel: function () {
-                    }
-                }
-            });
-        };
-
-
-        $scope.followUserProfile = function (user_id) {
-            $http({
-                method: 'get',
-                url: BASE_URL + "user/search/profilesearch_byid/followUserProfile?profile_user_id=" + user_id
-            }).then(function successCallback(response) {
-                console.log(response.data);
-                //alert(response.data);
-                switch (response.data) {
-                    case '200':
-                        $('#ajax_success_alert').show();
-                        $('.ajax_success_alert').html('User Successfully Added to Your Favourite list.');
-                        setTimeout(function () {
-                            $('.alert_message').fadeOut('fast');
-                        }, 5000);
-                        break;
-
-                    case '500':
-                        $('#ajax_danger_alert').show();
-                        $('.ajax_danger_alert').html('Following Request Failed.');
-                        setTimeout(function () {
-                            $('.alert_message').fadeOut('fast');
-                        }, 5000);
-                        break;
-                }
-                $scope.reload();
-            });
-        };
-
-        $scope.unFollowUserProfile = function (user_id) {
-            $http({
-                method: 'get',
-                url: BASE_URL + "user/search/profilesearch_byid/unFollowUserProfile?profile_user_id=" + user_id
-            }).then(function successCallback(response) {
-                console.log(response.data);
-                //alert(response.data);
-                switch (response.data) {
-                    case '200':
-                        $('#ajax_success_alert').show();
-                        $('.ajax_success_alert').html('User Successfully Removed From Favourite list.');
-                        setTimeout(function () {
-                            $('.alert_message').fadeOut('fast');
-                        }, 5000);
-                        break;
-
-                    case '500':
-                        $('#ajax_danger_alert').show();
-                        $('.ajax_danger_alert').html('UnFollow Request Failed.');
-                        setTimeout(function () {
-                            $('.alert_message').fadeOut('fast');
-                        }, 5000);
-                        break;
-                }
-                $scope.reload();
-            });
-        };
-
+            },
+            cancel: function () {
+            }
+        }
     });
+};
+
+
+$scope.followUserProfile = function (user_id) {
+    $http({
+        method: 'get',
+        url: BASE_URL + "user/search/profilesearch_byid/followUserProfile?profile_user_id=" + user_id
+    }).then(function successCallback(response) {
+        console.log(response.data);
+                //alert(response.data);
+                switch (response.data) {
+                    case '200':
+                    $('#ajax_success_alert').show();
+                    $('.ajax_success_alert').html('User Successfully Added to Your Favourite list.');
+                    setTimeout(function () {
+                        $('.alert_message').fadeOut('fast');
+                    }, 5000);
+                    break;
+
+                    case '500':
+                    $('#ajax_danger_alert').show();
+                    $('.ajax_danger_alert').html('Following Request Failed.');
+                    setTimeout(function () {
+                        $('.alert_message').fadeOut('fast');
+                    }, 5000);
+                    break;
+                }
+                $scope.reload();
+            });
+};
+
+$scope.unFollowUserProfile = function (user_id) {
+    $http({
+        method: 'get',
+        url: BASE_URL + "user/search/profilesearch_byid/unFollowUserProfile?profile_user_id=" + user_id
+    }).then(function successCallback(response) {
+        console.log(response.data);
+                //alert(response.data);
+                switch (response.data) {
+                    case '200':
+                    $('#ajax_success_alert').show();
+                    $('.ajax_success_alert').html('User Successfully Removed From Favourite list.');
+                    setTimeout(function () {
+                        $('.alert_message').fadeOut('fast');
+                    }, 5000);
+                    break;
+
+                    case '500':
+                    $('#ajax_danger_alert').show();
+                    $('.ajax_danger_alert').html('UnFollow Request Failed.');
+                    setTimeout(function () {
+                        $('.alert_message').fadeOut('fast');
+                    }, 5000);
+                    break;
+                }
+                $scope.reload();
+            });
+};
+
+});
 </script>

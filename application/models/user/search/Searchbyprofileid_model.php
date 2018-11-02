@@ -12,9 +12,9 @@ class Searchbyprofileid_model extends CI_Model {
         if ($filter_member_id == 'undefined') {
             $sql = "SELECT * FROM user_profile_tab,user_tab where user_tab.user_id = user_profile_tab.user_id AND user_tab.user_gender !='$gender' ORDER BY user_tab.user_id DESC ";
         } else {
-            $sql = "SELECT * FROM user_profile_tab,user_tab where user_tab.user_id = user_profile_tab.user_id AND user_tab.user_gender !='$gender' AND user_profile_key='$filter_member_id' ORDER BY user_tab.user_id DESC";
+            $sql = "SELECT * FROM user_profile_tab,user_tab where user_tab.user_id = user_profile_tab.user_id AND user_tab.user_gender !='$gender' AND user_profile_tab.user_profile_key='BPARI#".$filter_member_id."' ORDER BY user_tab.user_id DESC";
         }
-        //echo $sql;die();
+        // echo $sql;die();
         $result = $this->db->query($sql);
         if ($result->num_rows() <= 0) {
             return false;

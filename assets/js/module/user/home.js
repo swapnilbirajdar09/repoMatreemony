@@ -9,7 +9,7 @@ loginApp.controller('loginController', function ($scope, $http, $timeout, $windo
     $scope.loginMessage = '';
     // spinner on button
     $scope.loginDisable = "true";
-    $scope.loginBtnText = "<i class='fa fa-circle-o-notch fa-spin'></i> Authenticating user";
+    $scope.loginBtnText = "<i class='fa fa-circle-o-notch fa-spin'></i> Authenticating";
 
     $timeout(function () {
       $http({
@@ -18,18 +18,22 @@ loginApp.controller('loginController', function ($scope, $http, $timeout, $windo
         headers: {'Content-Type': 'application/json'},
         data: JSON.stringify({login_email_id: $scope.login_email_id, login_password: $scope.login_password})
       }).then(function (data) {
-        // console.log(data.data);
+        if(data.data=='deactivated'){
+          $scope.loginMessage = '<p class="w3-text-white w3-red"><i class="fa fa-warning"></i> Your account has been deactivated! Please contact Administrator for more details. </p>';
+          return false;
+        }
         if (data.data == 'true') {
           $scope.loginMessage = '<p class="w3-text-white w3-green"><i class="fa fa-check"></i> Login successfull. </p>';
           $window.location.href = BASE_URL + 'user/dashboard';
-        } else {
+        }
+        else {
           $scope.loginMessage = '<p class="w3-text-white w3-red"><i class="fa fa-warning"></i> Email or Password is incorrect ! </p>';
         }
 
       });
       $scope.loginBtnText = "<i class='fa fa-lock'></i> Log In";
       $scope.loginDisable = "false";
-    }, 2000);
+    }, 1000);
 
   };
 });
