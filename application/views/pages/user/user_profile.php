@@ -1136,6 +1136,11 @@
                                 <?php echo $country[$i]['name']; ?>
                             </option>
                         <?php } ?>
+                        <?php for ($i = 0; $i < count($country); $i++) { ?>
+                                                        <option value="<?php echo $country[$i]['name'] . '/' . $country[$i]['id']; ?>">
+                                                            <?php echo $country[$i]['name']; ?>
+                                                        </option>
+                                                    <?php } ?>
                     </select>
 
                     <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
