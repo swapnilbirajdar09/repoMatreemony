@@ -222,11 +222,11 @@ a.socialIcon:hover, .socialHoverClass {
     <div class="page-title text-center">
      <!-- <img src="<?php echo base_url(); ?>assets/client/uploads/header_logo/logo.jpeg" alt="About Logo"> -->
      <div class="space-20"></div>
-     <h5 class="title">About Parinaay</h5>
+     <h5 class="title">About Buddhist Parinaay</h5>
      <div class="space-30"></div>
-     <h3 class="blue-color">A beautiful app for consectetur adipisicing elit, sed do eiusmod tempor incididunt ut mollit anim id est laborum. Sedut perspiciatis unde omnis. </h3>
+  <h3 class="blue-color">A Successful Marriage Requires Falling In Love Many Times, Always With Same Person.</h3>
      <div class="space-20"></div>
-     <p>Lorem ipsum dolor sit amet, consectetur adipiing elit, sed do eiusmod tempor incididunt ut labore et laborused sed do eiusmod tempor incididunt ut labore et laborused.</p>
+     <p>We Make Them Meet , Love Brings Them Together.</p>
    </div>
  </div>
 </div>
@@ -245,7 +245,8 @@ a.socialIcon:hover, .socialHoverClass {
      <h3 class="dark-color wow fadeInUp hidden-md" data-wow-delay="0.4s">Great Matchmaking Ever</h3>
      <div class="space-20 "></div>
      <div class="desc wow fadeInUp hidden-md" data-wow-delay="0.6s">
-      <p>Lorem ipsum dolor sit amet, consectetur adipiing elit, sed do eiusmod tempor incididunt ut labore et laborused sed do eiusmod tempor incididunt ut labore et laborused.</p>
+      <p>Our Mission is to provide a pleasant and superior matchmaking experience to our Brides and Grooms to 
+      meet their prospective life partners along with protecting their privacy and security.</p>
     </div>
     <div class="space-50 hidden-md"></div>
     <a href="<?php echo base_url();?>user/about_us" class="bttn-default wow fadeInUp" data-wow-delay="0.8s">Learn More</a>
@@ -258,7 +259,8 @@ a.socialIcon:hover, .socialHoverClass {
    <h3 class="dark-color wow fadeInUp w3-text-white" data-wow-delay="0.4s">Great Matchmaking Ever</h3>
    <div class="space-20"></div>
    <div class="desc wow fadeInUp" data-wow-delay="0.6s">
-    <p>Lorem ipsum dolor sit amet, consectetur adipiing elit, sed do eiusmod tempor incididunt ut labore et laborused sed do eiusmod tempor incididunt ut labore et laborused.</p>
+    <p>Our Mission is to provide a pleasant and superior matchmaking experience to our Brides and Grooms to 
+      meet their prospective life partners along with protecting their privacy and security.</p>
   </div>
   <div class="space-50"></div>
   <a href="<?php echo base_url();?>user/about_us" class="bttn-default wow fadeInUp" data-wow-delay="0.8s">Learn More</a>
@@ -275,7 +277,7 @@ a.socialIcon:hover, .socialHoverClass {
     <div class="page-title text-center">
      <div class="space-80 hidden-lg "></div>
      <h5 class="title">Our Pillars</h5>
-     <h3 class="dark-color">People who raised "PARINAAY"</h3>
+     <h3 class="dark-color">People who raised "BUDDHIST PARINAAY"</h3>
      <div class="space-60"></div>
    </div>
  </div>
@@ -283,7 +285,7 @@ a.socialIcon:hover, .socialHoverClass {
 <div class="row">
  <div class="col-md-6 col-xs-12">
   <div class="w3-col m6 w3-center w3-padding-large">
-   <img src="<?php echo base_url(); ?>assets/demo/images/profile_1.jpg" class="w3-round w3-image w3-opacity w3-hover-opacity-off" alt="Photo of Me" width="500" height="333">
+   <img src="<?php echo base_url(); ?>assets/demo/images/piller_vidya.jpg" class="w3-round w3-image w3-opacity w3-hover-opacity-off" alt="Photo of Me" width="500" height="333">
    <div class="col-md-12  w3-padding-top">
     <ul class="social-network social-circle">
 
@@ -297,7 +299,7 @@ a.socialIcon:hover, .socialHoverClass {
 
 
 <div class="w3-col m6  w3-padding-large">
- <p style="line-height: 25px">I am lorem ipsum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure</p>
+ <p style="line-height: 25px; text-align: justify;"> In this journey of Buddhist Parinay our Main Supporter and Counselor is Mrs. Vidya Sunil Taware. We are thankful to her for help and guidance which is valuable to us.</p>
  <a href="<?php echo base_url();?>user/pillars/pillar_1" class="read-more">Read More</a>
 </div>
 </div>
@@ -315,52 +317,11 @@ a.socialIcon:hover, .socialHoverClass {
  </div>
 </div>
 <div class="w3-col m6  w3-padding-large">
- <p style="line-height: 25px">I am lorem ipsum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure</p>
+ <p style="line-height: 25px;text-align: justify;">I am lorem ipsum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure</p>
  <a href="<?php echo base_url();?>user/pillars/pillar_2" class="read-more">Read More</a>
 </div>
 </div>
-            <!--     <div class="col-xs-12 col-sm-6 col-md-4">
-                    <article class="post-single" style="padding: 0">
-                        <figure class="post-media" style="margin: 0">
-                            <img src="<?php echo base_url(); ?>assets/demo/images/profile_1.jpg" alt="">
-                        </figure>
-                        <div class="post-body" style="padding:0 30px 10px 30px">
-                            <h4 class="dark-color" style="margin: 10px 0 8px 0"><a href="single.html">Person Name</a></h4>
-
-                            <p style="line-height: 25px">Duis aute irure dolor in reprehenderit in voluptate velit esse
-                            cillum dolore eu fugiat nulla pariatur.</p>
-                            <a href="single.html" class="read-more">Know More</a>
-                        </div>
-                    </article>
-                </div>
-                <div class="col-xs-12 col-sm-6 col-md-4">
-                    <article class="post-single" style="padding: 0">
-                        <figure class="post-media" style="margin: 0">
-                            <img src="<?php echo base_url(); ?>assets/demo/images/profile_1.jpg" alt="">
-                        </figure>
-                        <div class="post-body" style="padding:0 30px 10px 30px">
-                            <h4 class="dark-color" style="margin: 10px 0 8px 0"><a href="single.html">Person Name</a></h4>
-
-                            <p style="line-height: 25px">Duis aute irure dolor in reprehenderit in voluptate velit esse
-                            cillum dolore eu fugiat nulla pariatur.</p>
-                            <a href="single.html" class="read-more">Know More</a>
-                        </div>
-                    </article>
-                  </div> -->
-              <!--   <div class="col-xs-12 col-sm-6 col-md-4">
-                    <article class="post-single" style="padding: 0">
-                        <figure class="post-media" style="margin: 0">
-                            <img src="<?php echo base_url(); ?>assets/demo/images/profile_1.jpg" alt="">
-                        </figure>
-                        <div class="post-body" style="padding:0 30px 10px 30px">
-                            <h4 class="dark-color" style="margin: 10px 0 8px 0"><a href="single.html">Person Name</a></h4>
-
-                            <p style="line-height: 25px">Duis aute irure dolor in reprehenderit in voluptate velit esse
-                            cillum dolore eu fugiat nulla pariatur.</p>
-                            <a href="single.html" class="read-more">Know More</a>
-                        </div>
-                    </article>
-                  </div> -->
+            
                 </div>
               </div>
 
@@ -374,7 +335,7 @@ a.socialIcon:hover, .socialHoverClass {
                 <div class="space-20"></div>
                 <h3 class="white-color">Join <b>PARINAAY</b> and Find your perfect match.</h3>
                 <div class="space-20 hidden-xs"></div>
-                <p class="hidden-xs">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam possimus eaque magnam eum praesentium unde.</p>
+                <p class="hidden-xs">We Make Them Meet , Love Brings Them Together.</p>
                 <div class="space-20 hidden-xs"></div>
                 <a href="#" class="bttn-white sq"><i class="w3-large lnr lnr-rocket"></i>Register</a> 
                 <a href="<?php echo base_url(); ?>user/contact_us" class="bttn-white sq" data-wow-delay="0.8s"><i class="w3-large lnr lnr-envelope"></i>Contact Us</a>
