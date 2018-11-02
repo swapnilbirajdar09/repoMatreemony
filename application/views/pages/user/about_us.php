@@ -20,20 +20,32 @@
  </div>
 </div>	
 </div>
-<!-- About section -->
-<div class="w3-container  w3-center  w3-padding-32" id="about">
-  <h4><b>About Me</b></h4>
 
-  <div class="w3-content w3-justify" style="max-width:600px">
-    <h4>My Name</h4>
-    <p>Some text about me. I love taking photos of PEOPLE. I am lorem ipsum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-      dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor
-      incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-    </p>
-    <p>mail: example@example.com</p>
-    <p>tel: 5353 35531</p>
-    
-
+<!-- About Section -->
+<div class="w3-row w3-padding-large" id="about" style="margin-top: 80px">
+  <div class="col-lg-2"></div>
+  <div class="col-lg-8">
+   <div class="w3-col m4 w3-padding-large">
+    <img src="<?php echo base_url(); ?>assets/demo/images/profile_1.jpg" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="600" height="750">
   </div>
+  <div class="w3-col m8 w3-padding-large ">
+    
+    <div class="w3-col l12 w3-margin-top">
+      <h4 class=""><b>A Successful Marriage Requires Falling In Love Many Times, Always With Same Person.</b></h4>
+
+      <p>
+      I hereby bow my head for the enlightened Lord Gautam Buddha and honour a saluation to the only architect of Indian Constitution, i.e. Dr.Babasaheb Ambedkar and express my kind gratitude to all those honourable personalities who encouraged me to get in this work.
+      </p>
+   </div>
+  </div>
+   <p>
+       In this Era of Marriage World, We Matrimonial based <b>Buddhist Parinay</b> site, have connected Brides
+       and Grooms from all around the world to search their life partner.
+       Our goal is to provide the best of the profiles for Brides and Grooms to help , find their ideal life partner for their marriage.
+      </p>
+</div>
+ <div class="col-lg-2"></div>
+
+ 
 </div>
 
