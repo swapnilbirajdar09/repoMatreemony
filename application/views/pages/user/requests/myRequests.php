@@ -1,10 +1,10 @@
 <?php error_reporting(E_ERROR | E_PARSE); ?>
-<title>My Stats - Buddhist Parinay</title>
+<title>My Requests - Buddhist Parinay</title>
 <section class="page-title page-title--style-1">
     <div class="container">
         <div class="row align-items-center">
-            <div class="col-12 text-center">
-                <h2 class="heading heading-3 strong-400 mb-0"> Followers</h2>
+            <div class="col-12">
+                <h2 class="heading heading-3 strong-400 mb-0" style="color: #5E32E1 !important"><i class="fa fa-user-plus"></i> My Requests</h2>
             </div>
         </div>
     </div>
@@ -38,24 +38,16 @@
             </div>
             <!-- Alerts for Member actions -->
 
-            <div class="col-md-3 col-lg-3 d-lg-block d-md-block w3-card w3-border-right">
-                <ul class="footer-links" style=" list-style: none;">
-                    <li>
-                        <a id="mat" class="btn" onclick="changecolor(1)" href="#tab_a" data-toggle="pill" title="Requests" style="color: white; background-color: #2A3F54">Sent&nbsp;Requests</a>
-                    </li>
-                    <li>
-                        <a id="prod" class="btn" onclick="changecolor(2)" href="#tab_b" data-toggle="pill" title="Received Requests">Received&nbsp;Requests</a>
-                    </li>
-                    <li>
-                        <a id="foll" class="btn" onclick="changecolor(3)" href="#tab_c" data-toggle="pill" title="My Followers">My&nbsp;Followers</a>
-                    </li>
-                </ul>
+            <div class="col-md-3 col-lg-3 d-lg-block d-md-block w3-border-right w3-padding-large sidebar--style-1 bg-base-1 z-depth-2-top">
+                <a href="#" id="recr_btn" class="btn btn-styled btn-block btn-circle btn-sm btn-base-5" onclick="changecolor(2)" href="#recieved_tab" data-toggle="pill" title="Recieved Requests" style="color: white; background-color: #2A3F54">Recieved Requests</a>
+                <a href="#" id="sentr_btn" class="btn btn-styled btn-block btn-circle btn-sm btn-base-5" onclick="changecolor(1)" href="#sent_tab" data-toggle="pill" title="Sent Requests">Send Requests</a>
+                <a href="#" id="follower_btn" class="btn btn-styled btn-block btn-circle btn-sm btn-base-5" onclick="changecolor(3)" href="#favourite_tab" data-toggle="pill" title="My favourites">My Favourites</a>
             </div>
-            <div class="tab-content col-lg-9 col-md-9">
-                <div class="tab-pane active" id="tab_a">
+            <div class="tab-content col-lg-9 col-md-9 ">
+                <div class="tab-pane" id="sent_tab">
                     <ul class="nav nav-tabs">
-                        <li class="active"><a id="AllReq" class="btn" onclick="change(1)" href="#allRequests" data-toggle="tab" style="color: white; background-color: #2A3F54"><i class="fa fa-users" ></i> All Sent Requests</a></li>
-                        <li ><a class="btn" id="AllSentReq" href="#sentRequests" onclick="change(2)" data-toggle="tab"><i class="fa fa-user"></i> Sent Approved</a></li>
+                        <li class="active" style="width: 50%"><a id="AllReq" class="btn" onclick="change(1)" href="#allRequests" data-toggle="tab" style="width: 100%"><i class="fa fa-user-plus"></i> Sent Requests</a></li>
+                        <li style="width: 50%"><a class="btn" id="AllSentReq" href="#sentRequests" onclick="change(2)" data-toggle="tab"  style="width: 100%"><i class="fa fa-thumbs-up"></i> Sent Approved</a></li>
                     </ul>
                     <div class="tab-content clearfix" ><br> 
                         <div class="tab-pane active" id="allRequests">  
@@ -244,7 +236,7 @@
                                             <!-----------------------------this Div is for single user profile---------------------------------->
                                             <div class=" w3-center w3-padding list z-depth-1-top" id="block_1">
                                                 <div class="w3-padding w3-margin-top">
-                                                    <p class="w3-center w3-medium w3-text-black"> No Match Found..! </p>
+                                                    <p class="w3-center w3-medium w3-text-black"> No Profile Available ! </p>
                                                 </div>
                                             </div>
                                         <?php } ?>
@@ -258,8 +250,6 @@
                             <div class="row x_title">
                                 <div class="w3-pa col-md-12 col-sm-12 col-xs-12 col-lg-12">
                                     <input type="hidden" id="member_type" value="">
-        <!--                                    <div ng-show="finderloader" class="w3-center"><center><i class="w3-center fa fa-refresh fa-5x fa-spin"></i><p>Please Wait...</p></center></div>-->
-
                                     <!-----------------------------this Div is for all users profiles---------------------------------->
                                     <div class="block-wrapper" id="result">
                                         <?php
@@ -424,7 +414,7 @@
                                             <!-----------------------------this Div is for single user profile---------------------------------->
                                             <div class=" w3-center w3-padding list z-depth-1-top" id="block_1">
                                                 <div class="w3-padding w3-margin-top">
-                                                    <p class="w3-center w3-medium w3-text-black"> No Match Found..! </p>
+                                                    <p class="w3-center w3-medium w3-text-black"> No Profile Available ! </p>
                                                 </div>
                                             </div>
                                         <?php } ?>
@@ -435,10 +425,10 @@
                         </div>
                     </div>
                 </div>
-                <div class="tab-pane" id="tab_b">
+                <div class="tab-pane active" id="recieved_tab">
                     <ul class="nav nav-tabs">
-                        <li class="active"><a id="AllReceivReq" class="btn" onclick="changeclr(1)" href="#allReceiveRequests" data-toggle="tab"><i class="fa fa-users"></i> All Received Requests</a></li>
-                        <li ><a class="btn" id="ApproveReceivReq" href="#receivedRequests" onclick="changeclr(2)" data-toggle="tab"><i class="fa fa-user"></i> Received Approved</a></li>
+                        <li class="active" style="width: 50%"><a id="AllReceivReq" class="btn" onclick="changeclr(1)" href="#allReceiveRequests" data-toggle="tab" style="color: white; background-color: #5E32E1;width: 100%"><i class="fa fa-user-plus"></i> Received Requests</a></li>
+                        <li style="width: 50%"><a class="btn" id="ApproveReceivReq" href="#receivedRequests" onclick="changeclr(2)" data-toggle="tab" style="width: 100%"><i class="fa fa-thumbs-up"></i> Received Approved</a></li>
                     </ul>
                     <div class="tab-content clearfix" ><br> 
                         <div class="tab-pane active" id="allReceiveRequests">  
@@ -629,7 +619,7 @@
                                             <!-----------------------------this Div is for single user profile---------------------------------->
                                             <div class=" w3-center w3-padding list z-depth-1-top" id="block_1">
                                                 <div class="w3-padding w3-margin-top">
-                                                    <p class="w3-center w3-medium w3-text-black"> No Match Found..! </p>
+                                                    <p class="w3-center w3-medium w3-text-black"> No Profile Available ! </p>
                                                 </div>
                                             </div>
                                         <?php } ?>
@@ -826,7 +816,7 @@
                                             <!-----------------------------this Div is for single user profile---------------------------------->
                                             <div class=" w3-center w3-padding list z-depth-1-top" id="block_1">
                                                 <div class="w3-padding w3-margin-top">
-                                                    <p class="w3-center w3-medium w3-text-black"> No Match Found..! </p>
+                                                    <p class="w3-center w3-medium w3-text-black"> No Profile Available ! </p>
                                                 </div>
                                             </div>
                                         <?php } ?>
@@ -837,9 +827,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="tab-pane" id="tab_c">
+                <div class="tab-pane" id="favourite_tab">
                     <ul class="nav nav-tabs">
-                        <li class="active"><a id="AllReceivReq" class="btn" onclick="changeclr(1)" href="#allReceiveRequests" data-toggle="tab" style="color: white; background-color: #2A3F54"><i class="fa fa-users"></i> My Followers</a></li>
+                        <li class="active" style="width: 50%"><a id="AllReceivReq" class="btn" onclick="changeclr(1)" href="#allReceiveRequests" data-toggle="tab" style="color: white; background-color: #5E32E1;width: 100%"><i class="fa fa-heart"></i> My Favourites</a></li>
                     </ul>
                     <div class="tab-content clearfix" ><br> 
                         <div class="tab-pane active" id="allReceiveRequests">  
@@ -1005,7 +995,7 @@
                                             <!-----------------------------this Div is for single user profile---------------------------------->
                                             <div class=" w3-center w3-padding list z-depth-1-top" id="block_1">
                                                 <div class="w3-padding w3-margin-top">
-                                                    <p class="w3-center w3-medium w3-text-black"> No Match Found..! </p>
+                                                    <p class="w3-center w3-medium w3-text-black"> No Profile Available ! </p>
                                                 </div>
                                             </div>
                                         <?php } ?>
@@ -1026,68 +1016,68 @@
     function changeclr(btn){
     if (btn == 1){
     $("#ApproveReceivReq").css("background-color", "#fff");
-    $("#ApproveReceivReq").css("color", "black");
+    $("#ApproveReceivReq").css("color", "grey");
     $("#AllReceivReq").css("color", "#ECF0F1");
-    $("#AllReceivReq").css("background-color", "#2A3F54");
+    $("#AllReceivReq").css("background-color", "#5E32E1");
     }
     if (btn == 2){
     $("#AllReceivReq").css("background-color", "#fff");
-    $("#AllReceivReq").css("color", "black");
+    $("#AllReceivReq").css("color", "grey");
     $("#ApproveReceivReq").css("color", "#ECF0F1");
-    $("#ApproveReceivReq").css("background-color", "#2A3F54");
+    $("#ApproveReceivReq").css("background-color", "#5E32E1");
     }
     }
 
     function changecolor(btn) {
     if (btn == 1) {
     change(btn);
-    $("#tab_a").addClass("active");
-    $("#tab_b").removeClass("active");
-    $("#tab_c").removeClass("active");
-    $("#prod").css("background-color", "#fff");
-    $("#prod").css("color", "black");
-    $("#mat").css("color", "#ECF0F1");
-    $("#mat").css("background-color", "#2A3F54");
-    $("#foll").css("color", "black");
-    $("#foll").css("background-color", "#fff");
+    $("#sent_tab").addClass("active");
+    $("#recieved_tab").removeClass("active");
+    $("#favourite_tab").removeClass("active");
+    $("#recr_btn").css("background-color", "#fff");
+    $("#recr_btn").css("color", "black");
+    $("#sentr_btn").css("color", "#ECF0F1");
+    $("#sentr_btn").css("background-color", "#2A3F54");
+    $("#follower_btn").css("color", "black");
+    $("#follower_btn").css("background-color", "#fff");
     }
     if (btn == 2) {
-    $("#tab_b").addClass("active");
-    $("#tab_a").removeClass("active");
-    $("#tab_c").removeClass("active");
-    $("#mat").css("background-color", "#fff");
-    $("#mat").css("color", "black");
-    $("#prod").css("color", "#ECF0F1");
-    $("#prod").css("background-color", "#2A3F54");
-    $("#foll").css("color", "black");
-    $("#foll").css("background-color", "#fff");
+    $("#recieved_tab").addClass("active");
+    $("#sent_tab").removeClass("active");
+    $("#favourite_tab").removeClass("active");
+    $("#sentr_btn").css("background-color", "#fff");
+    $("#sentr_btn").css("color", "black");
+    $("#recr_btn").css("color", "#ECF0F1");
+    $("#recr_btn").css("background-color", "#2A3F54");
+    $("#follower_btn").css("color", "black");
+    $("#follower_btn").css("background-color", "#fff");
     }
     if (btn == 3) {
     change(btn);
-    $("#tab_c").addClass("active");
-    $("#tab_b").removeClass("active");
-    $("#tab_a").removeClass("active");
-    $("#mat").css("background-color", "#fff");
-    $("#mat").css("color", "black");
-    $("#prod").css("background-color", "#fff");
-    $("#prod").css("color", "black");
-    $("#foll").css("color", "#ECF0F1");
-    $("#foll").css("background-color", "#2A3F54");
+    $("#favourite_tab").addClass("active");
+    $("#recieved_tab").removeClass("active");
+    $("#sent_tab").removeClass("active");
+    $("#sentr_btn").css("background-color", "#fff");
+    $("#sentr_btn").css("color", "black");
+    $("#recr_btn").css("background-color", "#fff");
+    $("#recr_btn").css("color", "black");
+    $("#follower_btn").css("color", "#ECF0F1");
+    $("#follower_btn").css("background-color", "#2A3F54");
     }
     }
 
     function change(val) {
     if (val == 1) {
     $("#AllSentReq").css("background-color", "#fff");
-    $("#AllSentReq").css("color", "black");
+    $("#AllSentReq").css("color", "grey");
     $("#AllReq").css("color", "#ECF0F1");
-    $("#AllReq").css("background-color", "#2A3F54");
+    $("#AllReq").css("background-color", "#5E32E1");
     }
     if (val == 2) {
     $("#AllReq").css("background-color", "#fff");
-    $("#AllReq").css("color", "black");
+    $("#AllReq").css("color", "grey");
     $("#AllSentReq").css("color", "#ECF0F1");
-    $("#AllSentReq").css("background-color", "#2A3F54");
+    $("#AllSentReq").css("background-color", "#5E32E1");
     }
     }
     // Angular script to add required skills in ad product form
@@ -1203,7 +1193,7 @@
             break;
             case '700':
                     $('#ajax_validation_alert').show();
-            $('.ajax_validation_alert').html('No Request Tockens Are Available.');
+            $('.ajax_validation_alert').html('No Request Tokens Are Available.');
             setTimeout(function () {
             $('.alert_message').fadeOut('fast');
             }, 5000);
