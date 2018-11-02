@@ -14,10 +14,8 @@
 </style>
 <div class="parallax download-area overlay" style="background-image: url('<?php echo base_url(); ?>assets/client/uploads/home_page/slider_image/sinew.jpg'); height: 350px;">
     <div class="col-lg-12 w3-text-white wide-text title">
-        <div class="w3-col l6 w3-padding">
-            <div class="space-80"></div>
-            <h2 class="w3-margin-top"> PRIVACY POLICY</h2>
-        </div>
+        <div class="space-90"></div>       
+        <h2 style=" margin-top: 120px;"> PRIVACY POLICY</h2>
     </div>	
 </div>
 <!-- About section -->
@@ -100,7 +98,13 @@
                     <p>Personal Data:  Images of Aadhar Card, Pan Card, Driving license ETC.</p>
                 </div>
             </div>
-        </div>                
+        </div>
+        <p class="w3-margin-top">
+            <strong><i class="fa fa-phone-square w3-large"></i> Contact Us</strong>
+        </p>
+        <p>If you have any questions or suggestions about our Privacy Policy and have any query about our Services, do not hesitate to contact
+            us on <a href="mailto:customercare@jumlakuwait.com" class="w3-text-blue">customercare@jumlakuwait.com</a>.
+        </p> 
     </div>
 </div>
 
