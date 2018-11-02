@@ -173,14 +173,16 @@ class User_model extends CI_Model {
     // update family section for user
     public function update_family_info($data,$user_id){
         extract($data);
+        $countryArr=explode('/', $country);
+        $stateArr=explode('/', $state);
         $result = array(
             'user_father_name' => $father_name,
             'user_father_occupation' => $father_occupation,
             'user_mother_name' => $mother_name,
             'user_mother_occupation' => $mother_occupation,
             'user_residential_address' => $residence_address,
-            'user_country' => $country,
-            'user_state' => $state,
+            'user_country' => $countryArr[0],
+            'user_state' => $stateArr[0],
             'user_city' => $native_place,
             'user_contact_no1' => $contact_no_1,
             'user_contact_no2' => $contact_no_2

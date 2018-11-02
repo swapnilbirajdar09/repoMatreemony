@@ -23,8 +23,8 @@
 </style>
 <script type="text/javascript">
     $('#uploadPhotoModal').on('hidden.bs.modal', function () {
-       location.reload();
-   })
+     location.reload();
+ })
 </script>
 <!-- <?php print_r($userDetails); ?> -->
 <section class="slice sct-color-2">
@@ -78,7 +78,7 @@
                 if($show_alert==0){
                     ?>
                     <div class="col-md-12">
-                       <div class="col-md-12 alert alert-warning alert-dismissible" role="alert">
+                     <div class="col-md-12 alert alert-warning alert-dismissible" role="alert">
                         <a href="#" class="close w3-medium" data-dismiss="alert" aria-label="close"> <i class="fa fa-times-circle"></i> </a>
                         <p style="margin-bottom:0"><i class="fa fa-warning"></i> Please complete your Profile & then you can find your correct match ! </p>
                     </div>
@@ -98,7 +98,7 @@
             if($userDetails[0]['user_doc_verified']==0){
                 ?>
                 <div class="col-md-12">
-                   <div class="col-md-12 alert alert-warning alert-dismissible" role="alert">
+                 <div class="col-md-12 alert alert-warning alert-dismissible" role="alert">
                     <a href="#" class="close w3-medium" data-dismiss="alert" aria-label="close"> <i class="fa fa-times-circle"></i> </a>
                     <p style="margin-bottom:0"><i class="fa fa-warning"></i> To Activate your account, you have to get verified for at least 3 uploaded documents successfully. </p>
                     <p style="margin-bottom:0"> <b>Uploaded Documents:</b> <?php echo $uploaded_doc; ?> </p>
@@ -312,7 +312,7 @@
                 </div>
                 <hr>
                 <div class="useful-links" id="changePasswordDiv">
-                 <a class="btn btn-styled btn-sm btn-white z-depth-2-bottom mb-3 change_pass l_nav" data-toggle="modal" data-target="#changePasswordModal">
+                   <a class="btn btn-styled btn-sm btn-white z-depth-2-bottom mb-3 change_pass l_nav" data-toggle="modal" data-target="#changePasswordModal">
                     <b style="font-size: 12px">Change Password</b>
                 </a>
                 <a class="btn btn-styled btn-sm btn-white z-depth-2-bottom mb-3 change_pass l_nav" href="<?php echo base_url(); ?>user/login/logoutUser">
@@ -524,9 +524,9 @@
                                                     <span>Blood Group</span>
                                                 </td>
                                                 <td>
-                                                 <?php echo $userDetails[0]['user_blood_grp']; ?>                          
-                                             </td>
-                                             <td class="td-label">
+                                                   <?php echo $userDetails[0]['user_blood_grp']; ?>                          
+                                               </td>
+                                               <td class="td-label">
                                                 <span>Mother Tongue</span>
                                             </td>
                                             <td><?php echo $userDetails[0]['user_mother_tongue']; ?>
@@ -785,17 +785,17 @@
                                             <span>Working Field</span>
                                         </td>
                                         <td>
-                                         <?php echo $userDetails[0]['user_working_field']; ?>
-                                     </td>
-                                 </tr>
-                                 <tr>
+                                           <?php echo $userDetails[0]['user_working_field']; ?>
+                                       </td>
+                                   </tr>
+                                   <tr>
                                     <td class="td-label">
                                         <span>Company Name</span>
                                     </td>
                                     <td>
-                                       <?php echo $userDetails[0]['user_company_name']; ?>
-                                   </td>
-                                   <td class="td-label">
+                                     <?php echo $userDetails[0]['user_company_name']; ?>
+                                 </td>
+                                 <td class="td-label">
                                     <span>Designation</span>
                                 </td>
                                 <td>
@@ -813,19 +813,19 @@
                                 <span>Monthly Income</span>
                             </td>
                             <td>
-                               <?php echo $userDetails[0]['user_monthly_income']; ?>
-                           </td>
-                           <td class="td-label">
+                             <?php echo $userDetails[0]['user_monthly_income']; ?>
+                         </td>
+                         <td class="td-label">
                             <span>Annual Income</span>
                         </td>
                         <td>
-                         <?php echo $userDetails[0]['user_annual_income']; ?>                   
-                     </td>
-                 </tr>
-             </tbody>
-         </table>
-     </div>
- </div>
+                           <?php echo $userDetails[0]['user_annual_income']; ?>                   
+                       </td>
+                   </tr>
+               </tbody>
+           </table>
+       </div>
+   </div>
 </div>
 <!-- view eductaion and professional div ends -->
 <!-- edit education and professional div -->
@@ -1050,15 +1050,15 @@
                     </tr>
                     <tr>
                         <td class="td-label">
-                           Contact number 1
-                       </td>
-                       <td>
+                         Contact number 1
+                     </td>
+                     <td>
                         <?php if($userDetails[0]['user_contact_no1']!='' && $userDetails[0]['user_contact_no1']!='0'){echo $userDetails[0]['user_contact_no1']; }?> 
                     </td>
                     <td class="td-label">
-                       Contact number 2
-                   </td>
-                   <td>
+                     Contact number 2
+                 </td>
+                 <td>
                     <?php if($userDetails[0]['user_contact_no2']!='' && $userDetails[0]['user_contact_no2']!='0'){echo $userDetails[0]['user_contact_no2']; }?> 
                 </td>
             </tr>
@@ -1128,19 +1128,13 @@
             <div class="col-md-6 w3-margin-top">
                 <div class="form-group has-feedback">
                     <label for="country" class="text-uppercase c-gray-light">Country</label>
-                    <select name="country" id="country" class="form-control selectpicker" data-placeholder="Choose country" tabindex="2" data-hide-disabled="true" disabled>
+                    <select name="country" id="country" class="form-control selectpicker" onchange="getCountryState();" data-placeholder="Choose country" tabindex="2" data-hide-disabled="true">
                         <option value="0">Choose country</option>
-                        <?php
-                        for ($i = 0; $i < count($country); $i++) {         ?>
-                            <option value="<?php echo $country[$i]['name']; ?>" <?php if($country[$i]['name']=='India'){ echo 'selected';} ?>>
+                        <?php for ($i = 0; $i < count($country); $i++) { ?>
+                            <option value="<?php echo $country[$i]['name'] . '/' . $country[$i]['id']; ?>" <?php if($userDetails[0]['user_country']==$country[$i]['name']){ echo 'selected';} ?>>
                                 <?php echo $country[$i]['name']; ?>
                             </option>
                         <?php } ?>
-                        <?php for ($i = 0; $i < count($country); $i++) { ?>
-                                                        <option value="<?php echo $country[$i]['name'] . '/' . $country[$i]['id']; ?>">
-                                                            <?php echo $country[$i]['name']; ?>
-                                                        </option>
-                                                    <?php } ?>
                     </select>
 
                     <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
@@ -1153,14 +1147,8 @@
             <div class="col-md-6 w3-margin-top">
                 <div class="form-group has-feedback">
                     <label for="state" class="text-uppercase c-gray-light">State</label>
-                    <select id="state" name="state" class="form-control form-control selectpicker" tabindex="2" data-hide-disabled="true">
-                        <option value="0">Choose a State</option>
-                        <?php
-                        for ($i = 0; $i < count($states); $i++) {         ?>
-                            <option value="<?php echo $states[$i]['name']; ?>" <?php if($userDetails[0]['user_state']==$states[$i]['name']){ echo 'selected';} ?>>
-                                <?php echo $states[$i]['name']; ?>
-                            </option>
-                        <?php } ?>
+                    <select id="state" name="state" class="form-control form-control selectpicker" onchange="getStateCity();" tabindex="2" data-hide-disabled="true">
+                        <option value="0">Choose a Country first</option>
                     </select>
                     <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                     <div class="help-block with-errors"></div>
@@ -1169,14 +1157,8 @@
             <div class="col-md-6 w3-margin-top">
                 <div class="form-group has-feedback">
                     <label for="native_place" class="text-uppercase c-gray-light">Native Place/ City</label>
-                    <select id="native_place" name="native_place" class="form-control form-control selectpicker" tabindex="2" data-hide-disabled="true">
-                        <option value="">Choose a City</option>
-                        <?php
-                        for ($i = 0; $i < count($cities); $i++) {         ?>
-                            <option value="<?php echo $cities[$i]['name']; ?>" <?php if($userDetails[0]['user_city']==$cities[$i]['name']){ echo 'selected';} ?>>
-                                <?php echo $cities[$i]['name']; ?>
-                            </option>
-                        <?php } ?>
+                    <select id="city" name="native_place" class="form-control form-control selectpicker" tabindex="2" data-hide-disabled="true">
+                        <option value="">Choose a State first</option>
                     </select>
                     <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                     <div class="help-block with-errors"></div>
@@ -1369,14 +1351,14 @@
                                         <span>Relation with Me</span>
                                     </td>
                                     <td>
-                                       <?php echo $relativeArr[$i]['relative_relation']; ?>
-                                   </td>
-                               </tr>
-                               <tr>
+                                     <?php echo $relativeArr[$i]['relative_relation']; ?>
+                                 </td>
+                             </tr>
+                             <tr>
                                 <td class="td-label">
-                                   Contact number
-                               </td>
-                               <td>
+                                 Contact number
+                             </td>
+                             <td>
                                 <?php echo $relativeArr[$i]['relative_contact']; ?>
                             </td>
                             <td class="td-label">
@@ -1763,8 +1745,56 @@
     });
 </script>
 <script src="<?php echo base_url(); ?>assets/js/module/user/profile.js"></script>
+<script type="text/javascript">
+// get state by country
+function getCountryState() {
+    var country = $("#country").val();
+    $.ajax({
+        type: "GET",
+        url: BASE_URL + "user/search/advance_search/getCountryState",
+        data: {
+            country: country
+        },
+        cache: false,
+        success: function (data) {
+            var stateData = '';
+            stateData = JSON.parse(data);
+            var i;
 
-<script></script>
+            var state = $('#state');
+            state.find('option:not(:first-child)').remove();
+
+            for (i = 0; i < stateData.length; i++) {
+                $('#state').append('<option value="' + stateData[i].name + '/' + stateData[i].id + '">' + stateData[i].name + '</option>');
+            }
+        }
+    });
+}
+// ---------- get city by state
+function getStateCity() {
+    var state = $("#state").val();
+    $.ajax({
+        type: "GET",
+        url: BASE_URL + "user/search/advance_search/getStateCity",
+        data: {
+            state: state
+        },
+        cache: false,
+        success: function (data) {
+            var cityData = '';
+            cityData = JSON.parse(data);
+            var i;
+
+            var city = $('#city');
+            city.find('option:not(:first-child)').remove();
+
+            for (i = 0; i < cityData.length; i++) {
+                $('#city').append('<option value="' + cityData[i].name + '">' + cityData[i].name + '</option>');
+            }
+        }
+    });
+}
+</script>
 <style type="text/css">
 .xs_nav_item {
     text-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
