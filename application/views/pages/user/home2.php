@@ -333,9 +333,9 @@ a.socialIcon:hover, .socialHoverClass {
               <div class="row">
                <div class="col-xs-12 col-md-12 text-center" style="padding:80px">
                 <div class="space-20"></div>
-                <h3 class="white-color">Join <b>PARINAAY</b> and Find your perfect match.</h3>
+                <h3 class="white-color">Join <b>BUDDHIST PARINAAY</b> and Find your perfect match.</h3>
                 <div class="space-20 hidden-xs"></div>
-                <p class="hidden-xs">We Make Them Meet , Love Brings Them Together.</p>
+                <p class="hidden-xs">Buddhist Parinay - Find Buddhist Brides and Grooms on our Portal.</p>
                 <div class="space-20 hidden-xs"></div>
                 <a href="#" class="bttn-white sq"><i class="w3-large lnr lnr-rocket"></i>Register</a> 
                 <a href="<?php echo base_url(); ?>user/contact_us" class="bttn-white sq" data-wow-delay="0.8s"><i class="w3-large lnr lnr-envelope"></i>Contact Us</a>
