@@ -10,9 +10,9 @@ class Searchbyprofileid_model extends CI_Model {
 
     public function searchByProfile_id($filter_member_id, $gender) {
         if ($filter_member_id == 'undefined') {
-            $sql = "SELECT * FROM user_profile_tab,user_tab where user_tab.user_id = user_profile_tab.user_id AND user_tab.user_gender !='$gender' ORDER BY user_tab.user_id DESC ";
+            $sql = "SELECT * FROM user_profile_tab,user_tab where user_tab.user_id = user_profile_tab.user_id AND user_tab.user_gender !='$gender' AND user_tab.user_status='1' AND user_tab.user_doc_verified='1' ORDER BY user_tab.user_id DESC ";
         } else {
-            $sql = "SELECT * FROM user_profile_tab,user_tab where user_tab.user_id = user_profile_tab.user_id AND user_tab.user_gender !='$gender' AND user_profile_tab.user_profile_key='BPARI#".$filter_member_id."' ORDER BY user_tab.user_id DESC";
+            $sql = "SELECT * FROM user_profile_tab,user_tab where user_tab.user_id = user_profile_tab.user_id AND user_tab.user_gender !='$gender' AND user_profile_tab.user_profile_key='BPARI#".$filter_member_id."' AND user_tab.user_status='1' AND user_tab.user_doc_verified='1' ORDER BY user_tab.user_id DESC";
         }
         // echo $sql;die();
         $result = $this->db->query($sql);
@@ -25,7 +25,7 @@ class Searchbyprofileid_model extends CI_Model {
 
 //---------------fun for get all user profiles
     public function getAllUserProfiles($gender) {
-        $sql = "SELECT * FROM user_profile_tab,user_tab where user_tab.user_id = user_profile_tab.user_id AND user_tab.user_gender != '$gender' ORDER BY user_tab.user_id DESC";
+        $sql = "SELECT * FROM user_profile_tab,user_tab where user_tab.user_id = user_profile_tab.user_id AND user_tab.user_gender != '$gender' AND user_tab.user_status='1' AND user_tab.user_doc_verified='1' ORDER BY user_tab.user_id DESC";
         $result = $this->db->query($sql);
         //echo $sql;die();
         if ($result->num_rows() <= 0) {
@@ -39,7 +39,7 @@ class Searchbyprofileid_model extends CI_Model {
     public function sendRequestToUser($profile_user_id, $user_id, $gender) {
         //sql query to get all user profile details
         $query = "SELECT * FROM user_profile_tab as up_tab,user_tab as ut_tab "
-                . "WHERE up_tab.user_id = ut_tab.user_id "
+                . "WHERE up_tab.user_id = ut_tab.user_id AND ut_tab.user_status='1' AND ut_tab.user_doc_verified='1' "
                 . "AND ut_tab.user_id='$user_id'";
         $result = $this->db->query($query);
 
@@ -122,7 +122,7 @@ class Searchbyprofileid_model extends CI_Model {
     public function updateUserReceivedRequests($profile_user_id, $user_id, $user_email, $user_firstname, $user_lastname, $user_gender, $user_height, $user_caste, $user_educational_field) {
         //sql query to get all user profile details
         $query = "SELECT * FROM user_profile_tab as up_tab,user_tab as ut_tab "
-                . "WHERE up_tab.user_id = ut_tab.user_id "
+                . "WHERE up_tab.user_id = ut_tab.user_id AND ut_tab.user_status='1' AND ut_tab.user_doc_verified='1' "
                 . "AND ut_tab.user_id='$profile_user_id'";
         //echo $query;die();
         $result = $this->db->query($query);
@@ -219,7 +219,7 @@ class Searchbyprofileid_model extends CI_Model {
     //--------------fun for accept the user request-----------------//
     public function acceptUserConfirmRequest($profile_user_id, $sessionUser_id, $gender) {
         $query = "SELECT * FROM user_profile_tab as up_tab join user_tab as u_tab "
-                . "WHERE up_tab.user_id = u_tab.user_id "
+                . "WHERE up_tab.user_id = u_tab.user_id AND u_tab.user_status='1' AND u_tab.user_doc_verified='1' "
                 . "AND up_tab.user_id='$sessionUser_id'";
         //echo $query;die();
         $result = $this->db->query($query);
@@ -275,7 +275,7 @@ class Searchbyprofileid_model extends CI_Model {
 //-------------fun for update the user request coloumn and user request approved coloumns when user requst get accepted--//
     public function updateAcceptUserConfirmRequest_AtSenderSide($profile_user_id, $sessionUser_id) {
         $query = "SELECT * FROM user_profile_tab as up_tab join user_tab as u_tab "
-                . "WHERE up_tab.user_id = u_tab.user_id "
+                . "WHERE up_tab.user_id = u_tab.user_id AND u_tab.user_status='1' AND u_tab.user_doc_verified='1' "
                 . "AND up_tab.user_id='$profile_user_id'";
         //echo $query;die();
         $result = $this->db->query($query);
@@ -326,7 +326,7 @@ class Searchbyprofileid_model extends CI_Model {
     public function cancelRequestOfUser($profile_user_id, $sessionUser_id, $gender) {
 
         $query = "SELECT * FROM user_profile_tab as up_tab join user_tab as u_tab "
-                . "WHERE up_tab.user_id = u_tab.user_id "
+                . "WHERE up_tab.user_id = u_tab.user_id AND u_tab.user_status='1' AND u_tab.user_doc_verified='1' "
                 . "AND up_tab.user_id='$sessionUser_id'";
         //echo $query;die();
         $result = $this->db->query($query);
@@ -381,7 +381,9 @@ class Searchbyprofileid_model extends CI_Model {
 
     public function updateUserReceivedRequestsForCancellation($profile_user_id, $sessionUser_id) {
         //sql query to get all user profile details
-        $query = "SELECT * FROM user_profile_tab WHERE user_id='$profile_user_id'";
+        $query = "SELECT * FROM user_profile_tab as up_tab join user_tab as u_tab "
+                . "WHERE up_tab.user_id = u_tab.user_id AND u_tab.user_status='1' AND u_tab.user_doc_verified='1' "
+                . "AND up_tab.user_id='$profile_user_id'";
         //echo $query;die();
         $result = $this->db->query($query);
 
@@ -412,7 +414,7 @@ class Searchbyprofileid_model extends CI_Model {
 //----------------fun for cancel the request from user received requests----------------//
     public function cancelRequestOfUserForReceived($profile_user_id, $sessionUser_id, $gender) {
         $query = "SELECT * FROM user_profile_tab as up_tab join user_tab as u_tab "
-                . "WHERE up_tab.user_id = u_tab.user_id "
+                . "WHERE up_tab.user_id = u_tab.user_id AND u_tab.user_status='1' AND u_tab.user_doc_verified='1' "
                 . "AND up_tab.user_id='$profile_user_id'";
         //echo $query;die();
         $result = $this->db->query($query);
@@ -463,7 +465,9 @@ class Searchbyprofileid_model extends CI_Model {
 
 //-------------------fun for update the received requests count --------------------------------//
     public function updateCancelRequestOfUserForReceived($profile_user_id, $sessionUser_id) {
-        $query = "SELECT * FROM user_profile_tab WHERE user_id='$sessionUser_id'";
+        $query = "SELECT * FROM user_profile_tab as up_tab join user_tab as u_tab "
+                . "WHERE up_tab.user_id = u_tab.user_id AND u_tab.user_status='1' AND u_tab.user_doc_verified='1' "
+                . "AND up_tab.user_id='$sessionUser_id'";
         //echo $query;die();
         $result = $this->db->query($query);
 
@@ -494,7 +498,7 @@ class Searchbyprofileid_model extends CI_Model {
 //---------------------fun for cancel the request from user received requests approved --------------------------//
     public function cancelRequestOfUserForReceivedApprovedRequest($profile_user_id, $sessionUser_id, $gender) {
         $query = "SELECT * FROM user_profile_tab as up_tab,user_tab as ut_tab "
-                . "WHERE up_tab.user_id = ut_tab.user_id "
+                . "WHERE up_tab.user_id = ut_tab.user_id AND ut_tab.user_status='1' AND ut_tab.user_doc_verified='1' "
                 . "AND ut_tab.user_id='$sessionUser_id'";
 
         $result = $this->db->query($query);
@@ -534,7 +538,7 @@ class Searchbyprofileid_model extends CI_Model {
 //-------------------------------------------------------------------------------------------------//
     public function updateRequestOfUserForReceivedApprovedRequestCancellation($profile_user_id, $sessionUser_id, $gender) {
         $query = "SELECT * FROM user_profile_tab as up_tab join user_tab as u_tab "
-                . "WHERE up_tab.user_id = u_tab.user_id "
+                . "WHERE up_tab.user_id = u_tab.user_id AND u_tab.user_status='1' AND u_tab.user_doc_verified='1' "
                 . "AND up_tab.user_id='$profile_user_id'";
         //echo $query;die();
         $result = $this->db->query($query);
@@ -579,7 +583,7 @@ class Searchbyprofileid_model extends CI_Model {
 //------------------fun for folloing the user profile or add to favourites---------------------//
     public function followUserProfile($profile_user_id, $sessionUser_id, $gender) {
         $query = "SELECT * FROM user_profile_tab as up_tab,user_tab as ut_tab "
-                . "WHERE up_tab.user_id = ut_tab.user_id "
+                . "WHERE up_tab.user_id = ut_tab.user_id AND ut_tab.user_status='1' AND ut_tab.user_doc_verified='1' "
                 . "AND ut_tab.user_id='$sessionUser_id'";
 
         $result = $this->db->query($query);
@@ -616,7 +620,7 @@ class Searchbyprofileid_model extends CI_Model {
 //----------------fun for update followers count by 1 of followers side
     public function updateFollowersCount($profile_user_id, $sessionUser_id, $gender) {
         $query = "SELECT * FROM user_profile_tab as up_tab,user_tab as ut_tab "
-                . "WHERE up_tab.user_id = ut_tab.user_id "
+                . "WHERE up_tab.user_id = ut_tab.user_id AND ut_tab.user_status='1' AND ut_tab.user_doc_verified='1' "
                 . "AND ut_tab.user_id='$profile_user_id'";
         $result = $this->db->query($query);
         $who_make_me_favourite = array();
@@ -656,7 +660,7 @@ class Searchbyprofileid_model extends CI_Model {
 //------------------------get my favourites profiles coloumn--------------//
     public function getUserFollows($user_id, $gender) {
         $query = "SELECT up_tab.user_favourite FROM user_profile_tab as up_tab,user_tab as ut_tab "
-                . "WHERE up_tab.user_id = ut_tab.user_id "
+                . "WHERE up_tab.user_id = ut_tab.user_id AND ut_tab.user_status='1' AND ut_tab.user_doc_verified='1' "
                 . "AND ut_tab.user_id='$user_id'";
 
         $result = $this->db->query($query);
@@ -670,7 +674,7 @@ class Searchbyprofileid_model extends CI_Model {
 //------------fun for unfollow user profile------------------------------//
     public function unFollowUserProfile($profile_user_id, $sessionUser_id, $gender) {
         $query = "SELECT * FROM user_profile_tab as up_tab,user_tab as ut_tab "
-                . "WHERE up_tab.user_id = ut_tab.user_id "
+                . "WHERE up_tab.user_id = ut_tab.user_id AND ut_tab.user_status='1' AND ut_tab.user_doc_verified='1' "
                 . "AND ut_tab.user_id='$sessionUser_id'";
 
         $result = $this->db->query($query);
@@ -704,7 +708,7 @@ class Searchbyprofileid_model extends CI_Model {
 //-----------------fun for update the unfollowers count---------------------------------//
     public function updateUnFollowersCount($profile_user_id, $sessionUser_id, $gender) {
         $query = "SELECT * FROM user_profile_tab as up_tab,user_tab as ut_tab "
-                . "WHERE up_tab.user_id = ut_tab.user_id "
+                . "WHERE up_tab.user_id = ut_tab.user_id AND ut_tab.user_status='1' AND ut_tab.user_doc_verified='1' "
                 . "AND ut_tab.user_id='$profile_user_id'";
         $result = $this->db->query($query);
         $who_make_me_favourite = array();

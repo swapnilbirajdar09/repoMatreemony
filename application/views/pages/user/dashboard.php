@@ -114,8 +114,8 @@
                     $key = base64_decode($encodedkey);
                     $keyarr = explode('|', $key);
                     $session_user_id = $keyarr[2];
-                    //print_r($userprofile);
-                    if ($userprofile != '500') {
+                    //print_r($userprofile);die();
+                    if ($userprofile != '500' && $userprofile !='') {
                         foreach ($userprofile as $key) {
                             if($key['user_profile_image'] == ''){
                                 $profileimage = 'assets/images/user.png';

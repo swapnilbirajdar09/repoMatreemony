@@ -269,7 +269,6 @@ $session_user_id = $keyarr[2];
             var data = response.data;
             //alert(data);
             var i, j, user_photos, alreadyfollowed, followers, firstname, user_location, alreadySent, receivedReq, birthday, today, user_fullname, user_designation, user_mother_tongue, user_marital_status, age, newAge, totage;
-            console.log(data);
             if (data != 500) {
                 for (i = 0; i < data.length; i++) {
                     alreadySent = 0;
@@ -402,7 +401,6 @@ $session_user_id = $keyarr[2];
                 var data = response.data;
                 $scope.profiles = [];
                 var i, j, user_profile_image, user_photos, alreadyfollowed, followers, firstname, user_location, alreadySent, receivedReq, birthday, today, user_fullname, user_designation, user_mother_tongue, user_marital_status, age, newAge, totage;
-                console.log(data);
                 $scope.finderloader = false;
                 if (data != 500) {
                     for (i = 0; i < data.length; i++) {
@@ -525,7 +523,6 @@ $session_user_id = $keyarr[2];
                 //alert(data);
                 $scope.profiles = [];
                 var i, j, user_photos, alreadyfollowed, followers, firstname, user_location, alreadySent, receivedReq, birthday, today, user_fullname, user_designation, user_mother_tongue, user_marital_status, age, newAge, totage;
-                console.log(data);
                 if (data != 500) {
                     for (i = 0; i < data.length; i++) {
                         alreadySent = 0;
@@ -652,7 +649,6 @@ $session_user_id = $keyarr[2];
                             method: 'get',
                             url: BASE_URL + "user/search/profilesearch_byid/sendRequestToUser?profile_user_id=" + user_id
                         }).then(function successCallback(response) {
-                            console.log(response.data);
                             //alert(response.data);
                             switch (response.data) {
                                 case '200':
@@ -708,7 +704,6 @@ $session_user_id = $keyarr[2];
                             method: 'get',
                             url: BASE_URL + "user/search/profilesearch_byid/cancelRequestOfUser?profile_user_id=" + user_id
                         }).then(function successCallback(response) {
-                            console.log(response.data);
                             //alert(response.data);
                             switch (response.data) {
                                 case '200':
@@ -742,7 +737,6 @@ $session_user_id = $keyarr[2];
                 method: 'get',
                 url: BASE_URL + "user/search/profilesearch_byid/followUserProfile?profile_user_id=" + user_id
             }).then(function successCallback(response) {
-                console.log(response.data);
                 //alert(response.data);
                 switch (response.data) {
                     case '200':
@@ -770,7 +764,6 @@ $session_user_id = $keyarr[2];
                 method: 'get',
                 url: BASE_URL + "user/search/profilesearch_byid/unFollowUserProfile?profile_user_id=" + user_id
             }).then(function successCallback(response) {
-                console.log(response.data);
                 //alert(response.data);
                 switch (response.data) {
                     case '200':

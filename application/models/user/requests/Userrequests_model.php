@@ -8,7 +8,7 @@ class Userrequests_model extends CI_Model {
 
     public function getMySentRequests($sessionUser_id, $gender) {
 
-        $query = "SELECT * FROM user_tab,user_profile_tab WHERE user_tab.user_id = user_profile_tab.user_id AND user_tab.user_id = '$sessionUser_id'";
+        $query = "SELECT * FROM user_tab,user_profile_tab WHERE user_tab.user_id = user_profile_tab.user_id AND user_tab.user_id = '$sessionUser_id' AND user_tab.user_status='1'";
         $result = $this->db->query($query);
 
         $user_sent_requests = '';
@@ -24,7 +24,7 @@ class Userrequests_model extends CI_Model {
             // get subproductsb details
             if ($arr != '' && $arr != []) {
                 foreach ($arr as $key) {
-                    $sub_query = "SELECT * FROM user_tab,user_profile_tab WHERE user_tab.user_id = user_profile_tab.user_id AND user_tab.user_id = '$key'";
+                    $sub_query = "SELECT * FROM user_tab,user_profile_tab WHERE user_tab.user_id = user_profile_tab.user_id AND user_tab.user_id = '$key' AND user_tab.user_status='1'";
                     $sub_result = $this->db->query($sub_query);
                     $allUsersForSentRequests[] = $sub_result->result_array();
                 }
@@ -37,7 +37,7 @@ class Userrequests_model extends CI_Model {
     }
 
     public function getMySentApprovedRequests($sessionUser_id, $gender) {
-        $query = "SELECT * FROM user_tab,user_profile_tab WHERE user_tab.user_id = user_profile_tab.user_id AND user_tab.user_id = '$sessionUser_id'";
+        $query = "SELECT * FROM user_tab,user_profile_tab WHERE user_tab.user_id = user_profile_tab.user_id AND user_tab.user_id = '$sessionUser_id' AND user_tab.user_status='1'";
         $result = $this->db->query($query);
 
         $user_sent_requests_approved = '';
@@ -53,7 +53,7 @@ class Userrequests_model extends CI_Model {
             // get subproductsb details
             if ($arr != '' && $arr != []) {
                 foreach ($arr as $key) {
-                    $sub_query = "SELECT * FROM user_tab,user_profile_tab WHERE user_tab.user_id = user_profile_tab.user_id AND user_tab.user_id = '$key'";
+                    $sub_query = "SELECT * FROM user_tab,user_profile_tab WHERE user_tab.user_id = user_profile_tab.user_id AND user_tab.user_id = '$key' AND user_tab.user_status='1'";
                     $sub_result = $this->db->query($sub_query);
                     $allUsersForSentRequestsApproved[] = $sub_result->result_array();
                 }
@@ -65,7 +65,7 @@ class Userrequests_model extends CI_Model {
     }
 
     public function getMyReceivedRequests($sessionUser_id, $gender) {
-        $query = "SELECT * FROM user_tab,user_profile_tab WHERE user_tab.user_id = user_profile_tab.user_id AND user_tab.user_id = '$sessionUser_id'";
+        $query = "SELECT * FROM user_tab,user_profile_tab WHERE user_tab.user_id = user_profile_tab.user_id AND user_tab.user_id = '$sessionUser_id' AND user_tab.user_status='1'";
         $result = $this->db->query($query);
 
         $user_received_requests = '';
@@ -81,7 +81,7 @@ class Userrequests_model extends CI_Model {
             // get subproductsb details
             if ($arr != '' && $arr != []) {
                 foreach ($arr as $key) {
-                    $sub_query = "SELECT * FROM user_tab,user_profile_tab WHERE user_tab.user_id = user_profile_tab.user_id AND user_tab.user_id = '$key'";
+                    $sub_query = "SELECT * FROM user_tab,user_profile_tab WHERE user_tab.user_id = user_profile_tab.user_id AND user_tab.user_id = '$key' AND user_tab.user_status='1'";
                     $sub_result = $this->db->query($sub_query);
                     $allUsersForReceivedRequests[] = $sub_result->result_array();
                 }
@@ -94,7 +94,7 @@ class Userrequests_model extends CI_Model {
     }
 
     public function getMyReceivedApprovedRequests($sessionUser_id, $gender) {
-        $query = "SELECT * FROM user_tab,user_profile_tab WHERE user_tab.user_id = user_profile_tab.user_id AND user_tab.user_id = '$sessionUser_id'";
+        $query = "SELECT * FROM user_tab,user_profile_tab WHERE user_tab.user_id = user_profile_tab.user_id AND user_tab.user_id = '$sessionUser_id' AND user_tab.user_status='1'";
         $result = $this->db->query($query);
 
         $user_received_requests_approved = '';
@@ -110,7 +110,7 @@ class Userrequests_model extends CI_Model {
             // get subproductsb details
             if ($arr != '' && $arr != []) {
                 foreach ($arr as $key) {
-                    $sub_query = "SELECT * FROM user_tab,user_profile_tab WHERE user_tab.user_id = user_profile_tab.user_id AND user_tab.user_id = '$key'";
+                    $sub_query = "SELECT * FROM user_tab,user_profile_tab WHERE user_tab.user_id = user_profile_tab.user_id AND user_tab.user_id = '$key' AND user_tab.user_status='1'";
                     $sub_result = $this->db->query($sub_query);
                     $allUsersForReceivedApprovedRequests[] = $sub_result->result_array();
                 }
@@ -124,7 +124,7 @@ class Userrequests_model extends CI_Model {
 
 //-----------------------fun for get the list of followers which are followed by session user------//
     public function getMyFollowers($sessionUser_id, $gender) {
-        $query = "SELECT * FROM user_tab,user_profile_tab WHERE user_tab.user_id = user_profile_tab.user_id AND user_tab.user_id = '$sessionUser_id'";
+        $query = "SELECT * FROM user_tab,user_profile_tab WHERE user_tab.user_id = user_profile_tab.user_id AND user_tab.user_id = '$sessionUser_id' AND user_tab.user_status='1'";
         $result = $this->db->query($query);
 
         $user_favourite = '';
@@ -140,7 +140,7 @@ class Userrequests_model extends CI_Model {
             // get subproductsb details
             if ($arr != '' && $arr != []) {
                 foreach ($arr as $key) {
-                    $sub_query = "SELECT * FROM user_tab,user_profile_tab WHERE user_tab.user_id = user_profile_tab.user_id AND user_tab.user_id = '$key'";
+                    $sub_query = "SELECT * FROM user_tab,user_profile_tab WHERE user_tab.user_id = user_profile_tab.user_id AND user_tab.user_id = '$key' AND user_tab.user_status='1'";
                     $sub_result = $this->db->query($sub_query);
                     $allUserFavourites[] = $sub_result->result_array();
                 }

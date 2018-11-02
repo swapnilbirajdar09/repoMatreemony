@@ -1107,7 +1107,6 @@
             method: 'get',
                     url: BASE_URL + "user/search/profilesearch_byid/acceptUserConfirmRequest?profile_user_id=" + user_id
             }).then(function successCallback(response) {
-            console.log(response.data);
             //alert(response.data);
             switch (response.data) {
             case '200':
@@ -1147,7 +1146,6 @@
             method: 'get',
                     url: BASE_URL + "user/search/profilesearch_byid/cancelRequestOfUserForReceivedApprovedRequest?profile_user_id=" + user_id
             }).then(function successCallback(response) {
-            console.log(response.data);
             //alert(response.data);
             switch (response.data) {
             case '200':
@@ -1187,7 +1185,6 @@
             method: 'get',
                     url: BASE_URL + "user/search/profilesearch_byid/sendRequestToUser?profile_user_id=" + user_id
             }).then(function successCallback(response) {
-            console.log(response.data);
             //alert(response.data);
             switch (response.data) {
             case '200':
@@ -1241,7 +1238,6 @@
             method: 'get',
                     url: BASE_URL + "user/search/profilesearch_byid/cancelRequestOfUser?profile_user_id=" + user_id
             }).then(function successCallback(response) {
-            console.log(response.data);
             //alert(response.data);
             switch (response.data) {
             case '200':
@@ -1281,7 +1277,6 @@
             method: 'get',
                     url: BASE_URL + "user/search/profilesearch_byid/cancelRequestOfUserForReceived?profile_user_id=" + user_id
             }).then(function successCallback(response) {
-            console.log(response.data);
             //alert(response.data);
             switch (response.data) {
             case '200':
@@ -1315,7 +1310,6 @@
     method: 'get',
             url: BASE_URL + "user/search/profilesearch_byid/followUserProfile?profile_user_id=" + user_id
     }).then(function successCallback(response) {
-    console.log(response.data);
     //alert(response.data);
     switch (response.data) {
     case '200':
@@ -1345,7 +1339,6 @@
     method: 'get',
             url: BASE_URL + "user/search/profilesearch_byid/unFollowUserProfile?profile_user_id=" + user_id
     }).then(function successCallback(response) {
-    console.log(response.data);
     //alert(response.data);
     switch (response.data) {
     case '200':
