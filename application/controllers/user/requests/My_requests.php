@@ -51,10 +51,10 @@ class My_requests extends CI_Controller {
     } 
 
     // check doucents submitted
-    $data['userDocuments'] = $this->user_model->getUserDocuments($user_id);
-    if($data['userDetails'][0]['user_doc_verified']==0){
-        redirect('user/user_profile');
-    } 
+//    $data['userDocuments'] = $this->user_model->getUserDocuments($user_id);
+//    if($data['userDetails'][0]['user_doc_verified']==0){
+//        redirect('user/user_profile');
+//    } 
 
     $data['sentRequests'] = $this->Userrequests_model->getMySentRequests($user_id, $gender);
     $data['receivRequests'] = $this->Userrequests_model->getMyReceivedRequests($user_id, $gender);

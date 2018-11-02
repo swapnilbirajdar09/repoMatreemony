@@ -1,3 +1,4 @@
+<?php error_reporting(E_ERROR | E_PARSE); ?>
 <title>My Stats - Buddhist Parinay</title>
 <section class="page-title page-title--style-1">
     <div class="container">
@@ -73,6 +74,9 @@
                                         //print_r($sentRequests);
                                         if ($sentRequests != '500') {
                                             for ($i = 0; $i < count($sentRequests); $i++) {
+//                                                $email = $sentRequests[$i][0]['user_email'];
+//                                                $user_id = $sentRequests[$i][0]['user_id'];
+//                                                
                                                 if ($sentRequests[$i][0]['user_profile_image'] == '') {
                                                     $profileimage = 'assets/images/user.png';
                                                 } else {
@@ -82,7 +86,7 @@
                                                 <!-----------------------------this Div is for single user profile---------------------------------->
                                                 <div class="block block--style-3 list z-depth-1-top w3-margin-bottom" id="block_1">
                                                     <div class="block-image">
-                                                        <a onclick="goto_profile(p.user_id)">
+                                                        <a >
                                                             <div class="listing-image" style="background-image: url(<?php echo base_url(); ?><?php echo $profileimage; ?>)"></div>
                                                         </a>
                                                     </div>
@@ -264,9 +268,12 @@
                                         $keyarr = explode('|', $key);
                                         $session_user_id = $keyarr[2];
                                         //print_r($sentApproveRequests);
+                                        $email = '';
                                         if ($sentApproveRequests != '500') {
                                             for ($i = 0; $i < count($sentApproveRequests); $i++) {
-                                                 if ($sentApproveRequests[$i][0]['user_profile_image'] == '') {
+                                                $email = $sentApproveRequests[$i][0]['user_email'];
+                                                $user_id = $sentApproveRequests[$i][0]['user_id'];
+                                                if ($sentApproveRequests[$i][0]['user_profile_image'] == '') {
                                                     $profileimage = 'assets/images/user.png';
                                                 } else {
                                                     $profileimage = $sentApproveRequests[$i][0]['user_profile_image'];
@@ -275,7 +282,7 @@
                                                 <!-----------------------------this Div is for single user profile---------------------------------->
                                                 <div class="block block--style-3 list z-depth-1-top w3-margin-bottom" id="block_1">
                                                     <div class="block-image">
-                                                        <a onclick="goto_profile(p.user_id)">
+                                                        <a target="_blank" href="<?php echo base_url() . 'user/full_profile/' . base64_encode('PARINAYBUDHI' . $email . 'I' . $user_id); ?>">
                                                             <div class="listing-image" style="background-image: url(<?php echo base_url(); ?><?php echo $profileimage; ?>)"></div>
                                                         </a>
                                                     </div>
@@ -297,7 +304,7 @@
                                                     ?>
                                                     <div class="block-title-wrapper">
                                                         <h3 class="heading heading-5 strong-500 mt-1">
-                                                            <a class="c-base-1"><?php echo $firstname . ' ' . $lastname; ?></a>
+                                                            <a class="c-base-1" target="_blank" href="<?php echo base_url() . 'user/full_profile/' . base64_encode('PARINAYBUDHI' . $email . 'I' . $user_id); ?>"><?php echo $firstname . ' ' . $lastname; ?></a>
                                                         </h3>
 
                                                         <h4 class="heading heading-xs c-gray-light text-uppercase strong-400"><?php echo $sentApproveRequests[$i][0]['user_designation']; ?></h4>
@@ -305,7 +312,7 @@
                                                             <tbody>
                                                                 <tr>
                                                                     <td height="30" style="padding-left: 3px;" class="font-dark"><b>Member ID</b></td>
-                                                                    <td height="30" style="padding-left: 3px;" class="font-dark" colspan="3"><a onclick="return goto_profile()" class="c-base-1"><b><?php echo $sentApproveRequests[$i][0]['user_profile_key']; ?></b></a></td>
+                                                                    <td height="30" style="padding-left: 3px;" class="font-dark" colspan="3"><a target="_blank" href="<?php echo base_url() . 'user/full_profile/' . base64_encode('PARINAYBUDHI' . $email . 'I' . $user_id); ?>" class="c-base-1"><b><?php echo $sentApproveRequests[$i][0]['user_profile_key']; ?></b></a></td>
                                                                 </tr>
                                                                 <tr>
                                                                     <td width="120" height="30" style="padding-left: 3px;" class="font-dark"><b>Age</b></td>
@@ -642,9 +649,13 @@
                                         $keyarr = explode('|', $key);
                                         $session_user_id = $keyarr[2];
                                         //print_r($recApproveRequests);
+                                        $email = '';
+                                        $user_id = '';
                                         if ($recApproveRequests != '500') {
                                             for ($i = 0; $i < count($recApproveRequests); $i++) {
-                                                
+                                                $email = $recApproveRequests[$i][0]['user_email'];
+                                                $user_id = $recApproveRequests[$i][0]['user_id'];
+
                                                 if ($recApproveRequests[$i][0]['user_profile_image'] == '') {
                                                     $profileimage = 'assets/images/user.png';
                                                 } else {
@@ -654,7 +665,7 @@
                                                 <!-----------------------------this Div is for single user profile---------------------------------->
                                                 <div class="block block--style-3 list z-depth-1-top w3-margin-bottom" id="block_1">
                                                     <div class="block-image">
-                                                        <a onclick="goto_profile(p.user_id)">
+                                                        <a target="_blank" href="<?php echo base_url() . 'user/full_profile/' . base64_encode('PARINAYBUDHI' . $email . 'I' . $user_id); ?>">
                                                             <div class="listing-image" style="background-image: url(<?php echo base_url(); ?><?php echo $profileimage; ?>)"></div>
                                                         </a>
                                                     </div>
@@ -676,7 +687,7 @@
                                                     ?>
                                                     <div class="block-title-wrapper">
                                                         <h3 class="heading heading-5 strong-500 mt-1">
-                                                            <a class="c-base-1"><?php echo $firstname . ' ' . $lastname; ?></a>
+                                                            <a class="c-base-1" target="_blank" href="<?php echo base_url() . 'user/full_profile/' . base64_encode('PARINAYBUDHI' . $email . 'I' . $user_id); ?>"><?php echo $firstname . ' ' . $lastname; ?></a>
                                                         </h3>
 
                                                         <h4 class="heading heading-xs c-gray-light text-uppercase strong-400"><?php echo $recApproveRequests[$i][0]['user_designation']; ?></h4>
@@ -684,7 +695,7 @@
                                                             <tbody>
                                                                 <tr>
                                                                     <td height="30" style="padding-left: 3px;" class="font-dark"><b>Member ID</b></td>
-                                                                    <td height="30" style="padding-left: 3px;" class="font-dark" colspan="3"><a onclick="return goto_profile()" class="c-base-1"><b><?php echo $recApproveRequests[$i][0]['user_profile_key']; ?></b></a></td>
+                                                                    <td height="30" style="padding-left: 3px;" class="font-dark" colspan="3"><a target="_blank" href="<?php echo base_url() . 'user/full_profile/' . base64_encode('PARINAYBUDHI' . $email . 'I' . $user_id); ?>" class="c-base-1"><b><?php echo $recApproveRequests[$i][0]['user_profile_key']; ?></b></a></td>
                                                                 </tr>
                                                                 <tr>
                                                                     <td width="120" height="30" style="padding-left: 3px;" class="font-dark"><b>Age</b></td>
@@ -845,7 +856,6 @@
                                                 } else {
                                                     $profileimage = $myFollowers[$i][0]['user_profile_image'];
                                                 }
-                                                
                                                 ?>
                                                 <!-----------------------------this Div is for single user profile---------------------------------->
                                                 <div class="block block--style-3 list z-depth-1-top w3-margin-bottom" id="block_1">
