@@ -23,8 +23,8 @@
 </style>
 <script type="text/javascript">
     $('#uploadPhotoModal').on('hidden.bs.modal', function () {
-     location.reload();
- })
+       location.reload();
+   })
 </script>
 <!-- <?php print_r($userDetails); ?> -->
 <section class="slice sct-color-2">
@@ -78,7 +78,7 @@
                 if($show_alert==0){
                     ?>
                     <div class="col-md-12">
-                     <div class="col-md-12 alert alert-warning alert-dismissible" role="alert">
+                       <div class="col-md-12 alert alert-warning alert-dismissible" role="alert">
                         <a href="#" class="close w3-medium" data-dismiss="alert" aria-label="close"> <i class="fa fa-times-circle"></i> </a>
                         <p style="margin-bottom:0"><i class="fa fa-warning"></i> Please complete your Profile & then you can find your correct match ! </p>
                     </div>
@@ -98,7 +98,7 @@
             if($userDetails[0]['user_doc_verified']==0){
                 ?>
                 <div class="col-md-12">
-                 <div class="col-md-12 alert alert-warning alert-dismissible" role="alert">
+                   <div class="col-md-12 alert alert-warning alert-dismissible" role="alert">
                     <a href="#" class="close w3-medium" data-dismiss="alert" aria-label="close"> <i class="fa fa-times-circle"></i> </a>
                     <p style="margin-bottom:0"><i class="fa fa-warning"></i> To Activate your account, you have to get verified for at least 3 uploaded documents successfully. </p>
                     <p style="margin-bottom:0"> <b>Uploaded Documents:</b> <?php echo $uploaded_doc; ?> </p>
@@ -132,44 +132,27 @@
                             </div>
                             <div class="profile-stats clearfix mt-2">
                                 <div class="stats-entry" style="width: 100%">
-                                    <span class="stats-count"><?php echo $userDetails[0]['user_email']; ?>
+                                    <span class="stats-count"><?php echo $userDetails[0]['user_caste']; ?>
                                 </span>
-                                <span class="stats-label text-uppercase">Email ID</span>
-                                <span class="">
-                                    <?php 
-                                    if($userDetails[0]['user_email_verified']=='1'){    ?>
-                                        <span id="verify_email_span" class="btn-base-1 btn-sm btn-icon-only btn-shadow mb-1 w3-green">
-                                            <i class="ion-checkmark"></i> Verified
-                                        </span>
-                                        <?php
-                                    }
-                                    else{
-                                        ?>
-                                        <button type="button" id="btn_verify_email" class="btn btn-base-1 btn-sm btn-icon-only btn-shadow mb-1 w3-green" onclick="verify('email','<?php echo $userDetails[0]['user_email']; ?>')">
-                                            <i class="ion-android-lock"></i> Verify
-                                        </button>
-                                        <?php
-                                    }
-                                    ?>
-                                </span>
+                                <span class="stats-label text-uppercase">Caste</span>
                             </div>
                         </div>
                         <div class="profile-stats clearfix mt-2">
                             <div class="stats-entry" style="width: 100%">
-                                <span class="stats-count"><?php echo $userDetails[0]['user_mobile_num']; ?>
+                                <span class="stats-count"><?php echo $userDetails[0]['user_email']; ?>
                             </span>
-                            <span class="stats-label text-uppercase">Mobile Number</span>
+                            <span class="stats-label text-uppercase">Email ID</span>
                             <span class="">
                                 <?php 
-                                if($userDetails[0]['user_mobile_verified']=='1'){    ?>
-                                    <span id="verify_mobile_span" class="btn-base-1 btn-sm btn-icon-only btn-shadow mb-1 w3-green">
+                                if($userDetails[0]['user_email_verified']=='1'){    ?>
+                                    <span id="verify_email_span" class="btn-base-1 btn-sm btn-icon-only btn-shadow mb-1 w3-green">
                                         <i class="ion-checkmark"></i> Verified
                                     </span>
                                     <?php
                                 }
                                 else{
                                     ?>
-                                    <button type="button" id="btn_verify_mobile" class="btn btn-base-1 btn-sm btn-icon-only btn-shadow mb-1 w3-green" onclick="verify('mobile','<?php echo $userDetails[0]['user_mobile_num']; ?>')">
+                                    <button type="button" id="btn_verify_email" class="btn btn-base-1 btn-sm btn-icon-only btn-shadow mb-1 w3-green" onclick="verify('email','<?php echo $userDetails[0]['user_email']; ?>')">
                                         <i class="ion-android-lock"></i> Verify
                                     </button>
                                     <?php
@@ -178,183 +161,207 @@
                             </span>
                         </div>
                     </div>
-                    <!-- Profile connect -->
-                    <div class="profile-connect mt-5">
-                        <h4 class="heading strong-400">Official Information</h4>
-                    </div>
-                    <div class="profile-stats clearfix mt-0">
-                        <div class="stats-entry">
-                            <span class="stats-count"><?php echo $userDetails[0]['user_package']; ?></span>
-                            <span class="stats-label text-uppercase">Current Package</span>
-                        </div>
-                        <div class="stats-entry">
-                            <span class="stats-count"><?php echo date('d M Y',strtotime($userDetails[0]['user_reg_date'])); ?></span>
-                            <span class="stats-label text-uppercase">Registration date</span>
-                        </div>
-                    </div>
                     <div class="profile-stats clearfix mt-2">
-                        <div class="stats-entry">
-                            <span class="stats-count">
-                                <?php 
-                                $incoming_int=0;
-                                if($userDetails[0]['user_received_requests']!='' && $userDetails[0]['user_received_requests']!='[]'){
-                                    $recievedRequestArr=json_decode($userDetails[0]['user_received_requests'],TRUE);
-                                    $incoming_int=count($recievedRequestArr);
-                                }
-                                echo $incoming_int;
-                                ?>
-                            </span>
-                            <span class="stats-label text-uppercase">Recieved Requests</span>
-                        </div>
-                        <div class="stats-entry">
-                            <span class="stats-count"><?php echo $userDetails[0]['user_remaining_requests']; ?></span>
-                            <span class="stats-label text-uppercase">Remaining Tokens</span>
-                        </div>
-                    </div>
-
-                </div>
-                <!-- Profile stats -->
-                <div class="profile-useful-links clearfix">
-                    <div class="profile-connect mt-5">
-                        <hr>
-                        <h4 class="heading strong-400">Gallery</h4>
-                    </div>
-
-                    <div class="w3-container w3-margin-top w3-center no-padding">
-                        <div id="galleryImages">
+                        <div class="stats-entry" style="width: 100%">
+                            <span class="stats-count"><?php echo $userDetails[0]['user_mobile_num']; ?>
+                        </span>
+                        <span class="stats-label text-uppercase">Mobile Number</span>
+                        <span class="">
                             <?php 
-                            if($userDetails[0]['user_photos']!='' && $userDetails[0]['user_photos']!='[]'){                                            
-                                $img_Arr=json_decode($userDetails[0]['user_photos'],TRUE);
-                                foreach ($img_Arr as $key) { ?>
-                                    <div class="w3-col l6 s6 m4" style="padding:4px 4px 4px 4px">
-                                        <div class="block-image relative">
-                                            <div class="view view-second view--rounded light-gallery">
-                                                <img src="<?php echo base_url(); ?><?php echo $key; ?>" style="width: 100%;height: 150px;">
-                                                <div class="mask mask-base-1--style-2">
-                                                    <div class="view-buttons text-center">
-                                                        <div class="view-buttons-inner text-center" style="padding: 5px">
-                                                            <a target="_blank" href="<?php echo base_url(); ?><?php echo $key; ?>" class="c-white mr-2 l-gallery" data-toggle="light-gallery">
-                                                                <i class="fa fa-search"></i>
+                            if($userDetails[0]['user_mobile_verified']=='1'){    ?>
+                                <span id="verify_mobile_span" class="btn-base-1 btn-sm btn-icon-only btn-shadow mb-1 w3-green">
+                                    <i class="ion-checkmark"></i> Verified
+                                </span>
+                                <?php
+                            }
+                            else{
+                                ?>
+                                <button type="button" id="btn_verify_mobile" class="btn btn-base-1 btn-sm btn-icon-only btn-shadow mb-1 w3-green" onclick="verify('mobile','<?php echo $userDetails[0]['user_mobile_num']; ?>')">
+                                    <i class="ion-android-lock"></i> Verify
+                                </button>
+                                <?php
+                            }
+                            ?>
+                        </span>
+                    </div>
+                </div>
+                <!-- Profile connect -->
+                <div class="profile-connect mt-5">
+                    <h4 class="heading strong-400">Official Information</h4>
+                </div>
+                <div class="profile-stats clearfix mt-0">
+                    <div class="stats-entry">
+                        <span class="stats-count"><?php echo $userDetails[0]['user_package']; ?></span>
+                        <span class="stats-label text-uppercase">Current Package</span>
+                    </div>
+                    <div class="stats-entry">
+                        <span class="stats-count"><?php echo date('d M Y',strtotime($userDetails[0]['user_reg_date'])); ?></span>
+                        <span class="stats-label text-uppercase">Registration date</span>
+                    </div>
+                </div>
+                <div class="profile-stats clearfix mt-2">
+                    <div class="stats-entry">
+                        <span class="stats-count">
+                            <?php 
+                            $incoming_int=0;
+                            if($userDetails[0]['user_received_requests']!='' && $userDetails[0]['user_received_requests']!='[]'){
+                                $recievedRequestArr=json_decode($userDetails[0]['user_received_requests'],TRUE);
+                                $incoming_int=count($recievedRequestArr);
+                            }
+                            echo $incoming_int;
+                            ?>
+                        </span>
+                        <span class="stats-label text-uppercase">Recieved Requests</span>
+                    </div>
+                    <div class="stats-entry">
+                        <span class="stats-count"><?php echo $userDetails[0]['user_remaining_requests']; ?></span>
+                        <span class="stats-label text-uppercase">Remaining Tokens</span>
+                    </div>
+                </div>
+
+            </div>
+            <!-- Profile stats -->
+            <div class="profile-useful-links clearfix">
+                <div class="profile-connect mt-5">
+                    <hr>
+                    <h4 class="heading strong-400">Gallery</h4>
+                </div>
+
+                <div class="w3-container w3-margin-top w3-center no-padding">
+                    <div id="galleryImages">
+                        <?php 
+                        if($userDetails[0]['user_photos']!='' && $userDetails[0]['user_photos']!='[]'){                                            
+                            $img_Arr=json_decode($userDetails[0]['user_photos'],TRUE);
+                            foreach ($img_Arr as $key) { ?>
+                                <div class="w3-col l6 s6 m4" style="padding:4px 4px 4px 4px">
+                                    <div class="block-image relative">
+                                        <div class="view view-second view--rounded light-gallery">
+                                            <img src="<?php echo base_url(); ?><?php echo $key; ?>" style="width: 100%;height: 150px;">
+                                            <div class="mask mask-base-1--style-2">
+                                                <div class="view-buttons text-center">
+                                                    <div class="view-buttons-inner text-center" style="padding: 5px">
+                                                        <a target="_blank" href="<?php echo base_url(); ?><?php echo $key; ?>" class="c-white mr-2 l-gallery" data-toggle="light-gallery">
+                                                            <i class="fa fa-search"></i>
+                                                        </a>
+                                                        <a class="c-white ml-2" onclick="delImage('<?php echo $key; ?>')">
+                                                            <i class="fa fa-trash"></i>
+                                                        </a><br>
+                                                        <?php 
+                                                        if($userDetails[0]['user_profile_image']!=$key){
+                                                            ?>
+                                                            <a class="c-white btn w3-small w3-round w3-text-white w3-grey" onclick="setProfilePicture('<?php echo $key; ?>')" style="padding:2px 3px;border:1px solid">
+                                                                set profile image
                                                             </a>
-                                                            <a class="c-white ml-2" onclick="delImage('<?php echo $key; ?>')">
-                                                                <i class="fa fa-trash"></i>
-                                                            </a><br>
-                                                            <?php 
-                                                            if($userDetails[0]['user_profile_image']!=$key){
-                                                                ?>
-                                                                <a class="c-white btn w3-small w3-round w3-text-white w3-grey" onclick="setProfilePicture('<?php echo $key; ?>')" style="padding:2px 3px;border:1px solid">
-                                                                    set profile image
-                                                                </a>
-                                                            <?php } ?>
-                                                        </div>
+                                                        <?php } ?>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <?php
-                                }
+                                </div>
+                                <?php
                             }
-                            else{ ?>
-                                <p class="w3-light-grey w3-center"> No Image found ! </p>
-                                <?php    
-                            }
-                            ?>
+                        }
+                        else{ ?>
+                            <p class="w3-light-grey w3-center"> No Image found ! </p>
+                            <?php    
+                        }
+                        ?>
+                    </div>
+                    <div class="w3-col l12" style="padding:4px 4px 4px 4px">
+                        <div class="pull-right">
+                            <button type="button" data-toggle="modal" data-target="#uploadPhotoModal" class="btn btn-success btn-icon-only btn-shadow"><i class="ion-plus"></i> Upload Pictures</button>
                         </div>
-                        <div class="w3-col l12" style="padding:4px 4px 4px 4px">
-                            <div class="pull-right">
-                                <button type="button" data-toggle="modal" data-target="#uploadPhotoModal" class="btn btn-success btn-icon-only btn-shadow"><i class="ion-plus"></i> Upload Pictures</button>
-                            </div>
 
-                            <!-- Modal Upload picture -->
-                            <div class="modal fade" id="uploadPhotoModal" role="dialog" aria-hidden="true">
-                                <div class="modal-dialog modal-md">
-                                    <div class="modal-content">
+                        <!-- Modal Upload picture -->
+                        <div class="modal fade" id="uploadPhotoModal" role="dialog" aria-hidden="true">
+                            <div class="modal-dialog modal-md">
+                                <div class="modal-content">
 
-                                        <div class="modal-header">
+                                    <div class="modal-header">
 
-                                            <h4 class="modal-title"> Upload your Picture </h4>
-                                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true"><i class="ion-close"></i></span>
-                                            </button>
-                                        </div>
-                                        <div class="modal-body" style="padding: 2rem 0 2rem 0">
-                                            <form class="col-12" id="gallery_upload_form" role="form" enctype="multipart/form-data">
-                                                <div class="form-group has-feedback col-10 ml-auto mr-auto">
-                                                    <label for="img_title" class="text-uppercase w3-left c-gray-light">Image Title</label>
-                                                    <input type="text" class="form-control no-resize" name="img_title" required>
-                                                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
-                                                    <div class="help-block with-errors"></div>
+                                        <h4 class="modal-title"> Upload your Picture </h4>
+                                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true"><i class="ion-close"></i></span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body" style="padding: 2rem 0 2rem 0">
+                                        <form class="col-12" id="gallery_upload_form" role="form" enctype="multipart/form-data">
+                                            <div class="form-group has-feedback col-10 ml-auto mr-auto">
+                                                <label for="img_title" class="text-uppercase w3-left c-gray-light">Image Title</label>
+                                                <input type="text" class="form-control no-resize" name="img_title" required>
+                                                <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                                                <div class="help-block with-errors"></div>
+                                            </div>
+                                            <div class="form-group has-feedback col-10 ml-auto mr-auto select_div" id="img_main">
+                                                <label class="text-uppercase w3-left c-gray-light">Upload Image</label>
+                                                <div class="col-sm-12" style="margin:2px; padding:2px;">
+                                                    <img class="img-responsive img-border blah z-depth-1-bottom" style="width: 100%;border: 1px solid #e6e6e6;" id="previewImage" src="<?php echo base_url(); ?>assets/client/img/default_image.jpg">
                                                 </div>
-                                                <div class="form-group has-feedback col-10 ml-auto mr-auto select_div" id="img_main">
-                                                    <label class="text-uppercase w3-left c-gray-light">Upload Image</label>
-                                                    <div class="col-sm-12" style="margin:2px; padding:2px;">
-                                                        <img class="img-responsive img-border blah z-depth-1-bottom" style="width: 100%;border: 1px solid #e6e6e6;" id="previewImage" src="<?php echo base_url(); ?>assets/client/img/default_image.jpg">
-                                                    </div>
-                                                    <input type="file" id="selected_image" onchange="readURL(this)" name="selected_image" class="form-control w3-margin-top" required>
-                                                </div>
-                                                <div class="form-group has-feedback col-10 ml-auto mr-auto text-center">
-                                                    <button type="submit" id="btn_gallery_upload" class="btn btn-block btn-base-1 btn-shadow">Upload to Gallery</button>
-                                                </div>
-                                            </form>
-                                        </div>
+                                                <input type="file" id="selected_image" onchange="readURL(this)" name="selected_image" class="form-control w3-margin-top" required>
+                                            </div>
+                                            <div class="form-group has-feedback col-10 ml-auto mr-auto text-center">
+                                                <button type="submit" id="btn_gallery_upload" class="btn btn-block btn-base-1 btn-shadow">Upload to Gallery</button>
+                                            </div>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
-                            <!-- end upload picture modal --> 
                         </div>
+                        <!-- end upload picture modal --> 
                     </div>
-                    <hr>
-                    <div class="useful-links" id="changePasswordDiv">
-                       <a class="btn btn-styled btn-sm btn-white z-depth-2-bottom mb-3 change_pass l_nav" data-toggle="modal" data-target="#changePasswordModal">
-                        <b style="font-size: 12px">Change Password</b>
-                    </a>
-                    <a class="btn btn-styled btn-sm btn-white z-depth-2-bottom mb-3 change_pass l_nav" href="<?php echo base_url(); ?>user/login/logoutUser">
-                        <b style="font-size: 12px">Logout</b>
-                    </a>
-                    <!-- Modal Change password -->
-                    <div class="modal fade" id="changePasswordModal" role="dialog" aria-hidden="true">
-                        <div class="modal-dialog modal-sm">
-                            <div class="modal-content">
+                </div>
+                <hr>
+                <div class="useful-links" id="changePasswordDiv">
+                 <a class="btn btn-styled btn-sm btn-white z-depth-2-bottom mb-3 change_pass l_nav" data-toggle="modal" data-target="#changePasswordModal">
+                    <b style="font-size: 12px">Change Password</b>
+                </a>
+                <a class="btn btn-styled btn-sm btn-white z-depth-2-bottom mb-3 change_pass l_nav" href="<?php echo base_url(); ?>user/login/logoutUser">
+                    <b style="font-size: 12px">Logout</b>
+                </a>
+                <!-- Modal Change password -->
+                <div class="modal fade" id="changePasswordModal" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog modal-sm">
+                        <div class="modal-content">
 
-                                <div class="modal-header">
+                            <div class="modal-header">
 
-                                    <h5 class="modal-title"> Change Password </h5>
-                                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true"><i class="ion-close"></i></span>
-                                    </button>
-                                </div>
-                                <div id="section_change_password" class="modal-body" style="padding: 2rem 0 2rem 0">
-                                    <form class="col-12" id="form_change_password" role="form">
-                                        <div class="form-group has-feedback col-10 ml-auto mr-auto">
-                                            <label for="old_password" class="text-uppercase w3-left c-gray-light">Old Password</label>
-                                            <input type="password" class="form-control no-resize" name="old_password" required>
-                                            <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
-                                            <div class="help-block with-errors"></div>
-                                        </div>
-                                        <input type="hidden" name="password_enc" value="<?php echo $userDetails[0]['user_password']; ?>" readonly>
-                                        <div class="form-group has-feedback col-10 ml-auto mr-auto">
-                                            <label for="new_password" class="text-uppercase w3-left c-gray-light">New Password</label>
-                                            <input type="password" class="form-control no-resize" onkeyup="checkPassword();" name="new_password" id="new_password" required>
-                                            <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
-                                            <div class="help-block with-errors"></div>
-                                        </div>
-                                        <div class="form-group has-feedback col-10 ml-auto mr-auto">
-                                            <label for="confirm_password" class="text-uppercase w3-left c-gray-light">Confirm Password</label>
-                                            <input type="password" onkeyup="checkPassword();" class="form-control no-resize" name="confirm_password" id="confirm_password" required>
-                                            <span class="glyphicon form-control-feedback w3-text-red" id="passwordErr" aria-hidden="true"></span>
-                                        </div>
-                                        <div class="form-group has-feedback col-10 ml-auto mr-auto text-center">
-                                            <button type="submit" onclick="save_section('change_password')" id="btn_change_password" class="btn btn-block btn-base-1 btn-shadow">Change Password</button>
-                                        </div>
-                                    </form>
-                                </div>
+                                <h5 class="modal-title"> Change Password </h5>
+                                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true"><i class="ion-close"></i></span>
+                                </button>
+                            </div>
+                            <div id="section_change_password" class="modal-body" style="padding: 2rem 0 2rem 0">
+                                <form class="col-12" id="form_change_password" role="form">
+                                    <div class="form-group has-feedback col-10 ml-auto mr-auto">
+                                        <label for="old_password" class="text-uppercase w3-left c-gray-light">Old Password</label>
+                                        <input type="password" class="form-control no-resize" name="old_password" required>
+                                        <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                    <input type="hidden" name="password_enc" value="<?php echo $userDetails[0]['user_password']; ?>" readonly>
+                                    <div class="form-group has-feedback col-10 ml-auto mr-auto">
+                                        <label for="new_password" class="text-uppercase w3-left c-gray-light">New Password</label>
+                                        <input type="password" class="form-control no-resize" onkeyup="checkPassword();" name="new_password" id="new_password" required>
+                                        <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                    <div class="form-group has-feedback col-10 ml-auto mr-auto">
+                                        <label for="confirm_password" class="text-uppercase w3-left c-gray-light">Confirm Password</label>
+                                        <input type="password" onkeyup="checkPassword();" class="form-control no-resize" name="confirm_password" id="confirm_password" required>
+                                        <span class="glyphicon form-control-feedback w3-text-red" id="passwordErr" aria-hidden="true"></span>
+                                    </div>
+                                    <div class="form-group has-feedback col-10 ml-auto mr-auto text-center">
+                                        <button type="submit" onclick="save_section('change_password')" id="btn_change_password" class="btn btn-block btn-base-1 btn-shadow">Change Password</button>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>
-                    <!-- end chnage password modal --> 
                 </div>
+                <!-- end chnage password modal --> 
             </div>
         </div>
-    </div>            
+    </div>
+</div>            
 </div>
 <div class="col-lg-8">
     <div class="widget">
@@ -517,9 +524,9 @@
                                                     <span>Blood Group</span>
                                                 </td>
                                                 <td>
-                                                   <?php echo $userDetails[0]['user_blood_grp']; ?>                          
-                                               </td>
-                                               <td class="td-label">
+                                                 <?php echo $userDetails[0]['user_blood_grp']; ?>                          
+                                             </td>
+                                             <td class="td-label">
                                                 <span>Mother Tongue</span>
                                             </td>
                                             <td><?php echo $userDetails[0]['user_mother_tongue']; ?>
@@ -778,17 +785,17 @@
                                             <span>Working Field</span>
                                         </td>
                                         <td>
-                                           <?php echo $userDetails[0]['user_working_field']; ?>
-                                       </td>
-                                   </tr>
-                                   <tr>
+                                         <?php echo $userDetails[0]['user_working_field']; ?>
+                                     </td>
+                                 </tr>
+                                 <tr>
                                     <td class="td-label">
                                         <span>Company Name</span>
                                     </td>
                                     <td>
-                                     <?php echo $userDetails[0]['user_company_name']; ?>
-                                 </td>
-                                 <td class="td-label">
+                                       <?php echo $userDetails[0]['user_company_name']; ?>
+                                   </td>
+                                   <td class="td-label">
                                     <span>Designation</span>
                                 </td>
                                 <td>
@@ -806,19 +813,19 @@
                                 <span>Monthly Income</span>
                             </td>
                             <td>
-                             <?php echo $userDetails[0]['user_monthly_income']; ?>
-                         </td>
-                         <td class="td-label">
+                               <?php echo $userDetails[0]['user_monthly_income']; ?>
+                           </td>
+                           <td class="td-label">
                             <span>Annual Income</span>
                         </td>
                         <td>
-                           <?php echo $userDetails[0]['user_annual_income']; ?>                   
-                       </td>
-                   </tr>
-               </tbody>
-           </table>
-       </div>
-   </div>
+                         <?php echo $userDetails[0]['user_annual_income']; ?>                   
+                     </td>
+                 </tr>
+             </tbody>
+         </table>
+     </div>
+ </div>
 </div>
 <!-- view eductaion and professional div ends -->
 <!-- edit education and professional div -->
@@ -1043,15 +1050,15 @@
                     </tr>
                     <tr>
                         <td class="td-label">
-                         Contact number 1
-                     </td>
-                     <td>
+                           Contact number 1
+                       </td>
+                       <td>
                         <?php if($userDetails[0]['user_contact_no1']!='' && $userDetails[0]['user_contact_no1']!='0'){echo $userDetails[0]['user_contact_no1']; }?> 
                     </td>
                     <td class="td-label">
-                     Contact number 2
-                 </td>
-                 <td>
+                       Contact number 2
+                   </td>
+                   <td>
                     <?php if($userDetails[0]['user_contact_no2']!='' && $userDetails[0]['user_contact_no2']!='0'){echo $userDetails[0]['user_contact_no2']; }?> 
                 </td>
             </tr>
@@ -1357,14 +1364,14 @@
                                         <span>Relation with Me</span>
                                     </td>
                                     <td>
-                                     <?php echo $relativeArr[$i]['relative_relation']; ?>
-                                 </td>
-                             </tr>
-                             <tr>
+                                       <?php echo $relativeArr[$i]['relative_relation']; ?>
+                                   </td>
+                               </tr>
+                               <tr>
                                 <td class="td-label">
-                                 Contact number
-                             </td>
-                             <td>
+                                   Contact number
+                               </td>
+                               <td>
                                 <?php echo $relativeArr[$i]['relative_contact']; ?>
                             </td>
                             <td class="td-label">
@@ -1649,6 +1656,9 @@
                             <option value="0" class="w3-light-grey">Choose one document</option>
                             <option value="Adhaar Card">Adhaar Card</option>
                             <option value="PAN Card">PAN Card</option>
+                            <option value="Driving License">Driving License</option>
+                            <option value="Passport">Passport</option>
+                            <option value="Voter ID">Voter ID</option>
                             <option value="Electricity Bill">Electricity Bill</option>
                         </select>                        
                         <span class="glyphicon form-control-feedback" aria-hidden="true"></span>

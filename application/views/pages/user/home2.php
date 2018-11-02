@@ -127,11 +127,11 @@ a.socialIcon:hover, .socialHoverClass {
   <div class="w3-col l12 w3-margin-bottom hidden-md">
     <div class="w3-col l6  " style="padding-right: 5px;">
      <label class="w3-large">First Name : </label>
-     <input type="text" class="w3-input control w3-text-grey" placeholder="Your first name" required name="first_name" id="mc-name">
+     <input type="text" class="w3-input control w3-text-grey" placeholder="Your first name" required name="first_name" id="mc-fname">
    </div>
    <div class="w3-col l6" style="padding-right: 5px;">
      <label class="w3-large">Last Name : </label>
-     <input type="text" class="w3-input control w3-text-grey" placeholder="Your last name*" required name="last_name" id="mc-name">
+     <input type="text" class="w3-input control w3-text-grey" placeholder="Your last name*" required name="last_name" id="mc-lname">
    </div>
  </div>
  <div class="w3-col l12 w3-margin-bottom" style="padding-right: 5px;">
@@ -143,7 +143,9 @@ a.socialIcon:hover, .socialHoverClass {
    <select class="w3-input control w3-text-grey" name="caste" id="mc-caste">
     <option value="0" class="w3-light-grey" selected>Select your Caste*</option>
     <option value="Hindu Mahar">Hindu Mahar</option>    									
-    <option value="Mahayana">Mahayana</option>    									
+    <option value="Mahayana">Mahayana</option>                      
+    <option value="Boudhha">Boudhha</option>                      
+    <option value="Nav Bouddha">Nav Bouddha</option>                      
     <option value="Nichiren Buddhism">Nichiren Buddhism</option>    									
     <option value="Pure Land Buddhism">Pure Land Buddhism</option>    									
     <option value="Tantrayana (Vajrayana Tibetan)">Tantrayana (Vajrayana Tibetan)</option>    									

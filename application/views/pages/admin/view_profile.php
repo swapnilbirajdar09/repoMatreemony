@@ -304,35 +304,41 @@
                                 <?php 
                                 if(isset($userDetails['status']) && isset($userDetails['status'])=='error'){ ?>
                                     <div class="col-md-12">
-                                       <div class="col-md-12 alert alert-warning" role="alert">
+                                     <div class="col-md-12 alert alert-warning" role="alert">
                                         <p style="margin-bottom:0"><i class="fa fa-warning"></i> You dont have permission to access the information. Let the Member approve your request OR you might have not approved the Member's request </p>
                                     </div>
                                 </div>
                             <?php }
                             else{
-                            ?>
-                            <div class="col-lg-4">
-                                <div class="sidebar sidebar-inverse sidebar--style-1 bg-base-1 z-depth-2-top">
-                                    <div class="sidebar-object mb-0">
-                                        <!-- Profile picture -->
-                                        <div class="profile-picture profile-picture--style-2">
-                                            <div style="border: 10px solid rgba(255, 255, 255, 0.1);width: 200px;border-radius: 50%;margin-top: 30px;">
-                                                <?php if($userDetails[0]['user_profile_image']!=''){ ?>
-                                                    <div class="profile_img" id="show_img" style="background-image: url(<?php echo base_url(); ?><?php echo $userDetails[0]['user_profile_image']; ?>)"></div>
-                                                <?php }else { ?>
-                                                    <div class="profile_img" id="show_img" style="background-image: url(<?php echo base_url(); ?>assets/images/user.png)"></div>
-                                                <?php } ?>
-                                            </div>
-                                        </div>
-                                        <!-- Profile details -->
-                                        <div class="profile-details">
-                                            <h2 class="heading heading-3 strong-500 profile-name"><?php echo $userDetails[0]['user_firstname'].' '.$userDetails[0]['user_lastname']; ?></h2>
-                                            <h3 class="heading heading-6 strong-400 profile-occupation mt-3"><?php if($userDetails[0]['user_designation']==''){echo '<User Designation>';}else{ echo $userDetails[0]['user_designation']; } ?></h3>
-
-                                                <div class="col-md-12 w3-margin-top w3-margin-bottom">
-                                                    <a href="#" class="btn btn-styled btn-block btn-circle btn-sm btn-base-5">Add to Favourite</a>
+                                ?>
+                                <div class="col-lg-4">
+                                    <div class="sidebar sidebar-inverse sidebar--style-1 bg-base-1 z-depth-2-top">
+                                        <div class="sidebar-object mb-0">
+                                            <!-- Profile picture -->
+                                            <div class="profile-picture profile-picture--style-2">
+                                                <div style="border: 10px solid rgba(255, 255, 255, 0.1);width: 200px;border-radius: 50%;margin-top: 30px;">
+                                                    <?php if($userDetails[0]['user_profile_image']!=''){ ?>
+                                                        <div class="profile_img" id="show_img" style="background-image: url(<?php echo base_url(); ?><?php echo $userDetails[0]['user_profile_image']; ?>)"></div>
+                                                    <?php }else { ?>
+                                                        <div class="profile_img" id="show_img" style="background-image: url(<?php echo base_url(); ?>assets/images/user.png)"></div>
+                                                    <?php } ?>
                                                 </div>
+                                            </div>
+                                            <!-- Profile details -->
+                                            <div class="profile-details">
+                                                <h2 class="heading heading-3 strong-500 profile-name"><?php echo $userDetails[0]['user_firstname'].' '.$userDetails[0]['user_lastname']; ?></h2>
+                                                <h3 class="heading heading-6 strong-400 profile-occupation mt-3"><?php if($userDetails[0]['user_designation']==''){echo '<User Designation>';}else{ echo $userDetails[0]['user_designation']; } ?></h3>
 
+                                                    <div class="col-md-12 w3-margin-top w3-margin-bottom">
+                                                        <a href="#" class="btn btn-styled btn-block btn-circle btn-sm btn-base-5">Add to Favourite</a>
+                                                    </div>
+                                                    <div class="profile-stats clearfix mt-2">
+                                                        <div class="stats-entry" style="width: 100%">
+                                                            <span class="stats-count"><?php echo $userDetails[0]['user_caste']; ?>
+                                                        </span>
+                                                        <span class="stats-label text-uppercase">Caste</span>
+                                                    </div>
+                                                </div>
                                                 <div class="profile-stats clearfix mt-2">
                                                     <div class="stats-entry" style="width: 100%">
                                                         <span class="stats-count"><?php echo $userDetails[0]['user_email']; ?>
@@ -608,9 +614,9 @@
                                                                             <span>Blood Group</span>
                                                                         </td>
                                                                         <td>
-                                                                           <?php echo $userDetails[0]['user_blood_grp']; ?>                          
-                                                                       </td>
-                                                                       <td class="td-label">
+                                                                         <?php echo $userDetails[0]['user_blood_grp']; ?>                          
+                                                                     </td>
+                                                                     <td class="td-label">
                                                                         <span>Mother Tongue</span>
                                                                     </td>
                                                                     <td><?php echo $userDetails[0]['user_mother_tongue']; ?>
@@ -687,17 +693,17 @@
                                                                 <span>Working Field</span>
                                                             </td>
                                                             <td>
-                                                               <?php echo $userDetails[0]['user_working_field']; ?>
-                                                           </td>
-                                                       </tr>
-                                                       <tr>
+                                                             <?php echo $userDetails[0]['user_working_field']; ?>
+                                                         </td>
+                                                     </tr>
+                                                     <tr>
                                                         <td class="td-label">
                                                             <span>Company Name</span>
                                                         </td>
                                                         <td>
-                                                         <?php echo $userDetails[0]['user_company_name']; ?>
-                                                     </td>
-                                                     <td class="td-label">
+                                                           <?php echo $userDetails[0]['user_company_name']; ?>
+                                                       </td>
+                                                       <td class="td-label">
                                                         <span>Designation</span>
                                                     </td>
                                                     <td>
@@ -715,27 +721,27 @@
                                                     <span>Monthly Income</span>
                                                 </td>
                                                 <td>
-                                                 <?php echo $userDetails[0]['user_monthly_income']; ?>
-                                             </td>
-                                             <td class="td-label">
+                                                   <?php echo $userDetails[0]['user_monthly_income']; ?>
+                                               </td>
+                                               <td class="td-label">
                                                 <span>Annual Income</span>
                                             </td>
                                             <td>
-                                               <?php echo $userDetails[0]['user_annual_income']; ?>                   
-                                           </td>
-                                       </tr>
-                                   </tbody>
-                               </table>
-                           </div>
-                       </div>
-                   </div>
-                   <!-- view eductaion and professional div ends -->
+                                             <?php echo $userDetails[0]['user_annual_income']; ?>                   
+                                         </td>
+                                     </tr>
+                                 </tbody>
+                             </table>
+                         </div>
+                     </div>
+                 </div>
+                 <!-- view eductaion and professional div ends -->
 
-               </div>
-           </div>
-           <!-- EDU and PROFESSIONAL DIV ENDS -->
-           <!-- FAMILY INFO DIV -->
-           <div id="section_family_info">
+             </div>
+         </div>
+         <!-- EDU and PROFESSIONAL DIV ENDS -->
+         <!-- FAMILY INFO DIV -->
+         <div id="section_family_info">
             <div class="feature feature--boxed-border feature--bg-1 pt-3 pb-0 pl-3 pr-3 mb-3 border_top2x">
                 <!-- view family info div -->
                 <div id="view_family_info">
@@ -807,15 +813,15 @@
                             </tr>
                             <tr>
                                 <td class="td-label">
-                                 Contact number 1
-                             </td>
-                             <td>
+                                   Contact number 1
+                               </td>
+                               <td>
                                 <?php echo $userDetails[0]['user_contact_no1']; ?> 
                             </td>
                             <td class="td-label">
-                             Contact number 2
-                         </td>
-                         <td>
+                               Contact number 2
+                           </td>
+                           <td>
                             <?php echo $userDetails[0]['user_contact_no2']; ?> 
                         </td>
                     </tr>
@@ -912,14 +918,14 @@
                                         <span>Relation with Me</span>
                                     </td>
                                     <td>
-                                     <?php echo $relativeArr[$i]['relative_relation']; ?>
-                                 </td>
-                             </tr>
-                             <tr>
+                                       <?php echo $relativeArr[$i]['relative_relation']; ?>
+                                   </td>
+                               </tr>
+                               <tr>
                                 <td class="td-label">
-                                 Contact number
-                             </td>
-                             <td>
+                                   Contact number
+                               </td>
+                               <td>
                                 <?php echo $relativeArr[$i]['relative_contact']; ?>
                             </td>
                             <td class="td-label">
