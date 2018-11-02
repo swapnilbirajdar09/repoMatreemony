@@ -31,6 +31,7 @@
                 <div class="row justify-content-center">
                     <!-- Contact form -->
                     <form class="form-default" name="contact_us_form" id="contact_us_form" role="form" method="POST" action="">
+                        <div class="w3-col l12 w3-center" id="fpasswd_err"></div>
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group has-feedback">
@@ -74,7 +75,7 @@
                         <div class="mt-2 col-12">
                         </div>
                         <div class="">
-                            <button type="submit" class="w3-button w3-text-white btn-lg btn-styled btn-base-1 mt-4" style="background: linear-gradient(45deg, rgba(72, 44, 191, 1) 0%, rgba(106, 198, 240, 1) 100%);">Send Message</button>
+                            <button type="submit" id="submitbtn" class="w3-button w3-text-white btn-lg btn-styled btn-base-1 mt-4" style="background: linear-gradient(45deg, rgba(72, 44, 191, 1) 0%, rgba(106, 198, 240, 1) 100%);">Send Message</button>
                         </div>
                         <div class="space-80"></div>
                     </form>
@@ -88,7 +89,7 @@
     $(function () {
         $("#contact_us_form").submit(function () {
             dataString = $("#contact_us_form").serialize();
-            $("#spinnerDiv").html('<center><img width="70%" height="auto" src="' + BASE_URL + 'css/logos/reg.gif"/></center>');
+            $("#submitbtn").html('<span class="w3-card w3-padding-small w3-margin-bottom w3-round"><i class="fa fa-spinner fa-spin w3-large"></i> <b>Sending Message. Hang on...</b></span>');
             $.ajax({
                 type: "POST",
                 url: BASE_URL + "user/contact_us/sendContactEmail",
@@ -96,8 +97,10 @@
                 data: dataString,
                 return: false, //stop the actual form post !important!
                 success: function (data) {
-                    $("#spinnerDiv").html('');
-                    $.alert(data);
+                    console.log(data);                    
+                    $("#submitbtn").html('<span>Send Message</span>');
+                    $("#fpasswd_err").html(data);
+                    $('form :input').val('');
                 }
             });
             return false;  //stop the actual form post !important!

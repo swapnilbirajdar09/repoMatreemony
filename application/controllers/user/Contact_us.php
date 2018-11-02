@@ -31,6 +31,7 @@ class Contact_us extends CI_Controller {
     public function sendContactEmail() {
         extract($_POST);
         $admin_email = $this->adminprofile_model->getAdminEmail();
+        $adminEmail = $admin_email[0]['admin_email'];
         $config = Array(
             'protocol' => 'smtp',
             'smtp_host' => 'mx1.hostinger.in',
@@ -46,7 +47,7 @@ class Contact_us extends CI_Controller {
         $this->load->library('email', $config);
         $this->email->set_newline("\r\n");
         $this->email->from('support@jumlakuwait.com', "Admin Team");
-        $this->email->to($admin_email['admin_email']);
+        $this->email->to($adminEmail, 'Admin Team');
         $this->email->subject("Parinay-Contact Form");
         $this->email->message("<html>"
                 . "<head>"
@@ -76,7 +77,7 @@ class Contact_us extends CI_Controller {
             $this->load->library('email', $config);
             $this->email->set_newline("\r\n");
             $this->email->from('support@jumlakuwait.com', "Admin Team");
-            $this->email->to($email);
+            $this->email->to($email, $name);
             $this->email->subject("Parinay Customer Support");
             $this->email->message('<html>
             <head>
@@ -98,29 +99,15 @@ class Contact_us extends CI_Controller {
             </body></html>');
 
             if ($this->email->send()) {
-                echo '<div class="alert alert-success" style="margin-bottom:5px">
+                echo '<div class="alert alert-success alert-dismissible" role="alert" style="margin-bottom:5px">
+                     <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
             <strong>Message Sent Successfully..!</strong> 
-            </div>
-            <script>
-            window.setTimeout(function() {
-              $(".alert").fadeTo(1000, 0).slideUp(1000, function(){
-                 $(this).remove(); 
-                 location.reload();
-             });
-            }, 100);
-            </script>';
+            </div>';
             } else {
-                echo '<div class="alert alert-danger" style="margin-bottom:5px">
+                echo '<div class="alert alert-danger alert-dismissible" style="margin-bottom:5px">
+                      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
             <strong>Message Sending Failed..!</strong> 
-            </div>
-            <script>
-            window.setTimeout(function() {
-              $(".alert").fadeTo(1000, 0).slideUp(1000, function(){
-                 $(this).remove(); 
-                 location.reload();
-             });
-            }, 100);
-            </script>';
+            </div>';
             }
         }
     }
