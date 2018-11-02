@@ -34,7 +34,7 @@
       <h4 class=""><b>A Successful Marriage Requires Falling In Love Many Times, Always With Same Person.</b></h4>
 
       <p>
-      I hereby bow my head for the enlightened Lord Gautam Buddha and honour a saluation to the only architect of Indian Constitution, i.e. Dr.Babasaheb Ambedkar and express my kind gratitude to all those honourable personalities who encouraged me to get in this work.
+      I hereby bow my head for the enlightened Lord Gautam Buddha and honour a salutation to the only architect of Indian Constitution, i.e. Dr.Babasaheb Ambedkar and express my kind gratitude to all those honourable personalities who encouraged me to get in this work.
       </p>
    </div>
   </div>
