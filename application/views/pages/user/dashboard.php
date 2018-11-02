@@ -1,3 +1,4 @@
+<title>Dashboard- Buddhist Parinay</title>
 <section class="slice sct-color-1">
     <div class="container" ng-app="recommandedApp" ng-controller="recommandedAppController">
         <div class="row">
