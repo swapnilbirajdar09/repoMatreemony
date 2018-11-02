@@ -394,7 +394,11 @@
                                                         <!--                            <div class="block-footer b-xs-top">-->
                                                         <div class="row align-items-center">
                                                             <div class="col-sm-12 text-center">
-                                                                <ul class="inline-links inline-links--style-3">                                                                                                                            
+                                                                <ul class="inline-links inline-links--style-3">
+                                                                    <li class="listing-hover">
+                                                                        <a target="_blank" href="<?php echo base_url() . 'user/full_profile/' . base64_encode('PARINAYBUDHI' . $email . 'I' . $user_id); ?>">
+                                                                            <i class="fa fa-id-card"></i>Full Profile</a>
+                                                                    </li>
                                                                     <?php if ($alreadyfollowed == 0) { ?>
                                                                         <li class="listing-hover">
                                                                             <a id="interest_a_1" ng-click="followUserProfile(<?php echo $sentApproveRequests[$i][0]['user_id']; ?>);" title="Follow This Profile" style="">
@@ -792,6 +796,10 @@
                                                                     <li class="listing-hover">
                                                                         <a ng-click="cancelRequestOfUserForReceivedApprovedRequest(<?php echo $recApproveRequests[$i][0]['user_id']; ?>);" title="Cancel Request">
                                                                             <span id="" class="w3-text-red"><i class="fa fa-user-plus w3-text-red"></i> Cancel Request</span></a>
+                                                                    </li>
+                                                                    <li class="listing-hover">
+                                                                        <a target="_blank" href="<?php echo base_url() . 'user/full_profile/' . base64_encode('PARINAYBUDHI' . $email . 'I' . $user_id); ?>">
+                                                                            <i class="fa fa-id-card"></i>Full Profile</a>
                                                                     </li>
                                                                     <?php if ($alreadyfollowed == 0) { ?>
                                                                         <li class="listing-hover">
