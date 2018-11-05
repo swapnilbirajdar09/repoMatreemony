@@ -1,9 +1,9 @@
 <?php 
- $encodedkey = $this->session->userdata('PariKey_session');
-        $session_id='';
-        $key=base64_decode($encodedkey);
-            $keyarr=explode('|', $key);
-            $session_id=$keyarr[2];
+$encodedkey = $this->session->userdata('PariKey_session');
+$session_id='';
+$key=base64_decode($encodedkey);
+$keyarr=explode('|', $key);
+$session_id=$keyarr[2];
 ?>
 <title>Dashboard- Buddhist Parinay</title>
 <section class="slice sct-color-1">
@@ -239,15 +239,19 @@
                                             if ($key['user_received_requests'] != '') {
                                                 $receivedReq = json_decode($key['user_received_requests'], TRUE);
                                             }
-                                            if ($key['user_sent_requests_approved'] != '') {
+                                            if ($key['user_sent_requests_approved'] != '' && $key['user_sent_requests_approved']!='[]') {
                                                 $sentReqApprov = json_decode($key['user_sent_requests_approved'], TRUE);
+                                                if(in_array($session_id, $sentReqApprov)){
+                                                    $approved = 1;
+                                                }
                                             }
-                                            if ($key['user_received_requests_approved'] != '') {
+                                            if ($key['user_received_requests_approved'] != '' && $key['user_received_requests_approved']!='[]') {
                                                 $receivedReqApprov = json_decode($key['user_received_requests_approved'], TRUE);
+                                                if(in_array($session_id, $receivedReqApprov)){
+                                                    $approved = 1;
+                                                }
                                             }
-                                            if(in_array($session_id, $sentReqApprov) || in_array($session_id, $receivedReqApprov)){
-                                                $approved = 1;
-                                            }
+
                                     // Make sure user hasnt already added this item
                                             if ($receivedReq != '' && $receivedReq != []) {
                                                 foreach ($receivedReq as $item) {
@@ -281,57 +285,57 @@
                                                                     </li>
                                                                 <?php } else { 
                                                                     if($approved==0){
-                                                                    ?>
-                                                                    <li class="listing-hover">
-                                                                        <a ng-click="cancelRequestOfUser(<?php echo $key['user_id']; ?>);" title="Cancel Request">
-                                                                            <span id="" class="w3-text-red"><i class="fa fa-user-plus w3-text-red"></i> Cancel Request</span></a>
-                                                                        </li>
-                                                                    <?php } }?>
-                                                                    <?php if ($approved == 1) { ?>
-                                                                <li class="listing-hover">
-                                                                        <span id="" class="w3-text-green"><i class="fa fa-check "></i> Already Approved</span>
-                                                                    </li>
-                                                                <?php } ?>
-                                                                    <?php if ($alreadyfollowed == 0) { ?>
+                                                                        ?>
                                                                         <li class="listing-hover">
-                                                                            <a id="interest_a_1" ng-click="followUserProfile(<?php echo $key['user_id']; ?>);" title="Follow This Profile" style="">
-                                                                                <span id="interest_1" class="w3-text-blue"><i class="fa fa-heart"></i> Add To Favourite</span>
-                                                                            </a>
-                                                                        </li>
-                                                                    <?php } else { ?>
-                                                                        <li class="listing-hover">
-                                                                            <a id="interest_a_1" ng-click="unFollowUserProfile(<?php echo $key['user_id']; ?>);" title="UnFollow This Profile" style="">
-                                                                                <span id="interest_1" class="w3-text-pink"><i class="fa fa-heart"></i> Favourite</span>
-                                                                            </a>
-                                                                        </li>
-                                                                    <?php } ?>
-                                                                </ul>
+                                                                            <a ng-click="cancelRequestOfUser(<?php echo $key['user_id']; ?>);" title="Cancel Request">
+                                                                                <span id="" class="w3-text-red"><i class="fa fa-user-plus w3-text-red"></i> Cancel Request</span></a>
+                                                                            </li>
+                                                                        <?php } }?>
+                                                                        <?php if ($approved == 1) { ?>
+                                                                            <li class="listing-hover">
+                                                                                <span id="" class="w3-text-green"><i class="fa fa-check "></i> Already Approved</span>
+                                                                            </li>
+                                                                        <?php } ?>
+                                                                        <?php if ($alreadyfollowed == 0) { ?>
+                                                                            <li class="listing-hover">
+                                                                                <a id="interest_a_1" ng-click="followUserProfile(<?php echo $key['user_id']; ?>);" title="Follow This Profile" style="">
+                                                                                    <span id="interest_1" class="w3-text-blue"><i class="fa fa-heart"></i> Add To Favourite</span>
+                                                                                </a>
+                                                                            </li>
+                                                                        <?php } else { ?>
+                                                                            <li class="listing-hover">
+                                                                                <a id="interest_a_1" ng-click="unFollowUserProfile(<?php echo $key['user_id']; ?>);" title="UnFollow This Profile" style="">
+                                                                                    <span id="interest_1" class="w3-text-pink"><i class="fa fa-heart"></i> Favourite</span>
+                                                                                </a>
+                                                                            </li>
+                                                                        <?php } ?>
+                                                                    </ul>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
+                                                    <?php
+                                                }
+                                            } else {
+                                                ?>
+                                                <!-----------------------------this Div is for single user profile---------------------------------->
+                                                <div class=" w3-center w3-padding list z-depth-1-top" id="block_1">
+                                                    <div class="w3-padding w3-margin-top">
+                                                        <p class="w3-center w3-medium w3-text-black"> No Match Found..! </p>
+                                                    </div>
                                                 </div>
-                                                <?php
-                                            }
-                                        } else {
-                                            ?>
-                                            <!-----------------------------this Div is for single user profile---------------------------------->
-                                            <div class=" w3-center w3-padding list z-depth-1-top" id="block_1">
-                                                <div class="w3-padding w3-margin-top">
-                                                    <p class="w3-center w3-medium w3-text-black"> No Match Found..! </p>
-                                                </div>
-                                            </div>
-                                        <?php } ?>
-                                    </div>
-                                    <!-- for each div completed -->
+                                            <?php } ?>
+                                        </div>
+                                        <!-- for each div completed -->
 
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </section>
-                <script>
-                    var app = angular.module("recommandedApp", ['ngSanitize', 'angularUtils.directives.dirPagination']);
-                    app.controller("recommandedAppController", function ($scope, $http, $window) {
+                    </section>
+                    <script>
+                        var app = angular.module("recommandedApp", ['ngSanitize', 'angularUtils.directives.dirPagination']);
+                        app.controller("recommandedAppController", function ($scope, $http, $window) {
 
     //-------------------------fun for send the user request--------------------//
     $scope.sendRequestToUser = function (user_id) {
