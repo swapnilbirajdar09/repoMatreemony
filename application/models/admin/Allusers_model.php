@@ -8,7 +8,7 @@ class Allusers_model extends CI_Model {
 
 //------tget all user list--------------//
     public function getAllUsers() {
-        $sql = "SELECT * FROM user_profile_tab,user_tab where user_tab.user_id = user_profile_tab.user_id";
+        $sql = "SELECT * FROM user_profile_tab,user_tab where user_tab.user_id = user_profile_tab.user_id ORDER BY user_tab.user_doc_verified";
         $result = $this->db->query($sql);
         if ($result->num_rows() <= 0) {
             $response = array(

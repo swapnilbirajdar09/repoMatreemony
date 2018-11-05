@@ -1,3 +1,10 @@
+<?php 
+ $encodedkey = $this->session->userdata('PariKey_session');
+        $session_id='';
+        $key=base64_decode($encodedkey);
+            $keyarr=explode('|', $key);
+            $session_id=$keyarr[2];
+?>
 <title>Dashboard- Buddhist Parinay</title>
 <section class="slice sct-color-1">
     <div class="container" ng-app="recommandedApp" ng-controller="recommandedAppController">
@@ -125,7 +132,7 @@
                             }
                             ?>
                             <!-----------------------------this Div is for single user profile---------------------------------->
-                           
+
                             <div class="block block--style-3 list z-depth-1-top w3-margin-bottom" id="block_1">
                                 <div class="block-image">
                                     <a onclick="goto_profile(p.user_id)">
@@ -163,15 +170,15 @@
                                             <tr>
                                                 <td width="120" height="30" style="padding-left: 3px;" class="font-dark"><b>Age</b></td>
                                                 <td width="120" height="30" style="padding-left: 3px;" class="font-dark"><?php
-                                                    $dateOfBirth = $key['user_dob'];
-                                                    if ($dateOfBirth == '') {
-                                                        echo 'N/A';
-                                                    } else {
-                                                        $today = date("Y-m-d");
-                                                        $diff = date_diff(date_create($dateOfBirth), date_create($today));
-                                                        echo $diff->format('%y');
-                                                    }
-                                                    ?></td>
+                                                $dateOfBirth = $key['user_dob'];
+                                                if ($dateOfBirth == '') {
+                                                    echo 'N/A';
+                                                } else {
+                                                    $today = date("Y-m-d");
+                                                    $diff = date_diff(date_create($dateOfBirth), date_create($today));
+                                                    echo $diff->format('%y');
+                                                }
+                                                ?></td>
                                                 <td width="120" height="30" style="padding-left: 3px;" class="font-dark"><b>Height</b></td>
                                                 <td width="120" height="30" style="padding-left: 3px;" class="font-dark">
                                                     <?php
@@ -181,283 +188,302 @@
                                                         echo $key['user_height'];
                                                     }
                                                     ?> Feet</td>
-                                            </tr>                                    
-                                            <tr>
-                                                <td width="120" height="30" style="padding-left: 3px;" class="font-dark"><b>Mother Tongue</b></td>
-                                                <td width="120" height="30" style="padding-left: 3px;" class="font-dark">
-                                                    <?php
-                                                    if ($key['user_mother_tongue'] != '') {
-                                                        echo $key['user_mother_tongue'];
-                                                    } else {
-                                                        echo 'N/A';
-                                                    }
-                                                    ?></td>
+                                                </tr>                                    
+                                                <tr>
+                                                    <td width="120" height="30" style="padding-left: 3px;" class="font-dark"><b>Mother Tongue</b></td>
+                                                    <td width="120" height="30" style="padding-left: 3px;" class="font-dark">
+                                                        <?php
+                                                        if ($key['user_mother_tongue'] != '') {
+                                                            echo $key['user_mother_tongue'];
+                                                        } else {
+                                                            echo 'N/A';
+                                                        }
+                                                        ?></td>
 
-                                                <td width="120" height="30" style="padding-left: 3px;"><b>Marital Status</b></td>
-                                                <td width="120" height="30" style="padding-left: 3px;" class="font-dark"><?php echo $key['user_marital_status']; ?></td>
-                                            </tr>
-                                            <tr>
-                                                <td width="120" height="30" style="padding-left: 3px;" class="font-dark"><b>Location</b></td>
-                                                <?php
-                                                if ($key['user_country'] == '') {
-                                                    $country = 'N/A';
-                                                } else {
-                                                    $country = $key['user_country'];
-                                                }
-                                                if ($key['user_state'] == '') {
-                                                    $state = 'N/A';
-                                                } else {
-                                                    $state = $key['user_state'];
-                                                }
-                                                if ($key['user_city'] == '') {
-                                                    $city = 'N/A';
-                                                } else {
-                                                    $city = $key['user_city'];
-                                                }
-                                                ?>
-                                                <td colspan="3" height="30" style="padding-left: 3px;" class="font-dark"><?php echo $country . ', ' . $state . ', ' . $city; ?></td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                    <?php
-                                    $alreadySent = 0;
-                                    $receivedReq = 0;
-                                    $alreadyfollowed = 0;
-                                    $followers = 0;
+                                                        <td width="120" height="30" style="padding-left: 3px;"><b>Marital Status</b></td>
+                                                        <td width="120" height="30" style="padding-left: 3px;" class="font-dark"><?php echo $key['user_marital_status']; ?></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td width="120" height="30" style="padding-left: 3px;" class="font-dark"><b>Location</b></td>
+                                                        <?php
+                                                        if ($key['user_country'] == '') {
+                                                            $country = 'N/A';
+                                                        } else {
+                                                            $country = $key['user_country'];
+                                                        }
+                                                        if ($key['user_state'] == '') {
+                                                            $state = 'N/A';
+                                                        } else {
+                                                            $state = $key['user_state'];
+                                                        }
+                                                        if ($key['user_city'] == '') {
+                                                            $city = 'N/A';
+                                                        } else {
+                                                            $city = $key['user_city'];
+                                                        }
+                                                        ?>
+                                                        <td colspan="3" height="30" style="padding-left: 3px;" class="font-dark"><?php echo $country . ', ' . $state . ', ' . $city; ?></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            <?php
+                                            $approved = 0;
+                                            $alreadySent = 0;
+                                            $receivedReq = 0;
+                                            $receivedReqApprov = 0;
+                                            $sentReqApprov = 0;
+                                            $alreadyfollowed = 0;
+                                            $followers = 0;
 
                                     //-----------check the received requests are null or not null
-                                    if ($key['user_received_requests'] != '') {
-                                        $receivedReq = json_decode($key['user_received_requests'], TRUE);
-                                    }
-                                    // Make sure user hasnt already added this item
-                                    if ($receivedReq != '' && $receivedReq != []) {
-                                        foreach ($receivedReq as $item) {
-                                            //alert(session_user_id);
-                                            if ($session_user_id == $item) {
-                                                $alreadySent = 1;
+                                            if ($key['user_received_requests'] != '') {
+                                                $receivedReq = json_decode($key['user_received_requests'], TRUE);
                                             }
-                                        }
-                                    }
-                                    if ($key['who_make_me_favourite'] != '') {
-                                        $followers = json_decode($key['who_make_me_favourite'], TRUE);
-                                    }
-                                    // Make sure user hasnt already added this item
-                                    if ($followers != '' && $followers != []) {
-                                        foreach ($followers as $item) {
-                                            //alert(session_user_id);
-                                            if ($session_user_id == $item) {
-                                                $alreadyfollowed = 1;
+                                            if ($key['user_sent_requests_approved'] != '') {
+                                                $sentReqApprov = json_decode($key['user_sent_requests_approved'], TRUE);
                                             }
-                                        }
-                                    }
-                                    ?>
-                                    <!--                            <div class="block-footer b-xs-top">-->
-                                    <div class="row align-items-center">
-                                        <div class="col-sm-12 text-center">
-                                            <ul class="inline-links inline-links--style-3">
-                                                <?php if ($alreadySent == 0) { ?>
-                                                    <li class="listing-hover">
-                                                        <a ng-click="sendRequestToUser(<?php echo $key['user_id']; ?>);" title="Send Request">
-                                                            <span id="" class="w3-text-green"><i class="fa fa-user-plus "></i> Send Request</span></a>
-                                                    </li>
-                                                <?php } else { ?>
-                                                    <li class="listing-hover">
-                                                        <a ng-click="cancelRequestOfUser(<?php echo $key['user_id']; ?>);" title="Cancel Request">
-                                                            <span id="" class="w3-text-red"><i class="fa fa-user-plus w3-text-red"></i> Cancel Request</span></a>
-                                                    </li>
-                                                <?php } ?>
-                                                <?php if ($alreadyfollowed == 0) { ?>
-                                                    <li class="listing-hover">
-                                                        <a id="interest_a_1" ng-click="followUserProfile(<?php echo $key['user_id']; ?>);" title="Follow This Profile" style="">
-                                                            <span id="interest_1" class="w3-text-blue"><i class="fa fa-heart"></i> Add To Favourite</span>
-                                                        </a>
-                                                    </li>
-                                                <?php } else { ?>
-                                                    <li class="listing-hover">
-                                                        <a id="interest_a_1" ng-click="unFollowUserProfile(<?php echo $key['user_id']; ?>);" title="UnFollow This Profile" style="">
-                                                            <span id="interest_1" class="w3-text-pink"><i class="fa fa-heart"></i> Favourite</span>
-                                                        </a>
-                                                    </li>
-                                                <?php } ?>
-                                            </ul>
-                                        </div>
+                                            if ($key['user_received_requests_approved'] != '') {
+                                                $receivedReqApprov = json_decode($key['user_received_requests_approved'], TRUE);
+                                            }
+                                            if(in_array($session_id, $sentReqApprov) || in_array($session_id, $receivedReqApprov)){
+                                                $approved = 1;
+                                            }
+                                    // Make sure user hasnt already added this item
+                                            if ($receivedReq != '' && $receivedReq != []) {
+                                                foreach ($receivedReq as $item) {
+                                            //alert(session_user_id);
+                                                    if ($session_user_id == $item) {
+                                                        $alreadySent = 1;
+                                                    }
+                                                }
+                                            }
+                                            if ($key['who_make_me_favourite'] != '') {
+                                                $followers = json_decode($key['who_make_me_favourite'], TRUE);
+                                            }
+                                    // Make sure user hasnt already added this item
+                                            if ($followers != '' && $followers != []) {
+                                                foreach ($followers as $item) {
+                                            //alert(session_user_id);
+                                                    if ($session_user_id == $item) {
+                                                        $alreadyfollowed = 1;
+                                                    }
+                                                }
+                                            }
+                                            ?>
+                                            <!--                            <div class="block-footer b-xs-top">-->
+                                                <div class="row align-items-center">
+                                                    <div class="col-sm-12 text-center">
+                                                        <ul class="inline-links inline-links--style-3">
+                                                            <?php if ($alreadySent == 0 && $approved==0) { ?>
+                                                                <li class="listing-hover">
+                                                                    <a ng-click="sendRequestToUser(<?php echo $key['user_id']; ?>);" title="Send Request">
+                                                                        <span id="" class="w3-text-green"><i class="fa fa-user-plus "></i> Send Request</span></a>
+                                                                    </li>
+                                                                <?php } else { 
+                                                                    if($approved==0){
+                                                                    ?>
+                                                                    <li class="listing-hover">
+                                                                        <a ng-click="cancelRequestOfUser(<?php echo $key['user_id']; ?>);" title="Cancel Request">
+                                                                            <span id="" class="w3-text-red"><i class="fa fa-user-plus w3-text-red"></i> Cancel Request</span></a>
+                                                                        </li>
+                                                                    <?php } }?>
+                                                                    <?php if ($approved == 1) { ?>
+                                                                <li class="listing-hover">
+                                                                        <span id="" class="w3-text-green"><i class="fa fa-check "></i> Already Approved</span>
+                                                                    </li>
+                                                                <?php } ?>
+                                                                    <?php if ($alreadyfollowed == 0) { ?>
+                                                                        <li class="listing-hover">
+                                                                            <a id="interest_a_1" ng-click="followUserProfile(<?php echo $key['user_id']; ?>);" title="Follow This Profile" style="">
+                                                                                <span id="interest_1" class="w3-text-blue"><i class="fa fa-heart"></i> Add To Favourite</span>
+                                                                            </a>
+                                                                        </li>
+                                                                    <?php } else { ?>
+                                                                        <li class="listing-hover">
+                                                                            <a id="interest_a_1" ng-click="unFollowUserProfile(<?php echo $key['user_id']; ?>);" title="UnFollow This Profile" style="">
+                                                                                <span id="interest_1" class="w3-text-pink"><i class="fa fa-heart"></i> Favourite</span>
+                                                                            </a>
+                                                                        </li>
+                                                                    <?php } ?>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <?php
+                                            }
+                                        } else {
+                                            ?>
+                                            <!-----------------------------this Div is for single user profile---------------------------------->
+                                            <div class=" w3-center w3-padding list z-depth-1-top" id="block_1">
+                                                <div class="w3-padding w3-margin-top">
+                                                    <p class="w3-center w3-medium w3-text-black"> No Match Found..! </p>
+                                                </div>
+                                            </div>
+                                        <?php } ?>
                                     </div>
+                                    <!-- for each div completed -->
+
                                 </div>
                             </div>
-                            <?php
-                        }
-                    } else {
-                        ?>
-                        <!-----------------------------this Div is for single user profile---------------------------------->
-                        <div class=" w3-center w3-padding list z-depth-1-top" id="block_1">
-                            <div class="w3-padding w3-margin-top">
-                                <p class="w3-center w3-medium w3-text-black"> No Match Found..! </p>
-                            </div>
                         </div>
-                    <?php } ?>
-                </div>
-                <!-- for each div completed -->
-
-            </div>
-        </div>
-    </div>
-</div>
-</section>
-<script>
-    var app = angular.module("recommandedApp", ['ngSanitize', 'angularUtils.directives.dirPagination']);
-    app.controller("recommandedAppController", function ($scope, $http, $window) {
+                    </div>
+                </section>
+                <script>
+                    var app = angular.module("recommandedApp", ['ngSanitize', 'angularUtils.directives.dirPagination']);
+                    app.controller("recommandedAppController", function ($scope, $http, $window) {
 
     //-------------------------fun for send the user request--------------------//
     $scope.sendRequestToUser = function (user_id) {
-    $.confirm({
-    title: '<h4 class="w3-text-green">Please confirm the action!</h4><span class="w3-medium">Do you really want to Send Request?</span>',
+        $.confirm({
+            title: '<h4 class="w3-text-green">Please confirm the action!</h4><span class="w3-medium">Do you really want to Send Request?</span>',
             content: '',
             type: 'red',
             buttons: {
-            confirm: function () {
-            $http({
-            method: 'get',
-                    url: BASE_URL + "user/search/profilesearch_byid/sendRequestToUser?profile_user_id=" + user_id
-            }).then(function successCallback(response) {
-            console.log(response.data);
+                confirm: function () {
+                    $http({
+                        method: 'get',
+                        url: BASE_URL + "user/search/profilesearch_byid/sendRequestToUser?profile_user_id=" + user_id
+                    }).then(function successCallback(response) {
+                        console.log(response.data);
             //alert(response.data);
             switch (response.data) {
-            case '200':
-                    $('#ajax_success_alert').show();
-            $('.ajax_success_alert').html('Request Sent Successfully.');
-            setTimeout(function () {
-            $('.alert_message').fadeOut('fast');
-            }, 5000);
-            break;
-            case '500':
-                    $('#ajax_danger_alert').show();
-            $('.ajax_danger_alert').html('Request Not Sent Successfully.');
-            setTimeout(function () {
-            $('.alert_message').fadeOut('fast');
-            }, 5000);
-            break;
-            case '700':
-                    $('#ajax_validation_alert').show();
-            $('.ajax_validation_alert').html('No Request Tockens Are Available.');
-            setTimeout(function () {
-            $('.alert_message').fadeOut('fast');
-            }, 5000);
-            break;
-            case '900':
-                    $('#ajax_validation_alert').show();
-            $('.ajax_validation_alert').html('Request Is Already Sent You By The Receiver.');
-            setTimeout(function () {
-            $('.alert_message').fadeOut('fast');
-            }, 5000);
-            break;
+                case '200':
+                $('#ajax_success_alert').show();
+                $('.ajax_success_alert').html('Request Sent Successfully.');
+                setTimeout(function () {
+                    $('.alert_message').fadeOut('fast');
+                }, 5000);
+                break;
+                case '500':
+                $('#ajax_danger_alert').show();
+                $('.ajax_danger_alert').html('Request Not Sent Successfully.');
+                setTimeout(function () {
+                    $('.alert_message').fadeOut('fast');
+                }, 5000);
+                break;
+                case '700':
+                $('#ajax_validation_alert').show();
+                $('.ajax_validation_alert').html('No Request Tockens Are Available.');
+                setTimeout(function () {
+                    $('.alert_message').fadeOut('fast');
+                }, 5000);
+                break;
+                case '900':
+                $('#ajax_validation_alert').show();
+                $('.ajax_validation_alert').html('Request Is Already Sent You By The Receiver.');
+                setTimeout(function () {
+                    $('.alert_message').fadeOut('fast');
+                }, 5000);
+                break;
             }
             setTimeout(function () {
-            window.location.reload();
+                window.location.reload();
             }, 1500);
-            });
-            },
-                    cancel: function () {
-                    }
+        });
+                },
+                cancel: function () {
+                }
             }
-    });
+        });
     };
     //------------fun for cancel the request of user-------------------------//
     $scope.cancelRequestOfUser = function (user_id) {
-    $.confirm({
-    title: '<h4 class="w3-text-red">Please confirm the action!</h4><span class="w3-medium">Do you really want to Cancel Request?</span>',
+        $.confirm({
+            title: '<h4 class="w3-text-red">Please confirm the action!</h4><span class="w3-medium">Do you really want to Cancel Request?</span>',
             content: '',
             type: 'red',
             buttons: {
-            confirm: function () {
-            $http({
-            method: 'get',
-                    url: BASE_URL + "user/search/profilesearch_byid/cancelRequestOfUser?profile_user_id=" + user_id
-            }).then(function successCallback(response) {
-            console.log(response.data);
+                confirm: function () {
+                    $http({
+                        method: 'get',
+                        url: BASE_URL + "user/search/profilesearch_byid/cancelRequestOfUser?profile_user_id=" + user_id
+                    }).then(function successCallback(response) {
+                        console.log(response.data);
             //alert(response.data);
             switch (response.data) {
-            case '200':
-                    $('#ajax_success_alert').show();
-            $('.ajax_success_alert').html('Request Cancellation Successful.');
-            setTimeout(function () {
-            $('.alert_message').fadeOut('fast');
-            }, 5000);
-            break;
-            case '500':
-                    $('#ajax_danger_alert').show();
-            $('.ajax_danger_alert').html('Request Cancellation Failed.');
-            setTimeout(function () {
-            $('.alert_message').fadeOut('fast');
-            }, 5000);
-            break;
+                case '200':
+                $('#ajax_success_alert').show();
+                $('.ajax_success_alert').html('Request Cancellation Successful.');
+                setTimeout(function () {
+                    $('.alert_message').fadeOut('fast');
+                }, 5000);
+                break;
+                case '500':
+                $('#ajax_danger_alert').show();
+                $('.ajax_danger_alert').html('Request Cancellation Failed.');
+                setTimeout(function () {
+                    $('.alert_message').fadeOut('fast');
+                }, 5000);
+                break;
             }
             setTimeout(function () {
-            window.location.reload();
+                window.location.reload();
             }, 1500);
-            });
-            },
-                    cancel: function () {
-                    }
+        });
+                },
+                cancel: function () {
+                }
             }
-    });
+        });
     };
     $scope.unFollowUserProfile = function (user_id) {
-    $http({
-    method: 'get',
+        $http({
+            method: 'get',
             url: BASE_URL + "user/search/profilesearch_byid/unFollowUserProfile?profile_user_id=" + user_id
-    }).then(function successCallback(response) {
-    console.log(response.data);
+        }).then(function successCallback(response) {
+            console.log(response.data);
     //alert(response.data);
     switch (response.data) {
-    case '200':
-            $('#ajax_success_alert').show();
-    $('.ajax_success_alert').html('UnFollow Request Successful.');
-    setTimeout(function () {
-    $('.alert_message').fadeOut('fast');
-    }, 5000);
-    break;
-    case '500':
-            $('#ajax_danger_alert').show();
-    $('.ajax_danger_alert').html('UnFollow Request Failed.');
-    setTimeout(function () {
-    $('.alert_message').fadeOut('fast');
-    }, 5000);
-    break;
+        case '200':
+        $('#ajax_success_alert').show();
+        $('.ajax_success_alert').html('UnFollow Request Successful.');
+        setTimeout(function () {
+            $('.alert_message').fadeOut('fast');
+        }, 5000);
+        break;
+        case '500':
+        $('#ajax_danger_alert').show();
+        $('.ajax_danger_alert').html('UnFollow Request Failed.');
+        setTimeout(function () {
+            $('.alert_message').fadeOut('fast');
+        }, 5000);
+        break;
     }
 
     setTimeout(function() {
-    window.location.reload();
+        window.location.reload();
     }, 1500);
-    });
+});
     };
     //----------------------------------fun for follow the user profile------------------------------//
     $scope.followUserProfile = function (user_id) {
-    $http({
-    method: 'get',
+        $http({
+            method: 'get',
             url: BASE_URL + "user/search/profilesearch_byid/followUserProfile?profile_user_id=" + user_id
-    }).then(function successCallback(response) {
-    console.log(response.data);
+        }).then(function successCallback(response) {
+            console.log(response.data);
     //alert(response.data);
     switch (response.data) {
-    case '200':
-            $('#ajax_success_alert').show();
-    $('.ajax_success_alert').html('You Have Successfully Followed This User.');
-    setTimeout(function () {
-    $('.alert_message').fadeOut('fast');
-    }, 3000);
-    break;
-    case '500':
-            $('#ajax_danger_alert').show();
-    $('.ajax_danger_alert').html('Following Request Failed.');
-    setTimeout(function () {
-    $('.alert_message').fadeOut('fast');
-    }, 5000);
-    break;
+        case '200':
+        $('#ajax_success_alert').show();
+        $('.ajax_success_alert').html('You Have Successfully Followed This User.');
+        setTimeout(function () {
+            $('.alert_message').fadeOut('fast');
+        }, 3000);
+        break;
+        case '500':
+        $('#ajax_danger_alert').show();
+        $('.ajax_danger_alert').html('Following Request Failed.');
+        setTimeout(function () {
+            $('.alert_message').fadeOut('fast');
+        }, 5000);
+        break;
     }
     setTimeout(function() {
-    window.location.reload();
+        window.location.reload();
     }, 1500);
-    });
+});
     };
-    });
+});
 </script>

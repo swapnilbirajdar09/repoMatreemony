@@ -1,4 +1,14 @@
     <title>All Members</title>
+    <style type="text/css">
+      .diag {
+    -webkit-transform:rotate(45deg);
+       -moz-transform:rotate(45deg);
+            transform:rotate(45deg);
+
+    left: 50px;
+    top: 30px
+}
+    </style>
     <!-- page content -->
     <div class="right_col" role="main">
       <div class="container page_title" style="margin-top: 0px;margin-bottom: 0px;" >
@@ -30,9 +40,24 @@
              $count=1;
              foreach ($all_users['status_message'] as $key) {  
               ?>
-              <tr>
-                <td class="text-center">
+              <tr <?php if($key['user_doc_verified']=='0'){ echo 'class="w3-light-grey"';} ?>>
+                <td class="text-center">                  
                   <img src="<?php echo base_url(); ?><?php echo $key['user_profile_image']; ?>" onerror="this.src='<?php echo base_url(); ?>assets/images/user.png'" alt="<?php echo $key['user_firstname'];?> <?php echo $key['user_lastname'];?> profile image" class="img img-circle img-thumbnail w3-center" style="width: 100px;height: 100px">
+                  <?php 
+                  if($key['user_doc_verified']=='0'){
+                  ?>
+                  <div style="position: relative;margin-top: -10px">
+                    <span class="w3-red badge">Documents<br>not Verified</span>
+                  </div>
+                  <?php 
+                }else{
+                  ?>
+                  <div style="position: relative;margin-top: -10px">
+                    <span class="w3-green badge">Documents<br>Verified</span>
+                  </div>
+                  <?php
+                }
+                ?>
                 </td>
                 <td class="w3-center" style="vertical-align: middle;">
                  <span class=""><b><?php echo $key['user_profile_key'];?></b></span>

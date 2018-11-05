@@ -42,8 +42,7 @@ class Userlogin_model extends CI_Model {
     public function logoutUser($user_id){
         // update logout user
         $result = array(
-            'user_logout_at' => date ("Y-m-d H:i:s"),
-            'user_status' => '0'
+            'user_logout_at' => date ("Y-m-d H:i:s")
         );
 
         $this->db->where('user_id', $user_id);
