@@ -12,7 +12,7 @@ class Searchbyprofileid_model extends CI_Model {
         if ($filter_member_id == 'undefined') {
             $sql = "SELECT * FROM user_profile_tab,user_tab where user_tab.user_id = user_profile_tab.user_id AND user_tab.user_gender !='$gender' AND user_tab.user_status='1' AND user_tab.user_doc_verified='1' ORDER BY user_tab.user_id DESC ";
         } else {
-            $sql = "SELECT * FROM user_profile_tab,user_tab where user_tab.user_id = user_profile_tab.user_id AND user_tab.user_gender !='$gender' AND user_profile_tab.user_profile_key='BPARI#".$filter_member_id."' AND user_tab.user_status='1' AND user_tab.user_doc_verified='1' ORDER BY user_tab.user_id DESC";
+            $sql = "SELECT * FROM user_profile_tab,user_tab where user_tab.user_id = user_profile_tab.user_id AND user_tab.user_gender !='$gender' AND user_profile_tab.user_profile_key='BPARI#" . $filter_member_id . "' AND user_tab.user_status='1' AND user_tab.user_doc_verified='1' ORDER BY user_tab.user_id DESC";
         }
         // echo $sql;die();
         $result = $this->db->query($sql);
@@ -45,6 +45,8 @@ class Searchbyprofileid_model extends CI_Model {
 
         $receiveRequests = array();
         $sentRequests = array();
+        $sentApprovedRequests = array();
+        $receiveApprovedRequests = array();
         $sentReqs = '';
         $userRequestCount = 0;
         $user_email = '';
@@ -56,6 +58,8 @@ class Searchbyprofileid_model extends CI_Model {
         $user_educational_field = '';
         foreach ($result->result_array() as $row) {
             $sentRequests = json_decode($row['user_sent_requests'], TRUE);
+            $sentApprovedRequests = json_decode($row['user_sent_requests_approved'], TRUE);
+            $receiveApprovedRequests = json_decode($row['user_received_requests_approved'], TRUE);
             $receiveRequests = json_decode($row['user_received_requests'], TRUE);
             $userRequestCount = $row['user_remaining_requests'];
             $user_email = $row['user_email'];
@@ -74,6 +78,22 @@ class Searchbyprofileid_model extends CI_Model {
             $receiveRequests = $receiveRequests;
         }
 
+        if ($sentApprovedRequests == '') {
+            $sentApprovedRequests = [];
+        } else {
+            $sentApprovedRequests = $sentApprovedRequests;
+        }
+        
+        if ($receiveApprovedRequests == '') {
+            $receiveApprovedRequests = [];
+        } else {
+            $receiveApprovedRequests = $receiveApprovedRequests;
+        }
+
+        if(in_array($profile_user_id, $sentApprovedRequests) || in_array($profile_user_id, $receiveApprovedRequests)){
+            return 600;            
+            die();
+        }
         if (in_array($profile_user_id, $receiveRequests)) {
             return 900;
         } else {
@@ -230,10 +250,24 @@ class Searchbyprofileid_model extends CI_Model {
         $sentReqs = '';
         $userRequestCount = 0;
         $reqApproved = '';
+        $user_email = '';
+        $user_firstname = '';
+        $user_lastname = '';
+        $user_gender = '';
+        $user_height = '';
+        $user_caste = '';
+        $user_educational_field = '';
         foreach ($result->result_array() as $row) {
             $user_received_requests_approved = json_decode($row['user_received_requests_approved'], TRUE);
             $receiveRequests = json_decode($row['user_received_requests'], TRUE);
             $userRequestCount = $row['user_remaining_requests'];
+            $user_email = $row['user_email'];
+            $user_firstname = $row['user_firstname'];
+            $user_lastname = $row['user_lastname'];
+            $user_gender = $row['user_gender'];
+            $user_height = $row['user_height'];
+            $user_caste = $row['user_caste'];
+            $user_educational_field = $row['user_educational_field'];
         }
 
         foreach ($receiveRequests as $key) {
@@ -261,7 +295,7 @@ class Searchbyprofileid_model extends CI_Model {
 
         if ($this->db->affected_rows() > 0) {  //----checking the sent requests coloumn updated then call the fun below
             //-----------------for update receivers received request coloumn by saving the senders userid
-            $response = Searchbyprofileid_model::updateAcceptUserConfirmRequest_AtSenderSide($profile_user_id, $sessionUser_id);
+            $response = Searchbyprofileid_model::updateAcceptUserConfirmRequest_AtSenderSide($profile_user_id, $sessionUser_id, $user_firstname, $user_lastname);
             if ($response) {
                 return 200;
             } else {
@@ -273,7 +307,7 @@ class Searchbyprofileid_model extends CI_Model {
     }
 
 //-------------fun for update the user request coloumn and user request approved coloumns when user requst get accepted--//
-    public function updateAcceptUserConfirmRequest_AtSenderSide($profile_user_id, $sessionUser_id) {
+    public function updateAcceptUserConfirmRequest_AtSenderSide($profile_user_id, $sessionUser_id, $user_firstname, $user_lastname) {
         $query = "SELECT * FROM user_profile_tab as up_tab join user_tab as u_tab "
                 . "WHERE up_tab.user_id = u_tab.user_id AND u_tab.user_status='1' AND u_tab.user_doc_verified='1' "
                 . "AND up_tab.user_id='$profile_user_id'";
@@ -286,9 +320,18 @@ class Searchbyprofileid_model extends CI_Model {
         $reqApproved = '';
         $userRequestCount = 0;
         $userRequestCountNew = '';
+        $userProfile_email = '';
+        $userProfile_firstname = '';
+        $userProfile_lastname = '';
+        $userProfile_gender = '';
+
         foreach ($result->result_array() as $row) {
             $sentRequests = json_decode($row['user_sent_requests'], TRUE);
             $user_sent_requests_approved = json_decode($row['user_sent_requests_approved'], TRUE);
+            $userProfile_email = $row['user_email'];
+            $userProfile_firstname = $row['user_firstname'];
+            $userProfile_lastname = $row['user_lastname'];
+            $userProfile_gender = $row['user_gender'];
         }
         //echo $userRequestCount;
         foreach ($sentRequests as $key) {
@@ -314,9 +357,46 @@ class Searchbyprofileid_model extends CI_Model {
         $sqlup = "UPDATE user_profile_tab SET user_sent_requests_approved = '$reqApproved' WHERE user_id = '$profile_user_id'";
 
         $this->db->query($sqlup);
-        if ($this->db->affected_rows() > 0) {
+        $fullname = $userProfile_firstname . ' ' . $userProfile_lastname;
+
+        $config = Array(
+            'protocol' => 'smtp',
+            'smtp_host' => 'mx1.hostinger.in',
+            'smtp_port' => '587',
+            'smtp_user' => 'support@jumlakuwait.com', // change it to yours
+            'smtp_pass' => 'Descartes@1990', // change it to yours
+            'mailtype' => 'html',
+            'charset' => 'utf-8',
+            'wordwrap' => TRUE
+        );
+        $config['smtp_crypto'] = 'tls';
+
+        $this->load->library('email', $config);
+        $this->email->set_newline("\r\n");
+        $this->email->from('support@jumlakuwait.com', "Admin Team");
+        $this->email->to($userProfile_email, $fullname);
+        $this->email->subject("Request Approved - Buddhist Parinay");
+        $this->email->message('<html>
+        <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        </head>
+        <body>
+        <div class="container col-lg-8" style="box-shadow: 0 2px 4px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12)!important;margin:10px; font-family:Candara;">
+        <h2 style="color:blue; font-size:30px">Request Approved - Buddhist Parinay.</h2>
+        <h3 style="font-size:15px;">Hello ' . $fullname . ',<br></h3>
+        <h3 style="font-size:15px;">Your Interest Request Has Been Approved By ' . $user_firstname . ' ' . $user_lastname . '</h3><br>     
+        <div><span><b>NOTE:-</b> To Check The <b>' . $user_firstname . ' ' . $user_lastname . '</b> Full Profile Go To The "My Requests" Page. </span></div>
+        <div class="col-lg-12">
+        <div class="col-lg-4"></div>
+        <div class="col-lg-4"></div>
+        </div>
+        </div>
+        </body></html>');
+
+        if ($this->email->send()) {
             return TRUE;
         } else {
+            //print_r($this->email->print_debugger());die();
             return FALSE;
         }
     }

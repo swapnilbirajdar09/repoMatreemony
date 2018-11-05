@@ -854,7 +854,7 @@ $session_user_id = $keyarr[2];
                             method: 'get',
                             url: BASE_URL + "user/search/profilesearch_byid/sendRequestToUser?profile_user_id=" + user_id
                         }).then(function successCallback(response) {
-                            //alert(response.data);
+                            //console.log(response.data);
                             switch (response.data) {
                                 case '200':
                                     $('#ajax_success_alert').show();
@@ -883,6 +883,14 @@ $session_user_id = $keyarr[2];
                                 case '900':
                                     $('#ajax_validation_alert').show();
                                     $('.ajax_validation_alert').html('Request Is Already Sent You By The Receiver.');
+                                    setTimeout(function () {
+                                        $('.alert_message').fadeOut('fast');
+                                    }, 5000);
+                                    break;
+
+                                case '600':
+                                    $('#ajax_validation_alert').show();
+                                    $('.ajax_validation_alert').html('Request already Approved.');
                                     setTimeout(function () {
                                         $('.alert_message').fadeOut('fast');
                                     }, 5000);

@@ -1082,13 +1082,14 @@
     }
     // Angular script to add required skills in ad product form
     // Angular script to add required skills in ad product form
-
+</script>
+<script>
     var app = angular.module("AllRequestsFollowersApp", ['ngSanitize', 'angularUtils.directives.dirPagination']);
     app.controller("AllRequestsFollowersAppController", function ($scope, $http, $window) {
 
     $scope.acceptUserConfirmRequest = function(user_id){
     $.confirm({
-    title: '<h4 class="w3-text-green">Please confirm the action!</h4><span class="w3-medium">Do you really want to Send Request?</span>',
+    title: '<h4 class="w3-text-green">Please confirm the action!</h4><span class="w3-medium">Do you really want to Accept Request?</span>',
             content: '',
             type: 'red',
             buttons: {
@@ -1098,17 +1099,19 @@
                     url: BASE_URL + "user/search/profilesearch_byid/acceptUserConfirmRequest?profile_user_id=" + user_id
             }).then(function successCallback(response) {
             //alert(response.data);
+            console.log(response.data);
+            //return false;
             switch (response.data) {
             case '200':
                     $('#ajax_success_alert').show();
-            $('.ajax_success_alert').html('Request Sent Successfully.');
+            $('.ajax_success_alert').html('Request Approved Successfully.');
             setTimeout(function () {
             $('.alert_message').fadeOut('fast');
             }, 5000);
             break;
             case '500':
                     $('#ajax_danger_alert').show();
-            $('.ajax_danger_alert').html('Request Not Sent Successfully.');
+            $('.ajax_danger_alert').html('Request Not Approved Successfully.');
             setTimeout(function () {
             $('.alert_message').fadeOut('fast');
             }, 5000);

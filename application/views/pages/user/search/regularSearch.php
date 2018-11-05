@@ -682,6 +682,14 @@ $session_user_id = $keyarr[2];
                                         $('.alert_message').fadeOut('fast');
                                     }, 5000);
                                     break;
+
+                                case '600':
+                                    $('#ajax_validation_alert').show();
+                                    $('.ajax_validation_alert').html('Request already Approved.');
+                                    setTimeout(function () {
+                                        $('.alert_message').fadeOut('fast');
+                                    }, 5000);
+                                    break;
                             }
                             $scope.reload();
                         });
