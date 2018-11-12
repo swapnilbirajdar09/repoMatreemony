@@ -58,7 +58,7 @@ class Payment_model extends CI_Model {
                     'user_firstname' => $user_firstname,
                     'user_lastname' => $user_lastname,
                     'user_email' => $user_email,
-                    'user_password' => $passwd,
+                    'user_password' => base64_encode($passwd),
                     'user_reg_date'=> $date,
                     'user_expiry_date' => $expiry_date,
                     'user_caste' => $user_caste,

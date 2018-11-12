@@ -8,7 +8,8 @@ class Userlogin_model extends CI_Model {
 
     // login function to authenticate user
     public function authenticateUser($username, $password) {
-        $sql = "SELECT * FROM user_tab WHERE user_email='$username' AND user_password='$password' LIMIT 1 ";
+        $passwordNew = base64_encode($password);
+        $sql = "SELECT * FROM user_tab WHERE user_email='$username' AND user_password='$passwordNew' LIMIT 1 ";
         $result = $this->db->query($sql);
         if ($result->num_rows() <= 0) {
             return false;

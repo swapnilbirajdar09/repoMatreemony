@@ -38,7 +38,7 @@ class Registeruser_model extends CI_Model {
             'user_firstname' => $fname,
             'user_lastname' => $lname,
             'user_email' => $eMail,
-            'user_password' => $password,
+            'user_password' => base64_encode($password),
             'user_reg_date'=> date('Y-m-d'),
             'user_expiry_date' => $expiry_date,
             'user_caste' => $caste,

@@ -44,7 +44,7 @@ class Home_model extends CI_Model {
             $password = '';
  
             foreach ($result->result_array() as $row) {
-                $password = $row['user_password'];                
+                $password = base64_decode($row['user_password']);                
             }               
 
             $emailSend = Home_model::sendPassword($forget_email, $password);
