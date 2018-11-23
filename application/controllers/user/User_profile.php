@@ -1055,7 +1055,7 @@ public function verify_email(){
             'protocol' => 'smtp',
             'smtp_host' => 'mx1.hostinger.in',
             'smtp_port' => '587',
-            'smtp_user' => 'support@jumlakuwait.com', // change it to yours
+            'smtp_user' => 'support@buddhistparinay.in', // change it to yours
             'smtp_pass' => 'Descartes@1990', // change it to yours
             'mailtype' => 'html',
             'charset' => 'utf-8',
@@ -1065,7 +1065,7 @@ public function verify_email(){
 
         $this->load->library('email', $config);
         $this->email->set_newline("\r\n");
-        $this->email->from('support@jumlakuwait.com', "Admin Team");
+        $this->email->from('support@buddhistparinay.in', "Admin Team");
         $this->email->to($entity);
         $this->email->subject("Email Verification: Buddhist Parinay");
         $this->email->message('<html>

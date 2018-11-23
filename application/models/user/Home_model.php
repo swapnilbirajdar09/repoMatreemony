@@ -78,7 +78,7 @@ class Home_model extends CI_Model {
         );
         //$config['smtp_crypto'] = 'tls';
         //return ($config);die();
-
+        //($password);
         $this->load->library('email', $config);
         $this->email->set_newline("\r\n");
         $this->email->from('support@buddhistparinay.in', "Admin Team");
