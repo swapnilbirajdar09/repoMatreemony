@@ -36,7 +36,7 @@ class Contact_us extends CI_Controller {
             'protocol' => 'smtp',
             'smtp_host' => 'mx1.hostinger.in',
             'smtp_port' => '587',
-            'smtp_user' => 'support@jumlakuwait.com', // change it to yours
+            'smtp_user' => 'support@buddhistparinay.in', // change it to yours
             'smtp_pass' => 'Descartes@1990', // change it to yours
             'mailtype' => 'html',
             'charset' => 'utf-8',
@@ -46,7 +46,7 @@ class Contact_us extends CI_Controller {
 
         $this->load->library('email', $config);
         $this->email->set_newline("\r\n");
-        $this->email->from('support@jumlakuwait.com', "Admin Team");
+        $this->email->from('support@buddhistparinay.in', "Admin Team");
         $this->email->to($adminEmail, 'Admin Team');
         $this->email->subject("Parinay-Contact Form");
         $this->email->message("<html>"
@@ -76,7 +76,7 @@ class Contact_us extends CI_Controller {
 
             $this->load->library('email', $config);
             $this->email->set_newline("\r\n");
-            $this->email->from('support@jumlakuwait.com', "Admin Team");
+            $this->email->from('support@buddhistparinay.in', "Admin Team");
             $this->email->to($email, $name);
             $this->email->subject("Parinay Customer Support");
             $this->email->message('<html>
