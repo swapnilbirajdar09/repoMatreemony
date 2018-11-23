@@ -67,24 +67,24 @@ class Admin_login extends CI_Controller {
         $request = json_decode($postdata, TRUE);
         //sprint_r($request);
 
-        $admin_email = $this->Adminlogin_model->getAdminEmail();
-        $admin_password = $this->Adminlogin_model->getAdminPassword();
-        //print_r($result);die();
+       // $admin_email = $this->Adminlogin_model->getAdminEmail();
+        $admin_password = $this->Adminlogin_model->getAdminEmailPassword($request['email_id']);
+       // print_r($admin_password);
         $config = Array(
             'protocol' => 'smtp',
             'smtp_host' => 'mx1.hostinger.in',
             'smtp_port' => '587',
-             'smtp_user' => '', // change it to yours
+             'smtp_user' => 'support@buddhistparinay.in', // change it to yours
             'smtp_pass' => 'Descartes@1990',
             'mailtype' => 'html',
             'charset' => 'utf-8',
             'wordwrap' => TRUE
         );
-        $config['smtp_crypto'] = 'tls';
-
+      //  $config['smtp_crypto'] = 'tls';
+		$admin_email = $request['email_id'];
         $this->load->library('email', $config);
         $this->email->set_newline("\r\n");
-        $this->email->from('vaidehi@bizmo-tech.com', "Admin Team");
+        $this->email->from('support@buddhistparinay.in', "Admin Team");
         $this->email->to($admin_email);
         $this->email->subject("Parinay-Forget Password Request");
         $this->email->message('<html>
@@ -102,7 +102,7 @@ class Admin_login extends CI_Controller {
             <div class="col-lg-12">
             <div class="col-lg-4"></div>
             <div class="col-lg-4">
-            <h4><b>Password: </b>' . $password . '<br>
+            <h4><b>Password: </b>' . $admin_password . '<br>
             </div>
             <div class="col-lg-4"></div>
             </div>

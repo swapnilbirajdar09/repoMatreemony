@@ -89,7 +89,7 @@
                             <h1>Get Password</h1>
                             <h6>Don't remember your password? Please enter valid email-id to get your password!</h6>
                             <div>
-                                <input type="email" ng-model="email_id" class="form-control" placeholder="Enter email-ID here..." required>
+                                <input type="email" ng-model="email_id" name="email_id" class="form-control" placeholder="Enter email-ID here..." required>
                             </div>              
                             <div>
                                 <button class="btn btn-primary btn-block" ng-click="forgetPassword()">Submit</button>

@@ -68,8 +68,8 @@ class adminlogin_model extends CI_Model {
         }
     }
 
-        public function getAdminEmail() {
-        $query = "SELECT * FROM `admin_tab` where admin_email = 'email'";
+      public function getAdminEmailPassword($email_id) {
+        $query = "SELECT * FROM `admin_tab` where admin_email = '$email_id'";
         //echo $query;die();
         $result = $this->db->query($query);
 
@@ -77,29 +77,12 @@ class adminlogin_model extends CI_Model {
         if ($result->num_rows() <= 0) {
             return false;
         } else {
-            $value = '';
+            $password = '';
             foreach ($result->result_array() as $key) {
-                $value = $key['value'];
+                $password = $key['password'];
             }
-            return $value;
+            return $password;
         }
-    }
 
-    public function getAdminPassword() {
-        $query = "SELECT * FROM `admin_tab` where password= 'password'";
-        //echo $query;die();
-        $result = $this->db->query($query);
-
-        // if no db errors
-        if ($result->num_rows() <= 0) {
-            return false;
-        } else {
-            $value = '';
-            foreach ($result->result_array() as $key) {
-                $value = $key['value'];
-            }
-            return $value;
-        }
-    }
-
+     }
 }
