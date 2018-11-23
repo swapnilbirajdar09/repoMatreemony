@@ -42,7 +42,7 @@ class Contact_us extends CI_Controller {
             'charset' => 'utf-8',
             'wordwrap' => TRUE
         );
-        $config['smtp_crypto'] = 'tls';
+        //$config['smtp_crypto'] = 'tls';
 
         $this->load->library('email', $config);
         $this->email->set_newline("\r\n");

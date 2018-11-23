@@ -199,7 +199,7 @@ class Searchbyprofileid_model extends CI_Model {
             'charset' => 'utf-8',
             'wordwrap' => TRUE
         );
-        $config['smtp_crypto'] = 'tls';
+        //$config['smtp_crypto'] = 'tls';
 
         $this->load->library('email', $config);
         $this->email->set_newline("\r\n");
@@ -369,7 +369,7 @@ class Searchbyprofileid_model extends CI_Model {
             'charset' => 'utf-8',
             'wordwrap' => TRUE
         );
-        $config['smtp_crypto'] = 'tls';
+        //$config['smtp_crypto'] = 'tls';
 
         $this->load->library('email', $config);
         $this->email->set_newline("\r\n");
