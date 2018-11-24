@@ -20,10 +20,15 @@ class Dashboard_model extends CI_Model {
         $result3 = $this->db->query($sql3);
         $femalecount=$result3->num_rows();
 
+        $sql4 = "SELECT * FROM user_tab WHERE user_doc_verified='1'";
+        $result4 = $this->db->query($sql4);
+        $verifieduser=$result4->num_rows();
+
         $response=array(
             'total_mem' => $totcount,
             'male_count' => $malecount,
-            'female_count' => $femalecount
+            'female_count' => $femalecount,
+            'verifieduser'  => $verifieduser
         );
         return $response;
     }

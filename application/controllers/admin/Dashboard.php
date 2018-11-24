@@ -26,7 +26,7 @@ class Dashboard extends CI_Controller {
     // get all statistics report for dashboard
     public function getAllStatistics(){
         $result=$this->dashboard_model->getAllStatistics();
-        //print_r($result);die();
+        // print_r($result);die();
         if($result!=''){
             echo json_encode($result);
         }

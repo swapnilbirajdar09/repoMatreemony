@@ -5,7 +5,7 @@ app.controller("DashController", function ($scope, $http, $window) {
 $scope.totalmem=0;
 $scope.malemem=0;
 $scope.femalemem=0;
-$scope.totrevenue=0;
+$scope.verifieduser=0;
 // get all statistics data on dashboard
 $scope.getAllStatistics = function () {
     $http({
@@ -13,10 +13,12 @@ $scope.getAllStatistics = function () {
        url: BASE_URL + "admin/dashboard/getAllStatistics",
          //params: {product_id: product_id},
      }).then(function successCallback(response) {
+      // console.log(response.data.verifieduser);
         if (response.data != '' && response.data!='false') {
             $scope.totalmem=response.data.total_mem;
             $scope.malemem=response.data.male_count;
             $scope.femalemem=response.data.female_count;
+            $scope.verifieduser=response.data.verifieduser;
         }
     }); 
  };

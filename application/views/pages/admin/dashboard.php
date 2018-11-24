@@ -8,7 +8,7 @@
           <div class="icon"><i class="fa fa-users"></i></div>
           <div class="count">{{totalmem}}</div>
           <h3>Total Members</h3>
-          <p><a href="" class="w3-small" style="padding: 0"><i class="fa fa-chevron-right"></i> view members list</a></p>
+          <p><a href="all_users" class="w3-small" style="padding: 0"><i class="fa fa-chevron-right"></i> view members list</a></p>
         </div>
       </div>
       <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
@@ -16,7 +16,7 @@
           <div class="icon"><i class="fa fa-mars"></i></div>
           <div class="count">{{malemem}}</div>
           <h3>Male(s) </h3>
-          <p><a href="" class="w3-small" style="padding: 0"><i class="fa fa-chevron-right"></i> view male members list</a></p>
+          <p style="visibility: hidden;"><a href="" class="w3-small" style="padding: 0"><i class="fa fa-chevron-right"></i>male members list</a></p>
         </div>
       </div>
       <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
@@ -24,15 +24,15 @@
           <div class="icon"><i class="fa fa-venus"></i></div>
           <div class="count">{{femalemem}}</div>
           <h3>Female(s) </h3>
-          <p><a href="" class="w3-small" style="padding: 0"><i class="fa fa-chevron-right"></i> view female members list</a></p>
+          <p style="visibility: hidden;"><a href="" class="w3-small" style="padding: 0"><i class="fa fa-chevron-right"></i>female members list</a></p>
         </div>
       </div>
       <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
         <div class="tile-stats">
-          <div class="icon"><i class="fa fa-inr"></i></div>
-          <div class="count">{{totrevenue}}</div>
-          <h3>Total Revenue</h3>
-          <p><i class="fa fa-refresh"></i> updating continously</p>
+          <div class="icon"><i class="fa fa-shield"></i></div>
+          <div class="count">{{verifieduser}}</div>
+          <h3>Verified Users</h3>
+          <p style="visibility: hidden;"><i class="fa fa-refresh"></i> updating continously</p>
         </div>
       </div>
     </div>
