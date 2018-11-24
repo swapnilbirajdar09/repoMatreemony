@@ -40,7 +40,7 @@
     <!-- Core -->
     <script src="<?php echo base_url(); ?>assets/client/template/front/vendor/jquery/jquery.min.js"></script>    <!-- Favicon -->
     <script src="<?php echo base_url(); ?>assets/alert/jquery-confirm.js"></script>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <link href="<?php echo base_url(); ?>assets/client/uploads/favicon/favicon_1515409281.png" rel="icon" type="image/png">
 
 </head>
