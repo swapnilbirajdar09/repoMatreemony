@@ -193,11 +193,11 @@ a.socialIcon:hover, .socialHoverClass {
  </div>
  <div class="w3-col l12 w3-margin-bottom">
    <label class="w3-large">Email ID : </label>
-   <input type="email" ng-model="login_email_id" name="login_email_id" class="w3-input control w3-text-grey" placeholder="Enter your email*" required id="login_mc-email">
+   <input type="email" ng-model="login_email_id" name="login_email_id" class="w3-input control w3-text-black" placeholder="Enter your email*" required id="login_mc-email">
  </div>
  <div class="w3-col l12 w3-margin-bottom">
    <label class="w3-large">Password : </label>
-   <input type="password" ng-model="login_password" name="login_password" class="w3-input control w3-text-grey" placeholder="Enter your password*" required id="login_mc-password">
+   <input type="password" ng-model="login_password" name="login_password" class="w3-input control w3-text-black" placeholder="Enter your password*" required id="login_mc-password">
  </div>
  <div class="w3-col l12 text-center w3-margin-bottom">
    <div class="space-20"></div>
