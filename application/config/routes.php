@@ -56,5 +56,5 @@ $route['admin/dashboard/delPackage/(:any)'] = "admin/dashboard/delPackage/$1";
 $route['user/user_profile/verifyEmail/(:any)'] = "user/user_profile/verifyEmail/$1";
 $route['admin/verify_document/profile/(:any)'] = "admin/verify_document/index/$1";
 $route['user/full_profile/(:any)'] = "user/full_profile/index/$1";
-$route['admin/view_profile/(:any)'] = "admin/view_profile/index/$1";
+$route['admin/view_user/(:any)'] = "admin/view_user/index/$1";
 // $route['user/full_profile/download(:any)'] = "user/full_profile/save_download/$1";
