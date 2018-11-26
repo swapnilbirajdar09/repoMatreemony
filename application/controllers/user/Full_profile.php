@@ -69,7 +69,7 @@ class Full_profile extends CI_Controller {
 
 // $this->m_pdf->pdf->Output("./uploads/".$filename, "F");
         // $this->load->view('includes/user/userheader.php',$data); //------user header page
-        $this->load->view('pages/admin/view_profile',$data); //------user profile page
+        $this->load->view('pages/user/view_profile',$data); //------user profile page
         // $this->load->view('includes/user/userfooter.php'); //------user footer page
     }
 

@@ -25,9 +25,9 @@ class View_user extends CI_Controller {
             'message'   =>  'User not found!'
         );
     }          
-        $this->load->view('includes/user/userheader.php'); //------user header page
+        // $this->load->view('includes/user/userheader.php'); //------user header page
         $this->load->view('pages/admin/view_profile',$data); //------user profile page
-        $this->load->view('includes/user/userfooter.php'); //------user footer page
+        // $this->load->view('includes/user/userfooter.php'); //------user footer page
     }
         
 }

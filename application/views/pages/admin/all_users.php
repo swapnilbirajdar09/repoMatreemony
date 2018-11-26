@@ -81,7 +81,7 @@
                   <button data-toggle="dropdown" class="btn btn-default btn-sm dropdown-toggle" type="button" aria-expanded="true">Action <span class="caret"></span>
                   </button>
                   <ul role="menu" class="dropdown-menu pull-right">
-                    <li><a target="_blank" href="<?php echo base_url(); ?>admin/all_users/downloadPdf" >Download Profile</a>
+                    <li><a target="_blank" href="<?php echo base_url(); ?>admin/view_user/<?php echo base64_encode($key['user_id']); ?>" >Download Profile</a>
                     </li>
                   
                     <li><a href="<?php echo base_url(); ?>admin/verify_document/profile/<?php echo base64_encode($key['user_id']); ?>">Verify Documents</a>
