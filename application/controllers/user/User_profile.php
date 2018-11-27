@@ -991,7 +991,7 @@ public function update_change_password(){
         echo json_encode($response);
         die();
     }
-    if($old_password!=$password_enc){
+    if(base64_encode($old_password)!=$password_enc){
         $response=array(
             'status'    =>  'validation',
             'message'   =>  '<b>Warning:</b> Old Password is incorrect!',

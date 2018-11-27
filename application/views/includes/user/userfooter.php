@@ -143,4 +143,4 @@
 </script>
 <!-- Bootstrap Modal -->
 
-<script>$(function(){$.getScript("<?php echo base_url(); ?>assets/client/check/matrimonial.js");});</script>
+<!-- <script>$(function(){$.getScript("<?php echo base_url(); ?>assets/client/check/matrimonial.js");});</script> -->

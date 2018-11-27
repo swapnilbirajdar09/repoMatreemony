@@ -356,7 +356,7 @@ class User_model extends CI_Model {
         extract($data);
         // print_r($data);die();
         $result_update = array(
-            'user_password' => $new_password
+            'user_password' => base64_encode($new_password)
         );
 
         $this->db->where('user_id', $user_id);
