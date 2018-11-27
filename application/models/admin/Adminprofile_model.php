@@ -11,7 +11,7 @@ class Adminprofile_model extends CI_Model {
         extract($data);
         $sql = "UPDATE admin_tab SET profile_image='$imagePath',username = '$userName',password = '$password',admin_email = '$eMail',"
                 . "admin_officetype = '$officeType',admin_number = '$number',admin_office_address = '".addslashes($officeAddress)."',admin_firstname = '$firstName',"
-                . "admin_lastname = '$lastName' WHERE admin_id = '1'";
+                . "admin_lastname = '$lastName',landline_no = '$landline_no' WHERE admin_id = '1'";
                // echo $sql; die();
         $this->db->query($sql);
         if ($this->db->affected_rows() > 0) {

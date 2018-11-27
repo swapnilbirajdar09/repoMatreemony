@@ -91,6 +91,10 @@
                                                         <label>Mobile No: </label>
                                                         <input type="number" name="number" value="<?php echo $adminInfo[0]['admin_number']; ?>" class="form-control w3-small" placeholder="Enter admin number">
                                                     </div>
+                                                    <div class="col-md-4 w3-margin-bottom">
+                                                        <label>Landline No: </label>
+                                                        <input type="number" name="landline_no" value="<?php echo $adminInfo[0]['landline_no']; ?>" class="form-control w3-small" placeholder="Enter admin landline number">
+                                                    </div>
                                                     <div class="col-md-12 w3-margin-bottom">
                                                         <label>Office Address: </label>
                                                         <textarea class="form-control w3-small" name="officeAddress" id="officeAddress" placeholder="Enter admin contact address, which will displayed on 'Contact Us' page. " rows="4"><?php echo $adminInfo[0]['admin_office_address']; ?></textarea>

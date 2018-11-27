@@ -455,10 +455,9 @@ a.socialIcon:hover, .socialHoverClass {
 </div>
 </div>
 </div>
-
 <div>
  <section class="w3-col l12 no-padding">
-  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3784.578573098557!2d73.76471457487463!3d18.45743398155607!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc295eb7242f4f9%3A0xbb7abb920bc02587!2sAnandtara&#39;s+Haritara!5e0!3m2!1sen!2sin!4v1539411827476" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3784.5631577100594!2d73.76872971489186!3d18.458133187445398!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xdcee388fe67e656e!2sBuddhist+parinay!5e0!3m2!1sen!2sin!4v1543321421343" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
 </section>
 </div>
 

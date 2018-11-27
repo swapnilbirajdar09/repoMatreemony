@@ -18,7 +18,8 @@
                     ?>
                     <h4><b><?php echo $key['admin_firstname']; ?>  <?php echo $key['admin_lastname']; ?></b></h4>
                     <p>Office : <?php echo $key['admin_officetype']; ?><br>
-                        Contact Number : <?php echo $key['admin_number']; ?><br>
+                        Mobile Number : <?php echo $key['admin_number']; ?><br>
+                        Landline Number : <?php echo $key['landline_no']; ?><br>
                         Address : <?php echo $key['admin_office_address']; ?>
                     </p>
 
