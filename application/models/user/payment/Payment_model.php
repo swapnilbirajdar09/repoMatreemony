@@ -6,7 +6,6 @@ class Payment_model extends CI_Model {
         parent::__construct();
     }
 
-
     //---------------------function for save membership package payment Information--------------//
     function savePaymentInformation($data) {
         //print_r($data);die();
@@ -63,6 +62,7 @@ class Payment_model extends CI_Model {
                     'user_expiry_date' => $expiry_date,
                     'user_caste' => $user_caste,
                     'user_package'=> $package_title,
+                    'user_payment_renewed'=> '1',
                     'user_mobile_num' => $user_mobile,
                     'user_remaining_requests' =>'5',
                     'user_status' => '1'
@@ -128,6 +128,95 @@ class Payment_model extends CI_Model {
             return 0;
         } else {
             return 1;
+        }
+    }
+
+    //---------------------function for renew membership package Information--------------//
+    function renewPaymentInformation($data) {
+        //print_r($data);die();
+        extract($data);
+        $checkTransaction = Payment_model::checkTransactionIdExist($txnid); //----check fun for transaction id is already exist
+
+        $key=explode('|',$register_data);
+
+        $user_firstname=$key[0];
+        $user_lastname=$key[1];
+        $user_email=$key[2];
+        $user_gender=$key[3];
+        $user_mobile=$key[4];
+        $user_caste=$key[5];
+        $package_amount=$key[6];
+        $package_period=$key[7];
+        $package_validity=$key[8];
+        $package_title=$key[9];
+        $date = date('Y-m-d');
+
+        if ($checkTransaction) {
+
+            $insert_transaction = array(
+                'user_email' => $user_email,
+                'user_name' => $user_firstname.' '.$user_lastname,
+                'payment_status' => $status,
+                'transaction_id' => $txnid,
+                'payment_amount' => $amount,
+                'payment_package' => $package_title,
+                'hash_key' => $hash,
+                'payment_date' => $date
+            );
+            $this->db->insert('membership_payment_tab',$insert_transaction);
+            if($this->db->affected_rows()>0){
+                $expiry_date = '';
+                switch ($package_period) {
+                    case 'Monthly':
+                    $expiry_date = date('Y-m-d', strtotime('+'.$package_validity.' months'));
+                    break;
+                    case 'Yearly':
+                    $expiry_date = date('Y-m-d', strtotime('+'.$package_validity.' years'));
+                    break;
+                }
+                $result_update = array(
+                    'user_package'=> $package_title,
+                    'user_expiry_date'=> $expiry_date,
+                    'user_payment_renewed'=> '1',
+                    'user_remaining_requests' =>'5'
+                );
+
+                $this->db->where('user_email', $user_email);
+                $this->db->update('user_tab', $result_update);
+                if($this->db->affected_rows()>0){
+                    $response=array(
+                        'db_status' =>  'success',
+                        'db_message'    => 'We have received a payment of Rs. '.$amount.'. Your account was successfully renewed. Enjoy your subscription !',
+                        'db_error_level'    =>  'none'
+                    );
+                    return $response;
+                }
+                else{
+                    $response=array(
+                        'db_status' =>  'false',
+                        'db_message'    => 'There was an error renewing your package. Please contact administrator if your money was deducted from account !',
+                        'db_error_level'    =>  'fatal'
+                    );
+                    return $response;
+                }
+            }
+            else{
+                $response=array(
+                    'db_status' =>  'false',
+                    'db_message'    => 'There was an error saving your transaction. Please contact administrator if your money was deducted from account !',
+                    'db_error_level'    =>  'fatal'
+                );
+                return $response;
+            }
+
+        } else {
+            //if Transaction Id already Exist then show error
+            $response=array(
+                'db_status' =>  'false',
+                'db_message'    => 'Transaction ID: ' . $txnid . ' already completed. Please Go Back to your Profile !',
+                'db_error_level'    =>  'warning'
+            );
+            return $response;
         }
     }
 

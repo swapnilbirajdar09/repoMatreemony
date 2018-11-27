@@ -56,10 +56,6 @@
 </div>
 </form>
 <?php } ?>
-
-
-
-
 </div>
 </div>
 </section>

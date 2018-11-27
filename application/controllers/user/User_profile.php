@@ -35,6 +35,11 @@ class User_profile extends CI_Controller {
         }
 
         $data['userDetails'] = $this->user_model->getUserDetails($user_id);
+        // check subscription expired or not
+        if($data['userDetails'][0]['user_payment_renewed']==0){
+            redirect('user/payment/renew_package');
+            die();
+        }
         $data['userDocuments'] = $this->user_model->getUserDocuments($user_id);
         $data['country'] = $this->Advancesearch_model->getAllCountries();
         $data['states'] = $this->user_model->getAllStates();
@@ -45,17 +50,7 @@ class User_profile extends CI_Controller {
         $this->load->view('pages/user/User_profile.php',$data); //------user profile page
         $this->load->view('includes/user/userfooter.php'); //------user footer page
     }
-    public function demo(){
-        require(APPPATH.'/third_party/phpToPDF.php');
-              //Set Your Options -- see documentation for all options
-        $pdf_options = array(
-          "source_type" => 'url',
-          "source" => base_url().'user/full_profile/MTI=',
-          "action" => 'save');
-
-    //Code to generate PDF file from options above
-        phptopdf($pdf_options);
-    }
+    
     // update function for About me section
 // --------------------------------------------------------------- //
     public function update_about_me(){
@@ -67,9 +62,9 @@ class User_profile extends CI_Controller {
         //session key format is $keyarr[0]=PARInaayKEY|$keyarr[1]=email_id|$keyarr[2]=user_id
 
         if(!empty($_POST['about_me'])){
-         $result = $this->user_model->update_about_me($_POST['about_me'],$keyarr[2]);
+           $result = $this->user_model->update_about_me($_POST['about_me'],$keyarr[2]);
 
-         if($result){
+           if($result){
             $response=array(
                 'status'    =>  'success',
                 'message'   =>  '<b>Success:</b> You Have Successfully Edited <b>About Me</b>!'
@@ -103,9 +98,9 @@ public function update_expectations(){
         //session key format is $keyarr[0]=PARInaayKEY|$keyarr[1]=email_id|$keyarr[2]=user_id
 
     if(!empty($_POST['expectations'])){
-     $result = $this->user_model->update_expectations($_POST['expectations'],$keyarr[2]);
+       $result = $this->user_model->update_expectations($_POST['expectations'],$keyarr[2]);
 
-     if($result){
+       if($result){
         $response=array(
             'status'    =>  'success',
             'message'   =>  '<b>Success:</b> You Have Successfully Edited <b>Expectations</b>!'
@@ -715,19 +710,19 @@ public function update_documents(){
             $filepath = 'assets/users/documents/'.$fileData['file_name'];
         }
         else{
-           $response=array(
+         $response=array(
             'status'    =>  'validation',
             'message'   =>  $this->upload->display_errors('<p><b>File upload Error: </b>', '</p>'),
             'field'   =>  'document_file'
         );
-           echo json_encode($response);
-           die();
-       }
+         echo json_encode($response);
+         die();
+     }
         // print_r($filepath);die();
-   }
+ }
 
-   $data['filepath'] = $filepath;
-   if($filepath==''){
+ $data['filepath'] = $filepath;
+ if($filepath==''){
     $response=array(
         'status'    =>  'validation',
         'message'   =>  '<b>Warning:</b> Document file not uploaded Successfully!',
@@ -816,19 +811,19 @@ public function upload_image(){
             $filepath = 'assets/users/gallery/'.$fileData['file_name'];
         }
         else{
-           $response=array(
+         $response=array(
             'status'    =>  'validation',
             'message'   =>  $this->upload->display_errors('<p><b>Image upload Error: </b>', '</p>'),
             'field'   =>  'selected_image'
         );
-           echo json_encode($response);
-           die();
-       }
+         echo json_encode($response);
+         die();
+     }
          // print_r($filepath);die();
-   }
+ }
 
-   $data['filepath'] = $filepath;
-   if($filepath==''){
+ $data['filepath'] = $filepath;
+ if($filepath==''){
     $response=array(
         'status'    =>  'validation',
         'message'   =>  '<b>Warning:</b> Image file not uploaded Successfully!',
@@ -857,9 +852,9 @@ echo json_encode($response);
 // fucntion to remove uploaded document
 public function delDocument(){
     if(!empty($_POST['doc_id'])){
-     $result = $this->user_model->delDocument($_POST['doc_id']);
+       $result = $this->user_model->delDocument($_POST['doc_id']);
 
-     if($result){
+       if($result){
         $response=array(
             'status'    =>  'success',
             'message'   =>  '<b>Success:</b> You Have Successfully deleted Document!'
@@ -891,9 +886,9 @@ public function delImage(){
     $keyarr=explode('|', $key);
 
     if(!empty($_POST['img_path'])){
-     $result = $this->user_model->delImage($_POST['img_path'],$keyarr[2]);
+       $result = $this->user_model->delImage($_POST['img_path'],$keyarr[2]);
 
-     if($result){
+       if($result){
         $response=array(
             'status'    =>  'success',
             'message'   =>  '<b>Success:</b> You Have Successfully deleted Image!'
@@ -925,9 +920,9 @@ public function setProfilePicture(){
     $keyarr=explode('|', $key);
 
     if(!empty($_POST['img_path'])){
-     $result = $this->user_model->setProfilePicture($_POST['img_path'],$keyarr[2]);
+       $result = $this->user_model->setProfilePicture($_POST['img_path'],$keyarr[2]);
 
-     if($result){
+       if($result){
         $response=array(
             'status'    =>  'success',
             'message'   =>  '<b>Success:</b> You Have Successfully updated Profile Image!'
@@ -1145,19 +1140,19 @@ public function verifyEmail($code=''){
 }
 
 public function verify_mobile() {
-        $encodedkey = $this->session->userdata('PariKey_session');
-        $user_id = '';
-        $key = base64_decode($encodedkey);
-        $keyarr = explode('|', $key);
+    $encodedkey = $this->session->userdata('PariKey_session');
+    $user_id = '';
+    $key = base64_decode($encodedkey);
+    $keyarr = explode('|', $key);
 
-        extract($_POST);
+    extract($_POST);
         //print_r($_POST);die();
         // Authorisation details.
-        $username = "swapnil.bizmotech@gmail.com";
-        $hash = "fd4b1cfce99957e8d94aee2d9f6df8d16558e81df10bd1627ddf0fc5b033f24b";
+    $username = "swapnil.bizmotech@gmail.com";
+    $hash = "fd4b1cfce99957e8d94aee2d9f6df8d16558e81df10bd1627ddf0fc5b033f24b";
 
         // Config variables. Consult http://api.textlocal.in/docs for more info.
-        $test = "0";
+    $test = "0";
 
         // Data for text message. This is the text message data.
         $sender = "Buddhist Parinay"; // This is who the message appears to be from.

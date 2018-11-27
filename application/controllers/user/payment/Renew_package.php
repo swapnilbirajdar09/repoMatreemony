@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Renew_package extends CI_Controller {
 
-    // Login controller
+    // Renew Package controller
     public function __construct() {
         parent::__construct();
         $this->load->model('user/user_model');

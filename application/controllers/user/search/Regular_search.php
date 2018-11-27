@@ -37,6 +37,11 @@ class Regular_search extends CI_Controller {
     }
 
     $data['userDetails'] = $this->user_model->getUserDetails($user_id);
+    // check subscription expired or not
+    if($data['userDetails'][0]['user_payment_renewed']==0){
+        redirect('user/payment/renew_package');
+        die();
+    }
     // check Profile completed
     $mandate_values=[$data['userDetails'][0]['user_about_me'],$data['userDetails'][0]['user_fullname'],$data['userDetails'][0]['user_dob'],$data['userDetails'][0]['user_educational_field'],$data['userDetails'][0]['user_father_name'],$data['userDetails'][0]['user_diet'],$data['userDetails'][0]['user_partner_expections'],$data['userDetails'][0]['user_photos'],$data['userDetails'][0]['user_profile_image']];
     $show_alert=0;
