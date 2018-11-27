@@ -148,6 +148,10 @@
                                             <td width="120" height="30" style="padding-left: 3px;" class="font-dark"><b>Location</b></td>
                                             <td colspan="3" height="30" style="padding-left: 3px;" class="font-dark">{{p.user_location}}</td>
                                         </tr>
+                                        <tr>
+                                            <td width="120" height="30" style="padding-left: 3px;" class="font-dark"><b>Education</b></td>
+                                            <td colspan="3" height="30" style="padding-left: 3px;" class="font-dark">{{p.education}}</td>
+                                        </tr>
                                     </tbody>
                                 </table>
                                 <!--                            <div class="block-footer b-xs-top">-->
@@ -261,7 +265,7 @@ $session_user_id = $keyarr[2];
                 var data = response.data;
                 //alert(data);
                 $scope.profiles = [];
-                var i, j, user_photos, alreadyfollowed, followers, firstname, user_location, alreadySent, receivedReq, birthday, today, user_fullname, user_designation, user_mother_tongue, user_marital_status, age, newAge, totage;
+                var i, j, user_photos, profile_image, education, alreadyfollowed, followers, firstname, user_location, alreadySent, receivedReq, birthday, today, user_fullname, user_designation, user_mother_tongue, user_marital_status, age, newAge, totage;
                 if (data != 500) {
                     for (i = 0; i < data.length; i++) {
                         alreadySent = 0;
@@ -341,7 +345,16 @@ $session_user_id = $keyarr[2];
                             }
                         }
                         //alert(firstname);
-
+                        if (data[i].user_profile_image != '') {
+                            profile_image = data[i].user_profile_image;
+                        } else {
+                            profile_image = 'assets/images/user.png';
+                        }
+                        if (data[i].user_educational_field != '') {
+                            education = data[i].user_educational_field;
+                        } else {
+                            education = 'N/A';
+                        }
                         $scope.profiles.push({'user_profile_key': data[i].user_profile_key,
                             'user_profile_id': data[i].user_profile_id,
                             'user_id': data[i].user_id,
@@ -349,7 +362,7 @@ $session_user_id = $keyarr[2];
                             'user_gender': data[i].user_gender,
                             'user_caste': data[i].user_caste,
                             'user_email': data[i].user_email,
-                            'user_profile_image': data[i].user_profile_image,
+                            'user_profile_image': profile_image,
                             'user_height': data[i].user_height,
                             'user_weight': data[i].user_weight,
                             'user_mother_tongue': user_mother_tongue,
@@ -364,7 +377,8 @@ $session_user_id = $keyarr[2];
                             'user_location': user_location,
                             'firstName': firstname,
                             'lastName': data[i].user_lastname,
-                            'alreadyfollowed': alreadyfollowed
+                            'alreadyfollowed': alreadyfollowed,
+                            'education': education
                         });
                         //console.log($scope.profiles);
                     }
@@ -380,7 +394,7 @@ $session_user_id = $keyarr[2];
         $http.get(BASE_URL + "user/search/profilesearch_byid/getAllUserProfiles").then(function (response) {
             var data = response.data;
             //alert(data);
-            var i, j, user_photos, alreadyfollowed, followers, firstname, user_location, alreadySent, receivedReq, birthday, today, user_fullname, user_designation, user_mother_tongue, user_marital_status, age, newAge, totage;
+            var i, j, user_photos, profile_image, education, alreadyfollowed, followers, firstname, user_location, alreadySent, receivedReq, birthday, today, user_fullname, user_designation, user_mother_tongue, user_marital_status, age, newAge, totage;
             if (data != 500) {
                 for (i = 0; i < data.length; i++) {
                     alreadySent = 0;
@@ -458,7 +472,16 @@ $session_user_id = $keyarr[2];
                         }
                     }
                     //alert(firstname);
-
+                    if (data[i].user_profile_image != '') {
+                        profile_image = data[i].user_profile_image;
+                    } else {
+                        profile_image = 'assets/images/user.png';
+                    }
+                    if (data[i].user_educational_field != '') {
+                        education = data[i].user_educational_field;
+                    } else {
+                        education = 'N/A';
+                    }
                     $scope.profiles.push({'user_profile_key': data[i].user_profile_key,
                         'user_profile_id': data[i].user_profile_id,
                         'user_id': data[i].user_id,
@@ -466,7 +489,7 @@ $session_user_id = $keyarr[2];
                         'user_gender': data[i].user_gender,
                         'user_caste': data[i].user_caste,
                         'user_email': data[i].user_email,
-                        'user_profile_image': data[i].user_profile_image,
+                        'user_profile_image': profile_image,
                         'user_height': data[i].user_height,
                         'user_weight': data[i].user_weight,
                         'user_mother_tongue': user_mother_tongue,
@@ -481,7 +504,8 @@ $session_user_id = $keyarr[2];
                         'user_location': user_location,
                         'firstName': firstname,
                         'lastName': data[i].user_lastname,
-                        'alreadyfollowed': alreadyfollowed
+                        'alreadyfollowed': alreadyfollowed,
+                        'education': education
                     });
                 }
             } else {
@@ -510,7 +534,7 @@ $session_user_id = $keyarr[2];
                 // Assign response to skills object
                 var data = response.data;
                 $scope.profiles = [];
-                var i, j, user_profile_image, user_photos, alreadyfollowed, followers, firstname, user_location, alreadySent, receivedReq, birthday, today, user_fullname, user_designation, user_mother_tongue, user_marital_status, age, newAge, totage;
+                var i, j, user_profile_image, education, profile_image, user_photos, alreadyfollowed, followers, firstname, user_location, alreadySent, receivedReq, birthday, today, user_fullname, user_designation, user_mother_tongue, user_marital_status, age, newAge, totage;
                 $scope.finderloader = false;
                 if (data != 500) {
                     for (i = 0; i < data.length; i++) {
@@ -591,7 +615,16 @@ $session_user_id = $keyarr[2];
                             }
                         }
                         //alert(firstname);
-
+                        if (data[i].user_profile_image != '') {
+                            profile_image = data[i].user_profile_image;
+                        } else {
+                            profile_image = 'assets/images/user.png';
+                        }
+                        if (data[i].user_educational_field != '') {
+                            education = data[i].user_educational_field;
+                        } else {
+                            education = 'N/A';
+                        }
                         $scope.profiles.push({'user_profile_key': data[i].user_profile_key,
                             'user_profile_id': data[i].user_profile_id,
                             'user_id': data[i].user_id,
@@ -599,7 +632,7 @@ $session_user_id = $keyarr[2];
                             'user_gender': data[i].user_gender,
                             'user_caste': data[i].user_caste,
                             'user_email': data[i].user_email,
-                            'user_profile_image': data[i].user_profile_image,
+                            'user_profile_image': profile_image,
                             'user_height': data[i].user_height,
                             'user_weight': data[i].user_weight,
                             'user_mother_tongue': user_mother_tongue,
@@ -614,7 +647,8 @@ $session_user_id = $keyarr[2];
                             'user_location': user_location,
                             'firstName': firstname,
                             'lastName': data[i].user_lastname,
-                            'alreadyfollowed': alreadyfollowed
+                            'alreadyfollowed': alreadyfollowed,
+                            'education': education
                         });
                         //console.log($scope.profiles);
                     }
