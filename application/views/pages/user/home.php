@@ -88,7 +88,7 @@ a.socialIcon:hover, .socialHoverClass {
 </style>
 
 <!-- Home-Area -->
-<header class="home-area overlay" id="home_page" style="background: url(<?php echo base_url(); ?>assets/client/uploads/home_page/parallax_image/parallax1.jpg) no-repeat scroll center bottom / cover;">
+<header class="home-area overlay" id="home_page" style="background: url(<?php echo base_url(); ?>assets/client/uploads/home_page/slider_image/sinew.jpg) no-repeat scroll center bottom / cover;">
  <div class="container" >
   <div class="row">
    <div class="col-xs-12 hidden-sm col-md-8 hidden-xs">

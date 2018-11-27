@@ -134,7 +134,8 @@ class Allusers_model extends CI_Model {
 
         if($this->db->affected_rows()==1){
             $docCount=Allusers_model::getDocumentsCount($user_id);
-            if($docCount>=3){
+            $adharUploaded=Allusers_model::checkAdharUploaded($user_id);
+            if($docCount>=2 && $adharUploaded=='true'){
                 $update_verify=array(
                     'user_doc_verified' =>  '1' 
                 );
@@ -160,7 +161,16 @@ class Allusers_model extends CI_Model {
 
         if($this->db->affected_rows()==1){
             $docCount=Allusers_model::getDocumentsCount($user_id);
-            if($docCount<3){
+            $adharUploaded=Allusers_model::checkAdharUploaded($user_id);
+            // print_r($adharUploaded);die();
+            if($docCount<2){
+                $update_verify=array(
+                    'user_doc_verified' =>  '0' 
+                );
+            $this->db->where('user_id',$user_id);
+            $this->db->update('user_tab', $update_verify);
+            }
+            if($adharUploaded=='false'){
                 $update_verify=array(
                     'user_doc_verified' =>  '0' 
                 );
@@ -186,6 +196,20 @@ class Allusers_model extends CI_Model {
             }
         }
         return $count;
+    }
+
+    // check user uploaded adhar card
+    public function checkAdharUploaded($user_id) {
+        $query = "SELECT * FROM document_tab WHERE user_id ='$user_id' AND document_type='Adhaar Card' AND status=1";
+        $result = $this->db->query($query);
+
+        // if no db errors
+        if ($result->num_rows() == 1) {
+            return 'true';
+        }
+        else{
+            return 'false';
+        }
     }
 
     // activate member

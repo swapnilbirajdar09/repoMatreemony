@@ -48,13 +48,13 @@ class User_profile extends CI_Controller {
     public function demo(){
         require(APPPATH.'/third_party/phpToPDF.php');
               //Set Your Options -- see documentation for all options
-    $pdf_options = array(
+        $pdf_options = array(
           "source_type" => 'url',
           "source" => base_url().'user/full_profile/MTI=',
           "action" => 'save');
 
     //Code to generate PDF file from options above
-    phptopdf($pdf_options);
+        phptopdf($pdf_options);
     }
     // update function for About me section
 // --------------------------------------------------------------- //
@@ -67,9 +67,9 @@ class User_profile extends CI_Controller {
         //session key format is $keyarr[0]=PARInaayKEY|$keyarr[1]=email_id|$keyarr[2]=user_id
 
         if(!empty($_POST['about_me'])){
-           $result = $this->user_model->update_about_me($_POST['about_me'],$keyarr[2]);
+         $result = $this->user_model->update_about_me($_POST['about_me'],$keyarr[2]);
 
-           if($result){
+         if($result){
             $response=array(
                 'status'    =>  'success',
                 'message'   =>  '<b>Success:</b> You Have Successfully Edited <b>About Me</b>!'
@@ -103,9 +103,9 @@ public function update_expectations(){
         //session key format is $keyarr[0]=PARInaayKEY|$keyarr[1]=email_id|$keyarr[2]=user_id
 
     if(!empty($_POST['expectations'])){
-       $result = $this->user_model->update_expectations($_POST['expectations'],$keyarr[2]);
+     $result = $this->user_model->update_expectations($_POST['expectations'],$keyarr[2]);
 
-       if($result){
+     if($result){
         $response=array(
             'status'    =>  'success',
             'message'   =>  '<b>Success:</b> You Have Successfully Edited <b>Expectations</b>!'
@@ -715,19 +715,19 @@ public function update_documents(){
             $filepath = 'assets/users/documents/'.$fileData['file_name'];
         }
         else{
-         $response=array(
+           $response=array(
             'status'    =>  'validation',
             'message'   =>  $this->upload->display_errors('<p><b>File upload Error: </b>', '</p>'),
             'field'   =>  'document_file'
         );
-         echo json_encode($response);
-         die();
-     }
+           echo json_encode($response);
+           die();
+       }
         // print_r($filepath);die();
- }
+   }
 
- $data['filepath'] = $filepath;
- if($filepath==''){
+   $data['filepath'] = $filepath;
+   if($filepath==''){
     $response=array(
         'status'    =>  'validation',
         'message'   =>  '<b>Warning:</b> Document file not uploaded Successfully!',
@@ -769,6 +769,18 @@ public function upload_image(){
     $data = $_POST;
     $filepath = '';
 
+    // check image count
+    $imgCount = $this->user_model->checkImageCount($keyarr[2]);
+    if (!$imgCount) {  //for prod images
+        $response=array(
+            'status'    =>  'validation',
+            'message'   =>  '<b>Warning:</b> You are allowed to upload only <b>3 Images</b> in Gallery!',
+            'field'   =>  'selected_image'
+        );
+        echo json_encode($response);
+        die();
+    }
+
     $file_name = $_FILES['selected_image']['name'];
     if (!empty(($_FILES['selected_image']['name']))) {
         //file validating---------------------------//
@@ -804,19 +816,19 @@ public function upload_image(){
             $filepath = 'assets/users/gallery/'.$fileData['file_name'];
         }
         else{
-         $response=array(
+           $response=array(
             'status'    =>  'validation',
             'message'   =>  $this->upload->display_errors('<p><b>Image upload Error: </b>', '</p>'),
             'field'   =>  'selected_image'
         );
-         echo json_encode($response);
-         die();
-     }
+           echo json_encode($response);
+           die();
+       }
          // print_r($filepath);die();
- }
+   }
 
- $data['filepath'] = $filepath;
- if($filepath==''){
+   $data['filepath'] = $filepath;
+   if($filepath==''){
     $response=array(
         'status'    =>  'validation',
         'message'   =>  '<b>Warning:</b> Image file not uploaded Successfully!',
@@ -845,9 +857,9 @@ echo json_encode($response);
 // fucntion to remove uploaded document
 public function delDocument(){
     if(!empty($_POST['doc_id'])){
-       $result = $this->user_model->delDocument($_POST['doc_id']);
+     $result = $this->user_model->delDocument($_POST['doc_id']);
 
-       if($result){
+     if($result){
         $response=array(
             'status'    =>  'success',
             'message'   =>  '<b>Success:</b> You Have Successfully deleted Document!'
@@ -879,9 +891,9 @@ public function delImage(){
     $keyarr=explode('|', $key);
 
     if(!empty($_POST['img_path'])){
-       $result = $this->user_model->delImage($_POST['img_path'],$keyarr[2]);
+     $result = $this->user_model->delImage($_POST['img_path'],$keyarr[2]);
 
-       if($result){
+     if($result){
         $response=array(
             'status'    =>  'success',
             'message'   =>  '<b>Success:</b> You Have Successfully deleted Image!'
@@ -913,9 +925,9 @@ public function setProfilePicture(){
     $keyarr=explode('|', $key);
 
     if(!empty($_POST['img_path'])){
-       $result = $this->user_model->setProfilePicture($_POST['img_path'],$keyarr[2]);
+     $result = $this->user_model->setProfilePicture($_POST['img_path'],$keyarr[2]);
 
-       if($result){
+     if($result){
         $response=array(
             'status'    =>  'success',
             'message'   =>  '<b>Success:</b> You Have Successfully updated Profile Image!'

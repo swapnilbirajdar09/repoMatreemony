@@ -297,6 +297,7 @@ class User_model extends CI_Model {
                 // check if image exist
                 if($img_path==$value){
                     unset($arr[$key]);
+                    unlink($img_path);
                 }                
             }
             $final_gallery=json_encode($arr);
@@ -427,25 +428,25 @@ class User_model extends CI_Model {
                 }
             }
             else{
-               $response=array(
+             $response=array(
                 'status'    =>  'error',
                 'message'   =>  'Failure: Verification code did not match. Email Verification failed !'
             );
-               return $response;
-           }
-       }
-       else{
-           $response=array(
+             return $response;
+         }
+     }
+     else{
+         $response=array(
             'status'    =>  'error',
             'message'   =>  'Failure: Email Verification failed. Try resending verification code !'
         );
-           return $response;
-       }
-   }
+         return $response;
+     }
+ }
 
 
  // check email id exist or not
-   public function checkEmailExist($email_id){
+ public function checkEmailExist($email_id){
     $query = null;
         // ------------ check email exist 
         $query = $this->db->get_where('user_tab', array(//making selection
@@ -456,6 +457,27 @@ class User_model extends CI_Model {
             return 0;
         } else {
             return 1;
+        }
+    }
+
+    // check image count of user
+    public function checkImageCount($user_id){
+        $sql = "SELECT user_photos FROM user_profile_tab WHERE user_id='$user_id' ";
+        $result = $this->db->query($sql);
+
+        foreach ($result->result_array() as $key) {
+            $user_photos = $key['user_photos'];
+        }
+
+        $imgCount=0;
+        if($user_photos!='' && $user_photos!='[]'){
+            $img_Arr=json_decode($user_photos,TRUE);
+            $imgCount=count($img_Arr);
+        }
+        if ($imgCount ==3) {
+            return false;
+        } else {
+            return true;
         }
     }
 

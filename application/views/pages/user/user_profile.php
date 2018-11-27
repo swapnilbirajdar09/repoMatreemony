@@ -23,8 +23,8 @@
 </style>
 <script type="text/javascript">
     $('#uploadPhotoModal').on('hidden.bs.modal', function () {
-     location.reload();
- })
+       location.reload();
+   })
 </script>
 <!-- <?php print_r($userDetails); ?> -->
 <section class="slice sct-color-2">
@@ -78,7 +78,7 @@
                 if($show_alert==0){
                     ?>
                     <div class="col-md-12">
-                     <div class="col-md-12 alert alert-warning alert-dismissible" role="alert">
+                       <div class="col-md-12 alert alert-warning alert-dismissible" role="alert">
                         <a href="#" class="close w3-medium" data-dismiss="alert" aria-label="close"> <i class="fa fa-times-circle"></i> </a>
                         <p style="margin-bottom:0"><i class="fa fa-warning"></i> Please complete your Profile & then you can find your correct match ! </p>
                     </div>
@@ -98,9 +98,9 @@
             if($userDetails[0]['user_doc_verified']==0){
                 ?>
                 <div class="col-md-12">
-                 <div class="col-md-12 alert alert-warning alert-dismissible" role="alert">
+                   <div class="col-md-12 alert alert-warning alert-dismissible" role="alert">
                     <a href="#" class="close w3-medium" data-dismiss="alert" aria-label="close"> <i class="fa fa-times-circle"></i> </a>
-                    <p style="margin-bottom:0"><i class="fa fa-warning"></i> To Activate your account, you have to get verified for at least 3 uploaded documents successfully. </p>
+                    <p style="margin-bottom:0"><i class="fa fa-warning"></i> To Activate your account, you have to get verified for at least 2 documents successfully. <b>'Adhaar Card'</b> document is mandatory to get verified. </p>
                     <p style="margin-bottom:0"> <b>Uploaded Documents:</b> <?php echo $uploaded_doc; ?> </p>
                     <p style="margin-bottom:0"> <b>Approved Documents:</b> <?php echo $doc_verified_count; ?> </p>
                 </div>
@@ -312,7 +312,7 @@
                 </div>
                 <hr>
                 <div class="useful-links" id="changePasswordDiv">
-                   <a class="btn btn-styled btn-sm btn-white z-depth-2-bottom mb-3 change_pass l_nav" data-toggle="modal" data-target="#changePasswordModal">
+                 <a class="btn btn-styled btn-sm btn-white z-depth-2-bottom mb-3 change_pass l_nav" data-toggle="modal" data-target="#changePasswordModal">
                     <b style="font-size: 12px">Change Password</b>
                 </a>
                 <a class="btn btn-styled btn-sm btn-white z-depth-2-bottom mb-3 change_pass l_nav" href="<?php echo base_url(); ?>user/login/logoutUser">
@@ -524,9 +524,9 @@
                                                     <span>Blood Group</span>
                                                 </td>
                                                 <td>
-                                                   <?php echo $userDetails[0]['user_blood_grp']; ?>                          
-                                               </td>
-                                               <td class="td-label">
+                                                 <?php echo $userDetails[0]['user_blood_grp']; ?>                          
+                                             </td>
+                                             <td class="td-label">
                                                 <span>Mother Tongue</span>
                                             </td>
                                             <td><?php echo $userDetails[0]['user_mother_tongue']; ?>
@@ -785,17 +785,17 @@
                                             <span>Working Field</span>
                                         </td>
                                         <td>
-                                           <?php echo $userDetails[0]['user_working_field']; ?>
-                                       </td>
-                                   </tr>
-                                   <tr>
+                                         <?php echo $userDetails[0]['user_working_field']; ?>
+                                     </td>
+                                 </tr>
+                                 <tr>
                                     <td class="td-label">
                                         <span>Company Name</span>
                                     </td>
                                     <td>
-                                     <?php echo $userDetails[0]['user_company_name']; ?>
-                                 </td>
-                                 <td class="td-label">
+                                       <?php echo $userDetails[0]['user_company_name']; ?>
+                                   </td>
+                                   <td class="td-label">
                                     <span>Designation</span>
                                 </td>
                                 <td>
@@ -813,19 +813,19 @@
                                 <span>Monthly Income</span>
                             </td>
                             <td>
-                             <?php echo $userDetails[0]['user_monthly_income']; ?>
-                         </td>
-                         <td class="td-label">
+                               <?php echo $userDetails[0]['user_monthly_income']; ?>
+                           </td>
+                           <td class="td-label">
                             <span>Annual Income</span>
                         </td>
                         <td>
-                           <?php echo $userDetails[0]['user_annual_income']; ?>                   
-                       </td>
-                   </tr>
-               </tbody>
-           </table>
-       </div>
-   </div>
+                         <?php echo $userDetails[0]['user_annual_income']; ?>                   
+                     </td>
+                 </tr>
+             </tbody>
+         </table>
+     </div>
+ </div>
 </div>
 <!-- view eductaion and professional div ends -->
 <!-- edit education and professional div -->
@@ -1050,15 +1050,15 @@
                     </tr>
                     <tr>
                         <td class="td-label">
-                         Contact number 1
-                     </td>
-                     <td>
+                           Contact number 1
+                       </td>
+                       <td>
                         <?php if($userDetails[0]['user_contact_no1']!='' && $userDetails[0]['user_contact_no1']!='0'){echo $userDetails[0]['user_contact_no1']; }?> 
                     </td>
                     <td class="td-label">
-                     Contact number 2
-                 </td>
-                 <td>
+                       Contact number 2
+                   </td>
+                   <td>
                     <?php if($userDetails[0]['user_contact_no2']!='' && $userDetails[0]['user_contact_no2']!='0'){echo $userDetails[0]['user_contact_no2']; }?> 
                 </td>
             </tr>
@@ -1351,14 +1351,14 @@
                                         <span>Relation with Me</span>
                                     </td>
                                     <td>
-                                     <?php echo $relativeArr[$i]['relative_relation']; ?>
-                                 </td>
-                             </tr>
-                             <tr>
+                                       <?php echo $relativeArr[$i]['relative_relation']; ?>
+                                   </td>
+                               </tr>
+                               <tr>
                                 <td class="td-label">
-                                 Contact number
-                             </td>
-                             <td>
+                                   Contact number
+                               </td>
+                               <td>
                                 <?php echo $relativeArr[$i]['relative_contact']; ?>
                             </td>
                             <td class="td-label">
@@ -1670,6 +1670,13 @@
         </form>
         <hr>
         <div class="row w3-padding">
+            <?php
+            if($userDetails[0]['user_doc_verified']==0){
+                ?>
+                <div class="col-md-12 alert alert-warning alert-dismissible" role="alert">
+                    <p style="margin-bottom:0"><b>Note:</b> Upload at least 2 documents. <b>'Adhaar Card'</b> document is mandatory to upload. </p>
+                </div>
+            <?php } ?>
             <label class="text-uppercase c-gray"><b><i class="fa fa-file"></i> Uploaded Documents: </b></label>
             <div class="col-md-12">
                 <?php 

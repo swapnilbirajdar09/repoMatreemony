@@ -130,10 +130,10 @@
             <hr>
             <?php if($userDetails[0]['user_status']=='1') 
             { ?>
-              <a class="btn btn-danger btn-md pull-right" id="deactivateBtn" onclick="deactivate(<?php echo $userDetails[0]['user_id']; ?>)" ><i class="fa fa-user-times"></i> Deactivate Acccount</a>
+              <a class="btn btn-danger btn-md pull-right" id="deactivateBtn" onclick="deactivate(<?php echo $userDetails[0]['user_id']; ?>)" ><i class="fa fa-user-times"></i> Deactivate Account</a>
             <?php } else
             { ?>
-              <a class="btn btn-success btn-md pull-right" id="activateBtn" onclick="activate(<?php echo $userDetails[0]['user_id']; ?>)" ><i class="fa fa-user-plus"></i> Activate Acccount</a>
+              <a class="btn btn-success btn-md pull-right" id="activateBtn" onclick="activate(<?php echo $userDetails[0]['user_id']; ?>)" ><i class="fa fa-user-plus"></i> Activate Account</a>
             <?php } ?>
           </div>
           <br>
