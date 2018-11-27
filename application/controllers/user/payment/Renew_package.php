@@ -36,6 +36,11 @@ class Renew_package extends CI_Controller {
     }
 
     $data['userDetails'] = $this->user_model->getUserDetails($user_id);
+    // check subscription expired or not
+        if($data['userDetails'][0]['user_payment_renewed']==1){
+            redirect('user/user_profile');
+            die();
+        }
     $data['package'] = $this->dashboard_model->getAllPackages();
     $this->load->view('includes/user/userheader.php',$data); 
     $this->load->view('pages/user/payment/renew_package.php',$data); 
