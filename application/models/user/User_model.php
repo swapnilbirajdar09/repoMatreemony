@@ -481,4 +481,27 @@ class User_model extends CI_Model {
         }
     }
 
+    // check user subscription expired of all users
+    public function checkPackageExpired(){
+        $sql = "SELECT user_id,user_expiry_date FROM user_tab WHERE user_status='1' ";
+        $result = $this->db->query($sql);
+
+        foreach ($result->result_array() as $key) {
+            $current=date('Y-m-d');
+            $current_date =new DateTime($current);
+            $user_expiry_date =new DateTime($key['user_expiry_date']);
+            $remainingDays = $current_date->diff($user_expiry_date)->days;
+
+            if($remainingDays=='0'){
+                $result_update = array(
+                    'user_payment_renewed' => '0'
+                );
+
+                $this->db->where('user_id', $key['user_id']);
+                $this->db->update('user_tab', $result_update);
+            }
+
+        }
+    }
+
 }
