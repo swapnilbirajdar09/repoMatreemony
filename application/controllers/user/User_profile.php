@@ -1068,7 +1068,7 @@ public function verify_email(){
             'charset' => 'utf-8',
             'wordwrap' => TRUE
         );
-        $config['smtp_crypto'] = 'tls';
+        // $config['smtp_crypto'] = 'tls';
 
         $this->load->library('email', $config);
         $this->email->set_newline("\r\n");
