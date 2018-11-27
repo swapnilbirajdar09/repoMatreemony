@@ -114,9 +114,9 @@ class Advancesearch_model extends CI_Model {
         if ($city != '') {
             $sql .= "AND user_profile_tab.user_city = '$city' ";
         }
-        if ($filter_member_id != '') {
-            $sql .= "AND user_profile_tab.user_profile_key = '$filter_member_id' ";
-        }
+//        if ($filter_member_id != '') {
+//            $sql .= "AND user_profile_tab.user_profile_key = '$filter_member_id' ";
+//        }
         if ($working_field != '') {
             $sql .= "AND user_profile_tab.user_working_field = '$working_field' ";
         }

@@ -116,7 +116,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="row">
+<!--                                    <div class="row">
                                         <div class="col-sm-12">
                                             <div class="form-group has-feedback">
                                                 <label for="" class="text-uppercase w3-medium">Profile Id</label>
@@ -125,7 +125,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>                                   
+                                    </div>                                   -->
 
                                     <div class="row">
                                         <div class="col-sm-12">                                                                                        
@@ -574,7 +574,6 @@ $session_user_id = $keyarr[2];
             var city = $('#city').val();
             var state = $('#state').val();
             var country = $('#country').val();
-            var filter_member_id = $('#filter_member_id').val();
             var maritalStatus = $('#maritalStatus').val();
             $http({
                 method: 'POST',
@@ -593,7 +592,6 @@ $session_user_id = $keyarr[2];
                     city: city,
                     state: state,
                     country: country,
-                    filter_member_id: filter_member_id,
                     maritalStatus: maritalStatus,
                     from_weight: from_weight,
                     to_weight: to_weight,
