@@ -1,25 +1,6 @@
-<style>
-    .parallax { 
-        /*/ The image used /*/
 
-        /*/ Set a specific height /*/
-        height: auto; 
-
-        /*/ Create the parallax scrolling effect /*/
-        background-attachment: fixed;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-    }
-</style>
-<div class="parallax download-area overlay" style="background-image: url('<?php echo base_url(); ?>assets/client/uploads/home_page/slider_image/sinew.jpg'); height: 350px;">
-    <div class="col-lg-12 w3-text-white wide-text title">
-        <div class="space-90"></div>
-        <h2 style=" margin-top: 120px;"> TERMS AND CONDITIONS</h2>
-    </div>	
-</div>
 <!-- About section -->
-<div class="w3-container  w3-center  w3-padding-32" id="about">
+<div class="w3-container  w3-center  w3-padding-32" id="about" style="margin-top: 80px">
     <div class="w3-content w3-justify" style="max-width:600px">
         <div class="w3-col l12 w3-center w3-margin-top w3-margin-bottom w3-border-top w3-border-bottom">
             <h4>TERMS AND CONDITIONS</h4>

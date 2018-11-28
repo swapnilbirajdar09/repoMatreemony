@@ -175,7 +175,12 @@ a.socialIcon:hover, .socialHoverClass {
 <div class="w3-col l8 s7" style="padding-left: 8px">
   <input type="number" name="mob_number" class="w3-input control w3-text-black" placeholder="Enter your mobile number*" required id="mc-number" style="height: 32px;">	
 </div>
-
+<div class="w3-col l12 w3-margin-top" style="padding-right: 5px;"> 
+   <input type="checkbox" name="terms_conditions" class=" w3-text-black" required id="mc-chekbox">
+   <label class="w3-medium">
+   I agree the <a href="<?php echo base_url(); ?>user/terms_conditions" class="w3-text-grey" target="_blank">Terms & Conditions.</a>
+ </label>
+</div>
 </div>
 <div class="w3-col l12 text-center w3-margin-bottom">
  <div class="space-20"></div>
@@ -202,8 +207,8 @@ a.socialIcon:hover, .socialHoverClass {
  <div class="w3-col l12 text-center w3-margin-bottom">
    <div class="space-20"></div>
    <button class="bttn-default btn btn-block" ng-bind-html="loginBtnText" ng-enabled="loginDisable" type="submit" style="border-radius: 5px; background: linear-gradient(45deg, rgba(72, 44, 191, 1) 0%, rgba(106, 198, 240, 1) 100%);"><i class="fa fa-lock"></i> Log In</button>
-    <div class="space-20"></div>
-    <a href="<?php echo base_url(); ?>forget_password" class="btn blue-color"><span class="w3-text-white"> Forget Password ?</span></a>
+   <div class="space-20"></div>
+   <a href="<?php echo base_url(); ?>forget_password" class="btn blue-color"><span class="w3-text-white"> Forget Password ?</span></a>
  </div>
 </form>
 </div>
@@ -224,7 +229,7 @@ a.socialIcon:hover, .socialHoverClass {
      <div class="space-20"></div>
      <h5 class="title">About Buddhist Parinaay</h5>
      <div class="space-30"></div>
-  <h3 class="blue-color">A Successful Marriage Requires Falling In Love Many Times, Always With Same Person.</h3>
+     <h3 class="blue-color">A Successful Marriage Requires Falling In Love Many Times, Always With Same Person.</h3>
      <div class="space-20"></div>
      <p>We Make Them Meet , Love Brings Them Together.</p>
    </div>
@@ -260,7 +265,7 @@ a.socialIcon:hover, .socialHoverClass {
    <div class="space-20"></div>
    <div class="desc wow fadeInUp" data-wow-delay="0.6s">
     <p>Our Mission is to provide a pleasant and superior matchmaking experience to our Brides and Grooms to 
-      meet their prospective life partners along with protecting their privacy and security.</p>
+    meet their prospective life partners along with protecting their privacy and security.</p>
   </div>
   <div class="space-50"></div>
   <a href="<?php echo base_url();?>user/about_us" class="bttn-default wow fadeInUp" data-wow-delay="0.8s">Learn More</a>
@@ -285,8 +290,8 @@ a.socialIcon:hover, .socialHoverClass {
 <div class="row">
  <div class="col-md-6 col-xs-12">
   <div class="w3-col m6 w3-center w3-padding-large">
-   <img src="<?php echo base_url(); ?>assets/demo/images/piller_vidya.jpg" class="w3-round w3-image w3-opacity w3-hover-opacity-off" alt="Photo of Me" width="500" height="333">
-   <div class="col-md-12  w3-padding-top">
+   <img src="<?php echo base_url(); ?>assets/demo/images/piller_vidya.jpg" class="w3-round w3-image w3-opacity w3-hover-opacity-off" alt="Photo of Me" style="height: 230px;width: auto;">
+   <!-- <div class="col-md-12  w3-padding-top">
     <ul class="social-network social-circle">
 
      <li><a href="#" class="icoFacebook" title="Facebook"><i class="fa fa-facebook"></i></a></li>
@@ -294,19 +299,23 @@ a.socialIcon:hover, .socialHoverClass {
 
      <li><a href="#" class="icoLinkedin" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
    </ul>
- </div>
+ </div> -->
 </div>
 
 
 <div class="w3-col m6  w3-padding-large">
- <p style="line-height: 25px; text-align: justify;"> In this journey of Buddhist Parinay our Main Supporter and Counselor is Mrs. Vidya Sunil Taware. We are thankful to her for help and guidance which is valuable to us.</p>
- <a href="<?php echo base_url();?>user/pillars/pillar_1" class="read-more">Read More</a>
+  <h4 class=""><b>Mrs. Vidya Sunil Taware</b><br></h4>
+  <h5><p>B.COM.LLB GDC. AMC,</p>
+    <p>Pune.</p>
+  </h5>
+  <!-- <p style="line-height: 25px; text-align: justify;"> In this journey of Buddhist Parinay our Main Supporter and Counselor is Mrs. Vidya Sunil Taware. We are thankful to her for help and guidance which is valuable to us.</p> -->
+  <a href="<?php echo base_url();?>user/pillars/pillar_1" class="read-more">Read More</a>
 </div>
 </div>
 <div class="col-md-6 col-xs-12">
   <div class="w3-col m6 w3-center w3-padding-large">
-   <img src="<?php echo base_url(); ?>assets/demo/images/profile_1.jpg" class="w3-round w3-image w3-opacity w3-hover-opacity-off" alt="Photo of Me" width="500" height="333">
-   <div class="col-md-12  w3-padding-top">
+   <img src="<?php echo base_url(); ?>assets/demo/images/pillar2.jpeg" class="w3-round w3-image w3-opacity w3-hover-opacity-off" alt="Photo of A.K. Gaikwad" style="height: 250px;width: auto;">
+   <!-- <div class="col-md-12  w3-padding-top">
     <ul class="social-network social-circle">
 
      <li><a href="#" class="icoFacebook" title="Facebook"><i class="fa fa-facebook"></i></a></li>
@@ -314,92 +323,96 @@ a.socialIcon:hover, .socialHoverClass {
 
      <li><a href="#" class="icoLinkedin" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
    </ul>
- </div>
+ </div> -->
 </div>
 <div class="w3-col m6  w3-padding-large">
- <p style="line-height: 25px;text-align: justify;">I am lorem ipsum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure</p>
- <a href="<?php echo base_url();?>user/pillars/pillar_2" class="read-more">Read More</a>
+ <h4 class=""><b>Mr. A.K. Gaikwad</b><br></h4>
+ <h5>
+  <p>Asst. Divisional Manager (Retd.)</p>
+  <p>United India Insurance Co. Ltd.</p>
+  <p>Sr. Activist: <b>BAMCEF</b>.</p>
+</h5>
 </div>
 </div>
-            
-                </div>
-              </div>
 
-            </div>
-            
-            <!-- Download-Area -->
-            <div class="parallax download-area overlay" style="background-image: url('<?php echo base_url(); ?>assets/client/uploads/home_page/slider_image/sinew.jpg'); height: 450px;">
-             <div class="container">
-              <div class="row">
-               <div class="col-xs-12 col-md-12 text-center" style="padding:80px">
-                <div class="space-20"></div>
-                <h3 class="white-color">Join <b>BUDDHIST PARINAAY</b> and Find your perfect match.</h3>
-                <div class="space-20 hidden-xs"></div>
-                <p class="hidden-xs">Buddhist Parinay - Find Buddhist Brides and Grooms on our Portal.</p>
-                <div class="space-20 hidden-xs"></div>
-                <a href="#" class="bttn-white sq"><i class="w3-large lnr lnr-rocket"></i>Register</a> 
-                <a href="<?php echo base_url(); ?>user/contact_us" class="bttn-white sq" data-wow-delay="0.8s"><i class="w3-large lnr lnr-envelope"></i>Contact Us</a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- Download-Area-End -->
-        <!-- Testimonial-Area -->
-        <section class="testimonial-area" id="testimonial_page">
-         <div class="container">
-          <div class="row">
-           <div class="col-xs-12">
-            <div class="page-title text-center">
-             <h5 class="title">Testimonials</h5>
-             <h3 class="dark-color">Our Client Loves US</h3>
-             <div class="space-60"></div>
-           </div>
-         </div>
-       </div>
-       <div class="row">
-         <div class="col-xs-12">
-          <div class="team-slide">
-           <div class="team-box">
-            <div class="team-image">
-             <img src="<?php echo base_url(); ?>assets/demo/images/team-1.png" alt="">
-           </div>
-           <h4>Ashekur Rahman</h4>
-           <h6 class="position">Art Dirrector</h6>
-           <p>Lorem ipsum dolor sit amet, conseg sed do eiusmod temput laborelaborus ed sed do eiusmod tempo.</p>
-         </div>
-         <div class="team-box">
-          <div class="team-image">
-           <img src="<?php echo base_url(); ?>assets/demo/images/team-2.jpg" alt="">
-         </div>
-         <h4>Ashekur Rahman</h4>
-         <h6 class="position">Art Dirrector</h6>
-         <p>Lorem ipsum dolor sit amet, conseg sed do eiusmod temput laborelaborus ed sed do eiusmod tempo.</p>
-       </div>
-       <div class="team-box">
-        <div class="team-image">
-         <img src="<?php echo base_url(); ?>assets/demo/images/team-3.jpg" alt="">
-       </div>
-       <h4>Ashekur Rahman</h4>
-       <h6 class="position">Art Dirrector</h6>
-       <p>Lorem ipsum dolor sit amet, conseg sed do eiusmod temput laborelaborus ed sed do eiusmod tempo.</p>
-     </div>
-     <div class="team-box">
-      <div class="team-image">
-       <img src="<?php echo base_url(); ?>assets/demo/images/team-1.png" alt="">
-     </div>
-     <h4>Ashekur Rahman</h4>
-     <h6 class="position">Art Dirrector</h6>
-     <p>Lorem ipsum dolor sit amet, conseg sed do eiusmod temput laborelaborus ed sed do eiusmod tempo.</p>
+</div>
+</div>
+
+</div>
+
+<!-- Download-Area -->
+<div class="parallax download-area overlay" style="background-image: url('<?php echo base_url(); ?>assets/client/uploads/home_page/slider_image/sinew.jpg'); height: 450px;">
+ <div class="container">
+  <div class="row">
+   <div class="col-xs-12 col-md-12 text-center" style="padding:80px">
+    <div class="space-20"></div>
+    <h3 class="white-color">Join <b>BUDDHIST PARINAAY</b> and Find your perfect match.</h3>
+    <div class="space-20 hidden-xs"></div>
+    <p class="hidden-xs">Buddhist Parinay - Find Buddhist Brides and Grooms on our Portal.</p>
+    <div class="space-20 hidden-xs"></div>
+    <a href="#" class="bttn-white sq"><i class="w3-large lnr lnr-rocket"></i>Register</a> 
+    <a href="<?php echo base_url(); ?>user/contact_us" class="bttn-white sq" data-wow-delay="0.8s"><i class="w3-large lnr lnr-envelope"></i>Contact Us</a>
+  </div>
+</div>
+</div>
+</div>
+<!-- Download-Area-End -->
+<!-- Testimonial-Area -->
+<section class="testimonial-area" id="testimonial_page">
+ <div class="container">
+  <div class="row">
+   <div class="col-xs-12">
+    <div class="page-title text-center">
+     <h5 class="title">Testimonials</h5>
+     <h3 class="dark-color">Our Client Loves US</h3>
+     <div class="space-60"></div>
    </div>
+ </div>
+</div>
+<div class="row">
+ <div class="col-xs-12">
+  <div class="team-slide">
    <div class="team-box">
     <div class="team-image">
-     <img src="<?php echo base_url(); ?>assets/demo/images/team-2.jpg" alt="">
+     <img src="<?php echo base_url(); ?>assets/demo/images/team-1.png" alt="">
    </div>
    <h4>Ashekur Rahman</h4>
    <h6 class="position">Art Dirrector</h6>
    <p>Lorem ipsum dolor sit amet, conseg sed do eiusmod temput laborelaborus ed sed do eiusmod tempo.</p>
  </div>
  <div class="team-box">
+  <div class="team-image">
+   <img src="<?php echo base_url(); ?>assets/demo/images/team-2.jpg" alt="">
+ </div>
+ <h4>Ashekur Rahman</h4>
+ <h6 class="position">Art Dirrector</h6>
+ <p>Lorem ipsum dolor sit amet, conseg sed do eiusmod temput laborelaborus ed sed do eiusmod tempo.</p>
+</div>
+<div class="team-box">
+  <div class="team-image">
+   <img src="<?php echo base_url(); ?>assets/demo/images/team-3.jpg" alt="">
+ </div>
+ <h4>Ashekur Rahman</h4>
+ <h6 class="position">Art Dirrector</h6>
+ <p>Lorem ipsum dolor sit amet, conseg sed do eiusmod temput laborelaborus ed sed do eiusmod tempo.</p>
+</div>
+<div class="team-box">
+  <div class="team-image">
+   <img src="<?php echo base_url(); ?>assets/demo/images/team-1.png" alt="">
+ </div>
+ <h4>Ashekur Rahman</h4>
+ <h6 class="position">Art Dirrector</h6>
+ <p>Lorem ipsum dolor sit amet, conseg sed do eiusmod temput laborelaborus ed sed do eiusmod tempo.</p>
+</div>
+<div class="team-box">
+  <div class="team-image">
+   <img src="<?php echo base_url(); ?>assets/demo/images/team-2.jpg" alt="">
+ </div>
+ <h4>Ashekur Rahman</h4>
+ <h6 class="position">Art Dirrector</h6>
+ <p>Lorem ipsum dolor sit amet, conseg sed do eiusmod temput laborelaborus ed sed do eiusmod tempo.</p>
+</div>
+<div class="team-box">
   <div class="team-image">
    <img src="<?php echo base_url(); ?>assets/demo/images/team-3.jpg" alt="">
  </div>
