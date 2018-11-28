@@ -48,7 +48,9 @@
                 Our goal is to provide the best of the profiles for Brides and Grooms to help , find their ideal life partner for their marriage.
             </p>
         </div>
-        <div class="w3-col m8 w3-padding-large"><div> <b>---- Contact Details ----</b></div></div>
+        <div class="page-title text-center w3-margin-top">
+            <center><h5 class="title">Contact Us</h5></center>
+        </div>
         <div class="w3-col m8 w3-padding-large">
             <?php
             foreach ($info as $key) {
