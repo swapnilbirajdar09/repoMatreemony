@@ -65,7 +65,8 @@ class Payment_model extends CI_Model {
                     'user_payment_renewed'=> '1',
                     'user_mobile_num' => $user_mobile,
                     'user_remaining_requests' =>'5',
-                    'user_status' => '1'
+                    'user_status' => '1',
+                    'user_agree_tc' => '1'
                 );
 
                 $this->db->insert('user_tab',$insert_usertab);
