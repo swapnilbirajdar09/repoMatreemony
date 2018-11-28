@@ -93,23 +93,29 @@
                     <label>Phone Number: </label>
                     <input type="number" name="number" value="" class="form-control w3-small" placeholder="Enter Number here" required>
                   </div>
-                </div>
-                <div class="col-md-12 w3-center w3-margin-top">
-                  <!-- <button type="reset" class="btn btn-default">Reset</button> -->
-                  <button type="submit" id="registeruser" class="btn btn-primary">Submit</button>                      
-                </div>
-              </form>
-              <p id="message" class="w3-padding"></p>
+                  <div class="col-md-6 w3-margin-top"><br>
+                    <input type="checkbox" name="terms_conditions" required id="mc-chekbox">
+                    <label>
+                     I agree the <a href="<?php echo base_url(); ?>user/terms_conditions" class="w3-text-grey" target="_blank"><u>Terms & Conditions</u></a>.
+                   </label>
+                 </div>
+               </div>
+               <div class="col-md-12 w3-center w3-margin-top">
+                <!-- <button type="reset" class="btn btn-default">Reset</button> -->
+                <button type="submit" id="registeruser" class="btn btn-primary">Submit</button>                      
+              </div>
+            </form>
+            <p id="message" class="w3-padding"></p>
 
 
 
-            </div>
-            <div class="col-md-2"></div>
           </div>
+          <div class="col-md-2"></div>
         </div>
       </div>
     </div>
   </div>
+</div>
 </div>
 </div>
 </div>
