@@ -85,6 +85,21 @@ a.socialIcon:hover, .socialHoverClass {
 .social-circle a {
  background-color: #D3D3D3;   
 }
+
+.testimonial_img{
+    width: 100%;
+    height: 250px;
+    border-radius: 100%;
+    background-color: #ffffff;
+    text-align: center;
+    overflow: hidden;
+    border: 5px solid #ffffff;
+    -webkit-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
 </style>
 
 <!-- Home-Area -->
@@ -238,9 +253,10 @@ a.socialIcon:hover, .socialHoverClass {
 </div>
 </section>
 <!-- About-Area-End -->
+
 <!-- Progress-Area -->
 <div class="space-80 hidden-lg "></div>
-<section class="progress-area gray-bg" id="about_page" style="background-image: url('<?php echo base_url(); ?>assets/client/uploads/home_page/slider_image/progress.jpg');">
+<section class="progress-area gray-bg" id="about_page" style="background-image: url('<?php echo base_url(); ?>assets/client/uploads/home_page/slider_image/hands_sq.jpg');">
  <div class="container">
   <div class="row">
    <div class="col-xs-12 col-md-6 hidden-sm hidden-xs">
@@ -372,53 +388,33 @@ a.socialIcon:hover, .socialHoverClass {
 <div class="row">
  <div class="col-xs-12">
   <div class="team-slide">
-   <div class="team-box">
-    <div class="team-image">
-     <img src="<?php echo base_url(); ?>assets/demo/images/team-1.png" alt="">
+   <div class="team-box" style="padding: 20px">
+    <div class="testimonial_img" style="background-image: url('<?php echo base_url(); ?>assets/demo/images/testimonials/sshelar.jpg');">
    </div>
-   <h4>Ashekur Rahman</h4>
-   <h6 class="position">Art Dirrector</h6>
-   <p>Lorem ipsum dolor sit amet, conseg sed do eiusmod temput laborelaborus ed sed do eiusmod tempo.</p>
+   <br>
+   <h4>Sagar Shelar</h4>
+   <p class="text-small">I'm really grateful to buddhistparinay.in for helping me to find my life partner. It is the perfect place to find like minded individuals on your journey to find your partner.</p>
  </div>
- <div class="team-box">
-  <div class="team-image">
-   <img src="<?php echo base_url(); ?>assets/demo/images/team-2.jpg" alt="">
- </div>
- <h4>Ashekur Rahman</h4>
- <h6 class="position">Art Dirrector</h6>
- <p>Lorem ipsum dolor sit amet, conseg sed do eiusmod temput laborelaborus ed sed do eiusmod tempo.</p>
+ <div class="team-box" style="padding: 20px">
+  <div class="testimonial_img" style="background-image: url('<?php echo base_url(); ?>assets/demo/images/testimonials/apansare.jpg');background-position: center;background-repeat: no-repeat;background-size: contain;">
+   </div>
+   <br>
+ <h4>Amit & Komal Pansare</h4>
+ <p>I am very much thankful to buddhistparinay.in, who helped me to found my dream partner.Marriages are made in heaven but this site is the best medium for fulfilling dreams.</p>
 </div>
-<div class="team-box">
-  <div class="team-image">
-   <img src="<?php echo base_url(); ?>assets/demo/images/team-3.jpg" alt="">
- </div>
- <h4>Ashekur Rahman</h4>
- <h6 class="position">Art Dirrector</h6>
- <p>Lorem ipsum dolor sit amet, conseg sed do eiusmod temput laborelaborus ed sed do eiusmod tempo.</p>
+<div class="team-box" style="padding: 20px">
+  <div class="testimonial_img" style="background-image: url('<?php echo base_url(); ?>assets/demo/images/testimonials/aspansare1.JPG');">
+   </div>
+   <br>
+ <h4>Ashish & Ashwini Pansare</h4>
+ <p>We both would like to specially thank the team at buddhistparinay.in to have provided such an important platform for interaction and being able to go ahead with the right person to spend the rest of the life in the happiest possible way! Once again we thanks to buddhistparinay.in for helping us find each other.</p>
 </div>
-<div class="team-box">
-  <div class="team-image">
-   <img src="<?php echo base_url(); ?>assets/demo/images/team-1.png" alt="">
- </div>
- <h4>Ashekur Rahman</h4>
- <h6 class="position">Art Dirrector</h6>
- <p>Lorem ipsum dolor sit amet, conseg sed do eiusmod temput laborelaborus ed sed do eiusmod tempo.</p>
-</div>
-<div class="team-box">
-  <div class="team-image">
-   <img src="<?php echo base_url(); ?>assets/demo/images/team-2.jpg" alt="">
- </div>
- <h4>Ashekur Rahman</h4>
- <h6 class="position">Art Dirrector</h6>
- <p>Lorem ipsum dolor sit amet, conseg sed do eiusmod temput laborelaborus ed sed do eiusmod tempo.</p>
-</div>
-<div class="team-box">
-  <div class="team-image">
-   <img src="<?php echo base_url(); ?>assets/demo/images/team-3.jpg" alt="">
- </div>
- <h4>Ashekur Rahman</h4>
- <h6 class="position">Art Dirrector</h6>
- <p>Lorem ipsum dolor sit amet, conseg sed do eiusmod temput laborelaborus ed sed do eiusmod tempo.</p>
+<div class="team-box" style="padding: 20px">
+  <div class="testimonial_img" style="background-image: url('<?php echo base_url(); ?>assets/demo/images/testimonials/sahil.JPG');">
+   </div>
+   <br>
+ <h4>Sahil</h4>
+ <p>Thank you buddhistparinay.in for helping us to select a right partner. You have brought true love to our life. I would like to thanks Buddhist Parinay team for excellent service. Your  website was user friendly and easy to manage. I would definitely recommend Buddhist Parinay to others to find there soul mate. We shared our interest to each other and our family too were interested.</p>
 </div>
 </div>
 </div>

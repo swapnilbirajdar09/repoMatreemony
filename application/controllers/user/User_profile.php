@@ -47,7 +47,7 @@ class User_profile extends CI_Controller {
         $data['occupations'] = $this->Advancesearch_model->getOccupationDetails();
         $data['educations'] = $this->Advancesearch_model->getEducationDetails();        
         $this->load->view('includes/user/userheader.php',$data); //------user header page
-        $this->load->view('pages/user/User_profile.php',$data); //------user profile page
+        $this->load->view('pages/user/user_profile.php',$data); //------user profile page
         $this->load->view('includes/user/userfooter.php'); //------user footer page
     }
     

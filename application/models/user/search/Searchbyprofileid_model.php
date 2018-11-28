@@ -123,11 +123,8 @@ class Searchbyprofileid_model extends CI_Model {
                 if ($this->db->affected_rows() > 0) {  //----checking the sent requests coloumn updated then call the fun below
                     //-----------------for update receivers received request coloumn by saving the senders userid
                     $response = Searchbyprofileid_model::updateUserReceivedRequests($profile_user_id, $user_id, $user_email, $user_firstname, $user_lastname, $user_gender, $user_height, $user_caste, $user_educational_field);
-                    if ($response) {
-                        return 200;
-                    } else {
-                        return 500;
-                    }
+                    return 200;
+                    
                 } else {
                     return 500;
                 }
@@ -296,11 +293,7 @@ class Searchbyprofileid_model extends CI_Model {
         if ($this->db->affected_rows() > 0) {  //----checking the sent requests coloumn updated then call the fun below
             //-----------------for update receivers received request coloumn by saving the senders userid
             $response = Searchbyprofileid_model::updateAcceptUserConfirmRequest_AtSenderSide($profile_user_id, $sessionUser_id, $user_firstname, $user_lastname);
-            if ($response) {
-                return 200;
-            } else {
-                return 500;
-            }
+            return 200;
         } else {
             return 500;
         }
