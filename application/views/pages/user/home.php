@@ -102,7 +102,7 @@ a.socialIcon:hover, .socialHoverClass {
    <a href="#contact_page" class="bttn-white wow fadeInUp" data-wow-delay="0.8s"><i class="lnr lnr-phone-handset"></i>Contact Us For any Inquiry</a>
  </div>
  <div class="col-xs-12 col-md-4" ng-app="loginApp" ng-controller="loginController">
-  <div class="w3-col l12 w3-black w3-padding" style ="opacity: 0.5;filter: alpha(opacity=50);">
+  <div class="w3-col l12 w3-black w3-padding" style ="opacity: 0.7;filter: alpha(opacity=50);">
     <div class="w3-col l12 w3-center" style="z-index: -1">
      <div class="space-30"></div>
      <div class="btn-group btn-group-lg">
