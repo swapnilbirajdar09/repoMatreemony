@@ -13,6 +13,12 @@ class Register_user extends CI_Controller {
 
     // main index function
     public function index() {
+       // start session        
+        $admin_name = $this->session->userdata('admin_name'); //----session variable
+        if ($admin_name == '') {
+            redirect('admin/admin_login');
+        }
+        
        $data['package']=$this->dashboard_model->getAllPackages();
        $this->load->view('includes/header');
        $this->load->view('pages/admin/register_user',$data);

@@ -43,6 +43,7 @@ class Registeruser_model extends CI_Model {
                 'user_caste' => $caste,
                 'user_package' => $package_select[0],
                 'user_mobile_num' => $number,
+                'user_payment_renewed'=> '1',
                 'user_remaining_requests' => '5',
                 'user_status' => '1',
                 'user_agree_tc' => '1'

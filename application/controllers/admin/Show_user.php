@@ -13,6 +13,11 @@ class Show_user extends CI_Controller {
 
     // main index function
     public function index($param='') {
+         // start session        
+        $admin_name = $this->session->userdata('admin_name'); //----session variable
+        if ($admin_name == '') {
+            redirect('admin/admin_login');
+        }
         if($param!=''){
             $user_id=base64_decode($param);
             $data['userDetails'] = $this->user_model->getUserDetails($user_id);

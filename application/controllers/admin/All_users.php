@@ -17,7 +17,11 @@ class All_users extends CI_Controller {
 
     // main index function
     public function index() {
-        // start session		
+         // start session        
+        $admin_name = $this->session->userdata('admin_name'); //----session variable
+        if ($admin_name == '') {
+            redirect('admin/admin_login');
+        }		
       
        if(isset($_GET['search_byID']) || isset($_GET['search_byName']) || isset($_GET['valid']) && $_GET['valid']=='true'){
       extract($_GET);

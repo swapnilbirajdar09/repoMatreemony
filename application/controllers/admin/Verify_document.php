@@ -13,6 +13,11 @@ class Verify_document extends CI_Controller {
 
     // main index function
     public function index($user_id='') {
+         // start session        
+        $admin_name = $this->session->userdata('admin_name'); //----session variable
+        if ($admin_name == '') {
+            redirect('admin/admin_login');
+        }
         $data['userDetails'] = $this->user_model->getUserDetails(base64_decode($user_id));
         $data['userDocuments'] = $this->user_model->getUserDocuments(base64_decode($user_id));
         $this->load->view('includes/header');
