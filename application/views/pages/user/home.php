@@ -413,8 +413,15 @@ a.socialIcon:hover, .socialHoverClass {
   <div class="testimonial_img" style="background-image: url('<?php echo base_url(); ?>assets/demo/images/testimonials/sahil.JPG');">
    </div>
    <br>
- <h4>Sahil</h4>
- <p>Thank you buddhistparinay.in for helping us to select a right partner. You have brought true love to our life. I would like to thanks Buddhist Parinay team for excellent service. Your  website was user friendly and easy to manage. I would definitely recommend Buddhist Parinay to others to find there soul mate. We shared our interest to each other and our family too were interested.</p>
+ <h4>Sahil Sonar</h4>
+ <p>Thank you buddhistparinay.in for helping us to select a right partner. You have brought true love to our life. I would like to thank Buddhist Parinay team for excellent service. Your  website was user friendly and easy to manage. I would definitely recommend Buddhist Parinay to others to find there soul mate. We shared our interest to each other and our family too were interested.</p>
+</div>
+<div class="team-box" style="padding: 20px">
+  <div class="testimonial_img" style="background-image: url('<?php echo base_url(); ?>assets/demo/images/testimonials/pwaghmare.JPG');">
+   </div>
+   <br>
+ <h4>Prashant & Aishwarya Waghmare</h4>
+ <p>I would like to thank Buddhist Parinay for helping me find my soul mate. The way they treat their client is very friendly and I felt they present all genuine profiles of your choices.</p>
 </div>
 </div>
 </div>
