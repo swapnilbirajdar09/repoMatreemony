@@ -62,9 +62,9 @@ class User_profile extends CI_Controller {
         //session key format is $keyarr[0]=PARInaayKEY|$keyarr[1]=email_id|$keyarr[2]=user_id
 
         if(!empty($_POST['about_me'])){
-           $result = $this->user_model->update_about_me($_POST['about_me'],$keyarr[2]);
+         $result = $this->user_model->update_about_me($_POST['about_me'],$keyarr[2]);
 
-           if($result){
+         if($result){
             $response=array(
                 'status'    =>  'success',
                 'message'   =>  '<b>Success:</b> You Have Successfully Edited <b>About Me</b>!'
@@ -98,9 +98,9 @@ public function update_expectations(){
         //session key format is $keyarr[0]=PARInaayKEY|$keyarr[1]=email_id|$keyarr[2]=user_id
 
     if(!empty($_POST['expectations'])){
-       $result = $this->user_model->update_expectations($_POST['expectations'],$keyarr[2]);
+     $result = $this->user_model->update_expectations($_POST['expectations'],$keyarr[2]);
 
-       if($result){
+     if($result){
         $response=array(
             'status'    =>  'success',
             'message'   =>  '<b>Success:</b> You Have Successfully Edited <b>Expectations</b>!'
@@ -710,19 +710,19 @@ public function update_documents(){
             $filepath = 'assets/users/documents/'.$fileData['file_name'];
         }
         else{
-         $response=array(
+           $response=array(
             'status'    =>  'validation',
             'message'   =>  $this->upload->display_errors('<p><b>File upload Error: </b>', '</p>'),
             'field'   =>  'document_file'
         );
-         echo json_encode($response);
-         die();
-     }
+           echo json_encode($response);
+           die();
+       }
         // print_r($filepath);die();
- }
+   }
 
- $data['filepath'] = $filepath;
- if($filepath==''){
+   $data['filepath'] = $filepath;
+   if($filepath==''){
     $response=array(
         'status'    =>  'validation',
         'message'   =>  '<b>Warning:</b> Document file not uploaded Successfully!',
@@ -811,19 +811,19 @@ public function upload_image(){
             $filepath = 'assets/users/gallery/'.$fileData['file_name'];
         }
         else{
-         $response=array(
+           $response=array(
             'status'    =>  'validation',
             'message'   =>  $this->upload->display_errors('<p><b>Image upload Error: </b>', '</p>'),
             'field'   =>  'selected_image'
         );
-         echo json_encode($response);
-         die();
-     }
+           echo json_encode($response);
+           die();
+       }
          // print_r($filepath);die();
- }
+   }
 
- $data['filepath'] = $filepath;
- if($filepath==''){
+   $data['filepath'] = $filepath;
+   if($filepath==''){
     $response=array(
         'status'    =>  'validation',
         'message'   =>  '<b>Warning:</b> Image file not uploaded Successfully!',
@@ -852,9 +852,9 @@ echo json_encode($response);
 // fucntion to remove uploaded document
 public function delDocument(){
     if(!empty($_POST['doc_id'])){
-       $result = $this->user_model->delDocument($_POST['doc_id']);
+     $result = $this->user_model->delDocument($_POST['doc_id']);
 
-       if($result){
+     if($result){
         $response=array(
             'status'    =>  'success',
             'message'   =>  '<b>Success:</b> You Have Successfully deleted Document!'
@@ -886,9 +886,9 @@ public function delImage(){
     $keyarr=explode('|', $key);
 
     if(!empty($_POST['img_path'])){
-       $result = $this->user_model->delImage($_POST['img_path'],$keyarr[2]);
+     $result = $this->user_model->delImage($_POST['img_path'],$keyarr[2]);
 
-       if($result){
+     if($result){
         $response=array(
             'status'    =>  'success',
             'message'   =>  '<b>Success:</b> You Have Successfully deleted Image!'
@@ -920,9 +920,9 @@ public function setProfilePicture(){
     $keyarr=explode('|', $key);
 
     if(!empty($_POST['img_path'])){
-       $result = $this->user_model->setProfilePicture($_POST['img_path'],$keyarr[2]);
+     $result = $this->user_model->setProfilePicture($_POST['img_path'],$keyarr[2]);
 
-       if($result){
+     if($result){
         $response=array(
             'status'    =>  'success',
             'message'   =>  '<b>Success:</b> You Have Successfully updated Profile Image!'
@@ -945,7 +945,7 @@ else{
 echo json_encode($response);
 }
 
-    // update function for Change password section
+// update function for Change password section
 // ------------------------------------------------------------ //
 public function update_change_password(){
 
@@ -1021,6 +1021,34 @@ public function update_change_password(){
         );
     } 
     echo json_encode($response);
+}
+
+// verify otp code mobile
+// ------------------------------------------------------------ //
+public function update_verify_otp(){
+
+        // user user-id from session
+    $encodedkey = $this->session->userdata('PariKey_session');
+    $user_id='';
+    $key=base64_decode($encodedkey);
+    $keyarr=explode('|', $key);
+    //session key format is $keyarr[0]=PARInaayKEY|$keyarr[1]=email_id|$keyarr[2]=user_id
+
+    extract($_POST);
+    
+    // validation
+    if(empty($otp_code)){
+        $response=array(
+            'status'    =>  'validation',
+            'message'   =>  '<b>Warning:</b> OTP Code is required!',
+            'field'   =>  'otp_code'
+        );
+        echo json_encode($response);
+        die();
+    }
+    $result = $this->user_model->verify_otp($otp_code,$keyarr[2]);
+
+    echo json_encode($result);
 }
 
 // function to send verification code to user on email
@@ -1146,23 +1174,27 @@ public function verify_mobile() {
     $keyarr = explode('|', $key);
 
     extract($_POST);
-    $rand_code=mt_rand(100000, 999999);
-    $otpSave=$this->user_model->save_otp_code($code);
-    // Authorisation details.
-    $username = "anjaligaikwad53374@gmail.com";
-    $hash = "f59a70781ddf9de0dcb869cea354708956a49b3572bd287612428fdc5762af5d";
+    
+    $otpResult=$this->user_model->generate_mobile_otp_code($keyarr[2]);
+    if(!$otpResult){
+        $response=array(
+            'status'    =>  'error',
+            'message'   =>  '<b>Error:</b> OTP code was not generated properly! Reload the page and Try Again.'
+        );
+        echo json_encode($response);
+        die();
+    }
+    else{
+        $otp_code=$otpResult['otp_code'];
+        // Authorisation details.
+        $username = "anjaligaikwad53374@gmail.com";
+        $hash = "f59a70781ddf9de0dcb869cea354708956a49b3572bd287612428fdc5762af5d";
+        $test="0";
 
-
-    // Config variables. Consult http://api.textlocal.in/docs for more info.
-    $test = "0";
-
-    // Data for text message. This is the text message data.
         $sender = "BUDPAR"; // This is who the message appears to be from.
-        $numbers = '8308984458'; // A single number or a comma-seperated list of numbers
-        
-        $message = "hi, ".$rand_code." is the OTP to complete your Buddhist Parinay mobile number verification.";
-    // 612 chars or less
-    // A single number or a comma-seperated list of numbers
+        $numbers = $entity; // A single number or a comma-seperated list of numbers
+        $message = "hi, ".$otp_code." is the OTP to complete your Buddhist Parinay mobile number verification.";
+
         $message = urlencode($message);
         $data = "username=" . $username . "&hash=" . $hash . "&message=" . $message . "&sender=" . $sender . "&numbers=" . $numbers . "&test=" . $test;
         $ch = curl_init('http://api.textlocal.in/send/?');
@@ -1171,9 +1203,10 @@ public function verify_mobile() {
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         $result = curl_exec($ch); // This is the result from the API
         curl_close($ch);
-        
         echo $result;
     }
+    
+}
 
 
 }

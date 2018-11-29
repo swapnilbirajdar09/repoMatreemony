@@ -219,13 +219,13 @@ function save_section(section)
 }
 
 // script to verify email and mobile form
-function verify(entity,value,user_id)
+function verify(entity,value)
 {   
 	$.ajax({
 		type: "POST",
 		url: BASE_URL+"user/user_profile/verify_"+entity,
 		cache: false,
-		data: {entity: value,user_id:user_id},
+		data: {entity: value},
 		beforeSend: function () {
             // For Safety Disabling Section Elements for Slow Internet Connections
             $('#btn_verify_'+entity).prop('disabled', true);
@@ -246,19 +246,19 @@ function verify(entity,value,user_id)
                 }
                 else{
                     $('.ajax_success_alert').html(data.message);
-                }
-        		setTimeout(function() {
-        			window.location.reload();
+                    setTimeout(function() {
+                        window.location.reload();
                         }, 1500); // <-- time in milliseconds 
-        		break;
+                }
+                break;
 
-        		case 'error':
-        		$('#ajax_danger_alert').show();
-        		$('.ajax_danger_alert').html(data.message);
-        		setTimeout(function() {
-        			$('.alert_message').fadeOut('fast');
+                case 'error':
+                $('#ajax_danger_alert').show();
+                $('.ajax_danger_alert').html(data.message);
+                setTimeout(function() {
+                 $('.alert_message').fadeOut('fast');
                         }, 10000); // <-- time in milliseconds
-        		break;
+                break;
 
                 case 'failure':
                 $('#ajax_danger_alert').show();
@@ -269,18 +269,18 @@ function verify(entity,value,user_id)
                         }, 10000); // <-- time in milliseconds
                 break;
 
-        		case 'validation':
-        		$('#ajax_validation_alert').show();
-        		$('.ajax_validation_alert').html(data.message);
-        		$("input[name='"+data.field+"']").focus();
-        		$("input[id='"+data.field+"']").focus();
-        		$("select[name='"+data.field+"']").focus();
-        		setTimeout(function() {
-        			$('.alert_message').fadeOut('fast');
+                case 'validation':
+                $('#ajax_validation_alert').show();
+                $('.ajax_validation_alert').html(data.message);
+                $("input[name='"+data.field+"']").focus();
+                $("input[id='"+data.field+"']").focus();
+                $("select[name='"+data.field+"']").focus();
+                setTimeout(function() {
+                 $('.alert_message').fadeOut('fast');
                         }, 8000); // <-- time in milliseconds
-        		break;
-        	}
-        	
+                break;
+            }
+            
         },
         error: function (response) {
             // Re_Enabling the Elements
@@ -641,16 +641,16 @@ function readURL(input) {
 // ------------function preview image end------------------//
 
 //-------------------fucntion to check confirm password---------------
-    function checkPassword() {
-        if ($('#new_password').val() == $('#confirm_password').val()) {
-            $('#btn_change_password').prop("disabled", false);
-            $('#confirm_password').css('border-color', '');
-            $('#passwordErr').html('');
+function checkPassword() {
+    if ($('#new_password').val() == $('#confirm_password').val()) {
+        $('#btn_change_password').prop("disabled", false);
+        $('#confirm_password').css('border-color', '');
+        $('#passwordErr').html('');
 
-        } else {
-            $('#passwordErr').html('<label>Password Not Matching</label>').css('color', 'red');
-            $('#confirm_password').css('border-color', 'red');
-            $('#btn_change_password').prop("disabled", true);
-        }
+    } else {
+        $('#passwordErr').html('<label>Password Not Matching</label>').css('color', 'red');
+        $('#confirm_password').css('border-color', 'red');
+        $('#btn_change_password').prop("disabled", true);
     }
+}
 //-----------function ends------------------------
