@@ -358,7 +358,7 @@
 </div>
 
 <!-- Download-Area -->
-<div class="parallax download-area overlay" style="background-image: url('<?php echo base_url(); ?>assets/client/uploads/home_page/slider_image/sinew.jpg'); height: 450px;">
+<div class="parallax download-area overlay" style="background-image: url('<?php echo base_url(); ?>assets/client/uploads/home_page/slider_image/sinew-min.jpg'); height: 450px;">
     <div class="container">
         <div class="row">
             <div class="col-xs-12 col-md-12 text-center" style="padding:80px">
