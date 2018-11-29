@@ -152,7 +152,7 @@
                                 }
                                 else{
                                     ?>
-                                    <button type="button" id="btn_verify_email" class="btn btn-base-1 btn-sm btn-icon-only btn-shadow mb-1 w3-green" onclick="verify('email','<?php echo $userDetails[0]['user_email']; ?>')">
+                                    <button type="button" id="btn_verify_email" class="btn btn-base-1 btn-sm btn-icon-only btn-shadow mb-1 w3-green" onclick="verify('email','<?php echo $userDetails[0]['user_email']; ?>','<?php echo $userDetails[0]['user_id']; ?>')">
                                         <i class="ion-android-lock"></i> Verify
                                     </button>
                                     <?php
@@ -176,7 +176,7 @@
                             }
                             else{
                                 ?>
-                                <button type="button" id="btn_verify_mobile" class="btn btn-base-1 btn-sm btn-icon-only btn-shadow mb-1 w3-green" onclick="verify('mobile','<?php echo $userDetails[0]['user_mobile_num']; ?>')">
+                                <button type="button" id="btn_verify_mobile" class="btn btn-base-1 btn-sm btn-icon-only btn-shadow mb-1 w3-green" data-toggle="modal" data-target="#verifyMobileModal">
                                     <i class="ion-android-lock"></i> Verify
                                 </button>
                                 <?php
@@ -185,6 +185,55 @@
                         </span>
                     </div>
                 </div>
+                <!-- Modal Send and Verify OTP starts -->
+                <div class="modal fade" id="verifyMobileModal" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog modal-sm" style="margin-top: 100px;">
+                        <div class="modal-content">
+
+                            <div class="modal-header">
+
+                                <h5 class="modal-title"> Verify Mobile Number </h5>
+                                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true"><i class="ion-close"></i></span>
+                                </button>
+                            </div>
+                            <div id="section_mobile" class="modal-body" style="padding: 2rem 0 2rem 0">
+                                
+                                <?php 
+                                if($userDetails[0]['user_mobile_verify_code']!=''){
+                                ?>
+                                <form class="col-12" id="form_verify_otp" role="form">
+                                    <div class="form-group has-feedback col-10 ml-auto mr-auto">
+                                        <label for="otp_code" class="text-uppercase w3-left c-gray-light">OTP Code</label>
+                                        <input type="text" class="form-control no-resize" placeholder="Enter OTP" name="otp_code" required>
+                                        <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                    <input type="hidden" name="password_enc" value="<?php echo $userDetails[0]['user_password']; ?>" readonly>
+                                    <div class="form-group has-feedback col-10 ml-auto mr-auto">
+                                        <label for="regitered_number" class="text-uppercase w3-left c-gray-light">Registered Number</label>
+                                        <input type="number" readonly value="<?php echo $userDetails[0]['user_mobile_num']; ?>" class="form-control no-resize" name="regitered_number" id="regitered_number" required>
+                                        <span class="glyphicon form-control-feedback w3-text-red" id="passwordErr" aria-hidden="true"></span>
+                                    </div>
+                                    <div class="form-group has-feedback col-10 ml-auto mr-auto text-center">
+                                        <button type="submit" onclick="save_section('verify_otp')" id="btn_verify_otp" class="btn btn-block btn-base-1 btn-shadow">Verify Code</button>
+                                    </div>
+                                    <div class="col-12 ml-auto mr-auto text-center">
+                                    <button type="button" onclick="verify('mobile','<?php echo $userDetails[0]['user_mobile_num']; ?>')" id="btn_send_code" class="btn btn-block btn-base-1 btn-shadow">Resend Code  to  <?php echo 'XXXXXX'.substr($userDetails[0]['user_mobile_num'], 6, 4); ?></button>
+                                </div>
+                                </form>
+                            <?php }
+                            else{ ?>
+                                <div class="col-12 ml-auto mr-auto text-center">
+                                    <button type="button" onclick="verify('mobile','<?php echo $userDetails[0]['user_mobile_num']; ?>','<?php echo $userDetails[0]['user_id']; ?>')" id="btn_send_code" class="btn btn-block btn-base-1 btn-shadow">Send OTP to  <?php echo 'XXXXXX'.substr($userDetails[0]['user_mobile_num'], 6, 4); ?></button>
+                                </div>
+                                <?php
+                            }
+                            ?>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- end send and verify OTP modal --> 
                 <!-- Profile connect -->
                 <div class="profile-connect mt-5">
                     <h4 class="heading strong-400">Official Information</h4>

@@ -219,19 +219,18 @@ function save_section(section)
 }
 
 // script to verify email and mobile form
-function verify(entity,value)
+function verify(entity,value,user_id)
 {   
 	$.ajax({
 		type: "POST",
 		url: BASE_URL+"user/user_profile/verify_"+entity,
 		cache: false,
-		data: {entity: value},
+		data: {entity: value,user_id:user_id},
 		beforeSend: function () {
             // For Safety Disabling Section Elements for Slow Internet Connections
             $('#btn_verify_'+entity).prop('disabled', true);
         },
         success: function (response) {
-        	 //console.log(response);
         	var data=JSON.parse(response);
 
         	// Re_Enabling the Elements
@@ -241,7 +240,13 @@ function verify(entity,value)
         	switch(data.status){
         		case 'success':
         		$('#ajax_success_alert').show();
-        		$('.ajax_success_alert').html(data.message);
+                if(entity=='mobile'){
+                    $('.ajax_success_alert').html('<b>Success:</b> Verification code has been sent to your Registered Mobile Number.');
+                    $('#section_mobile').load(location.href + " #section_mobile>*", ""); 
+                }
+                else{
+                    $('.ajax_success_alert').html(data.message);
+                }
         		setTimeout(function() {
         			window.location.reload();
                         }, 1500); // <-- time in milliseconds 
@@ -254,6 +259,15 @@ function verify(entity,value)
         			$('.alert_message').fadeOut('fast');
                         }, 10000); // <-- time in milliseconds
         		break;
+
+                case 'failure':
+                $('#ajax_danger_alert').show();
+                $('.ajax_danger_alert').html('<b>Failure:</b> Couldn\'t send OTP code to your registered mobile number.');
+                $('#section_mobile').load(location.href + " #section_mobile>*", ""); 
+                setTimeout(function() {
+                    $('.alert_message').fadeOut('fast');
+                        }, 10000); // <-- time in milliseconds
+                break;
 
         		case 'validation':
         		$('#ajax_validation_alert').show();

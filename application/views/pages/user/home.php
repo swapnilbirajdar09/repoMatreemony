@@ -103,7 +103,7 @@ a.socialIcon:hover, .socialHoverClass {
 </style>
 
 <!-- Home-Area -->
-<header class="home-area overlay" id="home_page" style="background: url(<?php echo base_url(); ?>assets/client/uploads/home_page/slider_image/sinew.jpg) no-repeat scroll center bottom / cover;">
+<header class="home-area overlay" id="home_page" style="background: url(<?php echo base_url(); ?>assets/client/uploads/home_page/slider_image/couple.jpg) no-repeat scroll center bottom / cover;">
  <div class="container" >
   <div class="row">
    <div class="col-xs-12 hidden-sm col-md-8 hidden-xs">
@@ -111,7 +111,7 @@ a.socialIcon:hover, .socialHoverClass {
     <h1 class="wow fadeInUp handwritten" data-wow-delay="0.4s"  style="margin-top: 20px">Search your Dream Partner here.</h1>
     <div class="space-20"></div>
     <div class="desc wow fadeInUp handwritten" data-wow-delay="0.6s">
-     <h4 class="handwritten">We make them meet, Love brings them Together.</h4>
+     <h4 class="handwritten">We help them meet, Love brings them Together.</h4>
    </div>
    <div class="space-20"></div>
    <a href="#contact_page" class="bttn-white wow fadeInUp" data-wow-delay="0.8s"><i class="lnr lnr-phone-handset"></i>Contact Us For any Inquiry</a>
@@ -199,6 +199,7 @@ a.socialIcon:hover, .socialHoverClass {
 </div>
 <div class="w3-col l12 text-center w3-margin-bottom">
  <div class="space-20"></div>
+ <!-- <p style="color: red;font-size: 12px;line-height: 15px"><b>NOTE: Currently we are working on Registration. Till then, you can contact the Administrator for Registration. Soon you will be able to register yourself from this website.</b></p> -->
  <button class="bttn-default wow fadeInUp btn btn-block" type="submit" style="border-radius: 5px; background: linear-gradient(45deg, rgba(72, 44, 191, 1) 0%, rgba(106, 198, 240, 1) 100%);"> Proceed Next <i class="lnr lnr-arrow-right"></i></button>
 </div>
 </form>
@@ -242,11 +243,11 @@ a.socialIcon:hover, .socialHoverClass {
     <div class="page-title text-center">
      <!-- <img src="<?php echo base_url(); ?>assets/client/uploads/header_logo/logo.jpeg" alt="About Logo"> -->
      <div class="space-20"></div>
-     <h5 class="title">About Buddhist Parinaay</h5>
+     <h5 class="title">About Us</h5>
      <div class="space-30"></div>
      <h3 class="blue-color">A Successful Marriage Requires Falling In Love Many Times, Always With Same Person.</h3>
      <div class="space-20"></div>
-     <p>We Make Them Meet , Love Brings Them Together.</p>
+     <p>We Help Them Meet , Love Brings Them Together.</p>
    </div>
  </div>
 </div>
@@ -367,7 +368,7 @@ a.socialIcon:hover, .socialHoverClass {
     <p class="hidden-xs">Buddhist Parinay - Find Buddhist Brides and Grooms on our Portal.</p>
     <div class="space-20 hidden-xs"></div>
     <a href="#" class="bttn-white sq"><i class="w3-large lnr lnr-rocket"></i>Register</a> 
-    <a href="<?php echo base_url(); ?>user/contact_us" class="bttn-white sq" data-wow-delay="0.8s"><i class="w3-large lnr lnr-envelope"></i>Contact Us</a>
+    <a href="<?php echo base_url(); ?>user/contact_us" class="bttn-white sq" data-wow-delay="0.8s"><i class="w3-large lnr lnr-envelope"></i>Contact</a>
   </div>
 </div>
 </div>
@@ -392,7 +393,7 @@ a.socialIcon:hover, .socialHoverClass {
     <div class="testimonial_img" style="background-image: url('<?php echo base_url(); ?>assets/demo/images/testimonials/sshelar.jpg');">
    </div>
    <br>
-   <h4>Sagar Shelar</h4>
+   <h4>Mr. & Mrs. Shelar</h4>
    <p class="text-small">I'm really grateful to buddhistparinay.in for helping me to find my life partner. It is the perfect place to find like minded individuals on your journey to find your partner.</p>
  </div>
  <div class="team-box" style="padding: 20px">
@@ -413,11 +414,11 @@ a.socialIcon:hover, .socialHoverClass {
   <div class="testimonial_img" style="background-image: url('<?php echo base_url(); ?>assets/demo/images/testimonials/sahil.JPG');">
    </div>
    <br>
- <h4>Sahil Sonar</h4>
+ <h4>Mr. & Mrs. Sonar</h4>
  <p>Thank you buddhistparinay.in for helping us to select a right partner. You have brought true love to our life. I would like to thank Buddhist Parinay team for excellent service. Your  website was user friendly and easy to manage. I would definitely recommend Buddhist Parinay to others to find there soul mate. We shared our interest to each other and our family too were interested.</p>
 </div>
 <div class="team-box" style="padding: 20px">
-  <div class="testimonial_img" style="background-image: url('<?php echo base_url(); ?>assets/demo/images/testimonials/pwaghmare.JPG');">
+  <div class="testimonial_img" style="background-image: url('<?php echo base_url(); ?>assets/demo/images/testimonials/pwaghmare.jpg');">
    </div>
    <br>
  <h4>Prashant & Aishwarya Waghmare</h4>

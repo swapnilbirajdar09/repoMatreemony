@@ -1111,7 +1111,7 @@ public function verify_email(){
 
     // verify email by link
 public function verifyEmail($code=''){
-    
+
     if($code!=''){
         // print_r($_GET);
         if($_GET['verify']=='true' && $_GET['src']=='getvalidated'){
@@ -1146,20 +1146,23 @@ public function verify_mobile() {
     $keyarr = explode('|', $key);
 
     extract($_POST);
-        //print_r($_POST);die();
-        // Authorisation details.
-    $username = "swapnil.bizmotech@gmail.com";
-    $hash = "fd4b1cfce99957e8d94aee2d9f6df8d16558e81df10bd1627ddf0fc5b033f24b";
+    $rand_code=mt_rand(100000, 999999);
+    $otpSave=$this->user_model->save_otp_code($code);
+    // Authorisation details.
+    $username = "anjaligaikwad53374@gmail.com";
+    $hash = "f59a70781ddf9de0dcb869cea354708956a49b3572bd287612428fdc5762af5d";
 
-        // Config variables. Consult http://api.textlocal.in/docs for more info.
+
+    // Config variables. Consult http://api.textlocal.in/docs for more info.
     $test = "0";
 
-        // Data for text message. This is the text message data.
-        $sender = "Buddhist Parinay"; // This is who the message appears to be from.
-        $numbers = $entity; // A single number or a comma-seperated list of numbers
-        $message = "";
-        // 612 chars or less
-        // A single number or a comma-seperated list of numbers
+    // Data for text message. This is the text message data.
+        $sender = "BUDPAR"; // This is who the message appears to be from.
+        $numbers = '8308984458'; // A single number or a comma-seperated list of numbers
+        
+        $message = "hi, ".$rand_code." is the OTP to complete your Buddhist Parinay mobile number verification.";
+    // 612 chars or less
+    // A single number or a comma-seperated list of numbers
         $message = urlencode($message);
         $data = "username=" . $username . "&hash=" . $hash . "&message=" . $message . "&sender=" . $sender . "&numbers=" . $numbers . "&test=" . $test;
         $ch = curl_init('http://api.textlocal.in/send/?');
@@ -1169,7 +1172,7 @@ public function verify_mobile() {
         $result = curl_exec($ch); // This is the result from the API
         curl_close($ch);
         
-        print_r($result);
+        echo $result;
     }
 
 
