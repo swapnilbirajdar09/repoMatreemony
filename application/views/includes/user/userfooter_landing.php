@@ -14,8 +14,8 @@
 
                     <div class="footer-menu ">
                         <ul>
-                            <li><a class="w3-text-white" href="#about_page">About Us</a></li>
-                            <li><a class="w3-text-white" href="#pillars_page">Our Pillars</a></li>
+                            <li><a class="w3-text-white" href="<?php echo base_url(); ?>#about_page">About Us</a></li>
+                            <li><a class="w3-text-white" href="<?php echo base_url(); ?>#pillars_page">Our Pillars</a></li>
                             <li><a class="w3-text-white" href="<?php echo base_url(); ?>user/pricing_plan">Pricing Plans</a></li>
                             <li><a class="w3-text-white" href="<?php echo base_url(); ?>user/contact_us">Contact Us</a></li>
                             <li><a class="w3-text-white" href="<?php echo base_url(); ?>user/terms_conditions">Terms & Conditions</a></li>
