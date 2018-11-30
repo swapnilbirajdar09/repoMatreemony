@@ -34,22 +34,22 @@
                       <div class="w3-col l12">
                         <div class="col-md-6 w3-margin-bottom">
                           <label>First Name: </label>
-                          <input type="text" name="fname" value="" class="form-control w3-small" placeholder="Enter First Name Here" required>
+                          <input type="text" name="fname" autocomplete="off" value="" class="form-control w3-small" placeholder="Enter First Name Here" required>
                         </div>
                         <div class="col-md-6 w3-margin-bottom">
                           <label>Last Name: </label>
-                          <input type="text" name="lname" value="" class="form-control w3-small" placeholder="Enter Last Name Here" required>
+                          <input type="text" name="lname" autocomplete="off" value="" class="form-control w3-small" placeholder="Enter Last Name Here" required>
                         </div>
                       </div>
                       <div class="w3-col l12">
                        <div class="col-md-6 w3-margin-bottom">
                         <label>Email-Id: </label>
-                        <input type="email" name="eMail" value="" class="form-control w3-small" placeholder="Enter email here" required>
+                        <input type="email" name="eMail" autocomplete="off" value="" class="form-control w3-small" placeholder="Enter email here" required>
 
                       </div>
                       <div class="col-md-6 w3-margin-bottom">
                         <label>Password: </label>
-                        <input type="text" name="password" value="" id="password" class="form-control w3-small" placeholder="Enter password here" required>
+                        <input type="text" name="password" autocomplete="off" value="" id="password" class="form-control w3-small" placeholder="Enter password here" required>
                       </div>
                     </div>
                   </div>
@@ -91,7 +91,7 @@
                 <div class="col-md-12 w3-margin-bottom">
                   <div class="col-md-6">
                     <label>Phone Number: </label>
-                    <input type="number" name="number" value="" class="form-control w3-small" placeholder="Enter Number here" required>
+                    <input type="number" name="number" autocomplete="off" min="0" value="" class="form-control w3-small" placeholder="Enter Number here" required>
                   </div>
                   <div class="col-md-6 w3-margin-top"><br>
                     <input type="checkbox" name="terms_conditions" required id="mc-chekbox">

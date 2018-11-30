@@ -90,7 +90,7 @@
         width: 100%;
         height: 250px;
         border-radius: 100%;
-        background-color: #ffffff;
+        background-color: #000000;
         text-align: center;
         overflow: hidden;
         border: 5px solid #ffffff;
@@ -142,16 +142,16 @@
                             <div class="w3-col l12 w3-margin-bottom hidden-md">
                                 <div class="w3-col l6  " style="padding-right: 5px;">
                                     <label class="w3-large">First Name : </label>
-                                    <input type="text" class="w3-input control w3-text-black" placeholder="Your first name" required name="first_name" id="mc-fname">
+                                    <input type="text" class="w3-input control w3-text-black" autocomplete="off" placeholder="Your first name" required name="first_name" id="mc-fname">
                                 </div>
                                 <div class="w3-col l6" style="padding-right: 5px;">
                                     <label class="w3-large">Last Name : </label>
-                                    <input type="text" class="w3-input control w3-text-black" placeholder="Your last name*" required name="last_name" id="mc-lname">
+                                    <input type="text" class="w3-input control w3-text-black" autocomplete="off" placeholder="Your last name*" required name="last_name" id="mc-lname">
                                 </div>
                             </div>
                             <div class="w3-col l12 w3-margin-bottom" style="padding-right: 5px;">
                                 <label class="w3-large">Email ID : </label>
-                                <input type="email" name="email_id" class="w3-input control w3-text-black" placeholder="Enter your email*" required id="mc-email">
+                                <input type="email" name="email_id" class="w3-input control w3-text-black" autocomplete="off" placeholder="Enter your email*" required id="mc-email">
                             </div>
                             <div class="w3-col l12 w3-margin-bottom" style="padding-right: 5px;">
                                 <label class="w3-large">Caste : </label>
@@ -188,7 +188,7 @@
                                     </select>
                                 </div>
                                 <div class="w3-col l8 s7" style="padding-left: 8px">
-                                    <input type="number" name="mob_number" class="w3-input control w3-text-black" placeholder="Enter your mobile number*" required id="mc-number" style="height: 32px;">	
+                                    <input type="number" name="mob_number" autocomplete="off" class="w3-input control w3-text-black" placeholder="Enter your mobile number*" required min="0" id="mc-number" style="height: 32px;">	
                                 </div>
                                 <div class="w3-col l12 w3-margin-top" style="padding-right: 5px;"> 
                                     <input type="checkbox" name="terms_conditions" class=" w3-text-black" required id="mc-chekbox">
@@ -214,11 +214,11 @@
                             </div>
                             <div class="w3-col l12 w3-margin-bottom">
                                 <label class="w3-large">Email ID : </label>
-                                <input type="email" ng-model="login_email_id" name="login_email_id" class="w3-input control w3-text-black" placeholder="Enter your email*" required id="login_mc-email">
+                                <input type="email" ng-model="login_email_id" autocomplete="off" name="login_email_id" class="w3-input control w3-text-black" placeholder="Enter your email*" required id="login_mc-email">
                             </div>
                             <div class="w3-col l12 w3-margin-bottom">
                                 <label class="w3-large">Password : </label>
-                                <input type="password" ng-model="login_password" name="login_password" class="w3-input control w3-text-black" placeholder="Enter your password*" required id="login_mc-password">
+                                <input type="password" ng-model="login_password" autocomplete="off" name="login_password" class="w3-input control w3-text-black" placeholder="Enter your password*" required id="login_mc-password">
                             </div>
                             <div class="w3-col l12 text-center w3-margin-bottom">
                                 <div class="space-20"></div>
