@@ -1,3 +1,4 @@
+<title>About Buddhist Parinay</title>
 <style>
     .parallax { 
         /*/ The image used /*/

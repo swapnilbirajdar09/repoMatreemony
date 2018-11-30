@@ -450,74 +450,77 @@ class User_model extends CI_Model {
                 }
             }
             else{
-             $response=array(
+               $response=array(
                 'status'    =>  'error',
                 'message'   =>  'Failure: Verification code did not match. Email Verification failed !'
             );
-             return $response;
-         }
-     }
-     else{
-         $response=array(
+               return $response;
+           }
+       }
+       else{
+           $response=array(
             'status'    =>  'error',
             'message'   =>  'Failure: Email Verification failed. Try resending verification code !'
         );
-         return $response;
-     }
- }
+           return $response;
+       }
+   }
 
 // mobile verify code
-    public function verify_otp($code,$user_id){
-        $user_mobile_verify_code='';
-        $sql = "SELECT user_mobile_verify_code FROM user_tab WHERE user_id='$user_id' ";
-        $result = $this->db->query($sql);
+   public function verify_otp($code,$user_id){
+    $user_mobile_verify_code='';
+    $sql = "SELECT user_mobile_verify_code FROM user_tab WHERE user_id='$user_id' ";
+    $result = $this->db->query($sql);
 
-        foreach ($result->result_array() as $key) {
-            $user_mobile_verify_code = $key['user_mobile_verify_code'];
-        }
+    foreach ($result->result_array() as $key) {
+        $user_mobile_verify_code = $key['user_mobile_verify_code'];
+    }
 
-        if($user_mobile_verify_code!=''){
-            if($user_mobile_verify_code==$code){
-                $result_update = array(
-                    'user_mobile_verified' => '1'
+    if($user_mobile_verify_code!=''){
+        if($user_mobile_verify_code==$code){
+            $result_update = array(
+                'user_mobile_verified' => '1'
+            );
+
+            $this->db->where('user_id', $user_id);
+            $this->db->update('user_tab', $result_update);
+            if($this->db->affected_rows()==1){
+                $response=array(
+                    'status'    =>  'success',
+                    'message'   =>  'Success: Mobile Number verified successfully.',
+                    'field'   =>  'otp_code'
                 );
-
-                $this->db->where('user_id', $user_id);
-                $this->db->update('user_tab', $result_update);
-                if($this->db->affected_rows()==1){
-                    $response=array(
-                        'status'    =>  'success',
-                        'message'   =>  'Success: Mobile Number verified successfully.'
-                    );
-                    return $response;
-                }
-                else{
-                    $response=array(
-                        'status'    =>  'validation',
-                        'message'   =>  'Warning: Mobile Number verification already done !'
-                    );
-                    return $response;
-                }
+                return $response;
             }
             else{
-             $response=array(
-                'status'    =>  'error',
-                'message'   =>  'Failure: OTP code incorrect. Mobile Number Verification failed !'
-            );
-             return $response;
-         }
-     }
-     else{
-         $response=array(
+                $response=array(
+                    'status'    =>  'validation',
+                    'message'   =>  'Warning: Mobile Number verification already done !',
+                    'field'   =>  'otp_code'
+                );
+                return $response;
+            }
+        }
+        else{
+           $response=array(
             'status'    =>  'error',
-            'message'   =>  'Failure: OTP code not found. Try Resending OTP code !'
+            'message'   =>  'Failure: OTP code incorrect. Mobile Number Verification failed !',
+            'field'   =>  'otp_code'
         );
-         return $response;
-     }
- }
+           return $response;
+       }
+   }
+   else{
+       $response=array(
+        'status'    =>  'error',
+        'message'   =>  'Failure: OTP code not found. Try Resending OTP code !'
+    );
+       return $response;
+   }
+}
 
  // check email id exist or not
- public function checkEmailExist($email_id){
+public function checkEmailExist($email_id){
     $query = null;
         // ------------ check email exist 
         $query = $this->db->get_where('user_tab', array(//making selection

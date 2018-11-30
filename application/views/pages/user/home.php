@@ -1,3 +1,4 @@
+<title>Buddhist Parinay</title>
 <style>
     .parallax { 
         /*/ The image used /*/
@@ -199,9 +200,11 @@
                             </div>
                             <div class="w3-col l12 text-center w3-margin-bottom">
                                 <div class="space-20"></div>
-                                <!-- <p style="color: red;font-size: 12px;line-height: 15px"><b>NOTE: Currently we are working on Registration. Till then, you can contact the Administrator for Registration. Soon you will be able to register yourself from this website.</b></p> -->
                                 <button class="bttn-default wow fadeInUp btn btn-block" type="submit" style="border-radius: 5px; background: linear-gradient(45deg, rgba(72, 44, 191, 1) 0%, rgba(106, 198, 240, 1) 100%);"> Proceed Next <i class="lnr lnr-arrow-right"></i></button>
                             </div>
+                            <!-- <div class="w3-col l12 w3-margin-bottom">
+                                <p style="color: red;font-size: 12px;line-height: 15px"><b>NOTE: Currently we are working on Registration. Till then, you can contact the Administrator for Registration. Soon you will be able to register yourself from this website.</b></p>
+                            </div> -->
                         </form>
                     </div>
 

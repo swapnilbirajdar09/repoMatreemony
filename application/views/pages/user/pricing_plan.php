@@ -1,3 +1,5 @@
+<title>Pricing Plans | Buddhist Parinay</title>
+
   <header class="site-header">
     <div class="container">
         <div class="row">

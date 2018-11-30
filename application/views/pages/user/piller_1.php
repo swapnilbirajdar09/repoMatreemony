@@ -1,3 +1,4 @@
+<title>Pillar | Buddhist Parinay</title>
 
 <!-- About Section -->
 <div class="w3-row w3-padding-large" id="about" style="margin-top: 80px">

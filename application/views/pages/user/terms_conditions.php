@@ -1,3 +1,4 @@
+<title>Terms & Conditions | Buddhist Parinay</title>
 
 <!-- About section -->
 <div class="w3-container  w3-center  w3-padding-32" id="about" style="margin-top: 80px">
@@ -20,12 +21,12 @@
             </p>
             <p>This is a legal agreement between you and Buddhist Parinay Matrimony. 
                 By using this <u>www.buddhistparinay.in</u> you agree to the following Terms and Conditions.</p>
-            <p> 1. With due respect, please fill in all the information correctly.so that you can stay in faith in the future life of the future.</p>
+            <p> 1. Please fill in all the information correctly. Trust and genuine information helps building good relations!</p>
             <p> 2. It is necessary to make sure that the information obtained in the indicator center on the resultant view is true.</p>
             <p> 3. The bride and groom will get information on the relevant places required after paying the money and registering it.</p>
             <p> 4. The ad will not be published without your permission after registration of the bride and groom.</p>
             <p> 5. The fee given once will not be refunded.</p>
-            <p> 6. If any information is wrong then parents will be responsible for that.</p>
+            <p> 6. If any information is wrong then respective person will be responsible for that. A strict action will be taken on that person.</p>
         </div>
     </div>
     <div class="w3-content w3-justify" style="max-width:1000px">

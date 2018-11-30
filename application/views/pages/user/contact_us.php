@@ -1,3 +1,4 @@
+<title>Contact Us | Buddhist Parinay</title>
 <section class="slice sct-color-1 w3-padding-large" style="margin-top: 80px"> 
     <div class="container">
         <div class="row">

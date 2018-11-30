@@ -39,10 +39,7 @@
 
 <!--Plugin-JS-->
 <script src="<?php echo base_url(); ?>assets/demo/js/owl.carousel.min.js"></script>
-<script src="<?php echo base_url(); ?>assets/demo/js/contact-form.js"></script>
-<script src="<?php echo base_url(); ?>assets/demo/js/ajaxchimp.js"></script>
 <script src="<?php echo base_url(); ?>assets/demo/js/scrollUp.min.js"></script>
-<script src="<?php echo base_url(); ?>assets/demo/js/magnific-popup.min.js"></script>
 <script src="<?php echo base_url(); ?>assets/demo/js/wow.min.js"></script>
 <!--Main-active-JS-->
 <script src="<?php echo base_url(); ?>assets/demo/js/main.js"></script>

@@ -23,8 +23,8 @@
 </style>
 <script type="text/javascript">
     $('#uploadPhotoModal').on('hidden.bs.modal', function () {
-       location.reload();
-   })
+     location.reload();
+ })
 </script>
 <!-- <?php print_r($userDetails); ?> -->
 <section class="slice sct-color-2">
@@ -78,7 +78,7 @@
                 if($show_alert==0){
                     ?>
                     <div class="col-md-12">
-                       <div class="col-md-12 alert alert-warning alert-dismissible" role="alert">
+                     <div class="col-md-12 alert alert-warning alert-dismissible" role="alert">
                         <a href="#" class="close w3-medium" data-dismiss="alert" aria-label="close"> <i class="fa fa-times-circle"></i> </a>
                         <p style="margin-bottom:0"><i class="fa fa-warning"></i> Please complete your Profile & then you can find your correct match ! </p>
                     </div>
@@ -98,7 +98,7 @@
             if($userDetails[0]['user_doc_verified']==0){
                 ?>
                 <div class="col-md-12">
-                   <div class="col-md-12 alert alert-warning alert-dismissible" role="alert">
+                 <div class="col-md-12 alert alert-warning alert-dismissible" role="alert">
                     <a href="#" class="close w3-medium" data-dismiss="alert" aria-label="close"> <i class="fa fa-times-circle"></i> </a>
                     <p style="margin-bottom:0"><i class="fa fa-warning"></i> To Activate your account, you have to get verified for at least 2 documents successfully. <b>'Adhaar Card'</b> document is mandatory to get verified. </p>
                     <p style="margin-bottom:0"> <b>Uploaded Documents:</b> <?php echo $uploaded_doc; ?> </p>
@@ -199,31 +199,31 @@
                                 
                                 <?php 
                                 if($userDetails[0]['user_mobile_verify_code']!=''){
-                                ?>
-                                <form class="col-12" id="form_verify_otp" role="form">
-                                    <div class="form-group has-feedback col-10 ml-auto mr-auto">
-                                        <label for="otp_code" class="text-uppercase w3-left c-gray-light">OTP Code</label>
-                                        <input type="text" class="form-control no-resize" placeholder="Enter OTP" name="otp_code" required>
-                                        <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
-                                        <div class="help-block with-errors"></div>
+                                    ?>
+                                    <form class="col-12" id="form_verify_otp" role="form">
+                                        <div class="form-group has-feedback col-10 ml-auto mr-auto">
+                                            <label for="otp_code" class="text-uppercase w3-left c-gray-light">OTP Code</label>
+                                            <input type="text" class="form-control no-resize" placeholder="Enter OTP" name="otp_code" required>
+                                            <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                        <div class="form-group has-feedback col-10 ml-auto mr-auto text-center">
+                                            <button type="submit" onclick="save_section('verify_otp')" id="btn_verify_otp" class="btn btn-block btn-base-1 btn-shadow">Verify Code</button>
+                                        </div>                                    
+                                    </form>
+                                    <hr>
+                                    <div class="col-12 ml-auto mr-auto text-center">
+                                        <label class="w3-left c-gray-dark">Didn't recieve the OTP? <a class="btn w3-text-blue btn-base-5 btn-shadow" onclick="verify('mobile','<?php echo $userDetails[0]['user_mobile_num']; ?>')" id="btn_verify_mobile"> Resend OTP Again </a></label>
+                                        <!-- <button type="button" onclick="verify('mobile','<?php echo $userDetails[0]['user_mobile_num']; ?>')" id="btn_verify_mobile" class="btn btn-block btn-base-1 btn-shadow">Resend Code  to  <?php echo 'XXXXXX'.substr($userDetails[0]['user_mobile_num'], 6, 4); ?></button> -->
                                     </div>
-                                    <div class="form-group has-feedback col-10 ml-auto mr-auto text-center">
-                                        <button type="submit" onclick="save_section('verify_otp')" id="btn_verify_otp" class="btn btn-block btn-base-1 btn-shadow">Verify Code</button>
-                                    </div>                                    
-                                </form>
-                                <hr>
-                                <div class="col-12 ml-auto mr-auto text-center">
-                                    <label class="w3-left c-gray-dark">Didn't recieve the OTP? <a class="btn w3-text-blue btn-base-5 btn-shadow" onclick="verify('mobile','<?php echo $userDetails[0]['user_mobile_num']; ?>')" id="btn_verify_mobile"> Resend OTP Again </a></label>
-                                    <!-- <button type="button" onclick="verify('mobile','<?php echo $userDetails[0]['user_mobile_num']; ?>')" id="btn_verify_mobile" class="btn btn-block btn-base-1 btn-shadow">Resend Code  to  <?php echo 'XXXXXX'.substr($userDetails[0]['user_mobile_num'], 6, 4); ?></button> -->
-                                </div>
-                            <?php }
-                            else{ ?>
-                                <div class="col-12 ml-auto mr-auto text-center">
-                                    <button type="button" onclick="verify('mobile','<?php echo $userDetails[0]['user_mobile_num']; ?>')" id="btn_verify_mobile" class="btn btn-block btn-base-1 btn-shadow">Send OTP to  <?php echo 'XXXXXX'.substr($userDetails[0]['user_mobile_num'], 6, 4); ?></button>
-                                </div>
-                                <?php
-                            }
-                            ?>
+                                <?php }
+                                else{ ?>
+                                    <div class="col-12 ml-auto mr-auto text-center">
+                                        <button type="button" onclick="verify('mobile','<?php echo $userDetails[0]['user_mobile_num']; ?>')" id="btn_verify_mobile" class="btn btn-block btn-base-1 btn-shadow">Send OTP to  <?php echo 'XXXXXX'.substr($userDetails[0]['user_mobile_num'], 6, 4); ?></button>
+                                    </div>
+                                    <?php
+                                }
+                                ?>
                             </div>
                         </div>
                     </div>
@@ -287,12 +287,12 @@
                                                         <a target="_blank" href="<?php echo base_url(); ?><?php echo $key; ?>" class="c-white mr-2 l-gallery" data-toggle="light-gallery">
                                                             <i class="fa fa-search"></i>
                                                         </a>
-                                                        <a class="c-white ml-2" onclick="delImage('<?php echo $key; ?>')">
-                                                            <i class="fa fa-trash"></i>
-                                                        </a><br>
                                                         <?php 
                                                         if($userDetails[0]['user_profile_image']!=$key){
                                                             ?>
+                                                            <a class="c-white ml-2" onclick="delImage('<?php echo $key; ?>')">
+                                                                <i class="fa fa-trash"></i>
+                                                            </a><br>
                                                             <a class="c-white btn w3-small w3-round w3-text-white w3-grey" onclick="setProfilePicture('<?php echo $key; ?>')" style="padding:2px 3px;border:1px solid">
                                                                 set profile image
                                                             </a>
@@ -356,7 +356,7 @@
                 </div>
                 <hr>
                 <div class="useful-links" id="changePasswordDiv">
-                 <a class="btn btn-styled btn-sm btn-white z-depth-2-bottom mb-3 change_pass l_nav" data-toggle="modal" data-target="#changePasswordModal">
+                   <a class="btn btn-styled btn-sm btn-white z-depth-2-bottom mb-3 change_pass l_nav" data-toggle="modal" data-target="#changePasswordModal">
                     <b style="font-size: 12px">Change Password</b>
                 </a>
                 <a class="btn btn-styled btn-sm btn-white z-depth-2-bottom mb-3 change_pass l_nav" href="<?php echo base_url(); ?>user/login/logoutUser">
@@ -568,9 +568,9 @@
                                                     <span>Blood Group</span>
                                                 </td>
                                                 <td>
-                                                 <?php echo $userDetails[0]['user_blood_grp']; ?>                          
-                                             </td>
-                                             <td class="td-label">
+                                                   <?php echo $userDetails[0]['user_blood_grp']; ?>                          
+                                               </td>
+                                               <td class="td-label">
                                                 <span>Mother Tongue</span>
                                             </td>
                                             <td><?php echo $userDetails[0]['user_mother_tongue']; ?>
@@ -829,17 +829,17 @@
                                             <span>Working Field</span>
                                         </td>
                                         <td>
-                                         <?php echo $userDetails[0]['user_working_field']; ?>
-                                     </td>
-                                 </tr>
-                                 <tr>
+                                           <?php echo $userDetails[0]['user_working_field']; ?>
+                                       </td>
+                                   </tr>
+                                   <tr>
                                     <td class="td-label">
                                         <span>Company Name</span>
                                     </td>
                                     <td>
-                                       <?php echo $userDetails[0]['user_company_name']; ?>
-                                   </td>
-                                   <td class="td-label">
+                                     <?php echo $userDetails[0]['user_company_name']; ?>
+                                 </td>
+                                 <td class="td-label">
                                     <span>Designation</span>
                                 </td>
                                 <td>
@@ -857,19 +857,19 @@
                                 <span>Monthly Income</span>
                             </td>
                             <td>
-                               <?php echo $userDetails[0]['user_monthly_income']; ?>
-                           </td>
-                           <td class="td-label">
+                             <?php echo $userDetails[0]['user_monthly_income']; ?>
+                         </td>
+                         <td class="td-label">
                             <span>Annual Income</span>
                         </td>
                         <td>
-                         <?php echo $userDetails[0]['user_annual_income']; ?>                   
-                     </td>
-                 </tr>
-             </tbody>
-         </table>
-     </div>
- </div>
+                           <?php echo $userDetails[0]['user_annual_income']; ?>                   
+                       </td>
+                   </tr>
+               </tbody>
+           </table>
+       </div>
+   </div>
 </div>
 <!-- view eductaion and professional div ends -->
 <!-- edit education and professional div -->
@@ -1094,15 +1094,15 @@
                     </tr>
                     <tr>
                         <td class="td-label">
-                           Contact number 1
-                       </td>
-                       <td>
+                         Contact number 1
+                     </td>
+                     <td>
                         <?php if($userDetails[0]['user_contact_no1']!='' && $userDetails[0]['user_contact_no1']!='0'){echo $userDetails[0]['user_contact_no1']; }?> 
                     </td>
                     <td class="td-label">
-                       Contact number 2
-                   </td>
-                   <td>
+                     Contact number 2
+                 </td>
+                 <td>
                     <?php if($userDetails[0]['user_contact_no2']!='' && $userDetails[0]['user_contact_no2']!='0'){echo $userDetails[0]['user_contact_no2']; }?> 
                 </td>
             </tr>
@@ -1395,14 +1395,14 @@
                                         <span>Relation with Me</span>
                                     </td>
                                     <td>
-                                       <?php echo $relativeArr[$i]['relative_relation']; ?>
-                                   </td>
-                               </tr>
-                               <tr>
+                                     <?php echo $relativeArr[$i]['relative_relation']; ?>
+                                 </td>
+                             </tr>
+                             <tr>
                                 <td class="td-label">
-                                   Contact number
-                               </td>
-                               <td>
+                                 Contact number
+                             </td>
+                             <td>
                                 <?php echo $relativeArr[$i]['relative_contact']; ?>
                             </td>
                             <td class="td-label">
