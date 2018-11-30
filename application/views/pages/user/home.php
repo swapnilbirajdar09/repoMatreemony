@@ -307,7 +307,7 @@
         <div class="row">
             <div class="col-md-6 col-xs-12">
                 <div class="w3-col m6 w3-center w3-padding-large">
-                    <img src="<?php echo base_url(); ?>assets/demo/images/piller_vidya.jpg" class="w3-round w3-image w3-opacity w3-hover-opacity-off" alt="Photo of Me" style="height: 230px;width: auto;">
+                    <img src="<?php echo base_url(); ?>assets/demo/images/piller_vidya.jpg" class="w3-round w3-image w3-opacity w3-hover-opacity-off" alt="Photo of Pillar" style="height: 230px;width: auto;" height="230px">
                     <!-- <div class="col-md-12  w3-padding-top">
                      <ul class="social-network social-circle">
                  
@@ -331,7 +331,7 @@
             </div>
             <div class="col-md-6 col-xs-12">
                 <div class="w3-col m6 w3-center w3-padding-large">
-                    <img src="<?php echo base_url(); ?>assets/demo/images/pillar2.jpeg" class="w3-round w3-image w3-opacity w3-hover-opacity-off" alt="Photo of A.K. Gaikwad" style="height: 250px;width: auto;">
+                    <img src="<?php echo base_url(); ?>assets/demo/images/pillar2.jpeg" class="w3-round w3-image w3-opacity w3-hover-opacity-off" alt="Photo of A.K. Gaikwad" style="height: 250px;width: auto;" height="250px">
                     <!-- <div class="col-md-12  w3-padding-top">
                      <ul class="social-network social-circle">
                  
