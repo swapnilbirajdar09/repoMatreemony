@@ -54,7 +54,7 @@
                             <div class="row x_title">
                                 <div class="w3-pa col-md-12 col-sm-12 col-xs-12 col-lg-12">
                                     <input type="hidden" id="member_type" value="">
-<!--                                    <div ng-show="finderloader" class="w3-center"><center><i class="w3-center fa fa-refresh fa-5x fa-spin"></i><p>Please Wait...</p></center></div>-->
+                                    <!--                                    <div ng-show="finderloader" class="w3-center"><center><i class="w3-center fa fa-refresh fa-5x fa-spin"></i><p>Please Wait...</p></center></div>-->
 
                                     <!-----------------------------this Div is for all users profiles---------------------------------->
                                     <div class="block-wrapper" id="result">
@@ -455,7 +455,7 @@
                             <div class="row x_title">
                                 <div class="w3-pa col-md-12 col-sm-12 col-xs-12 col-lg-12">
                                     <input type="hidden" id="member_type" value="">
-<!--                                    <div ng-show="finderloader" class="w3-center"><center><i class="w3-center fa fa-refresh fa-5x fa-spin"></i><p>Please Wait...</p></center></div>-->
+                                    <!--                                    <div ng-show="finderloader" class="w3-center"><center><i class="w3-center fa fa-refresh fa-5x fa-spin"></i><p>Please Wait...</p></center></div>-->
 
                                     <!-----------------------------this Div is for all users profiles---------------------------------->
                                     <div class="block-wrapper" id="result">
@@ -567,10 +567,10 @@
                                                                 <tr>
                                                                     <td width="120" height="30" style="padding-left: 3px;" class="font-dark"><b>Education</b></td>
                                                                     <td colspan="3" height="30" style="padding-left: 3px;" class="font-dark"><?php
-                                                                        if ($receivRequests[$i][0]['user_educational_field'] == '') {
+                                                                        if ($recievRequests[$i][0]['user_educational_field'] == '') {
                                                                             echo 'N/A';
                                                                         } else {
-                                                                            echo $receivRequests[$i][0]['user_educational_field'];
+                                                                            echo $recievRequests[$i][0]['user_educational_field'];
                                                                         }
                                                                         ?></td>
                                                                 </tr>
@@ -663,7 +663,7 @@
                             <div class="row x_title">
                                 <div class="w3-pa col-md-12 col-sm-12 col-xs-12 col-lg-12">
                                     <input type="hidden" id="member_type" value="">
-<!--                                    <div ng-show="finderloader" class="w3-center"><center><i class="w3-center fa fa-refresh fa-5x fa-spin"></i><p>Please Wait...</p></center></div>-->
+                                    <!--                                    <div ng-show="finderloader" class="w3-center"><center><i class="w3-center fa fa-refresh fa-5x fa-spin"></i><p>Please Wait...</p></center></div>-->
 
                                     <!-----------------------------this Div is for all users profiles---------------------------------->
                                     <div class="block-wrapper" id="result">
@@ -786,10 +786,8 @@
                                                                         } else {
                                                                             echo $recApproveRequests[$i][0]['user_educational_field'];
                                                                         }
-                                                                        ?>
-                                                                    </td>
-                                                                </tr>
-                                                            </tbody>
+                                                                        ?></td>
+                                                                </tr>                                                  </tbody>
                                                         </table>
                                                         <?php
                                                         $alreadySent = 0;
@@ -878,7 +876,7 @@
                             <div class="row x_title">
                                 <div class="w3-pa col-md-12 col-sm-12 col-xs-12 col-lg-12">
                                     <input type="hidden" id="member_type" value="">
-        <!--                                    <div ng-show="finderloader" class="w3-center"><center><i class="w3-center fa fa-refresh fa-5x fa-spin"></i><p>Please Wait...</p></center></div>-->
+                                    <!--                                    <div ng-show="finderloader" class="w3-center"><center><i class="w3-center fa fa-refresh fa-5x fa-spin"></i><p>Please Wait...</p></center></div>-->
 
                                     <!-----------------------------this Div is for all users profiles---------------------------------->
                                     <div class="block-wrapper" id="result">
@@ -995,10 +993,8 @@
                                                                         } else {
                                                                             echo $myFollowers[$i][0]['user_educational_field'];
                                                                         }
-                                                                        ?>
-                                                                    </td>
-                                                                </tr>
-                                                            </tbody>
+                                                                        ?></td>
+                                                                </tr>                                                           </tbody>
                                                         </table>
                                                         <?php
                                                         $alreadySent = 0;
@@ -1132,8 +1128,8 @@
     $("#AllSentReq").css("background-color", "#5E32E1");
     }
     }
-    // Angular script to add required skills in ad product form
-    // Angular script to add required skills in ad product form
+// Angular script to add required skills in ad product form
+// Angular script to add required skills in ad product form
 </script>
 <script>
     var app = angular.module("AllRequestsFollowersApp", ['ngSanitize', 'angularUtils.directives.dirPagination']);
@@ -1363,6 +1359,13 @@
     setTimeout(function () {
     $('.alert_message').fadeOut('fast');
     }, 3000);
+    break;
+    case '400':
+            $('#ajax_danger_alert').show();
+    $('.ajax_danger_alert').html('Already Followed !');
+    setTimeout(function () {
+    $('.alert_message').fadeOut('fast');
+    }, 5000);
     break;
     case '500':
             $('#ajax_danger_alert').show();

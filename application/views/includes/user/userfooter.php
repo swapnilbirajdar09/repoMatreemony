@@ -28,7 +28,8 @@
             </ul>
           </div>
         </div>
-        <div class="col-md-3 col-lg-3 d-lg-block d-md-block">
+
+        <div class="col-md-3 col-lg-3 d-sm-block d-xs-block d-lg-block d-md-block">
           <div class="col">
             <h4 class="heading heading-xs strong-600 text-uppercase mb-1">
             Active Search</h4>
