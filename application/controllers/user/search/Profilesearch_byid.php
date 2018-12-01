@@ -200,13 +200,10 @@ class Profilesearch_byid extends CI_Controller {
         $keyarr = explode('|', $key);
         $sessionUser_id = $keyarr[2];
         $result = $this->Searchbyprofileid_model->followUserProfile($profile_user_id, $sessionUser_id, $gender);
+        echo $result;
 //        print_r($result);
 //        die();
-        if ($result == 200) {
-            echo 200;
-        } else {
-            echo 500;
-        }
+        
     }
 
 //--------------fun for unfollow the user or remove from favourites

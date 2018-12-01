@@ -786,6 +786,14 @@ $session_user_id = $keyarr[2];
                         $('.ajax_success_alert').html('You Have Successfully Followed This User.');
                         setTimeout(function () {
                             $('.alert_message').fadeOut('fast');
+                        }, 1500);
+                        break;
+
+                    case '400':
+                        $('#ajax_danger_alert').show();
+                        $('.ajax_danger_alert').html('Already Followed !');
+                        setTimeout(function () {
+                            $('.alert_message').fadeOut('fast');
                         }, 5000);
                         break;
 

@@ -666,6 +666,11 @@ class Searchbyprofileid_model extends CI_Model {
             $userFavourites = json_decode($row['user_favourite'], TRUE);
         }
 
+        if(in_array($profile_user_id, $userFavourites)){
+            return 400;
+            die();
+        }
+
         if ($userFavourites == '') {
             $userFavourites[] = $profile_user_id;
         } else {
