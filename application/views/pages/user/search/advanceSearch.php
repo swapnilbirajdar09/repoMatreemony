@@ -1051,7 +1051,6 @@ $session_user_id = $keyarr[2];
     });
     function getStateCity() {
         var state = $("#state").val();
-        alert(state);
         $.ajax({
             type: "GET",
             url: BASE_URL + "user/search/advance_search/getStateCity",

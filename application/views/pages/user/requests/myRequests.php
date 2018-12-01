@@ -166,6 +166,16 @@
                                                                     ?>
                                                                     <td colspan="3" height="30" style="padding-left: 3px;" class="font-dark"><?php echo $country . ', ' . $state . ', ' . $city; ?></td>
                                                                 </tr>
+                                                                <tr>
+                                                                    <td width="120" height="30" style="padding-left: 3px;" class="font-dark"><b>Education</b></td>
+                                                                    <td colspan="3" height="30" style="padding-left: 3px;" class="font-dark"><?php
+                                                                        if ($sentRequests[$i][0]['user_educational_field'] == '') {
+                                                                            echo 'N/A';
+                                                                        } else {
+                                                                            echo $sentRequests[$i][0]['user_educational_field'];
+                                                                        }
+                                                                        ?></td>
+                                                                </tr>
                                                             </tbody>
                                                         </table>
                                                         <?php
@@ -361,6 +371,16 @@
                                                                     ?>
                                                                     <td colspan="3" height="30" style="padding-left: 3px;" class="font-dark"><?php echo $country . ', ' . $state . ', ' . $city; ?></td>
                                                                 </tr>
+                                                                <tr>
+                                                                    <td width="120" height="30" style="padding-left: 3px;" class="font-dark"><b>Education</b></td>
+                                                                    <td colspan="3" height="30" style="padding-left: 3px;" class="font-dark"><?php
+                                                                        if ($sentApproveRequests[$i][0]['user_educational_field'] == '') {
+                                                                            echo 'N/A';
+                                                                        } else {
+                                                                            echo $sentApproveRequests[$i][0]['user_educational_field'];
+                                                                        }
+                                                                        ?></td>
+                                                                </tr>
                                                             </tbody>
                                                         </table>
                                                         <?php
@@ -543,6 +563,16 @@
                                                                     }
                                                                     ?>
                                                                     <td colspan="3" height="30" style="padding-left: 3px;" class="font-dark"><?php echo $country . ', ' . $state . ', ' . $city; ?></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td width="120" height="30" style="padding-left: 3px;" class="font-dark"><b>Education</b></td>
+                                                                    <td colspan="3" height="30" style="padding-left: 3px;" class="font-dark"><?php
+                                                                        if ($receivRequests[$i][0]['user_educational_field'] == '') {
+                                                                            echo 'N/A';
+                                                                        } else {
+                                                                            echo $receivRequests[$i][0]['user_educational_field'];
+                                                                        }
+                                                                        ?></td>
                                                                 </tr>
                                                             </tbody>
                                                         </table>
@@ -748,6 +778,17 @@
                                                                     ?>
                                                                     <td colspan="3" height="30" style="padding-left: 3px;" class="font-dark"><?php echo $country . ', ' . $state . ', ' . $city; ?></td>
                                                                 </tr>
+                                                                <tr>
+                                                                    <td width="120" height="30" style="padding-left: 3px;" class="font-dark"><b>Education</b></td>
+                                                                    <td colspan="3" height="30" style="padding-left: 3px;" class="font-dark"><?php
+                                                                        if ($recApproveRequests[$i][0]['user_educational_field'] == '') {
+                                                                            echo 'N/A';
+                                                                        } else {
+                                                                            echo $recApproveRequests[$i][0]['user_educational_field'];
+                                                                        }
+                                                                        ?>
+                                                                    </td>
+                                                                </tr>
                                                             </tbody>
                                                         </table>
                                                         <?php
@@ -945,6 +986,17 @@
                                                                     }
                                                                     ?>
                                                                     <td colspan="3" height="30" style="padding-left: 3px;" class="font-dark"><?php echo $country . ', ' . $state . ', ' . $city; ?></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td width="120" height="30" style="padding-left: 3px;" class="font-dark"><b>Education</b></td>
+                                                                    <td colspan="3" height="30" style="padding-left: 3px;" class="font-dark"><?php
+                                                                        if ($myFollowers[$i][0]['user_educational_field'] == '') {
+                                                                            echo 'N/A';
+                                                                        } else {
+                                                                            echo $myFollowers[$i][0]['user_educational_field'];
+                                                                        }
+                                                                        ?>
+                                                                    </td>
                                                                 </tr>
                                                             </tbody>
                                                         </table>
