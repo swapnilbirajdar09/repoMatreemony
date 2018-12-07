@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="<?php echo base_url(); ?>assets/client/template/front/vendor/pace/js/pace.min.js"></script>
+
     <link rel="stylesheet" href="<?php echo base_url(); ?>assets/client/template/front/vendor/pace/css/pace-minimal.css" type="text/css">
     <!-- Bootstrap -->
     <link rel="stylesheet" href="<?php echo base_url(); ?>assets/client/template/front/vendor/bootstrap/css/bootstrap.min.css" type="text/css">
@@ -42,7 +43,7 @@
     <script src="<?php echo base_url(); ?>assets/client/template/front/vendor/jquery/jquery.min.js"></script>    <!-- Favicon -->
     <script src="<?php echo base_url(); ?>assets/alert/jquery-confirm.js"></script>
 
-    <link href="<?php echo base_url(); ?>assets/client/uploads/favicon/favicon_1515409281.png" rel="icon" type="image/png">
+    <link href="<?php echo base_url(); ?>assets/images/logo/favicon.png" rel="icon" type="image/png">
 
 </head>
 <body>
@@ -202,7 +203,10 @@
                                 <nav class="navbar navbar-expand-lg navbar-fixed-top navbar--link-arrow navbar--uppercase" style="background: linear-gradient(45deg, rgba(72, 44, 191, 1) 0%, rgba(106, 198, 240, 1) 100%);padding:14px 0 14px 0;vertical-align: middle;">
                                     <div class="container navbar-container">
                                         <!-- Brand/Logo -->
-                                        <a class="navbar-brand" href="<?php echo base_url(); ?>user/dashboard" style="padding-bottom: 0"><h3 class="w3-text-white"><b><i>Buddhist Parinay</i></b></h3></a>
+                                        <a class="navbar-brand" href="<?php echo base_url(); ?>user/dashboard" style="padding-bottom: 0">
+                                            <img src="<?php echo base_url(); ?>assets/images/logo/logo.png" style="width: 180px;height: 100px;">
+                                            <!-- <h3 class="w3-text-white"><b><i>Buddhist Parinay</i></b></h3> -->
+                                        </a>
                                         <div class="d-inline-block">
                                             <!-- Navbar toggler  -->
                                             <button class="navbar-toggler hamburger hamburger-js hamburger--spring " type="button" data-toggle="collapse" data-target="#navbar_main" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
