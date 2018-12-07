@@ -310,7 +310,7 @@
         <div class="row">
             <div class="col-md-6 col-xs-12">
                 <div class="w3-col m6 w3-center w3-padding-large">
-                    <img src="<?php echo base_url(); ?>assets/demo/images/piller_vidya.jpg" class="w3-round w3-image w3-opacity w3-hover-opacity-off" alt="Photo of Pillar" style="height: 230px;width: auto;" height="230px">
+                    <img src="<?php echo base_url(); ?>assets/demo/images/piller_vidya.jpg" class="w3-round w3-image w3-opacity w3-hover-opacity-off" alt="Photo of Pillar" style="height: 250px;width: auto;" height="250px">
                     <!-- <div class="col-md-12  w3-padding-top">
                      <ul class="social-network social-circle">
                  
@@ -324,7 +324,7 @@
 
 
                 <div class="w3-col m6  w3-padding-large">
-                    <h4 class=""><b>Mrs. Vidya Sunil Taware</b><br></h4>
+                    <h4 class=""><b>Adv. Vidya Sunil Taware</b><br></h4>
                     <h5><p>B.COM.LLB GDC. AMC,</p>
                         <p>Pune.</p>
                     </h5>
@@ -354,7 +354,28 @@
                     </h5>
                 </div>
             </div>
-
+             <div class="col-md-6 col-xs-12">
+                <div class="w3-col m6 w3-center w3-padding-large">
+                    <img src="<?php echo base_url(); ?>assets/demo/images/pillar3.jpg" class="w3-round w3-image w3-opacity w3-hover-opacity-off" alt="Photo of Adv. Vaibhav Vilas Chadanshire" style="height: 250px;width: auto;" height="250px">
+                    <!-- <div class="col-md-12  w3-padding-top">
+                     <ul class="social-network social-circle">
+                 
+                      <li><a href="#" class="icoFacebook" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+                      <li><a href="#" class="icoTwitter" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+                 
+                      <li><a href="#" class="icoLinkedin" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
+                    </ul>
+                  </div> -->
+                </div>
+                <div class="w3-col m6  w3-padding-large">
+                    <h4 class=""><b>Adv. Vaibhav Vilas Chadanshire</b><br></h4>
+                    <h5>
+                        <p>Cyber Crime Specialist</p>
+                        <p>BSC PHY. MCA. LLB. D.CY.L</p>
+                        
+                    </h5>
+                </div>
+            </div>
         </div>
     </div>
 
