@@ -6,8 +6,7 @@
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<!-- Title -->
-	<!-- Place favicon.ico in the root directory -->
-	<link rel="shortcut icon" type="image/ico" href="images/favicon.ico" />
+	<link rel="shortcut icon" type="image/png" href="<?php echo base_url(); ?>assets/images/logo/favicon.png" />
 	<!-- Plugin-CSS -->
 	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/demo/css/bootstrap.min.css">
 	<link href="<?php echo base_url(); ?>assets/build/css/w3.css" rel="stylesheet">
@@ -49,7 +48,7 @@
 	<span><i class="lnr lnr-sun"></i></span>
 </div>
 <!-- MainMenu-Area -->
-<nav class="mainmenu-area" data-spy="affix" data-offset-top="200" style="padding-bottom: 0;vertical-align: middle;">
+<nav class="mainmenu-area" data-spy="affix" data-offset-top="200" style="padding-bottom: 0;padding-top: 0">
 	<div class="container-fluid">
 		<div class="navbar-header">
 			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#primary_menu">
@@ -57,12 +56,14 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="<?php echo base_url(); ?>"><h3 class="w3-text-white"><b><i>Buddhist Parinay</i></b></h3></a>
+			<a class="navbar-brand" href="<?php echo base_url(); ?>">
+				<img src="<?php echo base_url(); ?>assets/images/logo/logo.png" style="width: 200px;height: 120px;padding-bottom: 10px;padding-top: 2px;">
+			</a>
 		</div>
 		<div class="collapse navbar-collapse" id="primary_menu">
-			<ul class="nav navbar-nav mainmenu">
-				<li class="active">
-					<li><a href="#home_page">Home</a></li>
+			<ul class="nav navbar-nav mainmenu" style="margin-top: 30px">
+				<li class="active" style="">
+					<li style=""><a href="#home_page">Home</a></li>
 					<li><a href="#about_page">About Parinaay</a></li>
 					<li><a href="#pillars_page">Our Pillars</a></li>
 					<li><a href="#testimonial_page">Testimonials</a></li>

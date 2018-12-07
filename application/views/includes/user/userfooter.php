@@ -4,8 +4,10 @@
       <div class="row cols-xs-space cols-sm-space cols-md-space">
         <div class="col-md-3 col-lg-3">
           <div class="col">
-            <a class="navbar-brand" href="<?php echo base_url(); ?>"><h3 class="w3-text-white"><b><i>Buddhist Parinay</i></b></h3></a>
-            <div class="text-center"><small>Demo text from Admin</small></div>
+            <a class="navbar-brand" href="<?php echo base_url(); ?>user/dashboard" style="padding-bottom: 0">
+                                            <img src="<?php echo base_url(); ?>assets/images/logo/logo.png" style="width: 180px;height: 100px;">
+                                            <!-- <h3 class="w3-text-white"><b><i>Buddhist Parinay</i></b></h3> -->
+                                        </a>
           </div>
         </div>
         <div class="col-md-3 col-lg-3 d-lg-block d-md-block">

@@ -104,12 +104,12 @@
 </style>
 
 <!-- Home-Area -->
-<header class="home-area overlay" id="home_page" style="background: url(<?php echo base_url(); ?>assets/client/uploads/home_page/slider_image/couple-min.jpg) no-repeat scroll center bottom / cover;">
+<header class="home-area " id="home_page" style="background: url(<?php echo base_url(); ?>assets/client/uploads/home_page/slider_image/couple-min.jpg) no-repeat scroll center bottom / cover;">
     <div class="container" >
         <div class="row">
             <div class="col-xs-12 hidden-sm col-md-8 hidden-xs">
                 <div class="space-80 hidden-xs"></div>
-                <h1 class="wow fadeInUp handwritten" data-wow-delay="0.4s"  style="margin-top: 20px">Search your Dream Partner here.</h1>
+                <h1 class="wow fadeInUp handwritten" data-wow-delay="0.4s"  style="margin-top: 40px">Search your Dream Partner here.</h1>
                 <div class="space-20"></div>
                 <div class="desc wow fadeInUp handwritten" data-wow-delay="0.6s">
                     <h4 class="handwritten">We help them meet, Love brings them Together.</h4>
@@ -117,7 +117,7 @@
                 <div class="space-20"></div>
                 <a href="#contact_page" class="bttn-white wow fadeInUp" data-wow-delay="0.8s"><i class="lnr lnr-phone-handset"></i>Contact Us For any Inquiry</a>
             </div>
-            <div class="col-xs-12 col-md-4" ng-app="loginApp" ng-controller="loginController">
+            <div class="col-xs-12 col-md-4" ng-app="loginApp" ng-controller="loginController" style="margin-top: 40px">
                 <div class="w3-col l12 w3-black w3-padding" style ="opacity: 0.7;filter: alpha(opacity=50);">
                     <div class="w3-col l12 w3-center" style="z-index: -1">
                         <div class="space-30"></div>
