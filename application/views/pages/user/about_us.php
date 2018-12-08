@@ -28,8 +28,8 @@
     <div class="col-lg-8">
         <div class="w3-col m4 w3-padding-large">
             <div class="w3-col l12 w3-margin-top">
-     <!--    <img src="<?php echo base_url(); ?>assets/demo/images/profile_1.jpg" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="600" height="750">-->
-                <h4 class=""><b>Mrs. Anjali Nitin Gaikwad</b><br></h4>
+         <img src="<?php echo base_url(); ?>assets/demo/images/profile_image1.jpg" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="600" height="750">
+                <h4 class="w3-padding-top"><b>Mrs. Anjali Nitin Gaikwad</b><br></h4>
                 <h5><p>(Founder / President OF Gaikwad Charitable Trust .<br>
                         Women President Of <b>BAHUJAN SAMAJ PARTY</b> Constituency <b>KHADAKWASLA LEGISLATIVE ASSEMBLY .</b><br>
                         President: PARINAY VADHU VAR SUCHAK MANDAL.)</p></h5>
