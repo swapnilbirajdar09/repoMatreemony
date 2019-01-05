@@ -849,6 +849,107 @@ else{
 echo json_encode($response);
 }
 
+// upload profile image
+public function upload_profileimage(){
+
+    // user user-id from session
+    $encodedkey = $this->session->userdata('PariKey_session');
+    $user_id='';
+    $key=base64_decode($encodedkey);
+    $keyarr=explode('|', $key);
+    //session key format is $keyarr[0]=PARInaayKEY|$keyarr[1]=email_id|$keyarr[2]=user_id
+    // print_r($_FILES);die();
+    extract($_FILES);
+    extract($_POST);
+    
+    $data = $_POST;
+    $filepath = '';
+
+    // check image count
+    $imgCount = $this->user_model->checkImageCount($keyarr[2]);
+    if (!$imgCount) {  //for prod images
+        $response=array(
+            'status'    =>  'validation',
+            'message'   =>  '<b>Warning:</b> You are allowed to upload only <b>3 Images</b> in Gallery!',
+            'field'   =>  'selected_profileImage'
+        );
+        echo json_encode($response);
+        die();
+    }
+
+    $file_name = $_FILES['selected_profileImage']['name'];
+    if (!empty(($_FILES['selected_profileImage']['name']))) {
+        //file validating---------------------------//
+        if ($_FILES['selected_profileImage']['size'] > 10485760) {  //for prod images
+            $response=array(
+                'status'    =>  'validation',
+                'message'   =>  '<b>Warning:</b> Image size exceeds size limit of 10MB. Upload image file having size less than 10MB!',
+                'field'   =>  'selected_profileImage'
+            );
+            echo json_encode($response);
+            die();
+        }
+
+        $extension = pathinfo($_FILES['selected_profileImage']['name'], PATHINFO_EXTENSION);
+        $_FILES['userFile']['name'] = 'ProfImage_0'.$keyarr[2].'_'.time().'.'.$extension;
+        $_FILES['userFile']['type'] = $_FILES['selected_profileImage']['type'];
+        $_FILES['userFile']['tmp_name'] = $_FILES['selected_profileImage']['tmp_name'];
+        $_FILES['userFile']['error'] = $_FILES['selected_profileImage']['error'];
+        $_FILES['userFile']['size'] = $_FILES['selected_profileImage']['size'];
+
+        $uploadPath = 'assets/users/gallery/';  //upload images in images/desktop/ folder
+
+        $config['upload_path'] = $uploadPath;
+        $config['overwrite'] = FALSE;
+        $config['allowed_types'] = 'gif|jpg|png'; //allowed types of files
+        $this->load->library('upload', $config);  //load upload file config.
+        $this->upload->initialize($config);
+        // print_r($config);die();
+        $image_path = '';
+
+        if ($this->upload->do_upload('userFile')) {
+            $fileData = $this->upload->data();
+            $filepath = 'assets/users/gallery/'.$fileData['file_name'];
+        }
+        else{
+           $response=array(
+            'status'    =>  'validation',
+            'message'   =>  $this->upload->display_errors('<p><b>Image upload Error: </b>', '</p>'),
+            'field'   =>  'selected_profileImage'
+        );
+           echo json_encode($response);
+           die();
+       }
+         // print_r($filepath);die();
+   }
+
+   $data['filepath'] = $filepath;
+   if($filepath==''){
+    $response=array(
+        'status'    =>  'validation',
+        'message'   =>  '<b>Warning:</b> Image file not uploaded Successfully!',
+        'field'   =>  'document_file'
+    );
+    echo json_encode($response);
+    die();
+}
+$result = $this->user_model->upload_profileimage($data,$keyarr[2]);
+
+if($result){
+    $response=array(
+        'status'    =>  'success',
+        'message'   =>  '<b>Success:</b> You Have Successfully uploaded Profile Image!'
+    );
+}
+else{
+    $response=array(
+        'status'    =>  'error',
+        'message'   =>  '<b>Error:</b> Profile Image was not uploaded Successfully!'
+    );
+} 
+echo json_encode($response);
+}
+
 // fucntion to remove uploaded document
 public function delDocument(){
     if(!empty($_POST['doc_id'])){
@@ -1174,7 +1275,7 @@ public function verify_mobile() {
     $keyarr = explode('|', $key);
 
     extract($_POST);
-    
+    // print_r($_POST);die();
     $otpResult=$this->user_model->generate_mobile_otp_code($keyarr[2]);
     if(!$otpResult){
         $response=array(
@@ -1203,7 +1304,29 @@ public function verify_mobile() {
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         $result = curl_exec($ch); // This is the result from the API
         curl_close($ch);
-        echo $result;
+        print_r($result);
+
+        // Account details
+    // $apiKey = urlencode('KbDn0G+hybg-tCbm4IE7UCJzunD7nNsn71uwXv8Xby');
+    
+    // // Message details
+    // $numbers = $entity;
+    // $sender = urlencode('BUDPAR');
+    // $message = rawurlencode('hi, '.$otp_code.' is the OTP to complete your Buddhist Parinay mobile number verification.');
+ 
+    // // Prepare data for POST request
+    // $data = array('apikey' => $apiKey, 'numbers' => $numbers, "sender" => $sender, "message" => $message);
+ 
+    // // Send the POST request with cURL
+    // $ch = curl_init('https://api.textlocal.in/send/');
+    // curl_setopt($ch, CURLOPT_POST, true);
+    // curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+    // curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    // $output = curl_exec($ch);
+    // curl_close($ch);
+    
+    // // Process your response here
+    // echo json_encode($output);
     }
     
 }

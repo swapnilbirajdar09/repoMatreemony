@@ -231,8 +231,8 @@ function verify(entity,value)
             $('#btn_verify_'+entity).prop('disabled', true);
         },
         success: function (response) {
-        	var data=JSON.parse(response);
-
+        	// var data=JSON.parse(response);
+            console.log(response);return false;
         	// Re_Enabling the Elements
         	$('#btn_verify_'+entity).prop('disabled', false);
 
@@ -441,6 +441,7 @@ $(function () {
             // For Safety Disabling Section Elements for Slow Internet Connections
             $('#gallery_upload_form').find('.form-control').prop('readonly', true);
             $('#gallery_upload_form').find('.btn').prop('disabled', true);
+            $('#btn_gallery_upload').html('<i class="fa fa-circle-o-notch fa-spin"></i> Upload to Gallery');
         },
         success: function (response) {
         	// console.log(response);return false;
@@ -481,12 +482,14 @@ $(function () {
                         }, 8000); // <-- time in milliseconds
         		break;
         	}
-        	
+            $('#btn_gallery_upload').html('Upload to Gallery');
+
         },
         error: function (response) {
             // Re_Enabling the Elements
             $('#gallery_upload_form').find('.form-control').prop('readonly', false);
             $('#gallery_upload_form').find('.btn').prop('disabled', false);
+            $('#btn_gallery_upload').html('Upload to Gallery');
             $('#ajax_danger_alert').show();
             $('.ajax_danger_alert').html(' Something went wrong! Try refreshing page and Upload again.');
             setTimeout(function() {
@@ -498,6 +501,91 @@ $(function () {
 
 });
 });
+
+// upload profile image
+$("#selected_profileImage").change(function () {
+    readProfileImage(this);
+});
+function readProfileImage(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+            $("#show_img").css({
+                "background-image" : "url("+ e.target.result +")"
+            });
+        }
+        reader.readAsDataURL(input.files[0]);
+        $("#save_button_section").show();
+    }
+}
+$("#save_image").click(function(e) {
+    e.preventDefault();
+    $.ajax({
+            type: "POST",
+            url: BASE_URL+"user/user_profile/upload_profileimage",
+            data: new FormData($('#profile_image_form')[0]),
+            contentType: false,
+            cache: false,
+            processData: false,
+            beforeSend: function () {
+            // For Safety Disabling Section Elements for Slow Internet Connections
+            $('#profile_image_form').find('.form-control').prop('readonly', true);
+            $('#profile_image_form').find('.btn').prop('disabled', true);
+            $('#save_image').html('<i class="fa fa-circle-o-notch fa-spin"></i> Uploading');
+        },
+        success: function (response) {
+            // console.log(response);return false;
+            var data=JSON.parse(response);
+
+            // Re_Enabling the Elements
+            $('#profile_image_form').find('.form-control').prop('readonly', false);
+            $('#profile_image_form').find('.btn').prop('disabled', false);
+            $('#save_image').html('Upload Image');
+
+            // response message
+            switch(data.status){
+                case 'success':
+                $('#ajax_success_alert').show();
+                $('.ajax_success_alert').html(data.message);
+                setTimeout(function() {
+                    window.location.reload();
+                        }, 1500); // <-- time in milliseconds 
+                break;
+
+                case 'error':
+                $('#ajax_danger_alert').show();
+                $('.ajax_danger_alert').html(data.message);
+                setTimeout(function() {
+                    $('.alert_message').fadeOut('fast');
+                        }, 10000); // <-- time in milliseconds
+                break;
+
+                case 'validation':
+                $('#ajax_validation_alert').show();
+                $('.ajax_validation_alert').html(data.message);
+                $("input[name='"+data.field+"']").focus();
+                $("select[name='"+data.field+"']").focus();
+                setTimeout(function() {
+                    $('.alert_message').fadeOut('fast');
+                        }, 8000); // <-- time in milliseconds
+                break;
+            }
+            
+        },
+        error: function (response) {
+            // Re_Enabling the Elements
+            $('#profile_image_form').find('.form-control').prop('readonly', false);
+            $('#profile_image_form').find('.btn').prop('disabled', false);
+            $('#save_image').html('Upload Image');
+            $('#ajax_danger_alert').show();
+            $('.ajax_danger_alert').html(' Something went wrong! Try refreshing page and upload again.');
+            setTimeout(function() {
+                $('.alert_message').fadeOut('fast');
+                        }, 4000); // <-- time in milliseconds  
+        }
+    });
+    return false;  //stop the actual form post !important!
+})
 
 // script to delete image
 function delImage(img_path)

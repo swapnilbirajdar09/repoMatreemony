@@ -23,8 +23,8 @@
 </style>
 <script type="text/javascript">
     $('#uploadPhotoModal').on('hidden.bs.modal', function () {
-     location.reload();
- })
+       location.reload();
+   })
 </script>
 <!-- <?php print_r($userDetails); ?> -->
 <section class="slice sct-color-2">
@@ -78,7 +78,7 @@
                 if($show_alert==0){
                     ?>
                     <div class="col-md-12">
-                     <div class="col-md-12 alert alert-warning alert-dismissible" role="alert">
+                       <div class="col-md-12 alert alert-warning alert-dismissible" role="alert">
                         <a href="#" class="close w3-medium" data-dismiss="alert" aria-label="close"> <i class="fa fa-times-circle"></i> </a>
                         <p style="margin-bottom:0"><i class="fa fa-warning"></i> Please complete your Profile & then you can find your correct match ! </p>
                     </div>
@@ -98,7 +98,7 @@
             if($userDetails[0]['user_doc_verified']==0){
                 ?>
                 <div class="col-md-12">
-                 <div class="col-md-12 alert alert-warning alert-dismissible" role="alert">
+                   <div class="col-md-12 alert alert-warning alert-dismissible" role="alert">
                     <a href="#" class="close w3-medium" data-dismiss="alert" aria-label="close"> <i class="fa fa-times-circle"></i> </a>
                     <p style="margin-bottom:0"><i class="fa fa-warning"></i> To Activate your account, you have to get verified for at least 2 documents successfully. <b>'Adhaar Card'</b> document is mandatory to get verified. </p>
                     <p style="margin-bottom:0"> <b>Uploaded Documents:</b> <?php echo $uploaded_doc; ?> </p>
@@ -121,6 +121,15 @@
                                 <div class="profile_img" id="show_img" style="background-image: url(<?php echo base_url(); ?>assets/images/user.png)"></div>
                             <?php } ?>
                         </div>
+                        <div class="profile-connect mt-1 mb-0" id="save_button_section" style="display: none">
+                            <button type="button" class="btn btn-styled btn-xs btn-base-2" id="save_image">Upload Image</button>
+                        </div>
+                        <label class="btn-aux" for="selected_profileImage" style="cursor: pointer;">
+                            <i class="ion ion-edit" style="font-size: 16px"></i>
+                        </label>
+                        <form id="profile_image_form" enctype="multipart/form-data">
+                            <input type="file" style="display: none;" id="selected_profileImage" name="selected_profileImage">
+                        </form>
                     </div>
                     <!-- Profile details -->
                     <div class="profile-details">
@@ -196,7 +205,7 @@
                                 </button>
                             </div>
                             <div id="section_mobile" class="modal-body" style="padding: 2rem 0 2rem 0">
-                                
+
                                 <?php 
                                 if($userDetails[0]['user_mobile_verify_code']!=''){
                                     ?>
@@ -287,6 +296,7 @@
                                                         <a target="_blank" href="<?php echo base_url(); ?><?php echo $key; ?>" class="c-white mr-2 l-gallery" data-toggle="light-gallery">
                                                             <i class="fa fa-search"></i>
                                                         </a>
+                                                        
                                                         <?php 
                                                         if($userDetails[0]['user_profile_image']!=$key){
                                                             ?>
@@ -356,7 +366,7 @@
                 </div>
                 <hr>
                 <div class="useful-links" id="changePasswordDiv">
-                   <a class="btn btn-styled btn-sm btn-white z-depth-2-bottom mb-3 change_pass l_nav" data-toggle="modal" data-target="#changePasswordModal">
+                 <a class="btn btn-styled btn-sm btn-white z-depth-2-bottom mb-3 change_pass l_nav" data-toggle="modal" data-target="#changePasswordModal">
                     <b style="font-size: 12px">Change Password</b>
                 </a>
                 <a class="btn btn-styled btn-sm btn-white z-depth-2-bottom mb-3 change_pass l_nav" href="<?php echo base_url(); ?>user/login/logoutUser">
@@ -568,9 +578,9 @@
                                                     <span>Blood Group</span>
                                                 </td>
                                                 <td>
-                                                   <?php echo $userDetails[0]['user_blood_grp']; ?>                          
-                                               </td>
-                                               <td class="td-label">
+                                                 <?php echo $userDetails[0]['user_blood_grp']; ?>                          
+                                             </td>
+                                             <td class="td-label">
                                                 <span>Mother Tongue</span>
                                             </td>
                                             <td><?php echo $userDetails[0]['user_mother_tongue']; ?>
@@ -829,17 +839,17 @@
                                             <span>Working Field</span>
                                         </td>
                                         <td>
-                                           <?php echo $userDetails[0]['user_working_field']; ?>
-                                       </td>
-                                   </tr>
-                                   <tr>
+                                         <?php echo $userDetails[0]['user_working_field']; ?>
+                                     </td>
+                                 </tr>
+                                 <tr>
                                     <td class="td-label">
                                         <span>Company Name</span>
                                     </td>
                                     <td>
-                                     <?php echo $userDetails[0]['user_company_name']; ?>
-                                 </td>
-                                 <td class="td-label">
+                                       <?php echo $userDetails[0]['user_company_name']; ?>
+                                   </td>
+                                   <td class="td-label">
                                     <span>Designation</span>
                                 </td>
                                 <td>
@@ -857,19 +867,19 @@
                                 <span>Monthly Income</span>
                             </td>
                             <td>
-                             <?php echo $userDetails[0]['user_monthly_income']; ?>
-                         </td>
-                         <td class="td-label">
+                               <?php echo $userDetails[0]['user_monthly_income']; ?>
+                           </td>
+                           <td class="td-label">
                             <span>Annual Income</span>
                         </td>
                         <td>
-                           <?php echo $userDetails[0]['user_annual_income']; ?>                   
-                       </td>
-                   </tr>
-               </tbody>
-           </table>
-       </div>
-   </div>
+                         <?php echo $userDetails[0]['user_annual_income']; ?>                   
+                     </td>
+                 </tr>
+             </tbody>
+         </table>
+     </div>
+ </div>
 </div>
 <!-- view eductaion and professional div ends -->
 <!-- edit education and professional div -->
@@ -1094,15 +1104,15 @@
                     </tr>
                     <tr>
                         <td class="td-label">
-                         Contact number 1
-                     </td>
-                     <td>
+                           Contact number 1
+                       </td>
+                       <td>
                         <?php if($userDetails[0]['user_contact_no1']!='' && $userDetails[0]['user_contact_no1']!='0'){echo $userDetails[0]['user_contact_no1']; }?> 
                     </td>
                     <td class="td-label">
-                     Contact number 2
-                 </td>
-                 <td>
+                       Contact number 2
+                   </td>
+                   <td>
                     <?php if($userDetails[0]['user_contact_no2']!='' && $userDetails[0]['user_contact_no2']!='0'){echo $userDetails[0]['user_contact_no2']; }?> 
                 </td>
             </tr>
@@ -1395,14 +1405,14 @@
                                         <span>Relation with Me</span>
                                     </td>
                                     <td>
-                                     <?php echo $relativeArr[$i]['relative_relation']; ?>
-                                 </td>
-                             </tr>
-                             <tr>
+                                       <?php echo $relativeArr[$i]['relative_relation']; ?>
+                                   </td>
+                               </tr>
+                               <tr>
                                 <td class="td-label">
-                                 Contact number
-                             </td>
-                             <td>
+                                   Contact number
+                               </td>
+                               <td>
                                 <?php echo $relativeArr[$i]['relative_contact']; ?>
                             </td>
                             <td class="td-label">

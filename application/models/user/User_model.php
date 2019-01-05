@@ -280,6 +280,47 @@ class User_model extends CI_Model {
         }
     }
 
+    // insert/upload image in gallery and set profile image
+    public function upload_profileimage($data,$user_id){
+        extract($data);
+        // print_r($data);die();
+        $user_photos='';
+        $final_gallery='';
+        $sql = "SELECT user_photos FROM user_profile_tab WHERE user_id='$user_id' ";
+        $result = $this->db->query($sql);
+
+        foreach ($result->result_array() as $key) {
+            $user_photos = $key['user_photos'];
+        }
+
+        if($user_photos!=''){
+            $arr=json_decode($user_photos,TRUE);
+            array_push($arr, $filepath);
+            $final_gallery=json_encode($arr);
+        }
+        else{
+            $arr=array();
+            $arr[]=$filepath;
+            $final_gallery=json_encode($arr);
+            
+        }
+
+        // upload image in gallery
+        $result_update = array(
+            'user_photos' => $final_gallery,
+            'user_profile_image' => $filepath
+        );
+
+        $this->db->where('user_id', $user_id);
+        $this->db->update('user_profile_tab', $result_update);
+        if($this->db->affected_rows()==1){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
     // delete the selected user's image from gallery
     public function delImage($img_path,$user_id){
         $user_photos='';
@@ -450,24 +491,24 @@ class User_model extends CI_Model {
                 }
             }
             else{
-               $response=array(
+             $response=array(
                 'status'    =>  'error',
                 'message'   =>  'Failure: Verification code did not match. Email Verification failed !'
             );
-               return $response;
-           }
-       }
-       else{
-           $response=array(
+             return $response;
+         }
+     }
+     else{
+         $response=array(
             'status'    =>  'error',
             'message'   =>  'Failure: Email Verification failed. Try resending verification code !'
         );
-           return $response;
-       }
-   }
+         return $response;
+     }
+ }
 
 // mobile verify code
-   public function verify_otp($code,$user_id){
+ public function verify_otp($code,$user_id){
     $user_mobile_verify_code='';
     $sql = "SELECT user_mobile_verify_code FROM user_tab WHERE user_id='$user_id' ";
     $result = $this->db->query($sql);
@@ -502,21 +543,21 @@ class User_model extends CI_Model {
             }
         }
         else{
-           $response=array(
+         $response=array(
             'status'    =>  'error',
             'message'   =>  'Failure: OTP code incorrect. Mobile Number Verification failed !',
             'field'   =>  'otp_code'
         );
-           return $response;
-       }
-   }
-   else{
-       $response=array(
+         return $response;
+     }
+ }
+ else{
+     $response=array(
         'status'    =>  'error',
         'message'   =>  'Failure: OTP code not found. Try Resending OTP code !'
     );
-       return $response;
-   }
+     return $response;
+ }
 }
 
  // check email id exist or not
@@ -548,7 +589,7 @@ public function checkEmailExist($email_id){
             $img_Arr=json_decode($user_photos,TRUE);
             $imgCount=count($img_Arr);
         }
-        if ($imgCount ==3) {
+        if ($imgCount >3) {
             return false;
         } else {
             return true;
