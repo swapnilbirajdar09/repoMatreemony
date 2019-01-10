@@ -49,6 +49,9 @@
     body{
         font-family: 'Kodchasan', sans-serif;
     }
+    #lg-download{
+        display: none;
+    }
     .modal-backdrop {
         z-index: -1;
     }

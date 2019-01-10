@@ -10,6 +10,9 @@
   height: 150px;
   padding: 30px 10px;
 }
+#lg-download{
+        display: none;
+    }
 /* When you mouse over the gallery image div, fade in the overlay title */
 .allImage:hover .saved-image {
   opacity: 0.7;
